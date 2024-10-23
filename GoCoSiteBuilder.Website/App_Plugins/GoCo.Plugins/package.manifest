@@ -1,0 +1,192 @@
+﻿{
+  "propertyEditors": [
+    {
+      "alias": "GoCo.BackgroundColor",
+      "name": "GoCo - Background Color",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "editor": {
+        "view": "/App_Plugins/GoCo.Plugins/backgroundColor/backgroundColor.html",
+        "supportsReadOnly": true,
+        "hideLabel": false,
+        "valueType": "STRING"
+      }
+    },
+    {
+      "alias": "GoCo.BaselineColorPicker",
+      "name": "GoCo - Baseline Color Picker",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "editor": {
+        "view": "/App_Plugins/GoCo.Plugins/baselineColorPicker/baselineColorPicker.html",
+        "hideLabel": false,
+        "valueType": "STRING"
+      }
+    },
+    {
+      "alias": "GoCo.ButtonColor",
+      "name": "GoCo - Button Color",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "editor": {
+        "view": "/App_Plugins/GoCo.Plugins/buttonColor/buttonColor.html",
+        "supportsReadOnly": true,
+        "hideLabel": false,
+        "valueType": "STRING"
+      }
+    },
+    {
+      "alias": "GoCo.ColorPalette",
+      "name": "GoCo - Color Palette",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "editor": {
+        "view": "/App_Plugins/GoCo.Plugins/colorPalette/colorPalette.html",
+        "hideLabel": false,
+        "valueType": "JSON"
+      }
+    },
+    {
+      "alias": "GoCo.NumericPlus",
+      "name": "GoCo - Numeric (Plus)",
+      "icon": "icon-autofill",
+      "group": "Common",
+      "editor": {
+        "view": "/App_Plugins/GoCo.Plugins/numericPlus/numericPlus.html",
+        "hideLabel": false,
+        "valueType": "STRING"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "key": "default",
+            "label": "Default Value",
+            "description": "Enter a default value of number to be entered",
+            "view": "number"
+          },
+          {
+            "key": "min",
+            "label": "Minimum",
+            "description": "Enter the minimum amount of number to be entered",
+            "view": "number"
+          },
+          {
+            "key": "max",
+            "label": "Maximum",
+            "description": "Enter the maximum amount of number to be entered",
+            "view": "number"
+          },
+          {
+            "key": "step",
+            "label": "Step size",
+            "description": "Enter the intervals amount between each step of number to be entered",
+            "view": "number"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "GoCo.RadioButtonPlus",
+      "name": "GoCo - Radio Button (Plus)",
+      "icon": "icon-bulleted-list",
+      "group": "Common",
+      "editor": {
+        "view": "/App_Plugins/GoCo.Plugins/radioButtonPlus/radioButtonPlus.html",
+        "supportsReadOnly": true,
+        "hideLabel": false
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "key": "isDisableToggle",
+            "label": "Disable Toggle",
+            "description": "If this field is enabled, users will be unable to uncheck or change the selected radio button.",
+            "view": "boolean",
+            "hideLabel": false
+          },
+          {
+            "key": "isDisableButtonText",
+            "label": "Disable Button Text",
+            "description": "If this field is enabled, the radio button display text will be hidden.",
+            "view": "boolean",
+            "hideLabel": false
+          },
+          {
+            "label": "Radio button values",
+            "key": "items",
+            "view": "~/App_Plugins/GoCo.Plugins/radioButtonPlus/radioButtonPlus_Prevalue.html",
+            "hideLabel": true
+          }
+        ]
+      }
+    },
+    {
+      "alias": "GoCo.TogglePlus",
+      "name": "GoCo - Toggle (Plus)",
+      "icon": "icon-checkbox",
+      "group": "Common",
+      "supportsReadOnly": true,
+      "editor": {
+        "view": "/App_Plugins/GoCo.Plugins/togglePlus/togglePlus.html",
+        "hideLabel": false,
+        "valueType": "INT"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "key": "default",
+            "label": "Initial State",
+            "description": "The initial state for the toggle, when it is displayed for the first time in the backoffice, eg. for a new content item.",
+            "view": "boolean"
+          },
+          {
+            "key": "showLabels",
+            "label": "Show toggle labels",
+            "description": "Show labels next to toggle button.",
+            "view": "boolean"
+          },
+          {
+            "key": "labelOn",
+            "label": "Label On",
+            "description": "Label text when enabled.",
+            "view": "textstring"
+          },
+          {
+            "key": "labelOff",
+            "label": "Label Off",
+            "description": "Label text when disabled.",
+            "view": "textstring"
+          },
+          {
+            "key": "hideFields",
+            "label": "Hide Fields",
+            "description": "Enter list of hidden fields when disabled. Ex: FieldAlias1,FieldAlias2",
+            "view": "textstring"
+          }
+        ]
+      }
+    }
+  ],
+  "css": [
+    "/css/lib/lineicons.css",
+
+    "/App_Plugins/GoCo.Plugins/baselineColorPicker/baselineColorPicker.css",
+    "/App_Plugins/GoCo.Plugins/colorPalette/colorPalette.css",
+    "/App_Plugins/GoCo.Plugins/radioButtonPlus/radioButtonPlus.css",
+    "/App_Plugins/GoCo.Plugins/togglePlus/togglePlus.css"
+  ],
+  "javascript": [
+    "/App_Plugins/GoCo.Plugins/blockPreview/blockPreview.controller.js",
+    //service
+    "/App_Plugins/GoCo.Plugins/design/design.service.js",
+    //controller
+    "/App_Plugins/GoCo.Plugins/togglePlus/togglePlus.controller.js",
+    "/App_Plugins/GoCo.Plugins/colorPalette/colorPalette.controller.js",
+    "/App_Plugins/GoCo.Plugins/baselineColorPicker/baselineColorPicker.controller.js",
+    "/App_Plugins/GoCo.Plugins/numericPlus/numericPlus.controller.js",
+    "/App_Plugins/GoCo.Plugins/radioButtonPlus/radioButtonPlus.controller.js",
+    "/App_Plugins/GoCo.Plugins/radioButtonPlus/radioButtonPlus_Prevalue.controller.js",
+    "/App_Plugins/GoCo.Plugins/buttonColor/buttonColor.controller.js",
+    "/App_Plugins/GoCo.Plugins/backgroundColor/backgroundColor.controller.js"
+  ]
+}

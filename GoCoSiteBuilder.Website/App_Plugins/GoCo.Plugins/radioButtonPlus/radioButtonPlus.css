@@ -1,0 +1,64 @@
+﻿.radio-tile-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    --color: #1b264f;
+    --color-active: #2152a3;
+}
+
+    .radio-tile-group .input-container {
+        position: relative;
+        margin-right: 15px;
+    }
+
+        .radio-tile-group .input-container .radio-button {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .radio-tile-group .input-container .radio-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color);
+            border-radius: 5px;
+            padding: 10px;
+            transition: transform 300ms ease;
+        }
+
+        .radio-tile-group .input-container .icon svg {
+        }
+
+        .radio-tile-group .input-container .radio-tile-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0px;
+        }
+
+        .radio-tile-group .input-container .radio-button:checked + .radio-tile > label:after {
+            content: "\2713";
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            border-radius: 100%;
+            border: 2px solid #1b264f;
+            background-color: #fee4e1;
+            z-index: 999;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #1b264f;
+            transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease, transform 0.5s ease-in-out;
+            pointer-events: none;
+        }

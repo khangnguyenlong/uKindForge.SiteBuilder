@@ -1,1 +1,7 @@
 ﻿.vs
+GoCoSiteBuilder.Core/bin
+GoCoSiteBuilder.Core/obj
+GoCoSiteBuilder.Models/bin
+GoCoSiteBuilder.Models/obj
+GoCoSiteBuilder.Website/Smidge/Cache
+sh.exe.stackdump

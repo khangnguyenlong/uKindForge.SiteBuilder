@@ -1,0 +1,3 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<RichTextBlock>>
+
+@await Html.PartialTextAsync(new TextViewModel(Model.Content.RichText))

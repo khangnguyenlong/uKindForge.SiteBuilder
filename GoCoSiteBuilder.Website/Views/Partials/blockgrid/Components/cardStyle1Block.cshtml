@@ -1,0 +1,26 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<CardStyle1Block, CardStyle1BlockSettings>>
+<div class="card-area">
+    <div class="single-card card-style-one">
+        @if(Model.Settings.Reverse)
+        {
+            await RenderContentAsync();
+            @await Html.PartialImageLinkAsync(new ImageViewModel(Model.Content.Image))
+        }
+        else
+        {
+            @await Html.PartialImageLinkAsync(new ImageViewModel(Model.Content.Image))
+            await RenderContentAsync();
+        }
+    </div>
+</div>
+
+@functions {
+    async Task RenderContentAsync()
+    {
+        <div class="card-content @CssClassHelper.GetTextAlign(Model.Settings.ContentAlign) @CssClassHelper.GetBackgroundClass(Model.Settings.BgColor)">
+            @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Heading))
+            @await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
+            @await Html.PartialButtonLinkAsync(new ButtonViewModel { Buttons = Model.Content.Buttons })
+        </div>
+    }
+}

@@ -1,0 +1,37 @@
+/* === Header === */
+    .header nav a {
+        color: var(--header-nav-link-color);
+        text-decoration: none;
+        font-weight: 500 !important;
+    }
+
+    .header nav ul.navbar-nav li.nav-item i {
+        color: var(--header-nav-link-color);
+    }
+
+    .header nav a:hover {
+        color: var(--header-nav-link-hover-color);
+    }
+
+@media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
+    .navbar-area.navbar-three .navbar .navbar-collapse {
+        background-color: var(--header-bg-color) !important;
+    }
+}
+
+.header nav .sub-menu {
+    background-color: var(--header-dropdown-bg-color);
+}
+
+.header .navbar .navbar-toggler .toggler-icon {
+    background-color: var(--header-nav-link-color);
+}
+
+.header nav .sub-menu a {
+    color: var(--header-dropdown-link-color);
+}
+
+.header nav .sub-menu li:hover > a {
+    background: var(--header-dropdown-link-hover-bg-color);
+    color: var(--header-dropdown-link-hover-color);
+}

@@ -1,0 +1,64 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<SlidersStyle2Block, SlidersStyle2BlockSettings>>
+
+@{
+    if (Model.Content == null) return;
+    var carouselId = $"carousel-{Model.Content.Key}";
+}
+
+<div class="@CssClassHelper.GetFullWithClass(Model.Settings?.FullWidth) @CssClassHelper.GetBackgroundClass(Model.Settings.BgColor) slider-area slider-two">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="slider-content @CssClassHelper.GetTextAlign(Model.Settings.ContentAlign)">
+                    @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Heading))
+                    @await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
+                    @await Html.PartialButtonLinkAsync(new ButtonViewModel { Buttons = Model.Content?.Buttons })
+                </div>
+                <!-- slider-content -->
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+    <!-- container -->
+
+    <div id="@carouselId" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            @if (Model.Content.Images != null && Model.Content.Images.Any())
+            {
+                @for (int i = 0; i < Model.Content.Images.Count(); i++)
+                {
+                    var active = i == 0 ? "active" : "";
+                    <li data-bs-target="#@carouselId" data-bs-slide-to="0" class="@active"></li>
+                }
+            }
+            <li data-bs-target="#@carouselId" data-bs-slide-to="1"></li>
+            <li data-bs-target="#@carouselId" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            @if (Model.Content.Images != null && Model.Content.Images.Any())
+            {
+                @for (int i = 0; i < Model.Content.Images.Count(); i++)
+                {
+                    var imageItem = Model.Content.Images.ElementAtOrDefault(i);
+                    var active = i == 0 ? "active" : "";
+                    <div class="carousel-item bg_cover @active"
+                         style="background-image: url(@imageItem?.Url());">
+                    </div>
+                }
+            }
+        </div>
+
+        <a class="carousel-control-prev"
+           href="#@carouselId"
+           role="button"
+           data-bs-slide="prev">
+            <i class="lni lni-arrow-up"></i>
+        </a>
+        <a class="carousel-control-next"
+           href="#@carouselId"
+           role="button"
+           data-bs-slide="next">
+            <i class="lni lni-arrow-down"></i>
+        </a>
+    </div>
+</div>

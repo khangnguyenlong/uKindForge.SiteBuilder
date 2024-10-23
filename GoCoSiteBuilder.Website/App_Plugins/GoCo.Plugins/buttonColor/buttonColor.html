@@ -1,0 +1,23 @@
+﻿<div class="radio-tile-group" ng-controller="GoCo.ButtonColorController">
+    <div class="input-container" ng-repeat="item in model.items track by $id(item)">
+        <input 
+               id="radiobtn_btncolor_{{$id}}_{{$index}}"
+               name="radiobtn_btncolor_{{$id}}_{{$index}}"
+               type="radio"
+               ng-model="model.value"
+               value="{{item.order}}"
+               class="radio-button"
+               />
+        <div class="radio-tile"
+             ng-style="{
+                'background-color': '#' + item.bgBtnColor,
+                'color': '#' + item.textBtnColor,
+                'border-color': '#' + item.borderBtnColor
+             }">
+            <label class="radio-tile-label">
+                Button {{$index + 1}}
+            </label>
+        </div>
+        
+    </div>
+</div>

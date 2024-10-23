@@ -1,0 +1,26 @@
+﻿@inherits UmbracoViewPage<ImageViewModel>
+
+@{
+    if (Model == null || Model.Image == null) return;
+}
+<div class="image">
+    @if (Model.Link != null && !Model.Link.Url.IsNullOrWhiteSpace())
+    {
+        <a href="@Model.Link.Url" target="@Model.Link.Target" alt="@Model.Link.Name">
+            @{
+                RenderImage();
+            }
+        </a>
+    }
+    else
+    {
+        RenderImage();
+    }
+</div>
+
+@functions {
+    void RenderImage()
+    {
+        <img class="image w-100" style="@Model.CssStyle" src="@Model.Image.GetCropUrl(width: @Model.CropWidth, height: @Model.CropHeight)", alt="@Model.ImageAlt" />
+    }
+}

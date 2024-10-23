@@ -1,0 +1,68 @@
+﻿@using Smidge;
+@inherits UmbracoViewPage
+
+@{
+	Layout = null;
+
+	if (ViewData["DesignDetail"] == null)
+	{
+		ViewData["DesignDetail"] = GetDesign();
+	}
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GoCoSiteBuilder</title>
+
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--TODO-->
+	<link rel="shortcut icon"
+		  href="~/css/goco/"
+		  type="image/svg" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+	<link rel="stylesheet" href="~/css/bundle.min.css" />
+
+	@await Html.PartialAsync("~/Views/Partials/Design.cshtml", ViewData["DesignDetail"])
+</head>
+<body>
+
+	<!--Header-->
+	@await Html.PartialAsync("~/Views/Partials/Header.cshtml")
+
+	<!--Body-->
+	<main id="content">
+		@RenderBody()
+	</main>
+
+	<!--Footer-->
+	@await Html.PartialAsync("~/Views/Partials/Footer.cshtml")
+
+	@if (UmbracoContext?.InPreviewMode == true)
+	{
+		@await Html.PartialAsync("~/Views/Partials/Shared/DesignPanel.cshtml")
+@* 		<link rel="stylesheet" href="~/css/lib/theme-explorer.css">
+		<script src="~/scripts/lib/jscolor.js"></script>
+		<script src="~/scripts/lib/theme-explorer.js"></script> *@
+	}
+
+	<!--JS-->
+	<script src="js-bundle"></script>
+</body>
+</html>
+
+@functions {
+	DesignDetail GetDesign()
+	{
+		var designList = Umbraco.ContentAtRoot()
+					.FirstOrDefault(x => x.ContentType.Alias.InvariantEquals("designList")) as DesignList;
+		return designList?.FirstChild<DesignDetail>();
+	}
+}

@@ -1,0 +1,20 @@
+﻿@inherits UmbracoViewPage<ButtonViewModel>
+
+@{
+    if (Model == null || Model.Buttons?.Any() == false) return;
+}
+
+<div class="@CssClassHelper.GetTextAlign(Model.Align, false)">
+    <ul class="btn-group rounded-buttons">
+        @foreach (var buttonItem in Model.Buttons)
+        {
+            @if (buttonItem.Content == null || buttonItem.Content is not Button button || button == null) continue;
+            <li>
+                <a class="btn @CssClassHelper.GetButtonClass(button.Color) rounded-full"
+                   href="@button.ButtonLink?.Url" target="@button.ButtonLink?.Target">
+                    @button.ButtonName
+                </a>
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,15 @@
+﻿@inherits UmbracoViewPage<TextViewModel>
+
+@if (Model.HtmlValue != null || !Model.Value.IsNullOrWhiteSpace())
+{
+    <div class="text-content">
+        @if (Model.HtmlValue != null)
+        {
+            @Model.HtmlValue
+        }
+        else
+        {
+            <p>@Model.Value</p>
+        }
+    </div>
+}

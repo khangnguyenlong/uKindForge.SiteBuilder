@@ -1,0 +1,24 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<LargeRightBlock>>
+
+@{
+    var layoutSettings = new LayoutSettingsViewModel
+    {
+        BackgroundColor = Model.Content.BackgroundColor,
+        BackgroundImage = Model.Content.BackgroundImage,
+        BackgroundType = Model.Content.BackgroundType,
+        BackgroundVideoUrl = Model.Content.BackgroundVideoUrl,
+        FullWidth = Model.Content.FullWidth,
+        IsAddMarginBottom = Model.Content.IsAddMarginBottom,
+        IsAddMarginTop = Model.Content.IsAddMarginTop,
+        IsAddPaddingBottom = Model.Content.IsAddPaddingBottom,
+        IsAddPaddingTop = Model.Content.IsAddPaddingTop,
+        MarginBottom = Model.Content.MarginBottom,
+        MarginTop = Model.Content.MarginTop,
+        PaddingBottom = Model.Content.PaddingBottom,
+        PaddingTop = Model.Content.PaddingTop
+    };
+}
+
+<section-layout info="layoutSettings">
+    @await Html.GetPreviewBlockGridItemAreasHtmlAsync(Model)
+</section-layout>

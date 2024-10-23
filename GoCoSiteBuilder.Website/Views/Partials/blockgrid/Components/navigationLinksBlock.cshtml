@@ -1,0 +1,16 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<NavigationLinksBlock>>
+
+<div class="footer-block">
+    @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Heading))
+    <div class="footer-link">
+        @if (Model.Content?.Links != null && Model.Content.Links.Any())
+        {
+            <ul>
+                @foreach (var link in Model.Content.Links)
+                {
+                    <li><a href="@link?.Url" target="@link?.Target" alt="@link?.Name">@link?.Name</a></li>
+                }
+            </ul>
+        }
+    </div>
+</div>

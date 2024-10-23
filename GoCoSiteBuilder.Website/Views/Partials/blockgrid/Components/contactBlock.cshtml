@@ -1,0 +1,21 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<ContactBlock>>
+
+<div class="footer-block contact">
+    @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Heading))
+    <ul>
+        @if (!string.IsNullOrWhiteSpace(Model.Content?.Address))
+        {
+            <li>
+                <i class="lni lni-map-marker"></i> @Model.Content.Address
+            </li>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.Content?.Phone))
+        {
+            <li><i class="lni lni-phone-set"></i> @Model.Content.Phone</li>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.Content?.Email))
+        {
+            <li><i class="lni lni-envelope"></i> @Model.Content.Email</li>
+        }
+    </ul>
+</div>

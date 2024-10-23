@@ -1,0 +1,10 @@
+﻿@inherits UmbracoViewPage<BlockGridModel>
+@{
+    if (Model?.Any() != true) { return; }
+}
+
+<div class="umb-block-grid block-grid-default"
+     data-grid-columns="@(Model.GridColumns?.ToString() ?? "12");"
+     style="--umb-block-grid--grid-columns: @(Model.GridColumns?.ToString() ?? "12");">
+    @await Html.GetPreviewBlockGridItemsHtmlAsync(Model)
+</div>

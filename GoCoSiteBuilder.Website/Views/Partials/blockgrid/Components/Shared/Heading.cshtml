@@ -1,0 +1,34 @@
+﻿@inherits UmbracoViewPage<HeadingViewModel>
+
+@if (!Model.Value.IsNullOrWhiteSpace() || Model.HtmlValue != null)
+{
+    <div class="heading-content">
+        @if (!string.IsNullOrEmpty(@Model.LinkUrl))
+        {
+            <a href="@Model.LinkUrl">
+                @{
+                    RenderHeading();
+                }
+            </a>
+        }
+        else
+        {
+            RenderHeading();
+        }
+    </div>
+}
+
+@functions {
+    void RenderHeading()
+    {
+
+        @if (Model.HtmlValue != null)
+        {
+            @Model.HtmlValue
+        }
+        else
+        {
+            <h4>@Model.Value</h4>
+        }
+    }
+}

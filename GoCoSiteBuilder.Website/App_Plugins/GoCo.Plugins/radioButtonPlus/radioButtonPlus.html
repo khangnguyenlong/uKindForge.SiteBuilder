@@ -1,0 +1,20 @@
+﻿<div ng-controller="GoCo.RadioButtonPlusController">
+    <div class="radio-tile-group">
+
+        <div class="input-container" ng-repeat="item in items">
+            <input class="radio-button" type="radio"
+                   value="{{item.key}}"
+                   ng-model="model.value"
+                   ng-click="check($event)"
+                   name="taboptions_{{$id}}"
+                   title="{{item.text}}"
+                   />
+            <div class="radio-tile">
+                <div class="icon" ng-bind-html="item.svgTrusted"></div>
+                <label class="radio-tile-label">
+                    <span ng-if="isShowButtonText">{{item.text}}</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

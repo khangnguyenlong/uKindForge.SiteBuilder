@@ -1,0 +1,60 @@
+/*===========================
+  card-01 css
+===========================*/
+.single-card {
+    box-shadow: var(--card-box-shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    /*margin-top: 30px;*/
+    -webkit-transition: all 0.3s ease-out 0s;
+    -moz-transition: all 0.3s ease-out 0s;
+    -ms-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+}
+
+    .single-card:hover {
+        box-shadow: var(--card-box-shadow-hover);
+    }
+
+    .single-card .card-image img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .single-card .card-content {
+        padding: 16px;
+    }
+
+        .single-card .card-content .card-title {
+            margin-bottom: 0;
+        }
+
+            .single-card .card-content .card-title a {
+                color: var(--black);
+                -webkit-transition: all 0.3s ease-out 0s;
+                -moz-transition: all 0.3s ease-out 0s;
+                -ms-transition: all 0.3s ease-out 0s;
+                -o-transition: all 0.3s ease-out 0s;
+                transition: all 0.3s ease-out 0s;
+            }
+
+                .single-card .card-content .card-title a:hover {
+                    color: var(--primary);
+                }
+
+        .single-card .card-content .text {
+            color: var(--dark-3);
+            margin-top: 8px;
+        }
+
+/* Button */
+.card-style .card-content .card-btn {
+    margin-top: 24px;
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .card-style .card-content .card-btn {
+        margin-top: 16px;
+    }
+}

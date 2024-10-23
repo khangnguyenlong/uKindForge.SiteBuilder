@@ -1,0 +1,21 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<FooterStyle2Block, FooterSettingsBlock>>
+
+@{
+    var layoutSettings = new LayoutSettingsViewModel
+            {
+                FullWidth = Model.Settings.FullWidth,
+                IsAddMarginBottom = Model.Settings.IsAddMarginBottom,
+                IsAddMarginTop = Model.Settings.IsAddMarginTop,
+                IsAddPaddingBottom = Model.Settings.IsAddPaddingBottom,
+                IsAddPaddingTop = Model.Settings.IsAddPaddingTop,
+                MarginBottom = Model.Settings.MarginBottom,
+                MarginTop = Model.Settings.MarginTop,
+                PaddingBottom = Model.Settings.PaddingBottom,
+                PaddingTop = Model.Settings.PaddingTop
+            };
+}
+<footer class="footer">
+    <section-layout info="layoutSettings">
+        @await Html.GetPreviewBlockGridItemAreasHtmlAsync(Model)
+    </section-layout>
+</footer>
