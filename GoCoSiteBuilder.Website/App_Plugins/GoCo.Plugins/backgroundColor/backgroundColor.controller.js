@@ -3,18 +3,18 @@ function customBlockPreviewController($scope, designService, editorState) {
     $scope.model.items = [];
 
     designService.getCurrentDesignDetail().then(function (content) {
-        const contentBgColorsProperty = designService.getProperty("colors", "settings", "contentColors", content);
-        if (!contentBgColorsProperty.value || !contentBgColorsProperty.value.contentData) return;
+        const contentBgColorsProperty = designService.getProperty("colors", "settings", "colorSettings", content);
+        if (!contentBgColorsProperty.value || !contentBgColorsProperty.value.contents) return;
 
         let contents = [];
 
-        const contentBgColors = contentBgColorsProperty.value.contentData;
+        const contentBgColors = contentBgColorsProperty.value.contents;
         for (var i = 0; i < contentBgColors.length; i++) {
             var content = contentBgColors[i];
             contents.push({
-                headingColor: content.headingColor,
-                textColor: content.textColor,
-                backgroundColor: content.backgroundColor,
+                headingColor: content.heading,
+                textColor: content.text,
+                backgroundColor: content.background,
                 order: `${i}`
             });
         }

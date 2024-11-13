@@ -4,8 +4,6 @@
 
         $scope.isLoaded = false;
 
-        console.log("$scope.model.config", $scope.model.config)
-
         $scope.model.config.items.items = $scope.model.config.items.items.filter(function (item) {
             return item.key !== "" && item.text !== "";
         });

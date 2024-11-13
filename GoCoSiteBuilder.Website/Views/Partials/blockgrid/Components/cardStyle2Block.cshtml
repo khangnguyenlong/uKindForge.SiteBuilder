@@ -1,6 +1,7 @@
 ﻿@inherits UmbracoViewPage<BlockGridItem<CardStyle2Block, CardStyle2BlockSettings>>
+@inject DesignHelper DesignHelper
 
-<div class="@CssClassHelper.GetFullWithClass(Model.Settings?.FullWidth) card-area">
+<div class="card-area">
     <div class="single-card card-style">
         <div class="row no-gutters @CssClassHelper.GetVerticalContentAlign(Model.Settings.ContentAlign)">
             @if (Model.Settings.Reverse)
@@ -12,7 +13,7 @@
                 </div>
                 <div class="col-sm-6">
                     @{
-                        await RenderContent();
+                        await RenderContentAsync();
                     }
                 </div>
             }
@@ -20,7 +21,7 @@
             {
                 <div class="col-sm-6">
                     @{
-                        await RenderContent();
+                        await RenderContentAsync();
                     }
                 </div>
                 <div class="col-sm-6">
@@ -31,17 +32,15 @@
             }
         </div>
     </div>
-    <!-- single-card -->
 </div>
 
-@functions
-{
-    async Task RenderContent()
+@functions {
+    async Task RenderContentAsync()
     {
-        <div class="card-content @CssClassHelper.GetBackgroundClass(Model.Settings.BgColor)">
-            @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Heading))
+        <div class="card-content @CssClassHelper.GetTextAlign(Model.Settings.ContentAlign) @DesignHelper.GetBackgroundClass(Model.Settings.Color)">
+            @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
             @await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
-            @await Html.PartialButtonLinkAsync(new ButtonViewModel { Buttons = Model.Content?.Buttons })
+            @await Html.PartialButtonLinkAsync(new ButtonViewModel { Buttons = Model.Content.Buttons })
         </div>
     }
 }

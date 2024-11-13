@@ -62,97 +62,104 @@ section, .container, .container-fluid {
 
 
 /** only works on website. */
-.umb-block-grid__layout-item:has(section[nobackgroundcolor]) +
-.umb-block-grid__layout-item section[nobackgroundcolor] {
-    padding-top: 0;
-}
-
 /* === Section End === */
 
 
 /* === Headings === */
-/*h1, h2, h3, h4, h5, h6 {
-    font-family: var(--heading-font-family);
-    font-weight: var(--heading-font-weight);
-    line-height: var(--heading-line-height);
-}
-
 h1 {
-    font-size: var(--heading-font-size-h1-desktop);
+    font-family: var(--h1-font-family);
+    font-weight: var(--h1-font-weight);
+    line-height: var(--h1-font-line-height);
+    font-size: var(--h1-font-size-desktop);
 }
 
 h2 {
-    font-size: var(--heading-font-size-h2-desktop);
+    font-family: var(--h2-font-family);
+    font-weight: var(--h2-font-weight);
+    line-height: var(--h2-font-line-height);
+    font-size: var(--h2-font-size-desktop);
 }
 
 h3 {
-    font-size: var(--heading-font-size-h3-desktop);
+    font-family: var(--h3-font-family);
+    font-weight: var(--h3-font-weight);
+    line-height: var(--h3-font-line-height);
+    font-size: var(--h3-font-size-desktop);
 }
 
 h4 {
-    font-size: var(--heading-font-size-h4-desktop);
+    font-family: var(--h4-font-family);
+    font-weight: var(--h4-font-weight);
+    line-height: var(--h4-font-line-height);
+    font-size: var(--h4-font-size-desktop);
 }
 
 h5 {
-    font-size: var(--heading-font-size-h5-desktop);
+    font-family: var(--h5-font-family);
+    font-weight: var(--h5-font-weight);
+    line-height: var(--h5-font-line-height);
+    font-size: var(--h5-font-size-desktop);
 }
 
 h6 {
-    font-size: var(--heading-font-size-h6-desktop);
-}*/
+    font-family: var(--h6-font-family);
+    font-weight: var(--h6-font-weight);
+    line-height: var(--h6-font-line-height);
+    font-size: var(--h6-font-size-desktop);
+}
 
 /* Media queries cho heading */
-/*@media (max-width: 1024px) {
+@media (max-width: 1024px) {
     h1 {
-        font-size: var(--heading-font-size-h1-tablet);
+        font-size: var(--h1-font-size-tablet);
     }
 
     h2 {
-        font-size: var(--heading-font-size-h2-tablet);
+        font-size: var(--h2-font-size-tablet);
     }
 
     h3 {
-        font-size: var(--heading-font-size-h3-tablet);
+        font-size: var(--h3-font-size-tablet);
     }
 
     h4 {
-        font-size: var(--heading-font-size-h4-tablet);
+        font-size: var(--h4-font-size-tablet);
     }
 
     h5 {
-        font-size: var(--heading-font-size-h5-tablet);
+        font-size: var(--h5-font-size-tablet);
     }
 
     h6 {
-        font-size: var(--heading-font-size-h6-tablet);
+        font-size: var(--h6-font-size-tablet);
     }
 }
 
 @media (max-width: 768px) {
     h1 {
-        font-size: var(--heading-font-size-h1-mobile);
+        font-size: var(--h1-font-size-mobile);
     }
 
     h2 {
-        font-size: var(--heading-font-size-h2-mobile);
+        font-size: var(--h2-font-size-mobile);
     }
 
     h3 {
-        font-size: var(--heading-font-size-h3-mobile);
+        font-size: var(--h3-font-size-mobile);
     }
 
     h4 {
-        font-size: var(--heading-font-size-h4-mobile);
+        font-size: var(--h4-font-size-mobile);
     }
 
     h5 {
-        font-size: var(--heading-font-size-h5-mobile);
+        font-size: var(--h5-font-size-mobile);
     }
 
     h6 {
-        font-size: var(--heading-font-size-h6-mobile);
+        font-size: var(--h6-font-size-mobile);
     }
-}*/
+}
 
 dl, ol, ul {
     margin: 0px;
@@ -2508,19 +2515,23 @@ Author: lineicons.com
 }
 
 /* === Header === */
-    .header nav a {
-        color: var(--header-nav-link-color);
-        text-decoration: none;
-        font-weight: 500 !important;
-    }
+.header nav .menu-bar ul li a {
+    color: var(--header-nav-link-color);
+    text-decoration: none;
+    font-weight: 500 !important;
+}
 
-    .header nav ul.navbar-nav li.nav-item i {
-        color: var(--header-nav-link-color);
-    }
+.header nav .menu-bar ul li:hover a {
+    color: var(--header-nav-link-hover-color);
+}
 
-    .header nav a:hover {
-        color: var(--header-nav-link-hover-color);
-    }
+.header nav .menu-bar ul.navbar-nav li.nav-item i {
+    color: var(--header-nav-link-color);
+}
+
+.header nav .menu-bar ul.navbar-nav li:hover.nav-item i {
+    color: var(--header-nav-link-hover-color);
+}
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
     .navbar-area.navbar-three .navbar .navbar-collapse {
@@ -2528,7 +2539,7 @@ Author: lineicons.com
     }
 }
 
-.header nav .sub-menu {
+.header nav .menu-bar .sub-menu {
     background-color: var(--header-dropdown-bg-color);
 }
 
@@ -2536,14 +2547,22 @@ Author: lineicons.com
     background-color: var(--header-nav-link-color);
 }
 
-.header nav .sub-menu a {
+.header nav .menu-bar .sub-menu li {
+    background-color: var(--header-dropdown-link-bg-color);
+}
+
+
+.header nav .menu-bar .sub-menu li > a {
     color: var(--header-dropdown-link-color);
 }
 
-.header nav .sub-menu li:hover > a {
-    background: var(--header-dropdown-link-hover-bg-color);
+.header nav .menu-bar .sub-menu li:hover > a {
     color: var(--header-dropdown-link-hover-color);
 }
+
+    .header nav .menu-bar .sub-menu li:hover {
+        background-color: var(--header-dropdown-link-hover-bg-color);
+    }
 
 /*===== FOOTER =====*/
 
@@ -2653,7 +2672,7 @@ footer {
     box-shadow: var(--card-box-shadow);
     border-radius: 8px;
     overflow: hidden;
-    /*margin-top: 30px;*/
+    margin-top: 30px;
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
     -ms-transition: all 0.3s ease-out 0s;
@@ -2817,7 +2836,7 @@ footer {
     bottom: auto;
     left: 30px;
     opacity: 1;
-    z-index: 99;
+    z-index: 7;
     border-radius: 50%;
     -webkit-transition: all 0.4s ease-out 0s;
     -moz-transition: all 0.4s ease-out 0s;
@@ -2998,7 +3017,7 @@ footer {
     width: auto;
     height: auto;
     font-size: 32px;
-    color: var(--white);
+    color: white;
     bottom: auto;
     left: 8px;
     right: auto;
@@ -3048,7 +3067,7 @@ footer {
 }
 
     .slider-area.slider-two .carousel .carousel-indicators li.active {
-        background-color: var(--white);
+        background-color: white;
         height: 16px;
         border-radius: 5px;
     }
@@ -3374,10 +3393,10 @@ button.navbar-toggler {
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
     .navbar-area.navbar-three .navbar .navbar-collapse {
         position: absolute;
-        top: 116%;
+        top: 125%;
         left: 0;
         width: 100%;
-        background-color: var(--primary);
+        background-color: var(--mobile-header-nav-bg-color) !important;
         z-index: 8;
         padding: 10px 16px;
     }
@@ -3417,10 +3436,11 @@ button.navbar-toggler {
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
     .navbar-area.navbar-three .navbar .navbar-nav .nav-item a {
-        padding: 10px 0;
+        padding: 10px 24px;
+        /*padding: 10px 0;*/
         display: block;
         border: 0;
-        margin: 0;
+        margin: 5px 0;
     }
 }
 
@@ -3525,6 +3545,8 @@ button.navbar-toggler {
 
 .navbar-area.navbar-three .navbar .navbar-nav .nav-item .sub-menu li {
     position: relative;
+    margin: 0;
+    margin-bottom: 5px;
 }
 
     .navbar-area.navbar-three .navbar .navbar-nav .nav-item .sub-menu li .sub-nav-toggler {

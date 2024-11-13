@@ -1,4 +1,4 @@
-﻿@inherits UmbracoViewPage<BlockGridItem<NavigationBlock>>
+﻿@inherits UmbracoViewPage<BlockGridItem<MainMenuBlock>>
 
 @{
     var navItems = Model.Content?.NavItems;
@@ -35,7 +35,7 @@
 
                         @if (hasNavItem)
                         {
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarThree">
+                            <div class="collapse navbar-collapse menu-bar" id="navbarThree">
                             @{
                                 renderNavigationItem(navItems, false, assignedContentItem?.Url() ?? "");
                             }

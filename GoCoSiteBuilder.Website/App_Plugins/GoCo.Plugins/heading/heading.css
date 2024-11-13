@@ -1,0 +1,55 @@
+﻿
+
+.heading-control {
+    border: 1px solid #d8d7d9;
+    border-radius: 6px;
+}
+
+    .heading-control .heading-control__toolbar {
+        display: flex;
+        padding: 10px 10px;
+        border-bottom: 1px solid #d8d7d9;
+    }
+
+    .heading-control .heading-control__input input {
+        border: none;
+    }
+
+    .heading-control .toolbar__select select {
+        border: none;
+        width: 130px;
+        background: #f7f7f7;
+    }
+
+        .heading-control .toolbar__select select option {
+            background-color: #fff;
+        }
+
+            .heading-control .toolbar__select select option:hover {
+                background: #cce2fa;
+                color: #000;
+                font-weight: bold;
+            } 
+
+        .heading-control .toolbar__select select:hover {
+            background: #cce2fa;
+            color: #222f3e;
+            box-shadow: none;
+        }
+
+    .heading-control .heading-control__input {
+        padding: 10px 10px;
+    }
+
+    .heading-control .toolbar__control button {
+        background-color: #fff;
+        border: none;
+    }
+
+        .heading-control .toolbar__control button:hover {
+            background-color: #cce2fa;
+        }
+
+        .heading-control .toolbar__control button.tox-tbtn--enabled {
+            background-color: #cce2fa;
+        }

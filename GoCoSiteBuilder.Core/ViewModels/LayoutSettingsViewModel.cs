@@ -3,7 +3,7 @@ namespace GoCoSiteBuilder.Core.ViewModels
 {
     public class LayoutSettingsViewModel
     { 
-        public string BackgroundColor { get; set; }
+        public string OrderColor { get; set; }
         public MediaWithCrops BackgroundImage { get; set; }
         public string BackgroundType { get; set; }
         public string BackgroundVideoUrl { get; set; }

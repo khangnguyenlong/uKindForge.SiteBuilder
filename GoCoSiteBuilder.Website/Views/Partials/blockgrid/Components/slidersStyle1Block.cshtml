@@ -1,4 +1,5 @@
 ﻿@inherits UmbracoViewPage<BlockGridItem<SlidersStyle1Block, SlidersStyle1BlockSettings>>
+@inject DesignHelper DesignHelper
 
 @{
     if (Model.Content == null || Model.Content.SliderItems == null || !Model.Content.SliderItems.Any()) return;
@@ -47,13 +48,13 @@
                 if (sliderItem?.Content is not SliderStyle1 slider) continue;
                 var settings = sliderItem.Settings as SliderStyle1Settings;
 
-                <div class="carousel-item bg_cover @(i == 0 ? "active" : "") @CssClassHelper.GetBackgroundClass(settings.BgColor)"
+                <div class="carousel-item bg_cover @(i == 0 ? "active" : "") @DesignHelper.GetBackgroundClass(settings.Color)"
                      style="background-image: url(@slider.Image?.GetCropUrl(width: 1920));">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row @CssClassHelper.GetJustifyContentAlign(settings.ContentAlign)">
                                 <div class="col-xl-6 col-lg-7 col-sm-10">
-                                    @await Html.PartialHeadingAsync(new HeadingViewModel(slider.Heading))
+                                    @await Html.PartialHeadingAsync(new HeadingViewModel(slider.Title))
                                     @await Html.PartialTextAsync(new TextViewModel(slider.Description))
                                     @await Html.PartialButtonLinkAsync(new ButtonViewModel { Buttons = slider?.Buttons })
                                 </div>

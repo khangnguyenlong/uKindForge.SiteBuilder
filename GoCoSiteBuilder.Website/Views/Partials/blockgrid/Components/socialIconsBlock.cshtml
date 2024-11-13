@@ -2,7 +2,7 @@
 
 <div class="footer-block">
     <div class="social">
-        @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Heading))
+        @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
         @if (Model.Content?.IconLinks != null && Model.Content.IconLinks.Any())
         {
             <ul>

@@ -1,0 +1,171 @@
+﻿.accordion-area .accordion .accordion-title label {
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* accordion-area */
+.accordion-area .accordion .accordion-body .card {
+    margin-top: 8px;
+    border-radius: 0;
+    border: 1px solid #e9e9eb;
+}
+
+    .accordion-area .accordion .accordion-body .card .card-header {
+        padding: 0;
+        background: none;
+        position: relative;
+    }
+
+        .accordion-area .accordion .accordion-body .card .card-header a {
+            display: block;
+            font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            line-height: 20px;
+            position: relative;
+            color: #1b264f;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+            margin: -1px;
+            border-radius: 0;
+            padding: 13px 16px;
+            z-index: 5;
+            border: 0;
+            background: #fff;
+            text-decoration: none;
+        }
+
+            .accordion-area .accordion .accordion-body .card .card-header a[aria-expanded="true"] {
+                background-color: #fee4e1;
+            }
+
+            .accordion-area .accordion .accordion-body .card .card-header a.collapsed:hover {
+                color: #2152a3;
+                border-color: #d8d7d9;
+                background-color: #f9f9fa;
+            }
+
+            .accordion-area .accordion .accordion-body .card .card-header a::before {
+                position: absolute;
+                content: "\ea5e";
+                font-family: lineicons !important;
+                right: 16px;
+                top: 14px;
+                font-size: 16px;
+                -webkit-transition: all 0.3s ease-out 0s;
+                -moz-transition: all 0.3s ease-out 0s;
+                -ms-transition: all 0.3s ease-out 0s;
+                -o-transition: all 0.3s ease-out 0s;
+                transition: all 0.3s ease-out 0s;
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+
+            .accordion-area .accordion .accordion-body .card .card-header a.collapsed {
+                /*color: #1b264f;*/
+                border: 1px solid #e9e9eb;
+                /*background: #fff;*/
+            }
+
+                .accordion-area .accordion .accordion-body .card .card-header a.collapsed::before {
+                    -webkit-transform: rotate(0);
+                    -moz-transform: rotate(0);
+                    -ms-transform: rotate(0);
+                    -o-transform: rotate(0);
+                    transform: rotate(0);
+                }
+
+        .accordion-area .accordion .accordion-body .card .card-header .btn-actions {
+            position: absolute;
+            right: 45px;
+            top: 14px;
+            z-index: 10;
+        }
+
+            .accordion-area .accordion .accordion-body .card .card-header .btn-actions button.action {
+                border: 0;
+                background: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+
+                .accordion-area .accordion .accordion-body .card .card-header .btn-actions button.action:hover {
+                    color: #2152a3;
+                }
+
+
+    .accordion-area .accordion .accordion-body .card .card-body {
+        padding: 16px 0px;
+    }
+
+        .accordion-area .accordion .accordion-body .card .card-body .card-body-control {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+.accordion-area .accordion .accordion-body .card .card-body .text {
+    color: var(--dark-3);
+}
+
+.accordion-area .accordion .accordion-body .collapse:not(.show) {
+    display: none;
+}
+
+.accordion-area .accordion .accordion-body .collapse.show {
+    display: block;
+    height: auto;
+}
+
+.accordion-area .accordion .accordion-body .card .card-body .content-preview {
+    font-size: 30px;
+    line-height: 30px;
+}
+.accordion-area .accordion .accordion-actions {
+    margin-top: 8px;
+}
+
+.accordion-area .accordion .accordion-body.ui-sortable a {
+    cursor: move;
+}
+
+.accordion-area .accordion .preview-wrap {
+    padding: 20px;
+    background-color: #f3f3f5
+}
+
+.accordion-area .accordion .preview-wrap__content {
+    background-color: #fff;
+    padding: 13px 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.accordion-area .accordion .preview-wrap .preview-wrap__header {
+    border-bottom: 1px solid #d8d7d9;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.accordion-area .accordion .control-group {
+    margin-bottom: 15px;
+}
+
+.accordion-area .accordion .control-group-flex {
+    display: flex;
+    align-items: center;
+}
+
+.control-label-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

@@ -1,0 +1,95 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<Feature2Block, Feature2BlockSettings>>
+@inject DesignHelper DesignHelper
+
+@{
+    if (Model.Content == null) return;
+    var featureItems = Model.Content.FeatureItems;
+    var layoutSettings = new LayoutSettingsViewModel
+            {
+                OrderColor = Model.Settings.Color,
+                FullWidth = Model.Settings.FullWidth,
+                IsAddMarginBottom = Model.Settings.IsAddMarginBottom,
+                IsAddMarginTop = Model.Settings.IsAddMarginTop,
+                IsAddPaddingBottom = Model.Settings.IsAddPaddingBottom,
+                IsAddPaddingTop = Model.Settings.IsAddPaddingTop,
+                MarginBottom = Model.Settings.MarginBottom,
+                MarginTop = Model.Settings.MarginTop,
+                PaddingBottom = Model.Settings.PaddingBottom,
+                PaddingTop = Model.Settings.PaddingTop
+            };
+}
+<section-layout info="layoutSettings">
+    <div class="card-area">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title text-center">
+                    @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
+                    @await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
+                </div>
+                <!-- row -->
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            @if (featureItems?.Any() == true)
+            {
+                foreach (var featureItem in Model.Content.FeatureItems)
+                {
+                    var feature = featureItem.Content.SafeCast<FeatureItem>();
+                    var featureSettings = featureItem.Settings.SafeCast<FeatureItemSettings>();
+                    <div class="@CssClassHelper.GetColClass(Model.Settings.Columns.IsNullOrWhiteSpace() ? "2" : Model.Settings.Columns)">
+                        <div class="single-card card-style">
+                            <div class="row no-gutters @CssClassHelper.GetVerticalContentAlign(Model.Settings.ContentAlign)">
+                                @{
+                                    await RenderFeatureItemAsync(feature, featureSettings);
+                                }
+                            </div>
+                        </div>
+                        <!-- single-card -->
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section-layout>
+
+@functions
+{
+    async Task RenderFeatureItemAsync(FeatureItem item, FeatureItemSettings settings)
+    {
+        @if (settings.Reverse)
+        {
+            <div class="col-sm-6">
+                @{
+                    @await Html.PartialImageLinkAsync(new ImageViewModel(item.Image))
+                }
+            </div>
+            <div class="col-sm-6">
+                @{
+                    await RenderContent(item, settings);
+                }
+            </div>
+        }
+        else
+        {
+            <div class="col-sm-6">
+                @{
+                    await RenderContent(item, settings);
+                }
+            </div>
+            <div class="col-sm-6">
+                @{
+                    @await Html.PartialImageLinkAsync(new ImageViewModel(item.Image))
+                }
+            </div>
+        }
+    }
+
+    async Task RenderContent(FeatureItem item, FeatureItemSettings settings)
+    {
+        <div class="card-content @DesignHelper.GetBackgroundClass(settings.Color)">
+            @await Html.PartialHeadingAsync(new HeadingViewModel(item.Title))
+            @await Html.PartialTextAsync(new TextViewModel(item.Description))
+            @await Html.PartialButtonLinkAsync(new ButtonViewModel { Buttons = item.Buttons })
+        </div>
+    }
+}

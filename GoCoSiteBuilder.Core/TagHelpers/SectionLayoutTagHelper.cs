@@ -54,7 +54,7 @@ namespace GoCoSiteBuilder.Core.TagHelpers
             }
 
             output.Attributes.Add("style", styleAttributes.ToString());
-            output.Attributes.Add("class", $"{AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX}{layoutSettings.BackgroundColor}");
+            output.Attributes.Add("class", $"{AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX}{layoutSettings.OrderColor}");
 
             var childContent = await output.GetChildContentAsync();
 

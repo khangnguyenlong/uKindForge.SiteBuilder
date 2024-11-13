@@ -1,22 +1,14 @@
-﻿using Umbraco.Cms.Core.Strings;
+﻿using GoCoSiteBuilder.Models;
 
 namespace GoCoSiteBuilder.Core.ViewModels
 {
     public class HeadingViewModel
     {
-        public HeadingViewModel(string value) 
-        {
-            Value = value;
-        }
+        public Heading Heading { get; set; }
 
-        public HeadingViewModel(IHtmlEncodedString htmlValue)
+        public HeadingViewModel(Heading heading) 
         {
-            HtmlValue = htmlValue;
+            Heading = heading;
         }
-
-        public string Value { get; set; }
-        public IHtmlEncodedString HtmlValue { get; set; }
-        public string Align { get; set; }
-        public string LinkUrl { get; set; }
     }
 }

@@ -1,16 +1,17 @@
 ﻿@inherits UmbracoViewPage<BlockGridItem<SlidersStyle2Block, SlidersStyle2BlockSettings>>
+@inject DesignHelper DesignHelper
 
 @{
     if (Model.Content == null) return;
     var carouselId = $"carousel-{Model.Content.Key}";
 }
 
-<div class="@CssClassHelper.GetFullWithClass(Model.Settings?.FullWidth) @CssClassHelper.GetBackgroundClass(Model.Settings.BgColor) slider-area slider-two">
+<div class="@CssClassHelper.GetFullWithClass(Model.Settings?.FullWidth) @DesignHelper.GetBackgroundClass(Model.Settings.Color) slider-area slider-two">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6">
                 <div class="slider-content @CssClassHelper.GetTextAlign(Model.Settings.ContentAlign)">
-                    @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Heading))
+                    @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
                     @await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
                     @await Html.PartialButtonLinkAsync(new ButtonViewModel { Buttons = Model.Content?.Buttons })
                 </div>

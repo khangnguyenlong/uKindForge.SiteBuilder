@@ -1,4 +1,5 @@
 ﻿using GoCoSiteBuilder.Core.Constants;
+using GoCoSiteBuilder.Models;
 
 namespace GoCoSiteBuilder.Core.Helpers
 {
@@ -64,21 +65,39 @@ namespace GoCoSiteBuilder.Core.Helpers
             }
         }
 
-        public static string GetBackgroundClass(string bgContentOrder) 
+        public static string GetBackgroundClass(string bgContentOrder, DesignDetail designDetail) 
         {
-            var order = string.IsNullOrEmpty(bgContentOrder) ? "0" : bgContentOrder;
-            return $"{AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX}{order}";
+            return GetContentClass(bgContentOrder, designDetail, AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX);
+		}
+
+		public static string GetButtonClass(string btnDesignOrder, DesignDetail designDetail)
+        {
+            return GetContentClass(btnDesignOrder, designDetail, AppConstants.CssClassName.BUTTON_PREFIX);
         }
 
-        public static string GetButtonClass(string btnDesignOrder)
+        public static string GetContentClass(string order, DesignDetail designDetail, string prefix)
         {
-            var order = string.IsNullOrEmpty(btnDesignOrder) ? "0" : btnDesignOrder;
-            return $"{AppConstants.CssClassName.BUTTON_PREFIX}{order}";
+	        var orderResult = (string.IsNullOrEmpty(order)
+	                     || !int.TryParse(order, out var designOrder)
+	                     || designDetail?.ColorSettings?.Buttons?[designOrder] == null) ? 0 : designOrder;
+	        return $"{prefix}{orderResult}";
         }
 
-        public static string GetFullWithClass(bool? isFullWidth)
+		public static string GetFullWithClass(bool? isFullWidth)
         {
             return isFullWidth == true ? "container-fluid" : "container";
+        }
+
+        public static string GetColClass(string columns, int colSpans = 12) 
+        {
+            var columnsSafe = int.TryParse(columns, out int columnsParsed) ? columnsParsed: 1;
+            return GetColClass(columnsSafe, colSpans);
+        }
+
+        public static string GetColClass(int columns, int colSpans = 12)
+        {
+            columns = columns == 0 ? 1 : columns;
+            return $"col-md-{colSpans / columns}";
         }
     }
 }

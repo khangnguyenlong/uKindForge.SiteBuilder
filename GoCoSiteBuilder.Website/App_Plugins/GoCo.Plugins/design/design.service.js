@@ -1,6 +1,7 @@
 ﻿angular.module("umbraco").factory("designService", function ($http, contentResource, entityResource) {
 
     function getProperty(tabAlias, groupAlias, propertyAlias, editorStateCurrent) {
+        console.log("editorStateCurrent", editorStateCurrent);
         if (!editorStateCurrent.variants || !editorStateCurrent.variants[0]) return;
 
         const groupTab = editorStateCurrent.variants[0].tabs.find(tab => tab.type === 'Group' && tab.alias === `${tabAlias}/${groupAlias}`);

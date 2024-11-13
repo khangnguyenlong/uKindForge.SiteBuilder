@@ -1,7 +1,7 @@
-﻿@inherits UmbracoViewPage<BlockGridItem<ContactBlock>>
+﻿@inherits UmbracoViewPage<BlockGridItem<ContactInfoBlock>>
 
 <div class="footer-block contact">
-    @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Heading))
+    @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
     <ul>
         @if (!string.IsNullOrWhiteSpace(Model.Content?.Address))
         {

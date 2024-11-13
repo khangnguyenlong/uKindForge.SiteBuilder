@@ -1,0 +1,3 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<HeadingBlock>>
+
+@await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))

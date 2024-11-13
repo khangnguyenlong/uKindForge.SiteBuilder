@@ -7,29 +7,29 @@ namespace GoCoSiteBuilder.Core.Builder
 {
     public class CssStyleBuilder
     {
-        private StringBuilder _cssStyles = new();
+        private readonly StringBuilder _cssStyles = new();
 
         public CssStyleBuilder() { }
 
-        public CssStyleBuilder MakeButtonStyle(BlockListModel buttonBlockList)
+        public CssStyleBuilder MakeButtonStyle(ButtonColorSettings[] buttonColorSettings)
         {
-            if (buttonBlockList?.Any() == false) return this;
+            if (buttonColorSettings?.Any() == false) return this;
 
-            for (int i = 0; i < buttonBlockList.Count; i++)
+            for (int i = 0; i < buttonColorSettings.Count(); i++)
             {
-                if (buttonBlockList[i].Content is not ButtonColor buttonColor) continue;
+                var buttonColor = buttonColorSettings[i];
 
                 var buttonCss = new CssBuilder()
                     .StartClass($"{AppConstants.CssClassName.BUTTON_PREFIX}{i}")
-                    .AddBackgroundColor(buttonColor.BgBtnColor)
-                    .AddColor(buttonColor.TextBtnColor)
-                    .AddBorderColor(buttonColor.BorderBtnColor)
+                    .AddBackgroundColor($"#{buttonColor.Background}")
+                    .AddColor($"#{buttonColor.Text}")
+                    .AddBorderColor($"#{buttonColor.Border}")
                     .EndClass()
                     // hover
                     .StartClassWithHover($"{AppConstants.CssClassName.BUTTON_PREFIX}{i}")
-                    .AddBackgroundColor(buttonColor.BgHoverBtnColor)
-                    .AddColor(buttonColor.TextHoverBtnColor)
-                    .AddBorderColor(buttonColor.BorderHoverBtnColor)
+                    .AddBackgroundColor($"#{buttonColor.BackgroundHover}")
+                    .AddColor($"#{buttonColor.TextHover}")
+                    .AddBorderColor($"#{buttonColor.BorderHover}")
                     .EndClass()
                     .Build();
 
@@ -38,20 +38,20 @@ namespace GoCoSiteBuilder.Core.Builder
             return this;
         }
 
-        public CssStyleBuilder MakeContentStyle(BlockListModel buttonBlockList)
+        public CssStyleBuilder MakeContentStyle(ContentColorSettings[] contentColorSettings)
         {
             //TODO complete this
-            if (buttonBlockList?.Any() == false) return this;
+            if (contentColorSettings?.Any() == false) return this;
 
-            for (int i = 0; i < buttonBlockList.Count; i++)
+            for (int i = 0; i < contentColorSettings.Count(); i++)
             {
-                if (buttonBlockList[i].Content is not ContentColor contentColor) continue;
+                var contentColor = contentColorSettings[i];
 
                 var buttonCss = new CssBuilder()
                     .StartClass($"{AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX}{i}")
-                    .AddBackgroundColor(contentColor.BackgroundColor)
-                    .AddCssAttribute("--heading-content-color", contentColor.HeadingColor)
-                    .AddCssAttribute("--text-content-color", contentColor.TextColor)
+                    .AddBackgroundColor($"#{contentColor.Background}")
+                    .AddCssAttribute("--heading-content-color", $"#{contentColor.Heading}")
+                    .AddCssAttribute("--text-content-color", $"#{contentColor.Text}")
                     .EndClass()
 
                     .StartClass("heading-content")

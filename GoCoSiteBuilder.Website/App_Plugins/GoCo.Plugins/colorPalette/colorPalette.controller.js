@@ -1,7 +1,5 @@
 ﻿angular.module('umbraco').controller('GoCo.ColorPaletteController',
     function ($scope, angularHelper, $element, eventsService) {
-        console.log("value", $scope.model.value);
-
         var vm = this;
         vm.add = add;
         vm.remove = remove;
@@ -52,38 +50,7 @@
         if (!$scope.model.value && !Utilities.isArray($scope.model.value)) {
             $scope.model.value = [];
         }
-        //if (!Utilities.isArray($scope.model.value)) {
-        //    console.log("1");
-        //    //make an array from the dictionary
-        //    var items = [];
-        //    for (var i in $scope.model.value) {
-        //        console.log("2", $scope.model.value);
-        //        var oldValue = $scope.model.value[i];
-        //        if (oldValue.hasOwnProperty('value')) {
-        //            items.push({
-        //                value: oldValue.value,
-        //                label: oldValue.label,
-        //                sortOrder: oldValue.sortOrder,
-        //                id: i
-        //            });
-        //        } else {
-        //            items.push({
-        //                value: oldValue,
-        //                label: oldValue,
-        //                sortOrder: 0,//sortOrder,
-        //                id: i
-        //            });
-        //        }
-        //    }
-        //    //ensure the items are sorted by the provided sort order
-        //    items.sort(function (a, b) {
-        //        return a.sortOrder > b.sortOrder ? 1 : b.sortOrder > a.sortOrder ? -1 : 0;
-        //    });
-        //    //now make the editor model the array
-        //    $scope.model.value = items;
-        //    console.log("3", $scope.model.value);
-        //}
-        // ensure labels
+ 
         for (var i = 0; i < $scope.model.value.length; i++) {
             var item = $scope.model.value[i];
             item.label = item.hasOwnProperty('label') ? item.label : item.value;

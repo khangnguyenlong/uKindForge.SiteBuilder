@@ -42,7 +42,7 @@
       "group": "Pickers",
       "editor": {
         "view": "/App_Plugins/GoCo.Plugins/colorPalette/colorPalette.html",
-        "hideLabel": false,
+        "hideLabel": true,
         "valueType": "JSON"
       }
     },
@@ -165,17 +165,80 @@
           }
         ]
       }
+    },
+    {
+      "alias": "GoCo.Heading",
+      "name": "GoCo - Heading",
+      "icon": "icon-checkbox",
+      "group": "Common",
+      "supportsReadOnly": true,
+      "editor": {
+        "view": "/App_Plugins/GoCo.Plugins/heading/heading.html",
+        "hideLabel": false,
+        "valueType": "JSON"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "key": "defaultHeadingTag",
+            "label": "Default value of Heading Tag",
+            "description": "Enter a default value for heading tag. Ex: h1, h2, h3",
+            "view": "textstring"
+          },
+          {
+            "key": "hideAlignControl",
+            "label": "Hide align control",
+            "description": "If this field is enabled, the alignment control will be hiden.",
+            "view": "boolean"
+          },
+          {
+            "key": "hideUrlPickerControl",
+            "label": "Hide Url Picker control",
+            "description": "If this field is enabled, the Url Picker control will be hiden.",
+            "view": "boolean"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "GoCo.FontSettings",
+      "name": "GoCo - Font Settings",
+      "icon": "icon-font",
+      "group": "Common",
+      "supportsReadOnly": true,
+      "editor": {
+        "view": "/App_Plugins/GoCo.Plugins/design/fontSettings/fontSettings.html",
+        "hideLabel": true,
+        "valueType": "JSON"
+      }
+    },
+    {
+      "alias": "GoCo.ColorSettings",
+      "name": "GoCo - Color Settings",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "supportsReadOnly": true,
+      "editor": {
+        "view": "/App_Plugins/GoCo.Plugins/design/colorSettings/colorSettings.html",
+        "hideLabel": true,
+        "valueType": "JSON"
+      }
     }
   ],
   "css": [
     "/css/lib/lineicons.css",
+    "/App_Plugins/GoCo.Plugins/common/tab-accordions.css",
 
     "/App_Plugins/GoCo.Plugins/baselineColorPicker/baselineColorPicker.css",
     "/App_Plugins/GoCo.Plugins/colorPalette/colorPalette.css",
     "/App_Plugins/GoCo.Plugins/radioButtonPlus/radioButtonPlus.css",
-    "/App_Plugins/GoCo.Plugins/togglePlus/togglePlus.css"
+    "/App_Plugins/GoCo.Plugins/heading/heading.css",
+    "/App_Plugins/GoCo.Plugins/design/fontSettings/fontSettings.css",
+    "/App_Plugins/GoCo.Plugins/design/colorSettings/colorSettings.css"
   ],
   "javascript": [
+    "/js/bootstrap/bootstrap.bundle.min.js",
+
     "/App_Plugins/GoCo.Plugins/blockPreview/blockPreview.controller.js",
     //service
     "/App_Plugins/GoCo.Plugins/design/design.service.js",
@@ -187,6 +250,9 @@
     "/App_Plugins/GoCo.Plugins/radioButtonPlus/radioButtonPlus.controller.js",
     "/App_Plugins/GoCo.Plugins/radioButtonPlus/radioButtonPlus_Prevalue.controller.js",
     "/App_Plugins/GoCo.Plugins/buttonColor/buttonColor.controller.js",
-    "/App_Plugins/GoCo.Plugins/backgroundColor/backgroundColor.controller.js"
+    "/App_Plugins/GoCo.Plugins/backgroundColor/backgroundColor.controller.js",
+    "/App_Plugins/GoCo.Plugins/heading/heading.controller.js",
+    "/App_Plugins/GoCo.Plugins/design/fontSettings/fontSettings.controller.js",
+    "/App_Plugins/GoCo.Plugins/design/colorSettings/colorSettings.controller.js"
   ]
 }

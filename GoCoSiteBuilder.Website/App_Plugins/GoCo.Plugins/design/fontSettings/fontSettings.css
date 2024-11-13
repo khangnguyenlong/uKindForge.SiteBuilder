@@ -1,0 +1,15 @@
+﻿.input-wrap {
+    display: flex;
+}
+    .input-wrap .suffix {
+        background-color: #f9f9fa;
+        width: 30px;
+        text-align: center;
+        transition: border 0.2s linear;
+        border: 1px solid #d8d7d9;
+        margin-left: -1px;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }

@@ -3,18 +3,22 @@
 
 @{
 	Layout = null;
-
+	DesignDetail design = null;
 	if (ViewData["DesignDetail"] == null)
 	{
-		ViewData["DesignDetail"] = GetDesign();
+		design = GetDesign();
+		ViewData["DesignDetail"] = design;
 	}
+	else
+    {
+		design = ViewData["DesignDetail"] as DesignDetail;
+    }
 }
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>GoCoSiteBuilder</title>
-
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +34,7 @@
 
 	<link rel="stylesheet" href="~/css/bundle.min.css" />
 
-	@await Html.PartialAsync("~/Views/Partials/Design.cshtml", ViewData["DesignDetail"])
+	@await Html.PartialAsync("~/Views/Partials/Design.cshtml", design)
 </head>
 <body>
 
@@ -45,14 +49,6 @@
 	<!--Footer-->
 	@await Html.PartialAsync("~/Views/Partials/Footer.cshtml")
 
-	@if (UmbracoContext?.InPreviewMode == true)
-	{
-		@await Html.PartialAsync("~/Views/Partials/Shared/DesignPanel.cshtml")
-@* 		<link rel="stylesheet" href="~/css/lib/theme-explorer.css">
-		<script src="~/scripts/lib/jscolor.js"></script>
-		<script src="~/scripts/lib/theme-explorer.js"></script> *@
-	}
-
 	<!--JS-->
 	<script src="js-bundle"></script>
 </body>
@@ -62,7 +58,7 @@
 	DesignDetail GetDesign()
 	{
 		var designList = Umbraco.ContentAtRoot()
-					.FirstOrDefault(x => x.ContentType.Alias.InvariantEquals("designList")) as DesignList;
+					.FirstOrDefault(x => x.ContentType.Alias.InvariantEquals(DesignList.ModelTypeAlias)) as DesignList;
 		return designList?.FirstChild<DesignDetail>();
 	}
 }

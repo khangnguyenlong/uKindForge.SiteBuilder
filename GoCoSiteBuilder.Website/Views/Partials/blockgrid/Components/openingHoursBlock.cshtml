@@ -2,7 +2,7 @@
 
 <div class="footer-block">
     <div class="opening-hours">
-        @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Heading))
+        @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
         @if (Model.Content?.OpeningHours != null && Model.Content.OpeningHours.Any())
         {
             <ul>

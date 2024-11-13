@@ -1,0 +1,544 @@
+﻿<div ng-controller="GoCo.ColorSettingsController">
+    <section class="accordion-area">
+    <div class="accordion mt-5">
+    <div class="accordion-title">
+        <label for="colorSettings" aria-label="colorSettings" title="Color Settings">Color settings</label>
+        <div><small class="control-description">Assign the color you added above to the elements of this design</small></div>
+    </div>
+    <div class="accordion-body" id="accordionColor">
+    <div class="card">
+        <div class="card-header" id="heading-body">
+            <a href="#collapse-main-nav" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                <span ng-style="">Main Navigation</span>
+            </a>
+        </div>
+        <div id="collapse-main-nav" class="collapse" data-bs-parent="#accordionColor">
+            <div class="card-body">
+                <div class="span3 card-body-control">
+                    <!-- Link -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="mainNavLinkColor" ng-model="model.value.mainNav.link" options="settings"
+                                          on-change="onChange(color, 'mainNav', 'link')"
+                                          on-move="onChange(color, 'mainNav', 'link')"
+                                          on-hide="onChange(color, 'mainNav', 'link')">
+                        </umb-color-picker>
+                        <label for="mainNavLinkColor">Link</label>
+                    </div>
+                    <!-- Link hover -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="mainNavLinkHoverColor" ng-model="model.value.mainNav.linkHover" options="settings"
+                                          on-change="onChange(color, 'mainNav', 'linkHover')"
+                                          on-move="onChange(color, 'mainNav', 'linkHover')"
+                                          on-hide="onChange(color, 'mainNav', 'linkHover')">
+                        </umb-color-picker>
+                        <label for="mainNavLinkHoverColor">Link hover</label>
+                    </div>
+                    <!-- Link background-->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="mainNavLinkBackgroundColor" ng-model="model.value.mainNav.linkBackground" options="settings"
+                                          on-change="onChange(color, 'mainNav', 'linkBackground')"
+                                          on-move="onChange(color, 'mainNav', 'linkBackground')"
+                                          on-hide="onChange(color, 'mainNav', 'linkBackground')">
+                        </umb-color-picker>
+                        <label for="mainNavLinkBackgroundColor">Link background</label>
+                    </div>
+                    <!-- Link hover background-->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="mainNavLinkHoverBackground" ng-model="model.value.mainNav.linkHoverBackground" options="settings"
+                                          on-change="onChange(color, 'mainNav', 'linkHoverBackground')"
+                                          on-move="onChange(color, 'mainNav', 'linkHoverBackground')"
+                                          on-hide="onChange(color, 'mainNav', 'linkHoverBackground')">
+                        </umb-color-picker>
+                        <label for="mainNavLinkHoverBackground">Link hover background</label>
+                    </div>
+                    <!-- Link border -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="mainNavLinkBorder" ng-model="model.value.mainNav.linkBorder" options="settings"
+                                          on-change="onChange(color, 'mainNav', 'linkBorder')"
+                                          on-move="onChange(color, 'mainNav', 'linkBorder')"
+                                          on-hide="onChange(color, 'mainNav', 'linkBorder')">
+                        </umb-color-picker>
+                        <label for="mainNavLinkBorder">Link border</label>
+                    </div>
+                    <!-- Link border hover-->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="mainNavLinkBorderHover" ng-model="model.value.mainNav.linkBorderHover" options="settings"
+                                          on-change="onChange(color, 'mainNav', 'linkBorderHover')"
+                                          on-move="onChange(color, 'mainNav', 'linkBorderHover')"
+                                          on-hide="onChange(color, 'mainNav', 'linkBorderHover')">
+                        </umb-color-picker>
+                        <label for="mainNavLinkBorderHover">Link border hover</label>
+                    </div>
+                    <!-- Background -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="mainNavBackground" ng-model="model.value.mainNav.background" options="settings"
+                                          on-change="onChange(color, 'mainNav', 'background')"
+                                          on-move="onChange(color, 'mainNav', 'background')"
+                                          on-hide="onChange(color, 'mainNav', 'background')">
+                        </umb-color-picker>
+                        <label for="mainNavBackground">Background</label>
+                    </div>
+                </div>
+                <div class="span9">
+                    <!-- Content Preview -->
+                    <div class="preview-wrap">
+                        <div class="preview-wrap__content">
+                            <div class="control-group">
+                                <div class="preview-wrap__header">Preview</div>
+                                <div class="content-preview" ng-if="true">
+                                    <div ng-include="'/App_Plugins/GoCo.Plugins/design/preview/mainNav.html'"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Main Nav-->
+
+    <div class="card">
+        <div class="card-header" id="heading-body">
+            <a href="#collapse-second-nav" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                <span ng-style="">Secondary Navigation</span>
+            </a>
+        </div>
+        <div id="collapse-second-nav" class="collapse" data-bs-parent="#accordionColor">
+            <div class="card-body">
+                <div class="span3 card-body-control">
+                    <!-- Link -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="secondNavLink" ng-model="model.value.secondNav.link" options="settings"
+                                          on-change="onChange(color, 'secondNav', 'link')"
+                                          on-move="onChange(color, 'secondNav', 'link')"
+                                          on-hide="onChange(color, 'secondNav', 'link')">
+                        </umb-color-picker>
+                        <label for="secondNavLinkColor">Link</label>
+                    </div>
+                    <!-- Link hover -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="secondNavLinkHover" ng-model="model.value.secondNav.linkHover" options="settings"
+                                          on-change="onChange(color, 'secondNav', 'linkHover')"
+                                          on-move="onChange(color, 'secondNav', 'linkHover')"
+                                          on-hide="onChange(color, 'secondNav', 'linkHover')">
+                        </umb-color-picker>
+                        <label for="secondNavLinkHover">Link hover</label>
+                    </div>
+                    <!-- Background -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="secondNavBackground" ng-model="model.value.secondNav.background" options="settings"
+                                          on-change="onChange(color, 'secondNav', 'background')"
+                                          on-move="onChange(color, 'secondNav', 'background')"
+                                          on-hide="onChange(color, 'secondNav', 'background')">
+                        </umb-color-picker>
+                        <label for="secondNavBackground">Background</label>
+                    </div>
+                </div>
+                <div class="span9">
+                    <!-- Content Preview -->
+                    <div class="preview-wrap">
+                        <div class="preview-wrap__content">
+                            <div class="control-group">
+                                <h1>TEST</h1>
+                                <div class="preview-wrap__header">Preview</div>
+                                <div class="content-preview" ng-if="true">
+                                    <div ng-init="secondNavVisible = true" ng-include="'/App_Plugins/GoCo.Plugins/design/preview/mainNav.html'"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Second Nav-->
+
+    <div class="card">
+        <div class="card-header" id="heading-body">
+            <a href="#collapse-dropdown-nav" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                <span ng-style="">Dropdown Navigation</span>
+            </a>
+        </div>
+        <div id="collapse-dropdown-nav" class="collapse" data-bs-parent="#accordionColor">
+            <div class="card-body">
+                <div class="span3 card-body-control">
+                    <!-- Link -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="dropdownNavLink" ng-model="model.value.dropdownNav.link" options="settings"
+                                          on-change="onChange(color, 'dropdownNav', 'link')"
+                                          on-move="onChange(color, 'dropdownNav', 'link')"
+                                          on-hide="onChange(color, 'dropdownNav', 'link')">
+                        </umb-color-picker>
+                        <label for="dropdownNavLink">Link</label>
+                    </div>
+                    <!-- Link hover -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="dropdownNavLinkHover" ng-model="model.value.dropdownNav.linkHover" options="settings"
+                                          on-change="onChange(color, 'dropdownNav', 'linkHover')"
+                                          on-move="onChange(color, 'dropdownNav', 'linkHover')"
+                                          on-hide="onChange(color, 'dropdownNav', 'linkHover')">
+                        </umb-color-picker>
+                        <label for="dropdownNavLinkHover">Link hover</label>
+                    </div>
+                    <!-- Link background -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="dropdownNavLinkBackground" ng-model="model.value.dropdownNav.linkBackground" options="settings"
+                                          on-change="onChange(color, 'dropdownNav', 'linkBackground')"
+                                          on-move="onChange(color, 'dropdownNav', 'linkBackground')"
+                                          on-hide="onChange(color, 'dropdownNav', 'linkBackground')">
+                        </umb-color-picker>
+                        <label for="dropdownNavLinkBackground">Link background</label>
+                    </div>
+                    <!-- Link hover background -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="dropdownNavLinkHoverBg" ng-model="model.value.dropdownNav.linkHoverBackground" options="settings"
+                                          on-change="onChange(color, 'dropdownNav', 'linkHoverBackground')"
+                                          on-move="onChange(color, 'dropdownNav', 'linkHoverBackground')"
+                                          on-hide="onChange(color, 'dropdownNav', 'linkHoverBackground')">
+                        </umb-color-picker>
+                        <label for="dropdownNavLinkHoverBg">Link hover background</label>
+                    </div>
+                    <!-- Background -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="dropdownNavBackground" ng-model="model.value.dropdownNav.background" options="settings"
+                                          on-change="onChange(color, 'dropdownNav', 'background')"
+                                          on-move="onChange(color, 'dropdownNav', 'background')"
+                                          on-hide="onChange(color, 'dropdownNav', 'background')">
+                        </umb-color-picker>
+                        <label for="dropdownNavBackground">Background</label>
+                    </div>
+                </div>
+                <div class="span9">
+                    <!-- Content Preview -->
+                    <div class="preview-wrap">
+                        <div class="preview-wrap__content">
+                            <div class="control-group">
+                                <div class="preview-wrap__header">Preview</div>
+                                <div class="content-preview" ng-if="true">
+                                    <div ng-init="dropdownMenuVisible = true" ng-include="'/App_Plugins/GoCo.Plugins/design/preview/mainNav.html'"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Dropdown Nav-->
+
+    <div class="card">
+        <div class="card-header" id="heading-body">
+            <a href="#collapse-footer" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                <span ng-style="">Footer</span>
+            </a>
+        </div>
+        <div id="collapse-footer" class="collapse" data-bs-parent="#accordionColor">
+            <div class="card-body">
+                <div class="span3 card-body-control">
+                    <!-- Text -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="footerText" ng-model="model.value.footer.text" options="settings"
+                                          on-change="onChange(color, 'footer', 'text')"
+                                          on-move="onChange(color, 'footer', 'text')"
+                                          on-hide="onChange(color, 'footer', 'text')">
+                        </umb-color-picker>
+                        <label for="footerText">Text</label>
+                    </div>
+                    <!-- Heading -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="footerHeading" ng-model="model.value.footer.heading" options="settings"
+                                          on-change="onChange(color, 'footer', 'heading')"
+                                          on-move="onChange(color, 'footer', 'heading')"
+                                          on-hide="onChange(color, 'footer', 'heading')">
+                        </umb-color-picker>
+                        <label for="footerHeading">Heading</label>
+                    </div>
+                    <!-- Link -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="footerLink" ng-model="model.value.footer.link" options="settings"
+                                          on-change="onChange(color, 'footer', 'link')"
+                                          on-move="onChange(color, 'footer', 'link')"
+                                          on-hide="onChange(color, 'footer', 'link')">
+                        </umb-color-picker>
+                        <label for="footerLink">Link</label>
+                    </div>
+                    <!-- Link hover -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="footerLinkHover" ng-model="model.value.footer.linkHover" options="settings"
+                                          on-change="onChange(color, 'footer', 'linkHover')"
+                                          on-move="onChange(color, 'footer', 'linkHover')"
+                                          on-hide="onChange(color, 'footer', 'linkHover')">
+                        </umb-color-picker>
+                        <label for="footerLinkHover">Link hover</label>
+                    </div>
+                    <!-- Background -->
+                    <div class="control-group control-group-flex">
+                        <umb-color-picker id="footerBackground" ng-model="model.value.footer.background" options="settings"
+                                          on-change="onChange(color, 'footer', 'background')"
+                                          on-move="onChange(color, 'footer', 'background')"
+                                          on-hide="onChange(color, 'footer', 'background')">
+                        </umb-color-picker>
+                        <label for="footerBackground">Background</label>
+                    </div>
+                </div>
+                <div class="span9">
+                    <!-- Content Preview -->
+                    <div class="preview-wrap">
+                        <div class="preview-wrap__content">
+                            <div class="control-group">
+                                <div class="preview-wrap__header">Preview</div>
+                                <div class="content-preview" ng-style="">
+                                    <div ng-include="'/App_Plugins/GoCo.Plugins/design/preview/footer.html'"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer-->
+
+    <div class="content-sortable-wrap ui-sortable" ui-sortable="contentSortableOptions" ng-model="model.value.contents">
+        <!--Contents-->
+        <div class="card" ng-repeat="content in model.value.contents track by content.id">
+            <div class="card-header" id="heading-body">
+                <a href="#collapse-content-{{content.id}}" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                    <span ng-style="">Content</span>
+                </a>
+                <div class="btn-actions">
+                    <button type="button" class="action" title="Delete" ng-click="deleteItem('contents', content)" ng-if="model.value.contents.length > 1">
+                        <umb-icon icon="icon-trash"></umb-icon>
+                    </button>
+                </div>
+            </div>
+            <div id="collapse-content-{{content.id}}" class="collapse" data-bs-parent="#accordionColor">
+                <div class="card-body">
+                    <div class="span3 card-body-control">
+                        <!-- Text -->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="contentText{{content.id}}" ng-model="content.text" options="settings"
+                                              on-change="onChange(color, content, 'text')"
+                                              on-move="onChange(color, content, 'text')"
+                                              on-hide="onChange(color, content, 'text')">
+                            </umb-color-picker>
+                            <label for="contentText{{content.id}}">Text</label>
+                        </div>
+                        <!-- Heading -->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="contentHeading{{content.id}}" ng-model="content.heading" options="settings"
+                                              on-change="onChange(color, content, 'heading')"
+                                              on-move="onChange(color, content, 'heading')"
+                                              on-hide="onChange(color, content, 'heading')">
+                            </umb-color-picker>
+                            <label for="contentHeading{{content.id}}">Heading</label>
+                        </div>
+                        <!-- Link -->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="contentLink{{content.id}}" ng-model="content.link" options="settings"
+                                              on-change="onChange(color, content, 'link')"
+                                              on-move="onChange(color, content, 'link')"
+                                              on-hide="onChange(color, content, 'link')">
+                            </umb-color-picker>
+                            <label for="contentLink{{content.id}}">Link</label>
+                        </div>
+                        <!-- Link hover -->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="contentLinkHover{{content.id}}" ng-model="content.linkHover" options="settings"
+                                              on-change="onChange(color, content, 'linkHover')"
+                                              on-move="onChange(color, content, 'linkHover')"
+                                              on-hide="onChange(color, content, 'linkHover')">
+                            </umb-color-picker>
+                            <label for="contentLinkHover{{content.id}}">Link hover</label>
+                        </div>
+                        <!-- highlight Text -->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="contenthighlightText{{content.id}}" ng-model="content.highlightText" options="settings"
+                                              on-change="onChange(color, content, 'highlightText')"
+                                              on-move="onChange(color, content, 'highlightText')"
+                                              on-hide="onChange(color, content, 'highlightText')">
+                            </umb-color-picker>
+                            <label for="contenthighlightText{{content.id}}">highlight Text</label>
+                        </div>
+                        <!-- highlight Background -->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="contenthighlightBg{{content.id}}" ng-model="content.highlightBg" options="settings"
+                                              on-change="onChange(color, content, 'highlightBg')"
+                                              on-move="onChange(color, content, 'highlightBg')"
+                                              on-hide="onChange(color, content, 'highlightBg')">
+                            </umb-color-picker>
+                            <label for="contenthighlightBg{{content.id}}">highlight Background</label>
+                        </div>
+                        <!-- Background -->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="contentBackground{{content.id}}" ng-model="content.background" options="settings"
+                                              on-change="onChange(color, content, 'background')"
+                                              on-move="onChange(color, content, 'background')"
+                                              on-hide="onChange(color, content, 'background')">
+                            </umb-color-picker>
+                            <label for="contentBackground{{content.id}}">Background</label>
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <!-- Content Preview -->
+                        <div class="preview-wrap">
+                            <div class="preview-wrap__content">
+                                <div class="control-group">
+                                    <div class="preview-wrap__header">Preview</div>
+                                    <div class="content-preview" ng-style="">
+                                        <div class="content-sample" style="font-size: 16px; padding: 10px 20px;" ng-style="{'background-color': '#' + (content.background || '#000')}">
+                                            <!-- Heading Sample -->
+                                            <div class="content-sample__item">
+                                                <h3 style="font-weight: 900" ng-style="{'color': '#' + (content.heading || '#000')}">SAMPLE HEADING</h3>
+                                            </div>
+
+                                            <!-- Text Sample -->
+                                            <div class="content-sample__item">
+                                                <p ng-style="{'color': '#' + (content.text || '#000')}">
+                                                    Lorem ipsum dolor sit amet,
+                                                    <a style="text-decoration: underline; cursor: pointer;"
+                                                       ng-style="{'color': linkHover ? '#' + (content.linkHover || '#000') : '#' + (content.link || '#000')}"
+                                                       ng-mouseenter="linkHover = true"
+                                                       ng-mouseleave="linkHover= false">consectetur adipiscing elit</a>
+                                                    ,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                    <span style="padding: 4px;"
+                                                          ng-style="{
+                                                                    'color': '#' + (content.highlightText || '#000'),
+                                                                    'background-color': '#' + (content.highlightBg || '#000')
+                                                                }">
+                                                        Ut enim ad minim veniam
+                                                    </span>
+                                                    ,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Contents-->
+    </div>
+
+    <div class="accordion-actions">
+        <div class="umb-block-list__actions">
+            <button type="button" class="btn-reset umb-block-list__create-button umb-outline" ng-click="addItem('contents')">Add Content Color</button>
+        </div>
+    </div>
+    <!--Contents-->
+
+    <div class="button-sortable-wrap ui-sortable" ui-sortable="buttonSortableOptions" ng-model="model.value.buttons">
+        <!--Contents-->
+        <div class="card" ng-repeat="button in model.value.buttons track by button.id">
+            <div class="card-header" id="heading-body">
+                <a href="#collapse-button-{{button.id}}" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                    <span ng-style="">Button</span>
+                </a>
+                <div class="btn-actions">
+                    <button type="button" class="action" title="Delete" ng-click="deleteItem('buttons', button)" ng-if="model.value.buttons.length > 1">
+                        <umb-icon icon="icon-trash"></umb-icon>
+                    </button>
+                </div>
+            </div>
+            <div id="collapse-button-{{button.id}}" class="collapse" data-bs-parent="#accordionColor">
+                <div class="card-body">
+                    <div class="span3 card-body-control">
+                        <!-- Text -->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="buttonText{{button.id}}" ng-model="button.text" options="settings"
+                                              on-change="onChange(color, button, 'text')"
+                                              on-move="onChange(color, button, 'text')"
+                                              on-hide="onChange(color, button, 'text')">
+                            </umb-color-picker>
+                            <label for="buttonText{{button.id}}">Text</label>
+                        </div>
+                        <!-- Text hover -->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="buttonTextHover{{button.id}}" ng-model="button.textHover" options="settings"
+                                              on-change="onChange(color, button, 'textHover')"
+                                              on-move="onChange(color, button, 'textHover')"
+                                              on-hide="onChange(color, button, 'textHover')">
+                            </umb-color-picker>
+                            <label for="buttonTextHover{{button.id}}">Text hover</label>
+                        </div>
+                        <!-- Border -->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="buttonBorder{{button.id}}" ng-model="button.border" options="settings"
+                                              on-change="onChange(color, button, 'border')"
+                                              on-move="onChange(color, button, 'border')"
+                                              on-hide="onChange(color, button, 'border')">
+                            </umb-color-picker>
+                            <label for="buttonBorder{{button.id}}">Border</label>
+                        </div>
+                        <!-- Border hover-->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="buttonBorderHover{{button.id}}" ng-model="button.borderHover" options="settings"
+                                              on-change="onChange(color, button, 'borderHover')"
+                                              on-move="onChange(color, button, 'borderHover')"
+                                              on-hide="onChange(color, button, 'borderHover')">
+                            </umb-color-picker>
+                            <label for="buttonBorderHover{{button.id}}">Border hover</label>
+                        </div>
+                        <!-- Background-->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="buttonBackground{{button.id}}" ng-model="button.background" options="settings"
+                                              on-change="onChange(color, button, 'background')"
+                                              on-move="onChange(color, button, 'background')"
+                                              on-hide="onChange(color, button, 'background')">
+                            </umb-color-picker>
+                            <label for="buttonBackground{{button.id}}">Background</label>
+                        </div>
+                        <!-- Background hover-->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="buttonBackgroundHover{{button.id}}" ng-model="button.backgroundHover" options="settings"
+                                              on-change="onChange(color, button, 'backgroundHover')"
+                                              on-move="onChange(color, button, 'backgroundHover')"
+                                              on-hide="onChange(color, button, 'backgroundHover')">
+                            </umb-color-picker>
+                            <label for="buttonBackgroundHover{{button.id}}">Background hover</label>
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <!-- Content Preview -->
+                        <div class="preview-wrap">
+                            <div class="preview-wrap__content">
+                                <div class="control-group">
+                                    <div class="preview-wrap__header">Preview</div>
+                                    <div class="content-preview" style="text-align: center">
+                                        <button style="padding: 10px 20px;border-radius: 5px;transition: all 0.3s ease;"
+                                                ng-style="{
+                                                                'color': hover ? '#' + (button.textHover || '#000') : '#' + (button.text || '#000'),
+                                                                'background-color': hover ? '#' + (button.backgroundHover || '#000') : '#' + (button.background || '#000'),
+                                                                'border': '1px solid ' + (hover ? '#' + (button.borderHover || '#000') : '#' + (button.border || '#000'))
+                                                            }"
+                                                ng-mouseenter="hover = true"
+                                                ng-mouseleave="hover = false"
+                                        >
+                                            Sample Button
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Contents-->
+    </div>
+
+    <div class="accordion-actions">
+        <div class="umb-block-list__actions">
+            <button type="button" class="btn-reset umb-block-list__create-button umb-outline" ng-click="addItem('buttons')">Add Button Color</button>
+        </div>
+    </div>
+    <!--Buttons-->
+    </div>
+    </div>
+    </section>
+</div>

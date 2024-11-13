@@ -99,10 +99,10 @@ button.navbar-toggler {
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
     .navbar-area.navbar-three .navbar .navbar-collapse {
         position: absolute;
-        top: 116%;
+        top: 125%;
         left: 0;
         width: 100%;
-        background-color: var(--primary);
+        background-color: var(--mobile-header-nav-bg-color) !important;
         z-index: 8;
         padding: 10px 16px;
     }
@@ -142,10 +142,11 @@ button.navbar-toggler {
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
     .navbar-area.navbar-three .navbar .navbar-nav .nav-item a {
-        padding: 10px 0;
+        padding: 10px 24px;
+        /*padding: 10px 0;*/
         display: block;
         border: 0;
-        margin: 0;
+        margin: 5px 0;
     }
 }
 
@@ -250,6 +251,8 @@ button.navbar-toggler {
 
 .navbar-area.navbar-three .navbar .navbar-nav .nav-item .sub-menu li {
     position: relative;
+    margin: 0;
+    margin-bottom: 5px;
 }
 
     .navbar-area.navbar-three .navbar .navbar-nav .nav-item .sub-menu li .sub-nav-toggler {

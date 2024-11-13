@@ -1,11 +1,11 @@
 ﻿@inherits UmbracoViewPage<HeadingViewModel>
 
-@if (!Model.Value.IsNullOrWhiteSpace() || Model.HtmlValue != null)
+@if (Model.Heading?.HeadingText?.IsNullOrWhiteSpace() == false)
 {
     <div class="heading-content">
-        @if (!string.IsNullOrEmpty(@Model.LinkUrl))
+        @if (Model.Heading.Link?.Url?.IsNullOrWhiteSpace() == false)
         {
-            <a href="@Model.LinkUrl">
+            <a href="@Model.Heading.Link.Url" target="@Model.Heading.Link.Target">
                 @{
                     RenderHeading();
                 }
@@ -21,14 +21,6 @@
 @functions {
     void RenderHeading()
     {
-
-        @if (Model.HtmlValue != null)
-        {
-            @Model.HtmlValue
-        }
-        else
-        {
-            <h4>@Model.Value</h4>
-        }
+        <@Model.Heading.HeadingTag class="@CssClassHelper.GetTextAlign(@Model.Heading.Align, applyDefaultValue: false)">@Model.Heading.HeadingText</@Model.Heading.HeadingTag>
     }
 }

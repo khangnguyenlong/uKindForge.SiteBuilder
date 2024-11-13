@@ -1,17 +1,21 @@
 /* === Header === */
-    .header nav a {
-        color: var(--header-nav-link-color);
-        text-decoration: none;
-        font-weight: 500 !important;
-    }
+.header nav .menu-bar ul li a {
+    color: var(--header-nav-link-color);
+    text-decoration: none;
+    font-weight: 500 !important;
+}
 
-    .header nav ul.navbar-nav li.nav-item i {
-        color: var(--header-nav-link-color);
-    }
+.header nav .menu-bar ul li:hover a {
+    color: var(--header-nav-link-hover-color);
+}
 
-    .header nav a:hover {
-        color: var(--header-nav-link-hover-color);
-    }
+.header nav .menu-bar ul.navbar-nav li.nav-item i {
+    color: var(--header-nav-link-color);
+}
+
+.header nav .menu-bar ul.navbar-nav li:hover.nav-item i {
+    color: var(--header-nav-link-hover-color);
+}
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
     .navbar-area.navbar-three .navbar .navbar-collapse {
@@ -19,7 +23,7 @@
     }
 }
 
-.header nav .sub-menu {
+.header nav .menu-bar .sub-menu {
     background-color: var(--header-dropdown-bg-color);
 }
 
@@ -27,11 +31,19 @@
     background-color: var(--header-nav-link-color);
 }
 
-.header nav .sub-menu a {
+.header nav .menu-bar .sub-menu li {
+    background-color: var(--header-dropdown-link-bg-color);
+}
+
+
+.header nav .menu-bar .sub-menu li > a {
     color: var(--header-dropdown-link-color);
 }
 
-.header nav .sub-menu li:hover > a {
-    background: var(--header-dropdown-link-hover-bg-color);
+.header nav .menu-bar .sub-menu li:hover > a {
     color: var(--header-dropdown-link-hover-color);
 }
+
+    .header nav .menu-bar .sub-menu li:hover {
+        background-color: var(--header-dropdown-link-hover-bg-color);
+    }
