@@ -139,7 +139,7 @@ namespace GoCoSiteBuilder.Core.Services
                 return null;
 
             var designList = umbracoContext.Content?.GetAtRoot()
-                        .FirstOrDefault(x => x.ContentType.Alias.InvariantEquals(nameof(DesignList.ModelTypeAlias))) as DesignList;
+                        .FirstOrDefault(x => x.ContentType.Alias.InvariantEquals(DesignList.ModelTypeAlias)) as DesignList;
             return designList?.FirstChild<DesignDetail>();
         }
     }
