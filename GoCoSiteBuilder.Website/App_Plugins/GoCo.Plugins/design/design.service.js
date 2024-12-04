@@ -38,6 +38,7 @@
     async function getDesignCssStyle() {
         return $http.get("backoffice/api/design/GetCssStyle")
             .then(function (response) {
+                console.log("getDesignCssStyle-response: ", response);
                 return response.data;
             }, function (error) {
                 console.error("Error fetching design content:", error);

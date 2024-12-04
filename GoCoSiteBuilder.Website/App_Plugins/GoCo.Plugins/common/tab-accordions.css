@@ -164,6 +164,11 @@
     align-items: center;
 }
 
+.accordion-area .accordion .control-group-horizontal label {
+    width: 180px;
+    margin-bottom: 0;
+}
+
 .control-label-icon {
     display: flex;
     align-items: center;

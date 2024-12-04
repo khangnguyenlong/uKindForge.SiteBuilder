@@ -1,0 +1,336 @@
+﻿<div ng-controller="GoCo.LayoutSettingsController">
+    <section class="accordion-area">
+        <div class="accordion mt-5">
+            <div class="accordion-title">
+                <label aria-label="Layout Settings" title="Layout Settings">Layout Settings</label>
+            </div>
+            <div class="accordion-body" id="accordionLayout">
+                <div class="card">
+                    <div class="card-header">
+                        <a href="#collapse-header-desktop" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">Header Desktop</a>
+                    </div>
+
+                    <div id="collapse-header-desktop" class="collapse" data-bs-parent="#accordionLayout">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="span4 card-body-control">
+                                    <div class="control-group control-group-flex control-group-horizontal">
+                                        <label>Header always on top</label>
+                                        <umb-toggle checked="model.value.headerDesktop.alwaysOnTop" on-click="toggle('headerDesktop.alwaysOnTop')"></umb-toggle>
+                                    </div>
+                                    <div class="control-group control-group-flex control-group-horizontal">
+                                        <label>Transparent Header</label>
+                                        <umb-toggle checked="model.value.headerDesktop.transparentHeader" on-click="toggle('headerDesktop.transparentHeader')"></umb-toggle>
+                                    </div>
+                                </div>
+
+                                <div class="span8">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">
+                                                    <span>Preview</span>
+                                                </div>
+                                                <div class="content-preview">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Header Desktop-->
+
+                <div class="card">
+                    <div class="card-header">
+                        <a href="#collapse-header-mobile" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">Header Mobile</a>
+                    </div>
+
+                    <div id="collapse-header-mobile" class="collapse" data-bs-parent="#accordionLayout">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="span4 card-body-control">
+                                    <div class="control-group">
+                                        <div class="control-group control-group-flex control-group-horizontal">
+                                            <label>Header always on top</label>
+                                            <umb-toggle checked="model.value.headerMobile.alwaysOnTop" on-click="toggle('headerMobile.alwaysOnTop')"></umb-toggle>
+                                        </div>
+                                        <div class="control-group control-group-flex control-group-horizontal">
+                                            <label>Transparent Header</label>
+                                            <umb-toggle checked="model.value.headerMobile.transparentHeader" on-click="toggle('headerMobile.transparentHeader')"></umb-toggle>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="span8">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">
+                                                    <span>Preview</span>
+                                                </div>
+                                                <div class="content-preview">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Header Mobile-->
+
+                <div class="card">
+                    <div class="card-header">
+                        <a href="#collapse-image" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">Image</a>
+                    </div>
+                    <div id="collapse-image" class="collapse" data-bs-parent="#accordionLayout">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="span4 card-body-control">
+                                    <div class="control-group control-group-flex control-group-horizontal">
+                                        <label>Zoom on hover</label>
+                                        <umb-toggle checked="model.value.image.zoomOnHover" on-click="toggle('image.zoomOnHover')"></umb-toggle>
+                                    </div>
+                                </div>
+
+                                <div class="span8">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">
+                                                    <span>Preview</span>
+                                                </div>
+                                                <div class="content-preview">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Image-->
+
+                <div class="card">
+                    <div class="card-header">
+                        <a href="#collapse-video" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">Video</a>
+                    </div>
+                    <div id="collapse-video" class="collapse" data-bs-parent="#accordionLayout">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="span4 card-body-control">
+                                    <div class="control-group">
+
+                                    </div>
+                                </div>
+
+                                <div class="span8">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">
+                                                    <span>Preview</span>
+                                                </div>
+                                                <div class="content-preview">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Video-->
+
+                <div class="card">
+                    <div class="card-header">
+                        <a href="#collapse-card" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">Card</a>
+                    </div>
+                    <div id="collapse-card" class="collapse" data-bs-parent="#accordionLayout">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="span4 card-body-control">
+                                    <div class="control-group">
+
+                                    </div>
+                                </div>
+
+                                <div class="span8">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">
+                                                    <span>Preview</span>
+                                                </div>
+                                                <div class="content-preview">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Card-->
+
+                <div class="card">
+                    <div class="card-header">
+                        <a href="#collapse-button" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">Button</a>
+                    </div>
+
+                    <div id="collapse-button" class="collapse" data-bs-parent="#accordionLayout">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="span4 card-body-control">
+                                    <div class="control-group">
+
+                                    </div>
+                                </div>
+
+                                <div class="span8">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">
+                                                    <span>Preview</span>
+                                                </div>
+                                                <div class="content-preview">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Button-->
+
+                <div class="card">
+                    <div class="card-header">
+                        <a href="#collapse-link" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">Link</a>
+                    </div>
+
+                    <div id="collapse-link" class="collapse" data-bs-parent="#accordionLayout">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="span4 card-body-control">
+                                    <div class="control-group">
+
+                                    </div>
+                                </div>
+
+                                <div class="span8">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">
+                                                    <span>Preview</span>
+                                                </div>
+                                                <div class="content-preview">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Link-->
+
+                <div class="card">
+                    <div class="card-header">
+                        <a href="#collapse-icon" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">Icon</a>
+                    </div>
+
+                    <div id="collapse-icon" class="collapse" data-bs-parent="#accordionLayout">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="span4 card-body-control">
+                                    <div class="control-group">
+
+                                    </div>
+                                </div>
+
+                                <div class="span8">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">
+                                                    <span>Preview</span>
+                                                </div>
+                                                <div class="content-preview">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Icon-->
+
+                <div class="card">
+                    <div class="card-header">
+                        <a href="#collapse-general" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">General</a>
+                    </div>
+
+                    <div id="collapse-general" class="collapse" data-bs-parent="#accordionLayout">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="span4 card-body-control">
+                                    <div class="control-group control-group-flex control-group-horizontal">
+                                        <label>Back to top</label>
+                                        <umb-toggle checked="model.value.general.backToTop" on-click="toggle('general.backToTop')"></umb-toggle>
+                                    </div>
+                                </div>
+
+                                <div class="span8">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">
+                                                    <span>Preview</span>
+                                                </div>
+                                                <div class="content-preview">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--General-->
+            </div>
+        </div>
+    </section>
+</div>

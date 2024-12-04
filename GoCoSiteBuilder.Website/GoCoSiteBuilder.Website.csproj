@@ -53,6 +53,9 @@
     <None Include="App_Plugins\GoCo.Plugins\design\fontSettings\fontSettings.css" />
     <None Include="App_Plugins\GoCo.Plugins\design\fontSettings\fontSettings.html" />
     <None Include="App_Plugins\GoCo.Plugins\design\fontSettings\fontSettings.controller.js" />
+    <None Include="App_Plugins\GoCo.Plugins\design\layoutSettings\layoutSettings.controller.js" />
+    <None Include="App_Plugins\GoCo.Plugins\design\layoutSettings\layoutSettings.css" />
+    <None Include="App_Plugins\GoCo.Plugins\design\layoutSettings\layoutSettings.html" />
     <None Include="App_Plugins\GoCo.Plugins\heading\heading.controller.js" />
     <None Include="App_Plugins\GoCo.Plugins\numericPlus\numericPlus.controller.js" />
     <None Include="App_Plugins\GoCo.Plugins\radioButtonPlus\radioButtonPlus.controller.js" />
