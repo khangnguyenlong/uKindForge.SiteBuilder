@@ -167,6 +167,7 @@
 .accordion-area .accordion .control-group-horizontal label {
     width: 180px;
     margin-bottom: 0;
+    flex-shrink: 0;
 }
 
 .control-label-icon {
@@ -174,3 +175,13 @@
     align-items: center;
     gap: 10px;
 }
+
+.control-group-wrapper {
+    border-bottom: 1px solid #d8d7d9;
+    margin-bottom: 15px;
+}
+
+    .control-group-wrapper > label {
+        margin-bottom: 15px;
+        font-weight: 600;
+    }

@@ -1,5 +1,5 @@
-﻿angular.module("umbraco").controller("GoCo.ButtonColorController", customBlockPreviewController);
-function customBlockPreviewController($scope, designService, editorState) {
+﻿angular.module("umbraco").controller("GoCo.ButtonColorController", buttonColorController);
+function buttonColorController($scope, designService, editorState) {
     $scope.model.items = [];
 
     designService.getCurrentDesignDetail().then(function (content) {

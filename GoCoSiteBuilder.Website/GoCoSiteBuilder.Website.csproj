@@ -7,6 +7,13 @@
   <ItemGroup>
     <Content Include="App_Plugins\GoCo.Plugins\colorPalette\colorPalette.css" />
     <Content Include="App_Plugins\GoCo.Plugins\common\tab-accordions.css" />
+    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\card.png" />
+    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\headerDesktop_style1.png" />
+    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\headerDesktop_style2.png" />
+    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\headerDesktop_style3.png" />
+    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\image.png" />
+    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\mobile_style1.png" />
+    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\video.png" />
     <Content Include="App_Plugins\GoCo.Plugins\design\preview\footer.html" />
     <Content Include="App_Plugins\GoCo.Plugins\design\preview\mainNav.html" />
     <Content Include="App_Plugins\GoCo.Plugins\design\fontSettings\google-web-font-list.json" />
