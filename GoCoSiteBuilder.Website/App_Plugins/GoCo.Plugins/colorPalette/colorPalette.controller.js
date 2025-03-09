@@ -48,13 +48,14 @@
             }
         });
         if (!$scope.model.value && !Utilities.isArray($scope.model.value)) {
-            $scope.model.value = [];
+            $scope.model.value = [{ label: "000000", value: "000000" }];
         }
  
         for (var i = 0; i < $scope.model.value.length; i++) {
             var item = $scope.model.value[i];
             item.label = item.hasOwnProperty('label') ? item.label : item.value;
         }
+
         function validLabel(label) {
             return label !== null && typeof label !== 'undefined' && label !== '' && label.length && label.length > 0;
         }

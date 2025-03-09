@@ -1,10 +1,20 @@
 ﻿angular.module("umbraco").controller("GoCo.ColorSettingsController", colorSettingsController);
 function colorSettingsController($scope, $timeout, $element, designService, editorState) {
-    const value = "000000";
 
     if (!$scope.model.value) {
         $scope.model.value = createDefaultColor();
     }
+
+    const colorPaletteProperty = designService.getProperty("colors", "settings", "colorPalette", editorState.getCurrent());
+    let colorPaletteValue = getColorPalatteValue(colorPaletteProperty);
+
+    $scope.settings = {
+        palette: colorPaletteValue,
+        showPalette: true,
+        showPaletteOnly: true,
+        showInput: false,
+        allowEmpty: false
+    };
 
     function createDefaultColor() {
         return {
@@ -37,15 +47,12 @@ function colorSettingsController($scope, $timeout, $element, designService, edit
         }
     };
 
-
-
-    const colorPaletteProperty = designService.getProperty("colors", "settings", "colorPalette", editorState.getCurrent());
-    let colorPaletteValue = getColorPalatteValue(colorPaletteProperty);
-
     function getColorPalatteValue(colorPaletteProperty, chunkSize = 3) {
         let value = [];
-
-        if (!colorPaletteProperty.value) return value;
+        if (!colorPaletteProperty.value || colorPaletteProperty.value.length <= 0) {
+            value.push({ label: "000000", value: "000000" });
+            return value;
+        }
 
         for (let i = 0; i < colorPaletteProperty.value.length; i += chunkSize) {
             const colorPaletteChunkValue = colorPaletteProperty.value.slice(i, i + chunkSize);
@@ -63,7 +70,7 @@ function colorSettingsController($scope, $timeout, $element, designService, edit
         function (newValue, oldValue) {
             if (newValue !== oldValue) {
                 colorPaletteValue = getColorPalatteValue(colorPaletteProperty);
-                $timeout(updateBaselineColors, 10);
+                $timeout(updateBaselineColors, 100);
             }
         },
         true
@@ -71,10 +78,18 @@ function colorSettingsController($scope, $timeout, $element, designService, edit
 
     function updateBaselineColors() {
         const colorPickerControls = $element.find('.umb-color-picker input');
+
+        // Check if Spectrum is available
+        if (typeof $.fn.spectrum !== "function") {
+            console.error("Spectrum plugin is not loaded!");
+            return;
+        }
+
         colorPickerControls.each(function () {
             $(this).spectrum("option", "palette", colorPaletteValue);
         });
     }
+
 
     $scope.addItem = function (property) {
         const item = {
@@ -87,14 +102,6 @@ function colorSettingsController($scope, $timeout, $element, designService, edit
         if (index > -1) {
             $scope.model.value[property].splice(index, 1);
         }
-    };
-
-    $scope.settings = {
-        palette: colorPaletteValue,
-        showPalette: true,
-        showPaletteOnly: true,
-        showInput: false,
-        allowEmpty: false
     };
 
     $scope.contentSortableOptions = {

@@ -46,7 +46,7 @@ function layoutSettingsController($scope, $http, assetsService) {
         }
     };
 
-    $scope.getImageOrVideoStyle = function (image) {
+    $scope.getImageOrVideoStyle = function (image = {}) {
         const defaultShadowColor = '#000000';
         const shadowColor = image.shadowColor
             ? '#' + image.shadowColor.replace(/^#/, '')
