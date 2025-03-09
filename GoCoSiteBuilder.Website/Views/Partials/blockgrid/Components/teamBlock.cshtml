@@ -1,0 +1,67 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<TeamBlock, TeamBlockSettings>>
+@inject DesignHelper DesignHelper
+
+@{
+	if (Model.Content == null) return;
+	var layoutSettings = new LayoutSettingsViewModel
+	{
+		OrderColor = Model.Settings.Color,
+		FullWidth = Model.Settings.FullWidth,
+		IsAddMarginBottom = Model.Settings.IsAddMarginBottom,
+		IsAddMarginTop = Model.Settings.IsAddMarginTop,
+		IsAddPaddingBottom = Model.Settings.IsAddPaddingBottom,
+		IsAddPaddingTop = Model.Settings.IsAddPaddingTop,
+		MarginBottom = Model.Settings.MarginBottom,
+		MarginTop = Model.Settings.MarginTop,
+		PaddingBottom = Model.Settings.PaddingBottom,
+		PaddingTop = Model.Settings.PaddingTop
+	};
+}
+<section-layout info="layoutSettings">
+	<div class="team-area @DesignHelper.GetBackgroundClass(Model.Settings?.Color)">
+		<div class="container">
+			@await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
+			@await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
+
+			@if (Model.Content.TeamItems != null && Model.Content.TeamItems.Any())
+			{
+				<div class="row justify-content-center">
+					@foreach (var item in Model.Content.TeamItems)
+					{
+						var teamItem = item.Content.SafeCast<TeamItem>();
+						if (teamItem == null) continue;
+						var teamItemSettings = item.Settings.SafeCast<TeamItemSettings>();
+
+						<div class="@CssClassHelper.GetColClass(Model.Settings.Columns.IsNullOrWhiteSpace() ? "4" : Model.Settings.Columns)">
+							<div class="single-team text-center team-style-one">
+								<div class="team-image">
+									@await Html.PartialImageLinkAsync(new ImageViewModel(teamItem.Image))
+								</div>
+								<div class="team-content @DesignHelper.GetBackgroundClass(teamItemSettings?.Color)">
+									@await Html.PartialHeadingAsync(new HeadingViewModel(teamItem.MemberName, "name"))
+									@await Html.PartialSubheadingAsync(new HeadingViewModel(teamItem.SubTitle, "sub-title"))
+									@if (teamItem.SocialIcons != null && teamItem.SocialIcons.Any())
+									{
+										<ul class="social">
+											@foreach (var social in teamItem.SocialIcons)
+											{
+												var iconLink = social.Content.SafeCast<IconLink>();
+												if (iconLink == null) continue;
+												<li>
+													@await Html.PartialLineIconLinkAsync(new LineIconLinkViewModel(iconLink))
+												</li>
+											}
+										</ul>
+									}
+								</div>
+							</div>
+							<!-- single team -->
+						</div>
+					}
+				</div>
+				<!-- row -->
+			}
+		</div>
+		<!-- container -->
+	</div>
+</section-layout>

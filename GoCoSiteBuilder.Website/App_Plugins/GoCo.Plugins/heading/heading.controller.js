@@ -1,12 +1,15 @@
 ﻿angular.module("umbraco").controller("GoCo.HeadingController", headingController);
 function headingController($scope, editorService) {
     $scope.headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-    $scope.model.value = $scope.model.value || {
-        headingText: "",
-        headingTag: $scope.model.config.defaultHeadingTag || "h1",
-        align: "",
-        link: {}
-    };
+    if (!$scope.model.value || Object.keys($scope.model.value).length == 0)
+    {
+        $scope.model.value = {
+            headingText: "",
+            headingTag: $scope.model.config.defaultHeadingTag || "h1",
+            align: "",
+            link: {}
+        };
+    }
 
 
     if ($scope.model.config.hideAlignControl === '1') {

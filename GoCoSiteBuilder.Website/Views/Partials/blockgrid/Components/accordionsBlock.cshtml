@@ -1,0 +1,49 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<AccordionsBlock>>
+
+<section class="accordion-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="single-accordion">
+					@if (Model.Content.Title != null)
+					{
+						<div class="accordion-title">
+							@await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
+						</div>
+					}
+					<div class="accordion-style-two">
+						<div class="accordion" id="accordion-@Model.Content.Key">
+							@if (Model.Content.Accordions != null && Model.Content.Accordions.Any())
+							{
+								foreach (var item in Model.Content.Accordions)
+								{
+									var accordionItem = item.Content.SafeCast<AccordionItem>();
+									if (accordionItem == null) continue;
+									var isFirstItem = accordionItem.Key == Model.Content.Accordions[0].Content.Key;
+									<div class="card">
+										<div class="card-header">
+											<a href="#collapse-@accordionItem.Key" class="@(isFirstItem ? "" : "collapsed")" data-bs-toggle="collapse" role="button" aria-expanded="@(isFirstItem ? "true" : "false")">
+												@accordionItem.Title
+											</a>
+										</div>
+
+										<div id="collapse-@accordionItem.Key" class="collapse @(isFirstItem ? "show" : "")" data-bs-parent="#accordion-@Model.Content.Key">
+											<div class="card-body">
+												@await Html.PartialTextAsync(new TextViewModel(accordionItem.Description))
+											</div>
+										</div>
+									</div>
+									<!-- card -->
+								}
+							}
+						</div>
+					</div>
+					<!-- card -->
+				</div>
+				<!-- accordion style one -->
+			</div>
+		</div>
+		<!-- row -->
+	</div>
+	<!-- container -->
+</section>

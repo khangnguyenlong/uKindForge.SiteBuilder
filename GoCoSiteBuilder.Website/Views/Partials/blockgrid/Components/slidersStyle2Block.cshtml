@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="slider-content @CssClassHelper.GetTextAlign(Model.Settings.ContentAlign)">
-                    @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
+                    @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title, "slider-title"))
                     @await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
                     @await Html.PartialButtonLinkAsync(new ButtonViewModel { Buttons = Model.Content?.Buttons })
                 </div>

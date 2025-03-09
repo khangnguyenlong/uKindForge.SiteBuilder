@@ -12,9 +12,9 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Umbraco.Cms.Core" Version="13.5.2" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.5.2" />
-    <PackageReference Include="Umbraco.Cms.Web.Common" Version="13.5.2" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="13.7.0" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.7.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Common" Version="13.7.0" />
   </ItemGroup>
 
   <ItemGroup>

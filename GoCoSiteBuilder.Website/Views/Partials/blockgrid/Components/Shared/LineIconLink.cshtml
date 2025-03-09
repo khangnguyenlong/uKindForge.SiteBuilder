@@ -1,0 +1,19 @@
+﻿@inherits UmbracoViewPage<LineIconLinkViewModel>
+@inject DesignHelper DesignHelper
+
+@{
+    if (Model.IconLink == null || string.IsNullOrEmpty(Model.IconLink.Icon)) return;
+}
+
+@if (Model.IconLink.Link != null && !Model.IconLink.Link.Url.IsNullOrWhiteSpace())
+{
+    <a class="@DesignHelper.GetButtonClass(Model.IconLink.Color)" href="@Model.IconLink.Link.Url" target="@Model.IconLink.Link.Target" alt="@Model.IconLink.Link.Name">
+        <i class="lni @Model.IconLink.Icon"></i>
+    </a>
+}
+else
+{
+    <a class="@DesignHelper.GetButtonClass(Model.IconLink.Color)">
+        <i class="lni @Model.IconLink.Icon"></i>
+    </a>
+}

@@ -1,0 +1,64 @@
+/*===========================
+  teams css 
+===========================*/
+.team-style-one {
+    position: relative;
+    margin-top: 30px;
+    box-shadow: var(--team-box-shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    -webkit-transition: all 0.4s ease-out 0s;
+    -moz-transition: all 0.4s ease-out 0s;
+    -ms-transition: all 0.4s ease-out 0s;
+    -o-transition: all 0.4s ease-out 0s;
+    transition: all 0.4s ease-out 0s;
+}
+
+    .team-style-one:hover {
+        box-shadow: var(--team-box-shadow-hover);
+    }
+
+    .team-style-one .team-image img {
+        width: 100%;
+    }
+
+    .team-style-one .team-content {
+        padding: 20px 15px;
+        width: 100%;
+    }
+
+        .team-style-one .team-content .name {
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+
+.team-style-one .team-content .sub-title {
+    margin-top: 2px;
+    display: block;
+}
+
+.team-style-one .team-content .social {
+    margin-top: 12px;
+}
+
+    .team-style-one .team-content .social li {
+        display: inline-flex;
+        margin: 0 4px;
+    }
+
+        .team-style-one .team-content .social li a {
+            font-size: 16px;
+            height: 35px;
+            width: 35px;
+            text-align: center;
+            line-height: 35px;
+            border-radius: 50%;
+            -webkit-transition: all 0.4s ease-out 0s;
+            -moz-transition: all 0.4s ease-out 0s;
+            -ms-transition: all 0.4s ease-out 0s;
+            -o-transition: all 0.4s ease-out 0s;
+            transition: all 0.4s ease-out 0s;
+        }

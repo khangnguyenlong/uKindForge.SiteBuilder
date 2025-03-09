@@ -49,7 +49,7 @@
                                     {
                                         @if (socialIcon.Content is not IconLink iconLink || iconLink.Link == null) continue;
                                         <li>
-                                            @await Html.PartialImageLinkAsync(new ImageViewModel(iconLink.Icon)
+                                            @await Html.PartialLineIconLinkAsync(iconLink)
                                             {
                                                 CropWidth = 40,
                                                 CropHeight = 40,

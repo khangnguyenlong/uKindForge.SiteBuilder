@@ -8,9 +8,10 @@ namespace GoCoSiteBuilder.Core.ValueConverter
 {
     public class ColorSettingsValueConverter : PropertyValueConverterBase
     {
-        public override bool IsConverter(IPublishedPropertyType propertyType) => propertyType.EditorAlias.Equals("GoCo.FontSettings");
+        public override bool IsConverter(IPublishedPropertyType propertyType) =>
+            propertyType.EditorAlias.Equals("GoCo.ColorSettings");
 
-        public override Type GetPropertyValueType(IPublishedPropertyType propertyType) => typeof(FontSettings);
+        public override Type GetPropertyValueType(IPublishedPropertyType propertyType) => typeof(ColorSettings);
 
         public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType) =>
             PropertyCacheLevel.None;
@@ -26,7 +27,7 @@ namespace GoCoSiteBuilder.Core.ValueConverter
             {
                 try
                 {
-                    var jsonObject = JsonConvert.DeserializeObject<FontSettings>(intermediate);
+                    var jsonObject = JsonConvert.DeserializeObject<ColorSettings>(intermediate);
                     if (jsonObject != null) return jsonObject;
                 }
                 catch

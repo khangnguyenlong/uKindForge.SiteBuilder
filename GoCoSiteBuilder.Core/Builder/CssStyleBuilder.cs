@@ -51,11 +51,16 @@ namespace GoCoSiteBuilder.Core.Builder
                     .StartClass($"{AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX}{i}")
                     .AddBackgroundColor($"#{contentColor.Background}")
                     .AddCssAttribute("--heading-content-color", $"#{contentColor.Heading}")
+                    .AddCssAttribute("--subheading-content-color", $"#{contentColor.Subheading}")
                     .AddCssAttribute("--text-content-color", $"#{contentColor.Text}")
                     .EndClass()
 
                     .StartClass("heading-content")
                     .AddColor("var(--heading-content-color) !important")
+                    .EndClass()
+
+                    .StartClass("subheading-content")
+                    .AddColor("var(--subheading-content-color) !important")
                     .EndClass()
 
                     .StartClass("text-content")

@@ -1,0 +1,26 @@
+﻿@inherits UmbracoViewPage<HeadingViewModel>
+
+@if (Model?.Heading?.HeadingText?.IsNullOrWhiteSpace() == false)
+{
+    <div class="subheading-content">
+        @if (Model.Heading.Link?.Url?.IsNullOrWhiteSpace() == false)
+        {
+            <a href="@Model.Heading.Link.Url" target="@Model.Heading.Link.Target">
+                @{
+                    RenderHeading();
+                }
+            </a>
+        }
+        else
+        {
+            RenderHeading();
+        }
+    </div>
+}
+
+@functions {
+    void RenderHeading()
+    {
+        <@Model.Heading.HeadingTag class="@CssClassHelper.GetTextAlign(@Model.Heading.Align, applyDefaultValue: false) @Model.CssClass">@Model.Heading.HeadingText</@Model.Heading.HeadingTag>
+    }
+}

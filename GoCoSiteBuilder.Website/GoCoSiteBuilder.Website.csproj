@@ -5,6 +5,8 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIconsPicker.css" />
+    <Content Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIconsPicker.html" />
     <Content Include="App_Plugins\GoCo.Plugins\colorPalette\colorPalette.css" />
     <Content Include="App_Plugins\GoCo.Plugins\common\tab-accordions.css" />
     <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\card.png" />
@@ -19,6 +21,7 @@
     <Content Include="App_Plugins\GoCo.Plugins\design\fontSettings\google-web-font-list.json" />
     <Content Include="App_Plugins\GoCo.Plugins\heading\heading.css" />
     <Content Include="App_Plugins\GoCo.Plugins\heading\heading.html" />
+    <Content Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIcons.json" />
     <Content Include="App_Plugins\GoCo.Plugins\radioButtonPlus\radioButtonPlus.css" />
     <Content Include="App_Plugins\GoCo.Plugins\blockPreview\blockPreview.html" />
     <Content Include="App_Plugins\GoCo.Plugins\backgroundColor\backgroundColor.html" />
@@ -33,7 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Umbraco.Cms" Version="13.5.2" />
+    <PackageReference Include="Umbraco.Cms" Version="13.7.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIconsPicker.controller.js" />
     <None Include="App_Plugins\GoCo.Plugins\blockPreview\blockPreview.controller.js" />
     <None Include="App_Plugins\GoCo.Plugins\backgroundColor\backgroundColor.controller.js" />
     <None Include="App_Plugins\GoCo.Plugins\colorPalette\colorPalette.controller.js" />
@@ -71,6 +75,25 @@
     <None Include="App_Plugins\GoCo.Plugins\buttonColor\buttonColor.controller.js" />
     <None Include="App_Plugins\GoCo.Plugins\togglePlus\togglePlus.controller.js" />
     <None Include="App_Plugins\GoCo.Plugins\package.manifest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Partials\blockgrid\Components\contactForm2Block.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Partials\blockgrid\Components\accordionsBlock.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Partials\blockgrid\Components\Shared\Subheading.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Partials\blockgrid\Components\teamBlock.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <PropertyGroup>

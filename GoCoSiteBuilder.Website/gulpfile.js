@@ -13,16 +13,20 @@ gulp.task('minify-css', () => {
         './wwwroot/css/lib/bootstrap/bootstrap.min.css',
         './wwwroot/css/lib/bootstrap/bootstrap-grid.min.css',
         './wwwroot/css/lib/bootstrap/bootstrap-reboot.min.css',
-        './wwwroot/css/base.css',
         './wwwroot/css/lib/lineicons.css',
+        './wwwroot/css/lib/tiny-slider.css',
+        './wwwroot/css/base.css',
         './wwwroot/css/goco/header.css',
         './wwwroot/css/goco/footer.css',
         './wwwroot/css/goco/card.css',
         './wwwroot/css/goco/slider.css',
         './wwwroot/css/goco/banner.css',
-
+        './wwwroot/css/goco/contact-form.css',
+        './wwwroot/css/goco/tab-accordions.css',
         './wwwroot/css/goco/umbraco.css',
         './wwwroot/css/goco/navbar.css',
+        './wwwroot/css/goco/team.css',
+        './wwwroot/css/goco/testimonial.css',
     ])
     .pipe(concat('bundle.min.css'))     // combine to 1 file bundle.min.css
     //TODO: issue lost css

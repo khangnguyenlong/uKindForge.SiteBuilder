@@ -1,0 +1,59 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<TabVerticalBlock>>
+
+<section class="tabs-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="tabs">
+					<div class="tabs-title">
+						@await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
+					</div>
+					@if (Model.Content.TabItems != null && Model.Content.TabItems.Any())
+					{
+						<div class="single-tabs tabs-six">
+							<div class="row no-gutters">
+								<div class="col-sm-4">
+									<div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+										@foreach (var item in Model.Content.TabItems)
+										{
+											var tabItem = item.Content.SafeCast<TabItem>();
+											if (tabItem == null) continue;
+											var isFirstItem = tabItem.Key == Model.Content.TabItems[0].Content.Key;
+
+											<a class="@(isFirstItem ? "active" : "")" id="v-pills-six-@tabItem.Key-tab" data-bs-toggle="pill" href="#v-pills-six-@tabItem.Key" role="tab"
+											   aria-controls="v-pills-six-@tabItem.Key" aria-selected="true">
+											   @* <i class="lni lni-vector"></i> *@ <!--TODO support icon-->
+											   @tabItem.Title
+											</a>
+										}
+									</div>
+								</div>
+								<div class="col-sm-8">
+									<div class="tab-content">
+										@foreach (var item in Model.Content.TabItems)
+										{
+											var tabItem = item.Content.SafeCast<TabItem>();
+											if (tabItem == null) continue;
+											var isFirstItem = tabItem.Key == Model.Content.TabItems[0].Content.Key;
+
+											<div class="tab-pane fade @(isFirstItem ? "show active" : "")" id="v-pills-six-@tabItem.Key" role="tabpanel"
+												 aria-labelledby="v-pills-six-@tabItem.Key-tab">
+												<div class="tab-text">
+													@await Html.PartialTextAsync(new TextViewModel(tabItem.Description))
+												</div>
+											</div>
+										}
+									</div>
+								</div>
+							</div>
+							<!-- row -->
+						</div>
+					}
+					<!-- tabs one -->
+				</div>
+			</div>
+		</div>
+		<!-- row -->
+	</div>
+	<!-- container -->
+</section>

@@ -1,0 +1,10 @@
+﻿@inherits UmbracoViewPage<LineIconViewModel>
+@inject DesignHelper DesignHelper
+
+@{
+    if (string.IsNullOrEmpty(Model.LineIcon?.Icon) && string.IsNullOrEmpty(Model.DefaultIcon)) return;
+	var icon = string.IsNullOrEmpty(Model.LineIcon?.Icon) ? Model.DefaultIcon : Model.LineIcon.Icon;
+}
+<div class="@Model.CssClass @DesignHelper.GetButtonClass(Model.LineIcon?.Color)">
+	<i class="lni @icon"></i>
+</div>

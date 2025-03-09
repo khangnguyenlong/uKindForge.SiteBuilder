@@ -116,6 +116,30 @@ namespace GoCoSiteBuilder.Core.Services
                         --footer-link-hover-color: #{color.Footer.LinkHover};
 
                         --section-padding: 60px;
+
+                        /* Tab */
+                        --tab-horizontal-active-title-color: #fff;
+                        --tab-horizontal-active-bg-color: #155bd5;
+                        --tab-horizontal-title-color: #000;
+                        --tab-horizontal-border-color: #e0e0e0;
+
+                        --tab-vertical-active-title-color: #155bd5;
+                        --tab-vertical-active-bg: #e2f1ff;
+                        --tab-vertical-active-line-color: #155bd5;
+                        --tab-vertical-title-color: #6d6d6d;
+                        --tab-vertical-line-color: #e0e0e0;
+                        --tab-vertical-border-color: #e0e0e0;
+
+                        /* Accordion */
+                        --accordion-expand-title-color: #fff;
+                        --accordion-expand-bg-color: #155bd5;
+                        --accordion-expand-border-color: #155bd5;
+                        --accordion-collapsed-title-color: #000;
+                        --accordion-collapsed-border-color: #e0e0e0;
+
+                        /* Team */
+                        --team-box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04), 0px 2px 4px rgba(96, 97, 112, 0.16);
+                        --team-box-shadow-hover: 0px 2px 4px rgba(40, 41, 61, 0.04), 0px 8px 16px rgba(96, 97, 112, 0.16); 
                     }}
                     {cssStyle}
                 </style>

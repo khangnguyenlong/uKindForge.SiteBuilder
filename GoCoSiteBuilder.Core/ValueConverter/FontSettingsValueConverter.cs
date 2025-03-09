@@ -1,10 +1,5 @@
 ﻿using GoCoSiteBuilder.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Extensions;
@@ -13,10 +8,9 @@ namespace GoCoSiteBuilder.Core.ValueConverter
 {
     public class FontSettingsValueConverter : PropertyValueConverterBase
     {
-        public override bool IsConverter(IPublishedPropertyType propertyType) =>
-            propertyType.EditorAlias.Equals("GoCo.ColorSettings");
+        public override bool IsConverter(IPublishedPropertyType propertyType) => propertyType.EditorAlias.Equals("GoCo.FontSettings");
 
-        public override Type GetPropertyValueType(IPublishedPropertyType propertyType) => typeof(ColorSettings);
+        public override Type GetPropertyValueType(IPublishedPropertyType propertyType) => typeof(FontSettings);
 
         public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType) =>
             PropertyCacheLevel.None;
@@ -32,7 +26,7 @@ namespace GoCoSiteBuilder.Core.ValueConverter
             {
                 try
                 {
-                    var jsonObject = JsonConvert.DeserializeObject<ColorSettings>(intermediate);
+                    var jsonObject = JsonConvert.DeserializeObject<FontSettings>(intermediate);
                     if (jsonObject != null) return jsonObject;
                 }
                 catch

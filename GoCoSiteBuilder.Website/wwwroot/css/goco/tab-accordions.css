@@ -1,0 +1,220 @@
+﻿/*===========================
+  ACCORDIONS css 
+===========================*/
+.accordion-area {
+    padding: 100px 0;
+}
+
+.accordion-title {
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* accordion-style-two */
+.accordion-style-two .accordion .card {
+    margin-top: 8px;
+    border: 1px solid var(--gray-4) !important;
+    border-radius: 4px;
+}
+
+    .accordion-style-two .accordion .card .card-header {
+        padding: 0;
+        background: none;
+    }
+
+        .accordion-style-two .accordion .card .card-header a {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 24px;
+            position: relative;
+            color: var(--accordion-expand-title-color);
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+            border: 1px solid var(--accordion-expand-border-color);
+            margin: -1px;
+            border-radius: 4px;
+            padding: 13px 16px;
+            z-index: 5;
+            background-color: var(--accordion-expand-bg-color);
+        }
+
+            .accordion-style-two .accordion .card .card-header a::before {
+                position: absolute;
+                content: "\ea5e";
+                font-family: lineicons !important;
+                right: 16px;
+                top: 14px;
+                font-size: 16px;
+                -webkit-transition: all 0.3s ease-out 0s;
+                -moz-transition: all 0.3s ease-out 0s;
+                -ms-transition: all 0.3s ease-out 0s;
+                -o-transition: all 0.3s ease-out 0s;
+                transition: all 0.3s ease-out 0s;
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+
+            .accordion-style-two .accordion .card .card-header a.collapsed {
+                color: var(--accordion-collapsed-title-color);
+                border-color: var(--accordion-collapsed-border-color);
+                background-color: transparent;
+            }
+
+                .accordion-style-two .accordion .card .card-header a.collapsed::before {
+                    -webkit-transform: rotate(0);
+                    -moz-transform: rotate(0);
+                    -ms-transform: rotate(0);
+                    -o-transform: rotate(0);
+                    transform: rotate(0);
+                }
+
+    .accordion-style-two .accordion .card .card-body {
+        padding: 16px;
+    }
+
+        .accordion-style-two .accordion .card .card-body .text {
+            color: var(--dark-3);
+        }
+
+
+
+/* Tab */
+/*===========================
+  tabs AND ACCORDIONS css 
+===========================*/
+.tabs-title {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 45px;
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+    .tabs-title {
+        font-size: 24px;
+        line-height: 35px;
+    }
+}
+
+/* tabs-one */
+.tabs-one {
+    border: 1px solid var(--tab-horizontal-border-color);
+}
+
+    .tabs-one .nav {
+        border-bottom: 1px solid var(--tab-horizontal-border-color);
+    }
+
+@media (max-width: 767px) {
+    .tabs-one .nav {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .tabs-one .nav {
+        display: flex;
+    }
+}
+
+.tabs-one .nav .nav-item a {
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--tab-horizontal-title-color);
+    font-weight: 700;
+    padding: 13px;
+    -webkit-transition: all 0.3s ease-out 0s;
+    -moz-transition: all 0.3s ease-out 0s;
+    -ms-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+    display: block;
+}
+
+    .tabs-one .nav .nav-item a.active {
+        color: var(--tab-horizontal-active-title-color);
+        background: var(--tab-horizontal-active-bg-color);
+    }
+
+.tabs-one .tab-content .tab-text {
+    padding: 15px;
+}
+
+    .tabs-one .tab-content .tab-text .text {
+        color: var(--dark-3);
+    }
+
+
+/* tabs-six */
+.tabs-six {
+    border: 1px solid var(--tab-vertical-border-color);
+}
+
+    .tabs-six .nav {
+        height: 100%;
+        position: relative;
+    }
+
+        .tabs-six .nav::before {
+            position: absolute;
+            content: "";
+            width: 4px;
+            height: 100%;
+            background-color: var(--tab-vertical-line-color);
+            top: 0;
+            right: 0;
+        }
+
+        .tabs-six .nav a {
+            font-size: 16px;
+            line-height: 24px;
+            color: var(--tab-vertical-title-color);
+            font-weight: 700;
+            padding: 13px;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+            display: block;
+            position: relative;
+            text-align: center;
+        }
+
+            .tabs-six .nav a i {
+                margin-right: 5px;
+                font-size: 18px;
+            }
+
+            .tabs-six .nav a.active {
+                color: var(--tab-vertical-active-title-color);
+                background: var(--tab-vertical-active-bg);
+            }
+
+                .tabs-six .nav a.active::before {
+                    position: absolute;
+                    content: "";
+                    width: 4px;
+                    height: 100%;
+                    background: var(--tab-vertical-active-line-color);
+                    top: 0;
+                    right: 0;
+                }
+
+    .tabs-six .tab-content .tab-text {
+        padding: 15px;
+    }
+
+        .tabs-six .tab-content .tab-text .text {
+            color: var(--dark-3);
+        }
+
+/* End Tab */

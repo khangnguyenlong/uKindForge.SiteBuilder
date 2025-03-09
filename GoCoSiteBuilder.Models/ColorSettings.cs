@@ -51,6 +51,7 @@
         public Guid Id { get; set; }
         public string Text { get; set; } = "000";
         public string Heading { get; set; } = "000";
+        public string Subheading { get; set; } = "000";
         public string Link { get; set; } = "000";
         public string LinkHover { get; set; } = "000";
         public string HighlightText { get; set; } = "000";

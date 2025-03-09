@@ -235,6 +235,18 @@
         "hideLabel": true,
         "valueType": "JSON"
       }
+    },
+    {
+      "alias": "GoCo.LineIconsPicker",
+      "name": "GoCo - Line icons Picker",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "supportsReadOnly": true,
+      "editor": {
+        "view": "/App_Plugins/GoCo.Plugins/lineIconsPicker/lineIconsPicker.html",
+        "hideLabel": false,
+        "valueType": "STRING"
+      }
     }
   ],
   "css": [
@@ -247,7 +259,8 @@
     "/App_Plugins/GoCo.Plugins/heading/heading.css",
     "/App_Plugins/GoCo.Plugins/design/fontSettings/fontSettings.css",
     "/App_Plugins/GoCo.Plugins/design/colorSettings/colorSettings.css",
-    "/App_Plugins/GoCo.Plugins/design/layoutSettings/layoutSettings.css"
+    "/App_Plugins/GoCo.Plugins/design/layoutSettings/layoutSettings.css",
+    "/App_Plugins/GoCo.Plugins/lineIconsPicker/lineIconsPicker.css"
   ],
   "javascript": [
     "/js/bootstrap/bootstrap.bundle.min.js",
@@ -267,6 +280,7 @@
     "/App_Plugins/GoCo.Plugins/heading/heading.controller.js",
     "/App_Plugins/GoCo.Plugins/design/fontSettings/fontSettings.controller.js",
     "/App_Plugins/GoCo.Plugins/design/colorSettings/colorSettings.controller.js",
-    "/App_Plugins/GoCo.Plugins/design/layoutSettings/layoutSettings.controller.js"
+    "/App_Plugins/GoCo.Plugins/design/layoutSettings/layoutSettings.controller.js",
+    "/App_Plugins/GoCo.Plugins/lineIconsPicker/lineIconsPicker.controller.js"
   ]
 }

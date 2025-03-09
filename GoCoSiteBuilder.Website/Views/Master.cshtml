@@ -13,6 +13,9 @@
     {
 		design = ViewData["DesignDetail"] as DesignDetail;
     }
+
+	var homePage = Umbraco.ContentAtRoot()
+					.FirstOrDefault(x => x.ContentType.Alias.InvariantEquals(HomePage.ModelTypeAlias)) as HomePage;
 }
 
 <!DOCTYPE html>
@@ -24,9 +27,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!--TODO-->
-	<link rel="shortcut icon"
-		  href="~/css/goco/"
-		  type="image/svg" />
+	<link rel="shortcut icon" href="~/css/goco/" type="image/svg" />
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +40,7 @@
 <body>
 
 	<!--Header-->
-	@await Html.PartialAsync("~/Views/Partials/Header.cshtml")
+	@await Html.PartialAsync("~/Views/Partials/Header.cshtml", homePage)
 
 	<!--Body-->
 	<main id="content">
@@ -47,7 +48,9 @@
 	</main>
 
 	<!--Footer-->
-	@await Html.PartialAsync("~/Views/Partials/Footer.cshtml")
+	@await Html.PartialAsync("~/Views/Partials/Footer.cshtml", homePage)
+
+	<a href="#" class="top" id="backToTop"></a>
 
 	<!--JS-->
 	<script src="js-bundle"></script>

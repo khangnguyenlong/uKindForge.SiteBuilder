@@ -332,6 +332,15 @@
                             </umb-color-picker>
                             <label for="contentHeading{{content.id}}">Heading</label>
                         </div>
+                        <!-- Sub Heading -->
+                        <div class="control-group control-group-flex">
+                            <umb-color-picker id="contentSubheading{{content.id}}" ng-model="content.subheading" options="settings"
+                                              on-change="onChange(color, content, 'subheading')"
+                                              on-move="onChange(color, content, 'subheading')"
+                                              on-hide="onChange(color, content, 'subheading')">
+                            </umb-color-picker>
+                            <label for="contentSubheading{{content.id}}">Subheading</label>
+                        </div>
                         <!-- Link -->
                         <div class="control-group control-group-flex">
                             <umb-color-picker id="contentLink{{content.id}}" ng-model="content.link" options="settings"

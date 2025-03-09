@@ -21,7 +21,7 @@ namespace GoCoSiteBuilder.Core.NotificationHandler
         {
             if (_runtimeState.Level == RuntimeLevel.Run)
             {
-                _runtimeMinifier.CreateJsBundle("js-bundle", BundlingOptions.OptimizedAndComposite,
+                _runtimeMinifier.CreateJsBundle("js-bundle", BundlingOptions.NotOptimizedNotComposite,
                 [
                     "~/js/bootstrap/*.js",
                     "~/js/goco/*.js",
