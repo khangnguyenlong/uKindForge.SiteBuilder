@@ -2,3 +2,7 @@
     width: 34px !important;
     height: 34px !important;
 }
+
+.sp-palette .sp-thumb-inner, .sp-palette .sp-thumb-inner:hover {
+    border: 1px solid #f3f3f5;
+}

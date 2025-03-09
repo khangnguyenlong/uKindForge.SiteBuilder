@@ -43,7 +43,7 @@
       "editor": {
         "view": "/App_Plugins/GoCo.Plugins/colorPalette/colorPalette.html",
         "hideLabel": true,
-        "valueType": "JSON"
+        "valueType": "TEXT"
       }
     },
     {

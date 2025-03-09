@@ -15,7 +15,7 @@
     function getColorPalatteValue(colorPaletteProperty, chunkSize = 3) {
         let value = [];
 
-        if (!colorPaletteProperty.value) return value;
+        if (!colorPaletteProperty || !colorPaletteProperty.value) return value;
 
         for (let i = 0; i < colorPaletteProperty.value.length; i += chunkSize) {
             const colorPaletteChunkValue = colorPaletteProperty.value.slice(i, i + chunkSize);
