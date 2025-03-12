@@ -79,7 +79,7 @@ namespace GoCoSiteBuilder.Core.Helpers
         {
 	        var orderResult = (string.IsNullOrEmpty(order)
 	                     || !int.TryParse(order, out var designOrder)
-	                     || designDetail?.ColorSettings?.Buttons?[designOrder] == null) ? 0 : designOrder;
+	                     || designDetail?.ColorSettings?.Buttons?.ElementAtOrDefault(designOrder) == null) ? 0 : designOrder;
 	        return $"{prefix}{orderResult}";
         }
 
