@@ -5,6 +5,7 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\GoCo.Plugins\design\designList\designListView.html" />
     <Content Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIconsPicker.css" />
     <Content Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIconsPicker.html" />
     <Content Include="App_Plugins\GoCo.Plugins\colorPalette\colorPalette.css" />
@@ -53,6 +54,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="App_Plugins\GoCo.Plugins\design\designList\designListView.controller.js" />
     <None Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIconsPicker.controller.js" />
     <None Include="App_Plugins\GoCo.Plugins\blockPreview\blockPreview.controller.js" />
     <None Include="App_Plugins\GoCo.Plugins\backgroundColor\backgroundColor.controller.js" />

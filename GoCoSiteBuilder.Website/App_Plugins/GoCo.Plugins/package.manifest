@@ -278,9 +278,12 @@
     "/App_Plugins/GoCo.Plugins/buttonColor/buttonColor.controller.js",
     "/App_Plugins/GoCo.Plugins/backgroundColor/backgroundColor.controller.js",
     "/App_Plugins/GoCo.Plugins/heading/heading.controller.js",
+    //design
     "/App_Plugins/GoCo.Plugins/design/fontSettings/fontSettings.controller.js",
     "/App_Plugins/GoCo.Plugins/design/colorSettings/colorSettings.controller.js",
     "/App_Plugins/GoCo.Plugins/design/layoutSettings/layoutSettings.controller.js",
+    "/App_Plugins/GoCo.Plugins/design/designList/designListView.controller.js",
+
     "/App_Plugins/GoCo.Plugins/lineIconsPicker/lineIconsPicker.controller.js"
   ]
 }
