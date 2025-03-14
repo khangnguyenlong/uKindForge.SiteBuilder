@@ -1,0 +1,38 @@
+﻿<div ng-controller="designListViewController">
+    <style>
+        uui-button {
+            margin-top: 8px;
+        }
+    </style>
+    <div class="umb-content-grid design-grid">
+        <div class="umb-content-grid__item umb-outline umb-outline--surrounding -clickable" ng-repeat="item in designItems" ng-class="{'-selected': item.selected, '-clickable': allowClick !== false}" ng-click="clickItem(item, $event, $index)" role="button" tabindex="0">
+            <div class="umb-content-grid__content">
+                <div class="umb-content-grid__item-name umb-outline" ng-class="{'-light': !item.published &amp;&amp; item.updater != null}">
+                    <i class="umb-content-grid__icon {{item.icon}}" aria-hidden="true"></i>
+                    <span class="ng-binding">{{item.name}}</span>
+                </div>
+                <div style="display: flex; gap: 0.4rem; padding-bottom: 8px" ng-repeat="property in item.properties | filter:{alias:'colorPalette'}">
+                    <uui-color-swatch style="--button-size: 50px;" color="#{{ color.value }}" label="#{{ color.value }}" ng-repeat="color in property.value | limitTo:8"></uui-color-swatch>
+                </div>
+                <ul class="umb-content-grid__details-list" ng-class="{'-light': !item.published &amp;&amp; item.updater != null}">
+                    <li class="umb-content-grid__details-item ng-scope" ng-if="item.state">
+                        <div class="umb-content-grid__details-label">Status:</div>
+                        <div class="umb-content-grid__details-value">{{item.state}}</div>
+                    </li>
+                    <li class="umb-content-grid__details-item ng-scope">
+                        <div class="umb-content-grid__details-label">Last edited:</div>
+                        <div class="umb-content-grid__details-value">{{item.updateDate}}</div>
+                    </li>
+                    <li class="umb-content-grid__details-item ng-scope">
+                        <div class="umb-content-grid__details-label">Created by:</div>
+                        <div class="umb-content-grid__details-value">{{item.updater.name}}</div>
+                    </li>
+                    <li class="umb-content-grid__details-item">
+                        <uui-button look="primary" ng-if="chooseDesign === item.udi" style="pointer-events: none;">Default</uui-button>
+                        <uui-button look="secondary" ng-if="chooseDesign !== item.udi" ng-click="setAsDefault($event, item)">Set as Default</uui-button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
