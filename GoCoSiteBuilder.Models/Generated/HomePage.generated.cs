@@ -20,7 +20,7 @@ namespace GoCoSiteBuilder.Models
 {
 	/// <summary>Home Page</summary>
 	[PublishedModel("homePage")]
-	public partial class HomePage : PublishedContentModel, IPageContentBase, IPageFooterBase, IPageHeaderBase, ISeoBase
+	public partial class HomePage : PublishedContentModel, IPageContentBase, IPageFooterBase, IPageHeaderBase, ISeoBase, ISettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,7 +50,7 @@ namespace GoCoSiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Content
+		/// Body
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -95,5 +95,13 @@ namespace GoCoSiteBuilder.Models
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("metaTitle")]
 		public virtual string MetaTitle => global::GoCoSiteBuilder.Models.SeoBase.GetMetaTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Override Design: If Override Design is selected, it will replace the default design in the external Design section. If Override Design is not selected, the default design will be applied.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("overrideDesign")]
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent OverrideDesign => global::GoCoSiteBuilder.Models.Settings.GetOverrideDesign(this, _publishedValueFallback);
 	}
 }

@@ -1,19 +1,9 @@
 ﻿@using Smidge;
 @inherits UmbracoViewPage
-
+@inject DesignHelper DesignHelper
 @{
 	Layout = null;
-	DesignDetail design = null;
-	if (ViewData["DesignDetail"] == null)
-	{
-		design = GetDesign();
-		ViewData["DesignDetail"] = design;
-	}
-	else
-    {
-		design = ViewData["DesignDetail"] as DesignDetail;
-    }
-
+	var design = DesignHelper.GetDesign();
 	var homePage = Umbraco.ContentAtRoot()
 					.FirstOrDefault(x => x.ContentType.Alias.InvariantEquals(HomePage.ModelTypeAlias)) as HomePage;
 }
@@ -56,12 +46,3 @@
 	<script src="js-bundle"></script>
 </body>
 </html>
-
-@functions {
-	DesignDetail GetDesign()
-	{
-		var designList = Umbraco.ContentAtRoot()
-					.FirstOrDefault(x => x.ContentType.Alias.InvariantEquals(DesignList.ModelTypeAlias)) as DesignList;
-		return designList?.FirstChild<DesignDetail>();
-	}
-}
