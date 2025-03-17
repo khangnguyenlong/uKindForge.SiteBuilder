@@ -18,14 +18,24 @@ using Umbraco.Extensions;
 
 namespace GoCoSiteBuilder.Models
 {
-	/// <summary>Content Page</summary>
-	[PublishedModel("contentPage")]
-	public partial class ContentPage : PublishedContentModel, IPageContentBase, ISeoBase, ISettings
+	// Mixin Content Type with alias "settings"
+	/// <summary>Settings</summary>
+	public partial interface ISettings : IPublishedElement
+	{
+		/// <summary>Override Design</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent OverrideDesign { get; }
+	}
+
+	/// <summary>Settings</summary>
+	[PublishedModel("settings")]
+	public partial class Settings : PublishedElementModel, ISettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		public new const string ModelTypeAlias = "contentPage";
+		public new const string ModelTypeAlias = "settings";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
@@ -34,14 +44,14 @@ namespace GoCoSiteBuilder.Models
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ContentPage, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<Settings, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public ContentPage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public Settings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,42 +60,16 @@ namespace GoCoSiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Body
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("pageContent")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel PageContent => global::GoCoSiteBuilder.Models.PageContentBase.GetPageContent(this, _publishedValueFallback);
-
-		///<summary>
-		/// Hide Search Engines
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("hideSearchEngines")]
-		public virtual bool HideSearchEngines => global::GoCoSiteBuilder.Models.SeoBase.GetHideSearchEngines(this, _publishedValueFallback);
-
-		///<summary>
-		/// Meta Description
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("metaDescription")]
-		public virtual string MetaDescription => global::GoCoSiteBuilder.Models.SeoBase.GetMetaDescription(this, _publishedValueFallback);
-
-		///<summary>
-		/// Meta Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("metaTitle")]
-		public virtual string MetaTitle => global::GoCoSiteBuilder.Models.SeoBase.GetMetaTitle(this, _publishedValueFallback);
-
-		///<summary>
 		/// Override Design: If Override Design is selected, it will replace the default design in the external Design section. If Override Design is not selected, the default design will be applied.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("overrideDesign")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent OverrideDesign => global::GoCoSiteBuilder.Models.Settings.GetOverrideDesign(this, _publishedValueFallback);
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent OverrideDesign => GetOverrideDesign(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Override Design</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent GetOverrideDesign(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(publishedValueFallback, "overrideDesign");
 	}
 }

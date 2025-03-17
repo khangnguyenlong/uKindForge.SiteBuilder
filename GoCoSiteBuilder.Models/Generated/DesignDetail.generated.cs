@@ -55,7 +55,7 @@ namespace GoCoSiteBuilder.Models
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("colorPalette")]
-		public virtual global::Newtonsoft.Json.Linq.JToken ColorPalette => this.Value<global::Newtonsoft.Json.Linq.JToken>(_publishedValueFallback, "colorPalette");
+		public virtual string ColorPalette => this.Value<string>(_publishedValueFallback, "colorPalette");
 
 		///<summary>
 		/// Color Settings

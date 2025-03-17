@@ -19,16 +19,16 @@ using Umbraco.Extensions;
 namespace GoCoSiteBuilder.Models
 {
 	// Mixin Content Type with alias "pageContentBase"
-	/// <summary>Content</summary>
+	/// <summary>Body</summary>
 	public partial interface IPageContentBase : IPublishedElement
 	{
-		/// <summary>Content</summary>
+		/// <summary>Body</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel PageContent { get; }
 	}
 
-	/// <summary>Content</summary>
+	/// <summary>Body</summary>
 	[PublishedModel("pageContentBase")]
 	public partial class PageContentBase : PublishedElementModel, IPageContentBase
 	{
@@ -60,14 +60,14 @@ namespace GoCoSiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Content
+		/// Body
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("pageContent")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel PageContent => GetPageContent(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Content</summary>
+		/// <summary>Static getter for Body</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public static global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel GetPageContent(IPageContentBase that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel>(publishedValueFallback, "pageContent");
