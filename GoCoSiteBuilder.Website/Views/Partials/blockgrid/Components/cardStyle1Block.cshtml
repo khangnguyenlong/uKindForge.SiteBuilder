@@ -2,7 +2,7 @@
 @inject DesignHelper DesignHelper
 
 <div class="card-area">
-    <div class="single-card card-style-one">
+    <div class="single-card card-style-one @DesignHelper.GetBackgroundClass(Model.Settings.Color)">
         @if(Model.Settings.Reverse)
         {
             await RenderContentAsync();
@@ -19,7 +19,7 @@
 @functions {
     async Task RenderContentAsync()
     {
-        <div class="card-content @CssClassHelper.GetTextAlign(Model.Settings.ContentAlign) @DesignHelper.GetBackgroundClass(Model.Settings.Color)">
+        <div class="card-content @CssClassHelper.GetTextAlign(Model.Settings.ContentAlign)">
             @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
             @await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
             @await Html.PartialButtonLinkAsync(new ButtonViewModel { Buttons = Model.Content.Buttons })

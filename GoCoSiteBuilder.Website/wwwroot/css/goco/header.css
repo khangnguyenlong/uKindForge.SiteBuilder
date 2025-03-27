@@ -47,3 +47,24 @@
     .header nav .menu-bar .sub-menu li:hover {
         background-color: var(--header-dropdown-link-hover-bg-color);
     }
+
+/* STICKY - Always on top */
+header.header-desktop__sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
+    header.header-desktop__sticky {
+        position: static;
+        top: auto;
+        z-index: auto;
+    }
+
+    header.header-mobile__sticky {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+}

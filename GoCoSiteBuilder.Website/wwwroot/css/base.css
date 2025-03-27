@@ -1,5 +1,4 @@
-﻿
-/* Body */
+﻿/* Body */
 :root, :host, body {
     font-family: var(--text-font-family);
     font-size: var(--text-font-size-desktop);
@@ -50,6 +49,11 @@ html {
 section, .container, .container-fluid {
     position: relative;
     word-wrap: break-word;
+}
+
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* === Headings === */
