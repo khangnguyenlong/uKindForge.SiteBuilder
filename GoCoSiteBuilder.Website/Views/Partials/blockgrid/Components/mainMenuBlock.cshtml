@@ -1,134 +1,175 @@
 ﻿@inherits UmbracoViewPage<BlockGridItem<MainMenuBlock>>
+@inject DesignHelper DesignHelper
 
 @{
-    var navItems = Model.Content?.NavItems;
-    var hasNavItem = navItems != null && navItems.Any();
-    var navButtons = Model.Content?.NavButtons;
-    var hasNavButton = navButtons != null && navButtons.Any();
-    var socialIcons = Model.Content?.SocialIcons;
-    var hasSocialIcons = socialIcons != null && socialIcons.Any();
-    var assignedContentItem = Umbraco.AssignedContentItem;
+	var navItems = Model.Content?.NavItems;
+	var hasNavItem = navItems != null && navItems.Any();
+	var navButtons = Model.Content?.NavButtons;
+	var hasNavButton = navButtons != null && navButtons.Any();
+	var socialIcons = Model.Content?.SocialIcons;
+	var hasSocialIcons = socialIcons != null && socialIcons.Any();
+	var assignedContentItem = Umbraco.AssignedContentItem;
+
+	var design = DesignHelper.GetDesign();
+	var isHeaderDektopSticky = design?.LayoutSettings?.HeaderDesktop?.HeaderAlwaysOnTop == true;
+	var isNavigationBarDesktop = design?.LayoutSettings?.HeaderDesktop?.NavigationBarAlwaysOnTop == true;
+	var isNavigationBarMobile = design?.LayoutSettings?.HeaderMobile?.NavigationBarAlwaysOnTop == true;
+	var navDesktopClass = isHeaderDektopSticky ? "" : isNavigationBarDesktop ? "nav-desktop__sticky" : "";
+	var isHeaderMobileSticky = design?.LayoutSettings?.HeaderMobile?.HeaderAlwaysOnTop == true;
+	var navMobileClass = isHeaderMobileSticky ? "" : isNavigationBarMobile == true ? "nav-mobile__sticky" : "";
+	var isNavigationBarSticky = isNavigationBarDesktop || isNavigationBarMobile;
 }
 
 <div class="header">
-    <div class="navbar-area navbar-three">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg">
-                        @await Html.PartialImageLinkAsync(new ImageViewModel(Model.Content.NavLogo)
-                        {
-                            CropWidth = 150,
-                            CropHeight = 50,
-                            CssStyle = "max-height: 50px; max-width: 150px"
-                        })
-                        <button class="navbar-toggler" type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#navbarThree"
-                            aria-controls="navbarThree"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation">
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                        </button>
+	<div id="mainNav" class="navbar-area navbar-three @navDesktopClass @navMobileClass">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<nav class="navbar navbar-expand-lg">
+						@await Html.PartialImageLinkAsync(new ImageViewModel(Model.Content.NavLogo)
+						 {
+							 CropWidth = 150,
+							 CropHeight = 50,
+							 CssStyle = "max-height: 50px; max-width: 150px"
+						 })
+						<button class="navbar-toggler" type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#navbarThree"
+								aria-controls="navbarThree"
+								aria-expanded="false"
+								aria-label="Toggle navigation">
+							<span class="toggler-icon"></span>
+							<span class="toggler-icon"></span>
+							<span class="toggler-icon"></span>
+						</button>
 
-                        @if (hasNavItem)
-                        {
-                            <div class="collapse navbar-collapse menu-bar" id="navbarThree">
-                            @{
-                                renderNavigationItem(navItems, false, assignedContentItem?.Url() ?? "");
-                            }
-                            </div>
-                        }
-                        @if (hasSocialIcons)
-                        {
-                            <div class="navbar-social d-none d-sm-inline-block  me-3">
-                                <ul>
-                                    @foreach (var socialIcon in socialIcons)
-                                    {
-                                        @if (socialIcon.Content is not IconLink iconLink || iconLink.Link == null) continue;
-                                        <li>
-                                            @await Html.PartialLineIconLinkAsync(iconLink)
-                                            {
-                                                CropWidth = 40,
-                                                CropHeight = 40,
-                                                ImageAlt = iconLink.Link?.Name,
-                                                Link = iconLink.Link,
-                                            })
-                                        </li>
-                                    }
-                                </ul>
-                            </div>
-                        }
-                        @if (hasNavButton)
-                        {
-                            <div class="navbar-btn d-none d-sm-inline-block">
-                                @await Html.PartialButtonLinkAsync(new ButtonViewModel
-                               {
-                                   Buttons = navButtons
-                               })
-                            </div>
-                        }
-                    </nav>
-                    <!-- navbar -->
-                </div>
-            </div>
-            <!-- row -->
-        </div>
-        <!-- container -->
-    </div>
+						@if (hasNavItem)
+						{
+							<div class="collapse navbar-collapse menu-bar" id="navbarThree">
+								@{
+									renderNavigationItem(navItems, false, assignedContentItem?.Url() ?? "");
+								}
+							</div>
+						}
+						@if (hasSocialIcons)
+						{
+							<div class="navbar-social d-none d-sm-inline-block  me-3">
+								<ul>
+									@foreach (var socialIcon in socialIcons)
+									{
+										@if (socialIcon.Content is not IconLink iconLink || iconLink.Link == null) continue;
+										<li>
+											@await Html.PartialLineIconLinkAsync(iconLink)
+											{
+											CropWidth = 40,
+											CropHeight = 40,
+											ImageAlt = iconLink.Link?.Name,
+											Link = iconLink.Link,
+											})
+										</li>
+									}
+								</ul>
+							</div>
+						}
+						@if (hasNavButton)
+						{
+							<div class="navbar-btn d-none d-sm-inline-block">
+								@await Html.PartialButtonLinkAsync(new ButtonViewModel
+  {
+	  Buttons = navButtons
+  })
+							</div>
+						}
+					</nav>
+					<!-- navbar -->
+				</div>
+			</div>
+			<!-- row -->
+		</div>
+		<!-- container -->
+	</div>
 </div>
 
 @functions
 {
-    void renderNavigationItem(BlockListModel blockList, bool isSub = false, string currentUrl = "", string id = "")
-    {
-        if (blockList == null || !blockList.Any()) return;
+	void renderNavigationItem(BlockListModel blockList, bool isSub = false, string currentUrl = "", string id = "")
+	{
+		if (blockList == null || !blockList.Any()) return;
 
-        <ul class="@(isSub ? "sub-menu collapse" : "navbar-nav m-auto")" id="@id">
-            @foreach (var item in blockList)
-            {
-                @if (item.Content == null || item.Content is not NavItem navItem || navItem == null) return;
-                {
-                    var itemToggleId = $"sub-nav-{navItem.NavItemName.ToLower()}";
-                    <li class="@(isSub ? "" : "nav-item")">
-                        @if (navItem.NavSubItems != null && navItem.NavSubItems.Any())
-                        {
-                            <a class="page-scroll @(currentUrl == navItem?.NavItemLink?.Url ? "active" : "")"
-                               data-bs-toggle="collapse"
-                               data-bs-target="#@itemToggleId"
-                               aria-controls="sub-nav-@itemToggleId"
-                               aria-expanded="false"
-                               aria-label="Toggle navigation"
-                               href="@(navItem.NavItemLink?.Url ?? "#")"
-                               target="@navItem?.NavItemLink?.Target">
-                                @navItem.NavItemName
-                                <div class="sub-nav-toggler">
-                                    <span><i class="lni lni-chevron-down"></i></span>
-                                </div>
-                            </a>
-                        }
-                        else
-                        {
-                            <a href="@(navItem.NavItemLink?.Url ?? "#")" target="@navItem?.NavItemLink?.Target">@navItem.NavItemName</a>
-                        }
-                        @{
-                            renderNavigationItem(@navItem.NavSubItems, isSub: true, currentUrl, $"{itemToggleId}");
-                        }
-                    </li>
-                }
-            }
-        </ul>
-    }
+		<ul class="@(isSub ? "sub-menu collapse" : "navbar-nav m-auto")" id="@id">
+			@foreach (var item in blockList)
+			{
+				@if (item.Content == null || item.Content is not NavItem navItem || navItem == null) return;
+				{
+					var itemToggleId = $"sub-nav-{navItem.NavItemName.ToLower()}";
+					<li class="@(isSub ? "" : "nav-item")">
+						@if (navItem.NavSubItems != null && navItem.NavSubItems.Any())
+						{
+							<a class="page-scroll @(currentUrl == navItem?.NavItemLink?.Url ? "active" : "")"
+							   data-bs-toggle="collapse"
+							   data-bs-target="#@itemToggleId"
+							   aria-controls="sub-nav-@itemToggleId"
+							   aria-expanded="false"
+							   aria-label="Toggle navigation"
+							   href="@(navItem.NavItemLink?.Url ?? "#")"
+							   target="@navItem?.NavItemLink?.Target">
+								@navItem.NavItemName
+								<div class="sub-nav-toggler">
+									<span><i class="lni lni-chevron-down"></i></span>
+								</div>
+							</a>
+						}
+						else
+						{
+							<a href="@(navItem.NavItemLink?.Url ?? "#")" target="@navItem?.NavItemLink?.Target">@navItem.NavItemName</a>
+						}
+						@{
+							renderNavigationItem(@navItem.NavSubItems, isSub: true, currentUrl, $"{itemToggleId}");
+						}
+					</li>
+				}
+			}
+		</ul>
+	}
 }
 
 <script>
-    //===== close navbar-collapse when a  clicked
-    let navbarTogglerThree = document.querySelector(
-      ".navbar-three .navbar-toggler"
-    );
-    navbarTogglerThree.addEventListener("click", function () {
-      navbarTogglerThree.classList.toggle("active");
-    });
+	//===== close navbar-collapse when a  clicked
+	let navbarTogglerThree = document.querySelector(
+	  ".navbar-three .navbar-toggler"
+	);
+	navbarTogglerThree.addEventListener("click", function () {
+	  navbarTogglerThree.classList.toggle("active");
+	});
+
+	const isNavigationBarSticky = @(isNavigationBarSticky.ToString().ToLower());;
+	if(isNavigationBarSticky){
+		window.onload = function () {
+		  const nav = document.getElementById("mainNav");
+		  const header = document.getElementById("header");
+
+		  const navHeight = nav.offsetHeight;
+
+		  const placeholder = document.createElement("div");
+		  placeholder.style.height = navHeight + "px";
+		  placeholder.style.display = "none";
+		  nav.parentNode.insertBefore(placeholder, nav);
+
+		  let isFixed = false;
+
+		  window.addEventListener("scroll", function () {
+			const triggerPoint = header.offsetTop + header.offsetHeight;
+
+			if (window.scrollY >= triggerPoint && !isFixed) {
+			  nav.classList.add("fixed-nav");
+			  placeholder.style.display = "block";
+			  isFixed = true;
+			} else if (window.scrollY < triggerPoint && isFixed) {
+			  nav.classList.remove("fixed-nav");
+			  placeholder.style.display = "none";
+			  isFixed = false;
+			}
+		  });
+		};
+	}
 </script>

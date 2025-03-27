@@ -20,22 +20,20 @@ namespace GoCoSiteBuilder.Core.ValueConverter
             IPublishedPropertyType propertyType,
             object? source, bool preview)
         {
-            if (source == null) return string.Empty;
+            if (source == null) return null;
 
             var intermediate = source.ToString();
-            if (StringExtensions.DetectIsJson(intermediate))
-            {
-                try
-                {
-                    var jsonObject = JsonConvert.DeserializeObject<ColorSettings>(intermediate);
-                    if (jsonObject != null) return jsonObject;
-                }
-                catch
-                {
-                }
-            }
+            if (!StringExtensions.DetectIsJson(intermediate)) return null;
 
-            return (object)intermediate;
+            try
+            {
+                var jsonObject = JsonConvert.DeserializeObject<ColorSettings>(intermediate);
+                return jsonObject;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

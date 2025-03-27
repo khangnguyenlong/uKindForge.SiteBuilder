@@ -28,7 +28,11 @@
                                     </div>
                                     <div class="control-group control-group-flex control-group-horizontal">
                                         <label>Header always on top</label>
-                                        <umb-toggle checked="model.value.headerDesktop.alwaysOnTop" on-click="toggle('headerDesktop.alwaysOnTop')"></umb-toggle>
+                                        <umb-toggle checked="model.value.headerDesktop.headerAlwaysOnTop" on-click="toggle('headerDesktop.headerAlwaysOnTop')"></umb-toggle>
+                                    </div>
+                                    <div class="control-group control-group-flex control-group-horizontal">
+                                        <label>Navigation Bar always on top</label>
+                                        <umb-toggle checked="model.value.headerDesktop.navigationBarAlwaysOnTop" on-click="toggle('headerDesktop.navigationBarAlwaysOnTop')"></umb-toggle>
                                     </div>
                                     <div class="control-group control-group-flex control-group-horizontal">
                                         <label>Transparent Header</label>
@@ -81,7 +85,11 @@
                                     <div class="control-group">
                                         <div class="control-group control-group-flex control-group-horizontal">
                                             <label>Header always on top</label>
-                                            <umb-toggle checked="model.value.headerMobile.alwaysOnTop" on-click="toggle('headerMobile.alwaysOnTop')"></umb-toggle>
+                                            <umb-toggle checked="model.value.headerMobile.headerAlwaysOnTop" on-click="toggle('headerMobile.headerAlwaysOnTop')"></umb-toggle>
+                                        </div>
+                                        <div class="control-group control-group-flex control-group-horizontal">
+                                            <label>Navigation Bar always on top</label>
+                                            <umb-toggle checked="model.value.headerMobile.navigationBarAlwaysOnTop" on-click="toggle('headerMobile.navigationBarAlwaysOnTop')"></umb-toggle>
                                         </div>
                                         <div class="control-group control-group-flex control-group-horizontal">
                                             <label>Transparent Header</label>
@@ -457,19 +465,6 @@
                                 <div class="span12 card-body-control">
                                     <div class="span6">
                                         <div class="control-group-wrapper">
-                                            <label>Logo link</label>
-                                            <div class="control-group control-group-flex control-group-horizontal">
-                                                <label>Underline on init</label>
-                                                <umb-toggle checked="model.value.link.logoUnderlineOnInit" on-click="toggle('link.logoUnderlineOnInit')"></umb-toggle>
-                                            </div>
-                                            <div class="control-group control-group-flex control-group-horizontal">
-                                                <label>Underline on hover</label>
-                                                <umb-toggle checked="model.value.link.logoUnderlineOnHover" on-click="toggle('link.logoUnderlineOnHover')"></umb-toggle>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="span6">
-                                        <div class="control-group-wrapper">
                                             <label>Main navigation link</label>
                                             <div class="control-group control-group-flex control-group-horizontal">
                                                 <label>Underline on init</label>
@@ -478,6 +473,19 @@
                                             <div class="control-group control-group-flex control-group-horizontal">
                                                 <label>Underline on hover</label>
                                                 <umb-toggle checked="model.value.link.mainNavUnderlineOnHover" on-click="toggle('link.mainNavUnderlineOnHover')"></umb-toggle>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span6">
+                                        <div class="control-group-wrapper">
+                                            <label>Logo link</label>
+                                            <div class="control-group control-group-flex control-group-horizontal">
+                                                <label>Underline on init</label>
+                                                <umb-toggle checked="model.value.link.secondNavUnderlineOnInit" on-click="toggle('link.secondNavUnderlineOnInit')"></umb-toggle>
+                                            </div>
+                                            <div class="control-group control-group-flex control-group-horizontal">
+                                                <label>Underline on hover</label>
+                                                <umb-toggle checked="model.value.link.secondNavUnderlineOnHover" on-click="toggle('link.secondNavUnderlineOnHover')"></umb-toggle>
                                             </div>
                                         </div>
                                     </div>

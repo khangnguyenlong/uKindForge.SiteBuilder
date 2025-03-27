@@ -14,7 +14,8 @@ function layoutSettingsController($scope, $http, assetsService) {
             general: {},
             video: {},
             button: {},
-            link: {}
+            link: {},
+            card: {}
         }
     }
 

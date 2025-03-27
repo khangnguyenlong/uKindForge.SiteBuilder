@@ -111,6 +111,6 @@ namespace GoCoSiteBuilder.Models
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("layoutSettings")]
-		public virtual global::Newtonsoft.Json.Linq.JToken LayoutSettings => this.Value<global::Newtonsoft.Json.Linq.JToken>(_publishedValueFallback, "layoutSettings");
+		public virtual global::GoCoSiteBuilder.Models.LayoutSettings LayoutSettings => this.Value<global::GoCoSiteBuilder.Models.LayoutSettings>(_publishedValueFallback, "layoutSettings");
 	}
 }
