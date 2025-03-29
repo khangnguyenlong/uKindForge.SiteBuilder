@@ -2446,6 +2446,12 @@ a {
     z-index: 10;
     top: 0;
 }
+
+.richtext-block dl, .richtext-block ol, .richtext-block ul {
+    margin: revert;
+    padding: revert;
+    list-style-type: revert;
+}
 /* === Header === */
 .header nav .menu-bar ul li a {
     color: var(--header-nav-link-color);

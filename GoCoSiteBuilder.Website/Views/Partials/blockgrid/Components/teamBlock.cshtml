@@ -3,26 +3,10 @@
 
 @{
 	if (Model.Content == null) return;
-	var layoutSettings = new LayoutSettingsViewModel
-	{
-		OrderColor = Model.Settings.Color,
-		FullWidth = Model.Settings.FullWidth,
-		IsAddMarginBottom = Model.Settings.IsAddMarginBottom,
-		IsAddMarginTop = Model.Settings.IsAddMarginTop,
-		IsAddPaddingBottom = Model.Settings.IsAddPaddingBottom,
-		IsAddPaddingTop = Model.Settings.IsAddPaddingTop,
-		MarginBottom = Model.Settings.MarginBottom,
-		MarginTop = Model.Settings.MarginTop,
-		PaddingBottom = Model.Settings.PaddingBottom,
-		PaddingTop = Model.Settings.PaddingTop
-	};
 }
-<section-layout info="layoutSettings">
+<div class="team-block block">
 	<div class="team-area @DesignHelper.GetBackgroundClass(Model.Settings?.Color)">
 		<div class="container">
-			@await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
-			@await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
-
 			@if (Model.Content.TeamItems != null && Model.Content.TeamItems.Any())
 			{
 				<div class="row justify-content-center">
@@ -64,4 +48,4 @@
 		</div>
 		<!-- container -->
 	</div>
-</section-layout>
+</div>
