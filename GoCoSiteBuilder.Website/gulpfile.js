@@ -27,6 +27,7 @@ gulp.task('minify-css', () => {
         './wwwroot/css/goco/navbar.css',
         './wwwroot/css/goco/team.css',
         './wwwroot/css/goco/testimonial.css',
+        './wwwroot/css/goco/portfolio.css',
     ])
     .pipe(concat('bundle.min.css'))     // combine to 1 file bundle.min.css
     //TODO: issue lost css

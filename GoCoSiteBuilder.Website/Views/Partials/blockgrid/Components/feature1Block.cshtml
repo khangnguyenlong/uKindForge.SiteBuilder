@@ -4,22 +4,9 @@
 @{
     if (Model.Content == null) return;
     var featureItems = Model.Content.FeatureItems;
-    var layoutSettings = new LayoutSettingsViewModel
-    {
-        OrderColor = Model.Settings.Color,
-        FullWidth = Model.Settings.FullWidth,
-        IsAddMarginBottom = Model.Settings.IsAddMarginBottom,
-        IsAddMarginTop = Model.Settings.IsAddMarginTop,
-        IsAddPaddingBottom = Model.Settings.IsAddPaddingBottom,
-        IsAddPaddingTop = Model.Settings.IsAddPaddingTop,
-        MarginBottom = Model.Settings.MarginBottom,
-        MarginTop = Model.Settings.MarginTop,
-        PaddingBottom = Model.Settings.PaddingBottom,
-        PaddingTop = Model.Settings.PaddingTop
-    };
 }
 
-<section-layout info="layoutSettings">
+<div class="feature-block">
     @if (featureItems?.Any() == true)
     {
         <div class="card-area">
@@ -55,7 +42,7 @@
             </div>
         </div>
     }
-</section-layout>
+</div>
 
 @functions {
     async Task RenderContentAsync(FeatureItem feature, FeatureItemSettings settings)
