@@ -3,74 +3,56 @@
 
 @{
 	if (Model.Content == null) return;
-	var layoutSettings = new LayoutSettingsViewModel
-			{
-				OrderColor = Model.Settings.Color,
-				FullWidth = Model.Settings.FullWidth,
-				IsAddMarginBottom = Model.Settings.IsAddMarginBottom,
-				IsAddMarginTop = Model.Settings.IsAddMarginTop,
-				IsAddPaddingBottom = Model.Settings.IsAddPaddingBottom,
-				IsAddPaddingTop = Model.Settings.IsAddPaddingTop,
-				MarginBottom = Model.Settings.MarginBottom,
-				MarginTop = Model.Settings.MarginTop,
-				PaddingBottom = Model.Settings.PaddingBottom,
-				PaddingTop = Model.Settings.PaddingTop
-			};
 }
 
-<section-layout info="layoutSettings">
-	<div class="testimonial-one @DesignHelper.GetBackgroundClass(Model.Settings?.Color)">
-		<!--======  Start Section Title Seven ======-->
-		<div class="section-title-seven">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="section-title align-center">
-							@await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
-							@await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- container -->
-		</div>
-		<!--====== End Section Title Seven ======-->
+<div class="testimonial testimonial-one @DesignHelper.GetBackgroundClass(Model.Settings?.Color)">
+	<!--======  Start Section Title Seven ======-->
+	<div class="section-title-seven">
 		<div class="container">
-			<div class="testimonial-one-wrapper">
-				<div class="row justify-content-center">
-					<div class="col-md-9 col-lg-12">
-						<div class="row testimonial-one-active">
-							@foreach (var item in Model.Content.Items)
-							{
-								var testimonialItem = item.Content.SafeCast<TestimonialItem>();
-								if (testimonialItem == null) continue;
-								var testimonialItemSettings = item.Settings.SafeCast<TestimonialItemSettings>();
-								var lineIcon = testimonialItem.QuoteIcon.FirstOrDefault()?.SafeCast<LineIcon>();
-
-								<div class="col-lg-4">
-									<div class="single-testimonial text-center @DesignHelper.GetBackgroundClass(testimonialItemSettings?.Color)">
-										<div class="testimonial-image">
-											@await Html.PartialImageLinkAsync(new ImageViewModel(testimonialItem.Image))
-											@await Html.PartialLineIconAsync(new LineIconViewModel(lineIcon, defaultIcon: "lni-quotation", cssClass: "quote-icon"))
-										</div>
-										<div class="testimonial-content">
-											@await Html.PartialTextAsync(new TextViewModel(testimonialItem.Description))
-											@await Html.PartialHeadingAsync(new HeadingViewModel(testimonialItem.AuthorName, "author-name"))
-											@await Html.PartialSubheadingAsync(new HeadingViewModel(testimonialItem.SubTitle, "sub-title"))
-										</div>
-									</div>
-									<!-- single testimonial -->
-								</div>
-							}
-						</div>
-						<!-- row -->
+			<div class="row">
+				<div class="col-12">
+					<div class="section-title align-center">
+						@await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
+						@await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- container -->
 	</div>
-</section-layout>
+	<!--====== End Section Title Seven ======-->
+	<div class="container">
+		<div class="testimonial-one-wrapper">
+			<div class="row justify-content-center">
+				<div class="col-md-9 col-lg-12">
+					<div class="row testimonial-one-active">
+						@foreach (var item in Model.Content.Items)
+						{
+							var testimonialItem = item.Content.SafeCast<TestimonialItem>();
+							if (testimonialItem == null) continue;
+							var testimonialItemSettings = item.Settings.SafeCast<TestimonialItemSettings>();
+							var lineIcon = testimonialItem.QuoteIcon.FirstOrDefault()?.SafeCast<LineIcon>();
 
-<script defer>
-</script>
+							<div class="col-lg-4">
+								<div class="single-testimonial text-center @DesignHelper.GetBackgroundClass(testimonialItemSettings?.Color)">
+									<div class="testimonial-image">
+										@await Html.PartialImageLinkAsync(new ImageViewModel(testimonialItem.Image))
+										@await Html.PartialLineIconAsync(new LineIconViewModel(lineIcon, defaultIcon: "lni-quotation", cssClass: "quote-icon"))
+									</div>
+									<div class="testimonial-content">
+										@await Html.PartialTextAsync(new TextViewModel(testimonialItem.Description))
+										@await Html.PartialHeadingAsync(new HeadingViewModel(testimonialItem.AuthorName, "author-name"))
+										@await Html.PartialSubheadingAsync(new HeadingViewModel(testimonialItem.SubTitle, "sub-title"))
+									</div>
+								</div>
+								<!-- single testimonial -->
+							</div>
+						}
+					</div>
+					<!-- row -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- container -->
+</div>

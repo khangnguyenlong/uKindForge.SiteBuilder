@@ -20,7 +20,7 @@ namespace GoCoSiteBuilder.Models
 {
 	/// <summary>Feature Style 2 (Settings)</summary>
 	[PublishedModel("feature2BlockSettings")]
-	public partial class Feature2BlockSettings : PublishedElementModel, IBgColorSettings, IBlockSettings, IMarginSettings, IPaddingSettings
+	public partial class Feature2BlockSettings : PublishedElementModel, IBgColorSettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -72,68 +72,5 @@ namespace GoCoSiteBuilder.Models
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("color")]
 		public virtual string Color => global::GoCoSiteBuilder.Models.BgColorSettings.GetColor(this, _publishedValueFallback);
-
-		///<summary>
-		/// Full Width
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("fullWidth")]
-		public virtual bool FullWidth => global::GoCoSiteBuilder.Models.BlockSettings.GetFullWidth(this, _publishedValueFallback);
-
-		///<summary>
-		/// Add Margin Bottom
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("isAddMarginBottom")]
-		public virtual bool IsAddMarginBottom => global::GoCoSiteBuilder.Models.MarginSettings.GetIsAddMarginBottom(this, _publishedValueFallback);
-
-		///<summary>
-		/// Add Margin Top
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("isAddMarginTop")]
-		public virtual bool IsAddMarginTop => global::GoCoSiteBuilder.Models.MarginSettings.GetIsAddMarginTop(this, _publishedValueFallback);
-
-		///<summary>
-		/// Margin Bottom (px)
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("marginBottom")]
-		public virtual int MarginBottom => global::GoCoSiteBuilder.Models.MarginSettings.GetMarginBottom(this, _publishedValueFallback);
-
-		///<summary>
-		/// Margin Top (px)
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("marginTop")]
-		public virtual int MarginTop => global::GoCoSiteBuilder.Models.MarginSettings.GetMarginTop(this, _publishedValueFallback);
-
-		///<summary>
-		/// Add Padding Bottom
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("isAddPaddingBottom")]
-		public virtual bool IsAddPaddingBottom => global::GoCoSiteBuilder.Models.PaddingSettings.GetIsAddPaddingBottom(this, _publishedValueFallback);
-
-		///<summary>
-		/// Add Padding Top
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("isAddPaddingTop")]
-		public virtual bool IsAddPaddingTop => global::GoCoSiteBuilder.Models.PaddingSettings.GetIsAddPaddingTop(this, _publishedValueFallback);
-
-		///<summary>
-		/// Padding Bottom (px)
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("paddingBottom")]
-		public virtual int PaddingBottom => global::GoCoSiteBuilder.Models.PaddingSettings.GetPaddingBottom(this, _publishedValueFallback);
-
-		///<summary>
-		/// Padding Top (px)
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("paddingTop")]
-		public virtual int PaddingTop => global::GoCoSiteBuilder.Models.PaddingSettings.GetPaddingTop(this, _publishedValueFallback);
 	}
 }

@@ -18,18 +18,9 @@ using Umbraco.Extensions;
 
 namespace GoCoSiteBuilder.Models
 {
-	// Mixin Content Type with alias "blockSettings"
-	/// <summary>Block (Settings)</summary>
-	public partial interface IBlockSettings : IPublishedElement
-	{
-		/// <summary>Full Width</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		bool FullWidth { get; }
-	}
-
 	/// <summary>Block (Settings)</summary>
 	[PublishedModel("blockSettings")]
-	public partial class BlockSettings : PublishedElementModel, IBlockSettings
+	public partial class BlockSettings : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -63,10 +54,6 @@ namespace GoCoSiteBuilder.Models
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[ImplementPropertyType("fullWidth")]
-		public virtual bool FullWidth => GetFullWidth(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Full Width</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		public static bool GetFullWidth(IBlockSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "fullWidth");
+		public virtual bool FullWidth => this.Value<bool>(_publishedValueFallback, "fullWidth");
 	}
 }

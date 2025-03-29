@@ -140,6 +140,11 @@ namespace GoCoSiteBuilder.Core.Services
                         /* Team */
                         --team-box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04), 0px 2px 4px rgba(96, 97, 112, 0.16);
                         --team-box-shadow-hover: 0px 2px 4px rgba(40, 41, 61, 0.04), 0px 8px 16px rgba(96, 97, 112, 0.16); 
+
+                        /* Portfolio */
+                        --portfolio-tab-button-text-color: #6d6d6d;
+                        --portfolio-tab-button-text-color-active: #fff;
+                        --portfolio-tab-button-bg-color-active: #155bd5;
                     }}
                     {cssStyle}
                 </style>
