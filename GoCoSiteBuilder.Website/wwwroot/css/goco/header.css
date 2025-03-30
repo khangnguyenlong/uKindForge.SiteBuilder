@@ -5,7 +5,8 @@
     font-weight: 500 !important;
 }
 
-.header nav .menu-bar ul li:hover a {
+.header nav .menu-bar ul li:hover a,
+.header nav .menu-bar ul li.active a {
     color: var(--header-nav-link-hover-color);
 }
 
@@ -13,7 +14,8 @@
     color: var(--header-nav-link-color);
 }
 
-.header nav .menu-bar ul.navbar-nav li:hover.nav-item i {
+.header nav .menu-bar ul.navbar-nav li:hover.nav-item i,
+.header nav .menu-bar ul.navbar-nav li.active.nav-item i {
     color: var(--header-nav-link-hover-color);
 }
 

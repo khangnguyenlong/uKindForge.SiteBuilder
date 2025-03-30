@@ -31,7 +31,7 @@
 							var testimonialItem = item.Content.SafeCast<TestimonialItem>();
 							if (testimonialItem == null) continue;
 							var testimonialItemSettings = item.Settings.SafeCast<TestimonialItemSettings>();
-							var lineIcon = testimonialItem.QuoteIcon.FirstOrDefault()?.SafeCast<LineIcon>();
+							var lineIcon = testimonialItem.QuoteIcon?.Content;
 
 							<div class="col-lg-4">
 								<div class="single-testimonial text-center @DesignHelper.GetBackgroundClass(testimonialItemSettings?.Color)">

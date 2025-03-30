@@ -9,8 +9,16 @@
         $scope.model.value = color.toHexString().trimStart("#");
     };
 
-    const colorPaletteProperty = designService.getProperty("colors", "settings", "colorPalette", editorState.getCurrent());
-    let colorPaletteValue = getColorPalatteValue(colorPaletteProperty);
+    let colorPaletteProperty = {};
+    let colorPaletteValue = [];
+
+    designService.getCurrentDesignDetail().then(function (content) {
+        colorPaletteProperty = designService.getProperty("colors", "settings", "colorPalette", content);
+        if (!colorPaletteProperty) return;
+
+        colorPaletteValue = getColorPalatteValue(colorPaletteProperty);
+
+    });
 
     function getColorPalatteValue(colorPaletteProperty, chunkSize = 3) {
         let value = [];
