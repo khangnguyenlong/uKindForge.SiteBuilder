@@ -50,11 +50,11 @@ namespace GoCoSiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Color
+		/// Content Color
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("color")]
-		public virtual string Color => this.Value<string>(_publishedValueFallback, "color");
+		[ImplementPropertyType("contentColor")]
+		public virtual string ContentColor => this.Value<string>(_publishedValueFallback, "contentColor");
 	}
 }

@@ -1,38 +1,22 @@
 ﻿@inherits UmbracoViewPage<BlockGridItem<Service1Block>>
+@inject DesignHelper DesignHelper
+
 @{
 	var serviceItems = Model.Content?.ServiceItems;
 	if (serviceItems?.Any() == false) return;
+	var serviceSettings = Model.Settings.SafeCast<Service1Settings>();
 }
 
 <section class="services-area services-two">
-	<!--======  Start Section Title Six ======-->
-	<div class="section-title-six">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="content">
-						<h3>What we offer?</h3>
-						<h2 class="fw-bold">What services we provide</h2>
-						<p>
-							There are many variations of passages of Lorem
-							Ipsum available, but the majority have suffered alteration in some form.
-						</p>
-					</div>
-				</div>
-			</div>
-			<!-- row -->
-		</div>
-		<!-- container -->
-	</div>
-	<!--======  End Section Title Six ======-->
 	<div class="container">
 		<div class="row">
 			@foreach (var serviceItem in serviceItems)
 			{
 				var item = serviceItem.Content.SafeCast<ServiceItem>();
 				if (item == null) continue;
+				var settings = serviceItem.Settings.SafeCast<ServiceItemSettings>();
 
-				<div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".2s">
+				<div class="col-lg-4 col-md-6 col-12 wow fadeInUp @DesignHelper.GetBackgroundClass(settings?.ContentColor)" data-wow-delay=".2s">
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<svg class="shape" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +24,7 @@
 							 style="enable-background:new 0 0 21.5 79.6;" xml:space="preserve">
 						<style type="text/css">
 							.st0 {
-								fill: #155BD5;
+								fill: @(string.IsNullOrEmpty(serviceSettings?.ShapeColor) ? "#000" : serviceSettings.ShapeColor);
 							}
 	</style>
 						<path class="st0" d="M18.7,4.6c-0.9,0-1.5-0.7-1.6-1.5s0.7-1.5,1.5-1.6s1.5,0.7,1.6,1.5l0,0C20.2,3.9,19.5,4.6,18.7,4.6z M18.7,12.8
@@ -80,7 +64,7 @@
 							 style="enable-background:new 0 0 21.5 79.6;" xml:space="preserve">
 						<style type="text/css">
 							.st0 {
-								fill: #155BD5;
+								fill: @(string.IsNullOrEmpty(serviceSettings?.ShapeColor) ? "#000" : serviceSettings.ShapeColor);
 							}
 	</style>
 						<path class="st0" d="M18.7,4.6c-0.9,0-1.5-0.7-1.6-1.5s0.7-1.5,1.5-1.6s1.5,0.7,1.6,1.5l0,0C20.2,3.9,19.5,4.6,18.7,4.6z M18.7,12.8
@@ -115,9 +99,9 @@
 	C4.3,69.6,3.6,70.3,2.7,70.3L2.7,70.3L2.7,70.3z M2.7,78.5c-0.9,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5c0.9,0,1.5,0.7,1.5,1.5l0,0
 	C4.3,77.8,3.6,78.5,2.7,78.5L2.7,78.5L2.7,78.5z" />
 							</svg>
-						<span class="serial">01</span>
+						<span class="serial">@item.Serial</span>
 						<div class="service-icon">
-							
+							@await Html.PartialLineIconAsync(new LineIconViewModel(item.Icon?.Content))
 						</div>
 						@await Html.PartialHeadingAsync(new HeadingViewModel(item.Title))
 						@await Html.PartialTextAsync(new TextViewModel(item.Description))

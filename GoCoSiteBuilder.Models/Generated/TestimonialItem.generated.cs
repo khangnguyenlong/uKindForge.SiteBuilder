@@ -79,7 +79,7 @@ namespace GoCoSiteBuilder.Models
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("quoteIcon")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel QuoteIcon => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "quoteIcon");
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.LineIcon> QuoteIcon => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.LineIcon>>(_publishedValueFallback, "quoteIcon");
 
 		///<summary>
 		/// Sub Title

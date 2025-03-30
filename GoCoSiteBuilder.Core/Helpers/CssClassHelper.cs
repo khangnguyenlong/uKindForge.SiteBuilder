@@ -67,19 +67,21 @@ namespace GoCoSiteBuilder.Core.Helpers
 
         public static string GetBackgroundClass(string bgContentOrder, DesignDetail designDetail) 
         {
-            return GetContentClass(bgContentOrder, designDetail, AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX);
+            return GetContentClass(bgContentOrder, designDetail?.ColorSettings?.Contents, AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX);
 		}
 
 		public static string GetButtonClass(string btnDesignOrder, DesignDetail designDetail)
         {
-            return GetContentClass(btnDesignOrder, designDetail, AppConstants.CssClassName.BUTTON_PREFIX);
+            return GetContentClass(btnDesignOrder, designDetail?.ColorSettings?.Buttons, AppConstants.CssClassName.BUTTON_PREFIX);
         }
 
-        public static string GetContentClass(string order, DesignDetail designDetail, string prefix)
+        public static string GetContentClass<T>(string order, IEnumerable<T> list, string prefix)
         {
-	        var orderResult = (string.IsNullOrEmpty(order)
-	                     || !int.TryParse(order, out var designOrder)
-	                     || designDetail?.ColorSettings?.Buttons?.ElementAtOrDefault(designOrder) == null) ? 0 : designOrder;
+            if(string.IsNullOrEmpty(order) || !int.TryParse(order, out var designOrder))
+            {
+                return $"{prefix}0";
+            }
+	        var orderResult = list == null || list.ElementAtOrDefault(designOrder) == null ? "0" : order;
 	        return $"{prefix}{orderResult}";
         }
 

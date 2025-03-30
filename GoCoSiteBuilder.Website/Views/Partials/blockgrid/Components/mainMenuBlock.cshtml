@@ -101,11 +101,12 @@
 			{
 				@if (item.Content == null || item.Content is not NavItem navItem || navItem == null) return;
 				{
+					var activeClass = currentUrl == navItem?.NavItemLink?.Url ? "active" : "";
 					var itemToggleId = $"sub-nav-{navItem.NavItemName.ToLower()}";
-					<li class="@(isSub ? "" : "nav-item")">
+					<li class="@(isSub ? "" : "nav-item") @activeClass">
 						@if (navItem.NavSubItems != null && navItem.NavSubItems.Any())
 						{
-							<a class="page-scroll @(currentUrl == navItem?.NavItemLink?.Url ? "active" : "")"
+							<a class="page-scroll"
 							   data-bs-toggle="collapse"
 							   data-bs-target="#@itemToggleId"
 							   aria-controls="sub-nav-@itemToggleId"

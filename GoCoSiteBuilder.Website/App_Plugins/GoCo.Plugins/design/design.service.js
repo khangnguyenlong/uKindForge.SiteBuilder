@@ -5,7 +5,6 @@
 
         const groupTab = editorStateCurrent.variants[0].tabs.find(tab => tab.type === 'Group' && tab.alias === `${tabAlias}/${groupAlias}`);
         if (!groupTab) return;
-
         const property = groupTab.properties.find(property => property.alias === propertyAlias);
         return property;
     }
