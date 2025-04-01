@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace GoCoSiteBuilder.Models
 {
-	/// <summary>Section Title Block</summary>
+	/// <summary>Section Title</summary>
 	[PublishedModel("sectionTitleBlock")]
 	public partial class SectionTitleBlock : PublishedElementModel
 	{
@@ -55,6 +55,6 @@ namespace GoCoSiteBuilder.Models
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("sectionTitle")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.SectionTitle> SectionTitle => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.SectionTitle>>(_publishedValueFallback, "sectionTitle");
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.SectionTitle, global:: GoCoSiteBuilder.Models.SectionTitleSettings> SectionTitle => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.SectionTitle, global:: GoCoSiteBuilder.Models.SectionTitleSettings>>(_publishedValueFallback, "sectionTitle");
 	}
 }

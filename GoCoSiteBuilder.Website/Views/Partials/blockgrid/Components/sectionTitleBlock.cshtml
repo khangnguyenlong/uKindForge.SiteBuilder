@@ -1,0 +1,14 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<SectionTitleBlock>>
+@inject DesignHelper DesignHelper
+
+@{
+	if (Model.Content?.SectionTitle?.Content == null) return;
+	var sectionTitle = Model.Content.SectionTitle.Content;
+	var settings = Model.Content.SectionTitle.Settings;
+}
+
+<div class="section-title-block block @DesignHelper.GetBackgroundClass(settings?.ContentColor) @CssClassHelper.GetTextAlign(settings?.TextAlign)">
+	@await Html.PartialHeadingAsync(new HeadingViewModel(sectionTitle.Title))
+	@await Html.PartialSubheadingAsync(new HeadingViewModel(sectionTitle.Subtitle))
+	@await Html.PartialTextAsync(new TextViewModel(sectionTitle.Description))
+</div>
