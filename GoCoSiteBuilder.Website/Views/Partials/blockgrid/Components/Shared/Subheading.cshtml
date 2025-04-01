@@ -21,6 +21,6 @@
 @functions {
     void RenderHeading()
     {
-        <@Model.Heading.HeadingTag class="@CssClassHelper.GetTextAlign(@Model.Heading.Align, applyDefaultValue: false) @Model.CssClass">@Model.Heading.HeadingText</@Model.Heading.HeadingTag>
+        <@Model.Heading.HeadingTag class="@Model.Heading.HeadingTag @CssClassHelper.GetTextAlign(@Model.Heading.Align, applyDefaultValue: false) @Model.CssClass">@Model.Heading.HeadingText</@Model.Heading.HeadingTag>
     }
 }
