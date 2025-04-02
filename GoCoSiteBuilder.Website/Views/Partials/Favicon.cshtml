@@ -1,0 +1,38 @@
+﻿@inherits UmbracoViewPage<MediaWithCrops>
+
+@{
+	if (Model == null) return;
+
+	var ext = Model.Value<string>("umbracoExtension");
+	var mimeType = ext switch
+	{
+		"png" => "image/png",
+		"ico" => "image/x-icon",
+		"svg" => "image/svg+xml",
+		_ => "image/png"
+	};
+
+	var faviconSizes = new[]
+	{
+		new { Width = 16,  Height = 16,  Label = "16x16",   IsApple = false },
+		new { Width = 32,  Height = 32,  Label = "32x32",   IsApple = false },
+		new { Width = 48,  Height = 48,  Label = "48x48",   IsApple = false },
+		new { Width = 180, Height = 180, Label = "180x180", IsApple = true  },
+		new { Width = 192, Height = 192, Label = "192x192", IsApple = false }
+	};
+
+}
+
+@foreach (var size in faviconSizes)
+{
+	var cropUrl = Model.GetCropUrl(width: size.Width, height: size.Height);
+
+	if (size.IsApple == true)
+	{
+		<link rel="apple-touch-icon" sizes="@size.Label" href="@cropUrl" />
+	}
+	else
+	{
+		<link rel="icon" type="@mimeType" sizes="@size.Label" href="@cropUrl" />
+	}
+}
