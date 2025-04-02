@@ -73,12 +73,12 @@ namespace GoCoSiteBuilder.Models
 		public virtual string MetaDescription => global::GoCoSiteBuilder.Models.SeoBase.GetMetaDescription(this, _publishedValueFallback);
 
 		///<summary>
-		/// Meta Title
+		/// Page Title: Optional custom page title for SEO and browser tabs. If left empty, the document name will be used, followed by the website name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("metaTitle")]
-		public virtual string MetaTitle => global::GoCoSiteBuilder.Models.SeoBase.GetMetaTitle(this, _publishedValueFallback);
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::GoCoSiteBuilder.Models.SeoBase.GetPageTitle(this, _publishedValueFallback);
 
 		///<summary>
 		/// Override Design: If Override Design is selected, it will replace the default design in the external Design section. If Override Design is not selected, the default design will be applied.
