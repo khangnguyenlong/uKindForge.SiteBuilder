@@ -66,28 +66,20 @@ namespace GoCoSiteBuilder.Models
 		public virtual global::GoCoSiteBuilder.Models.ColorSettings ColorSettings => this.Value<global::GoCoSiteBuilder.Models.ColorSettings>(_publishedValueFallback, "colorSettings");
 
 		///<summary>
+		/// Favicon
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("favicon")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Favicon => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "favicon");
+
+		///<summary>
 		/// Fonts
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("fontSettings")]
 		public virtual global::GoCoSiteBuilder.Models.FontSettings FontSettings => this.Value<global::GoCoSiteBuilder.Models.FontSettings>(_publishedValueFallback, "fontSettings");
-
-		///<summary>
-		/// Logo
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("footerLogo")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FooterLogo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "footerLogo");
-
-		///<summary>
-		/// Logo Hover
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("footerLogoHover")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FooterLogoHover => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "footerLogoHover");
 
 		///<summary>
 		/// Logo

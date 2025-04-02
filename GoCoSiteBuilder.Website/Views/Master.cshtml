@@ -25,6 +25,8 @@
 
 	<link rel="stylesheet" href="~/css/bundle.min.css" />
 
+	@await Html.PartialAsync("~/Views/Partials/Favicon.cshtml", design.Favicon)
+
 	@await Html.PartialAsync("~/Views/Partials/Design.cshtml", design)
 </head>
 <body>
