@@ -82,19 +82,19 @@ namespace GoCoSiteBuilder.Models
 		public virtual string Mobile => this.Value<string>(_publishedValueFallback, "mobile");
 
 		///<summary>
+		/// Social Icons
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("socialIcons")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel SocialIcons => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "socialIcons");
+
+		///<summary>
 		/// Telephone
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("telephone")]
 		public virtual string Telephone => this.Value<string>(_publishedValueFallback, "telephone");
-
-		///<summary>
-		/// Contact Form Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual global::GoCoSiteBuilder.Models.Heading Title => this.Value<global::GoCoSiteBuilder.Models.Heading>(_publishedValueFallback, "title");
 	}
 }

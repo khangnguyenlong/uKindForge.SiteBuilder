@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace GoCoSiteBuilder.Models
 {
-	/// <summary>Contact Form (Settings)</summary>
+	/// <summary>Contact Form Settings</summary>
 	[PublishedModel("contactFormBlockSettings")]
 	public partial class ContactFormBlockSettings : PublishedElementModel
 	{
@@ -48,5 +48,69 @@ namespace GoCoSiteBuilder.Models
 		}
 
 		// properties
+
+		///<summary>
+		/// Content Color
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("contentColor")]
+		public virtual string ContentColor => this.Value<string>(_publishedValueFallback, "contentColor");
+
+		///<summary>
+		/// Email Address Label
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("emailAddressLabel")]
+		public virtual string EmailAddressLabel => this.Value<string>(_publishedValueFallback, "emailAddressLabel");
+
+		///<summary>
+		/// Full Name Label
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("fullNameLabel")]
+		public virtual string FullNameLabel => this.Value<string>(_publishedValueFallback, "fullNameLabel");
+
+		///<summary>
+		/// Message Label
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("messageLabel")]
+		public virtual string MessageLabel => this.Value<string>(_publishedValueFallback, "messageLabel");
+
+		///<summary>
+		/// Phone Number Label
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("phoneNumberLabel")]
+		public virtual string PhoneNumberLabel => this.Value<string>(_publishedValueFallback, "phoneNumberLabel");
+
+		///<summary>
+		/// Subject Label
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("subjectLabel")]
+		public virtual string SubjectLabel => this.Value<string>(_publishedValueFallback, "subjectLabel");
+
+		///<summary>
+		/// Submit Button Label
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("submitButtonLabel")]
+		public virtual string SubmitButtonLabel => this.Value<string>(_publishedValueFallback, "submitButtonLabel");
+
+		///<summary>
+		/// Submit Button Style
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("submitButtonStyle")]
+		public virtual string SubmitButtonStyle => this.Value<string>(_publishedValueFallback, "submitButtonStyle");
 	}
 }

@@ -13,6 +13,7 @@ namespace GoCoSiteBuilder.Core.Helpers
         public static Task<IHtmlContent> PartialTextAsync(this IHtmlHelper htmlHelper, object model) => htmlHelper.PartialSharedAsync("Text", model);
         public static Task<IHtmlContent> PartialImageLinkAsync(this IHtmlHelper htmlHelper, object model) => htmlHelper.PartialSharedAsync("ImageLink", model);
         public static Task<IHtmlContent> PartialLineIconLinkAsync(this IHtmlHelper htmlHelper, object model) => htmlHelper.PartialSharedAsync("LineIconLink", model);
+        public static Task<IHtmlContent> PartialLineIconLinkListAsync(this IHtmlHelper htmlHelper, object model) => htmlHelper.PartialSharedAsync("LineIconLinkList", model);
         public static Task<IHtmlContent> PartialLineIconAsync(this IHtmlHelper htmlHelper, object model) => htmlHelper.PartialSharedAsync("LineIcon", model);
 
         public static Task<IHtmlContent> PartialSharedAsync(this IHtmlHelper htmlHelper, string partialViewName, object model) 

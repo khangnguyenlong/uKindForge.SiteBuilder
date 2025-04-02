@@ -3,26 +3,12 @@
 <!--TODO implement submit form -->
 <section class="contact-area contact-area-two">
 	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-xl-6 col-lg-7">
-				@if (Model.Content?.Title != null)
-				{
-					<div class="section-title-2 text-center">
-						@await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
-					</div>
-				}
-				<!-- section title -->
-			</div>
-		</div>
 		<!-- row -->
 		<div class="row">
 			<div class="col-xl-5 col-lg-6">
 				<div class="contact-two">
-					@* <h4 class="contact-title">Lets talk about the project</h4> *@
-					@*                  <p class="text"> *@
 					@await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
-					@*                     </p>
- *@                    <ul class="contact-info">
+                   <ul class="contact-info">
 						@if (!string.IsNullOrEmpty(Model.Content.Address))
 						{
 							<li><i class="lni lni-money-location"></i> @Model.Content.Address</li>

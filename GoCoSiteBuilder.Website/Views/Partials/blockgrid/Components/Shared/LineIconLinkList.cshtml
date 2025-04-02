@@ -1,0 +1,16 @@
+﻿@inherits UmbracoViewPage<BlockListModel>
+
+@{
+	if (Model == null) return;
+}
+
+<ul class="social">
+	@foreach (var social in Model)
+	{
+		var iconLink = social.Content.SafeCast<IconLink>();
+		if (iconLink == null) continue;
+		<li>
+			@await Html.PartialLineIconLinkAsync(new LineIconLinkViewModel(iconLink))
+		</li>
+	}
+</ul>

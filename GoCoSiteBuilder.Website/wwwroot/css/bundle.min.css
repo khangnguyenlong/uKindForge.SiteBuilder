@@ -3279,9 +3279,6 @@ footer {
     }
 
 .form-input label {
-    font-size: 12px;
-    line-height: 18px;
-    color: var(--dark-3);
     margin-bottom: 8px;
     display: inline-block;
 }
@@ -3390,7 +3387,6 @@ footer {
     }
 
 .form-style-four .form-input label {
-    padding-left: 44px;
     margin-bottom: 0;
 }
 
@@ -3434,6 +3430,7 @@ footer {
 }
 
     .contact-info .social li a {
+        display: block;
         font-size: 20px;
         height: 40px;
         width: 40px;
@@ -3441,7 +3438,6 @@ footer {
         border: 1px solid rgba(0, 0, 0, 0.096);
         text-align: center;
         border-radius: 5px;
-        color: var(--dark-3);
         -webkit-transition: all 0.3s ease-out 0s;
         -moz-transition: all 0.3s ease-out 0s;
         -ms-transition: all 0.3s ease-out 0s;
@@ -3450,8 +3446,6 @@ footer {
     }
 
         .contact-info .social li a:hover {
-            color: var(--white);
-            background-color: var(--primary);
             border-color: transparent;
         }
 
@@ -3554,7 +3548,7 @@ footer {
         }
 
     .contact-area-two .form-input label {
-        font-size: 12px;
+        font-size: 16px;
         line-height: 18px;
         color: var(--dark-3);
         margin-bottom: 8px;
