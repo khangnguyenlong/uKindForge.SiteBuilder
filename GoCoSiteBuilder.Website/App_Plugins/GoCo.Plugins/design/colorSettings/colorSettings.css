@@ -6,3 +6,23 @@
 .sp-palette .sp-thumb-inner, .sp-palette .sp-thumb-inner:hover {
     border: 1px solid #f3f3f5;
 }
+
+.back-to-top {
+    transition: all 0.3s ease;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+    .back-to-top:before {
+        content: "";
+        position: absolute;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        width: 15px;
+        height: 15px;
+        top: 50%;
+        left: 50%;
+        border-top: 5px solid;
+        border-right: 5px solid;
+    }

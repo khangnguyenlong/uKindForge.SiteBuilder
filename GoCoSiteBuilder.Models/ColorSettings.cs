@@ -8,6 +8,7 @@
         public FooterColorSettings Footer { get; set; } = new();
         public ContentColorSettings[] Contents { get; set; } = [];
         public ButtonColorSettings[] Buttons { get; set; } = [];
+        public ButtonColorSettings BackToTop { get; set; } = new();
     }
 
     public class MainNavColorSettings
