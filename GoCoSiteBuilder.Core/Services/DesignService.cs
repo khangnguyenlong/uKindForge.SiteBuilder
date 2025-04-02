@@ -1,6 +1,7 @@
 ﻿using GoCoSiteBuilder.Core.Builder;
 using GoCoSiteBuilder.Core.ViewModels;
 using GoCoSiteBuilder.Models;
+using Umbraco.Cms.Core.Extensions;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Extensions;
 
@@ -145,6 +146,14 @@ namespace GoCoSiteBuilder.Core.Services
                         --portfolio-tab-button-text-color: #6d6d6d;
                         --portfolio-tab-button-text-color-active: #fff;
                         --portfolio-tab-button-bg-color-active: #155bd5;
+
+                        /* Back to Top */
+                        --back-to-top-color: #{color.BackToTop.Text};
+                        --back-to-top-background-color: #{color.BackToTop.Background};
+                        --back-to-top-border-color: #{color.BackToTop.Border};
+                        --back-to-top-hover-color: #{color.BackToTop.TextHover};
+                        --back-to-top-hover-background-color: #{color.BackToTop.BackgroundHover};
+                        --back-to-top-hover-border-color: #{color.BackToTop.BorderHover};
                     }}
                     {cssStyle}
                 </style>

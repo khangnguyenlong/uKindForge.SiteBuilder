@@ -2250,23 +2250,22 @@ Author: lineicons.com
 }
 
 /* Back to Top */
-.top {
+.back-to-top {
     --offset: 50px;
     position: fixed;
     bottom: 20px;
     right: 20px;
     display: none;
-
     width: 45px;
     height: 45px;
-    background: #ff8b24;
+    background: var(--back-to-top-background-color);
     border-radius: 10px;
     cursor: pointer;
     z-index: 1000;
+    border-color: var(--back-to-top-border-color);
 }
 
-    /* Button Icon */
-    .top:before {
+    .back-to-top:before {
         content: "";
         position: absolute;
         top: 50%;
@@ -2276,10 +2275,13 @@ Author: lineicons.com
         height: 15px;
         border-top: 5px solid #fff;
         border-right: 5px solid #fff;
+        color: var(--back-to-top-color);
     }
 
-    .top:hover {
-        background: #e6731f;
+    .back-to-top:hover {
+        background: var(--back-to-top-hover-background-color);
+        color: var(--back-to-top-hover-color);
+        border-color: var(--back-to-top-hover-border-color);
     }
 
 /* Smooth scroll */
