@@ -58,13 +58,6 @@ namespace GoCoSiteBuilder.Models
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel PageContent => global::GoCoSiteBuilder.Models.PageContentBase.GetPageContent(this, _publishedValueFallback);
 
 		///<summary>
-		/// Hide Search Engines
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("hideSearchEngines")]
-		public virtual bool HideSearchEngines => global::GoCoSiteBuilder.Models.SeoBase.GetHideSearchEngines(this, _publishedValueFallback);
-
-		///<summary>
 		/// Meta Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
@@ -79,6 +72,14 @@ namespace GoCoSiteBuilder.Models
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("pageTitle")]
 		public virtual string PageTitle => global::GoCoSiteBuilder.Models.SeoBase.GetPageTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Social Share Image: Optional image used when sharing this page on social media. Overrides the default image set in the settings.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("socialShareImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops SocialShareImage => global::GoCoSiteBuilder.Models.SeoBase.GetSocialShareImage(this, _publishedValueFallback);
 
 		///<summary>
 		/// Override Design: If Override Design is selected, it will replace the default design in the external Design section. If Override Design is not selected, the default design will be applied.

@@ -1,0 +1,44 @@
+﻿@inherits UmbracoViewPage
+@inject Umbraco.Cms.Core.Routing.IPublishedUrlProvider _publishedUrlProvider
+
+@{
+    var pageTitle = !string.IsNullOrEmpty(Model.Value<string>("pageTitle")) ? Model.Value<string>("pageTitle") : Model.Name;
+    var metaDescription = Model.Value<string>("metaDescription") ?? string.Empty;
+
+    var globalSettings = Umbraco.ContentAtRoot().FirstOrDefault(x => x.ContentType.Alias == GlobalSettings.ModelTypeAlias);
+    var siteName = globalSettings?.Value<string>("siteName") ?? "";
+    var fullTitle = !string.IsNullOrWhiteSpace(siteName) ? $"{pageTitle} | {siteName}" : pageTitle;
+
+    var image = Model.Value<IPublishedContent>("socialShareImage")
+        ?? globalSettings?.Value<IPublishedContent>("socialShareImage");
+
+    var imageUrl = image?.GetCropUrl(width: 1200, height: 630, urlMode: UrlMode.Absolute);
+    var pageUrl = Model.Url(_publishedUrlProvider, null, UrlMode.Absolute);
+}
+
+<title>@fullTitle</title>
+
+@if (!string.IsNullOrWhiteSpace(metaDescription))
+{
+    <meta name="description" content="@metaDescription" />
+}
+
+<!-- Open Graph -->
+<meta property="og:title" content="@fullTitle" />
+<meta property="og:description" content="@metaDescription" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="@pageUrl" />
+
+@if (!string.IsNullOrWhiteSpace(imageUrl))
+{
+    <meta property="og:image" content="@imageUrl" />
+}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="@fullTitle" />
+<meta name="twitter:description" content="@metaDescription" />
+@if (!string.IsNullOrWhiteSpace(imageUrl))
+{
+    <meta name="twitter:image" content="@imageUrl" />
+}

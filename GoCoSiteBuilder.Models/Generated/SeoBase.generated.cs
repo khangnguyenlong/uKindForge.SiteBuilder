@@ -22,10 +22,6 @@ namespace GoCoSiteBuilder.Models
 	/// <summary>SEO</summary>
 	public partial interface ISeoBase : IPublishedElement
 	{
-		/// <summary>Hide Search Engines</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		bool HideSearchEngines { get; }
-
 		/// <summary>Meta Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -35,6 +31,11 @@ namespace GoCoSiteBuilder.Models
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		string PageTitle { get; }
+
+		/// <summary>Social Share Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.MediaWithCrops SocialShareImage { get; }
 	}
 
 	/// <summary>SEO</summary>
@@ -69,17 +70,6 @@ namespace GoCoSiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Hide Search Engines
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("hideSearchEngines")]
-		public virtual bool HideSearchEngines => GetHideSearchEngines(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Hide Search Engines</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		public static bool GetHideSearchEngines(ISeoBase that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "hideSearchEngines");
-
-		///<summary>
 		/// Meta Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
@@ -104,5 +94,18 @@ namespace GoCoSiteBuilder.Models
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public static string GetPageTitle(ISeoBase that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "pageTitle");
+
+		///<summary>
+		/// Social Share Image: Optional image used when sharing this page on social media. Overrides the default image set in the settings.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("socialShareImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops SocialShareImage => GetSocialShareImage(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Social Share Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetSocialShareImage(ISeoBase that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "socialShareImage");
 	}
 }

@@ -74,7 +74,7 @@ namespace GoCoSiteBuilder.Models
 		public virtual string SiteName => this.Value<string>(_publishedValueFallback, "siteName");
 
 		///<summary>
-		/// Social share image
+		/// Social share image: Default social sharing image used for pages that don't define their own image.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
