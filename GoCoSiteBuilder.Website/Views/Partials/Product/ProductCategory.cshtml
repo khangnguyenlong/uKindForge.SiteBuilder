@@ -1,0 +1,58 @@
+﻿@model ProductCategoryViewModel
+@using GoCoSiteBuilder.Models
+
+<section class="container py-4">
+    @await Html.PartialAsync("~/Views/Partials/Shared/_Breadcrumb.cshtml", Model.BreadcrumbNodes)
+    <div class="row">
+        <aside class="col-md-3 product-cat-nav">
+            @if (!string.IsNullOrEmpty(Model.CategorySectionTitle))
+            {
+                <h2 class="h5 mb-4">@Model.CategorySectionTitle</h2>
+            }
+            @{
+                RenderCategories(null, Model.Categories, Model.ActiveCategoryId);
+            }
+        </aside>
+
+        <main class="col-md-9">
+            @if (Model.Products.Any())
+            {
+                <div class="row g-4">
+                    @foreach (var product in Model.Products)
+                    {
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            @await Html.PartialAsync("~/Views/Partials/Product/ProductCard.cshtml", product)
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p class="text-muted">@Model.EmptyCategoryMessage</p>
+            }
+        </main>
+    </div>
+</section>
+
+@functions {
+    void RenderCategories(ProductCategory? parent, List<ProductCategory> all, int? activeId, int depth = 0)
+    {
+        var children = all.Where(x => x.ParentCategory?.Id == parent?.Id);
+        if (!children.Any()) return;
+
+        <ul class="list-unstyled ms-@depth">
+            @foreach (var cat in children)
+            {
+                var isActive = cat.Id == activeId;
+                <li class="mb-1">
+                    <a href="@cat.Url()" class="cat-link d-block py-2 @(isActive ? "active fw-bold" : "")">
+                        @cat.CategoryName
+                    </a>
+                    @{
+                        RenderCategories(cat, all, activeId, depth + 2);
+                    }
+                </li>
+            }
+        </ul>
+    }
+}

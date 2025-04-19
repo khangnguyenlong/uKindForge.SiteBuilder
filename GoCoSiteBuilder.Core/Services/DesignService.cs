@@ -154,6 +154,21 @@ namespace GoCoSiteBuilder.Core.Services
                         --back-to-top-hover-color: #{color.BackToTop.TextHover};
                         --back-to-top-hover-background-color: #{color.BackToTop.BackgroundHover};
                         --back-to-top-hover-border-color: #{color.BackToTop.BorderHover};
+
+                        /* Product Category */
+                        --product-cat-nav-bg-color: #{color.ProductCategory.Background};
+                        --product-cat-nav-link-color: #{color.ProductCategory.Link};
+                        --product-cat-nav-link-hover-color: #{color.ProductCategory.LinkHover};
+                        --product-cat-nav-link-border-color: #{color.ProductCategory.LinkBorder};
+                        --product-cat-nav-link-hover-border-color: #{color.ProductCategory.LinkBorderHover};
+                        --product-cat-nav-link-background-color: #{color.ProductCategory.LinkBackground};
+                        --product-cat-nav-link-hover-background-color: #{color.ProductCategory.LinkHoverBackground};        
+
+                        /* Product Card */
+                        --product-card-bg-color: #{color.ProductCard.Background};
+                        --product-card-title-color: #{color.ProductCard.Title};
+                        --product-card-desc-color: #{color.ProductCard.Description};
+                        --product-card-border-color: #{color.ProductCard.Border};
                     }}
                     {cssStyle}
                 </style>

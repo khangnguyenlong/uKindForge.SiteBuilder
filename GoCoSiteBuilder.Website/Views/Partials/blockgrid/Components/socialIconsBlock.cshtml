@@ -5,15 +5,7 @@
         @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
         @if (Model.Content?.IconLinks != null && Model.Content.IconLinks.Any())
         {
-            <ul>
-                @foreach (var iconLinkItem in Model.Content.IconLinks)
-                {
-                    @if (iconLinkItem.Content is not IconLink iconLink || iconLink == null) continue;
-                    <li>
-                        @await Html.PartialImageLinkAsync(new ImageViewModel(@iconLink.Icon) { CropWidth = 40, CropHeight = 40, ImageAlt = @iconLink.Link?.Name, Link = @iconLink.Link })
-                    </li>
-                }
-            </ul>
+            @await Html.PartialLineIconLinkListAsync(Model.Content.IconLinks)
         }
     </div>
 </div>

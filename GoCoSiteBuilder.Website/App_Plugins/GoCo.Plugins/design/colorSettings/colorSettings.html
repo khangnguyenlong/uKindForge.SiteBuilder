@@ -548,11 +548,11 @@
 
                 <div class="card">
                     <div class="card-header" id="heading-body">
-                        <a href="#collapse-footer" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                        <a href="#collapse-back-to-top" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
                             <span ng-style="">Back to Top Icon</span>
                         </a>
                     </div>
-                    <div id="collapse-footer" class="collapse" data-bs-parent="#accordionColor">
+                    <div id="collapse-back-to-top" class="collapse" data-bs-parent="#accordionColor">
                         <div class="card-body">
                             <div class="span3 card-body-control">
                                 <!-- Text -->
@@ -618,13 +618,13 @@
                                             <div class="preview-wrap__header">Preview</div>
                                             <div class="content-preview" style="display: grid; place-items: center; position: relative; ">
                                                 <a class="back-to-top"
-                                                        ng-style="{
+                                                   ng-style="{
                                                             'color': hover ? '#' + (model.value.backToTop.textHover || '#000') : '#' + (model.value.backToTop.text || '#000'),
                                                             'background-color': hover ? '#' + (model.value.backToTop.backgroundHover || '#000') : '#' + (model.value.backToTop.background || '#000'),
                                                             'border': '1px solid ' + (hover ? '#' + (model.value.backToTop.borderHover || '#000') : '#' + (model.value.backToTop.border || '#000'))
                                                         }"
-                                                        ng-mouseenter="hover = true"
-                                                        ng-mouseleave="hover = false">
+                                                   ng-mouseenter="hover = true"
+                                                   ng-mouseleave="hover = false">
                                                 </a>
                                             </div>
                                         </div>
@@ -635,6 +635,166 @@
                     </div>
                 </div>
                 <!-- Back to Top Icon -->
+
+                <div class="card">
+                    <div class="card-header" id="heading-body">
+                        <a href="#collapse-product-category" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                            <span ng-style="">Product Categories</span>
+                        </a>
+                    </div>
+                    <div id="collapse-product-category" class="collapse" data-bs-parent="#accordionColor">
+                        <div class="card-body">
+                            <div class="span3 card-body-control">
+                                <!-- Link -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="productCategoryLinkColor" ng-model="model.value.productCategory.link" options="settings"
+                                                      on-change="onChange(color, 'productCategory', 'link')"
+                                                      on-move="onChange(color, 'productCategory', 'link')"
+                                                      on-hide="onChange(color, 'productCategory', 'link')">
+                                    </umb-color-picker>
+                                    <label for="productCategoryLinkColor">Link</label>
+                                </div>
+                                <!-- Link hover -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="productCategoryLinkHoverColor" ng-model="model.value.productCategory.linkHover" options="settings"
+                                                      on-change="onChange(color, 'productCategory', 'linkHover')"
+                                                      on-move="onChange(color, 'productCategory', 'linkHover')"
+                                                      on-hide="onChange(color, 'productCategory', 'linkHover')">
+                                    </umb-color-picker>
+                                    <label for="productCategoryLinkHoverColor">Link hover</label>
+                                </div>
+                                <!-- Link background-->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="productCategoryLinkBackgroundColor" ng-model="model.value.productCategory.linkBackground" options="settings"
+                                                      on-change="onChange(color, 'productCategory', 'linkBackground')"
+                                                      on-move="onChange(color, 'productCategory', 'linkBackground')"
+                                                      on-hide="onChange(color, 'productCategory', 'linkBackground')">
+                                    </umb-color-picker>
+                                    <label for="productCategoryLinkBackgroundColor">Link background</label>
+                                </div>
+                                <!-- Link hover background-->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="productCategoryLinkHoverBackground" ng-model="model.value.productCategory.linkHoverBackground" options="settings"
+                                                      on-change="onChange(color, 'productCategory', 'linkHoverBackground')"
+                                                      on-move="onChange(color, 'productCategory', 'linkHoverBackground')"
+                                                      on-hide="onChange(color, 'productCategory', 'linkHoverBackground')">
+                                    </umb-color-picker>
+                                    <label for="productCategoryLinkHoverBackground">Link hover background</label>
+                                </div>
+                                <!-- Link border -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="productCategoryLinkBorder" ng-model="model.value.productCategory.linkBorder" options="settings"
+                                                      on-change="onChange(color, 'productCategory', 'linkBorder')"
+                                                      on-move="onChange(color, 'productCategory', 'linkBorder')"
+                                                      on-hide="onChange(color, 'productCategory', 'linkBorder')">
+                                    </umb-color-picker>
+                                    <label for="productCategoryLinkBorder">Link border</label>
+                                </div>
+                                <!-- Link border hover-->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="productCategoryLinkBorderHover" ng-model="model.value.productCategory.linkBorderHover" options="settings"
+                                                      on-change="onChange(color, 'productCategory', 'linkBorderHover')"
+                                                      on-move="onChange(color, 'productCategory', 'linkBorderHover')"
+                                                      on-hide="onChange(color, 'productCategory', 'linkBorderHover')">
+                                    </umb-color-picker>
+                                    <label for="productCategoryLinkBorderHover">Link border hover</label>
+                                </div>
+                                <!-- Background -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="productCategoryBackground" ng-model="model.value.productCategory.background" options="settings"
+                                                      on-change="onChange(color, 'productCategory', 'background')"
+                                                      on-move="onChange(color, 'productCategory', 'background')"
+                                                      on-hide="onChange(color, 'productCategory', 'background')">
+                                    </umb-color-picker>
+                                    <label for="productCategoryBackground">Background</label>
+                                </div>
+                            </div>
+                            <div class="span9">
+                                <!-- Content Preview -->
+                                <div class="preview-wrap">
+                                    <div class="preview-wrap__content">
+                                        <div class="control-group">
+                                            <div class="preview-wrap__header">Preview</div>
+                                            <div class="content-preview" style="display: grid; place-items: center; position: relative; ">
+                                                <div class="content-preview" ng-if="true">
+                                                    <div ng-init="productCatVisible = true" ng-include="'/App_Plugins/GoCo.Plugins/design/preview/productCat.html'"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product categories -->
+
+                <div class="card">
+                    <div class="card-header" id="heading-body">
+                        <a href="#collapse-product-card" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                            <span ng-style="">Product Card</span>
+                        </a>
+                    </div>
+                    <div id="collapse-product-card" class="collapse" data-bs-parent="#accordionColor">
+                        <div class="card-body">
+                            <div class="span3 card-body-control">
+                                <!-- Background -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="productCardBackground" ng-model="model.value.productCard.background" options="settings"
+                                                      on-change="onChange(color, 'productCard', 'background')"
+                                                      on-move="onChange(color, 'productCard', 'background')"
+                                                      on-hide="onChange(color, 'productCard', 'background')">
+                                    </umb-color-picker>
+                                    <label for="productCardBackground">Card Background</label>
+                                </div>
+
+                                <!-- Card Title -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="productCardTitle" ng-model="model.value.productCard.title" options="settings"
+                                                      on-change="onChange(color, 'productCard', 'title')"
+                                                      on-move="onChange(color, 'productCard', 'title')"
+                                                      on-hide="onChange(color, 'productCard', 'title')">
+                                    </umb-color-picker>
+                                    <label for="productCardTitle">Card Title</label>
+                                </div>
+
+                                <!-- Card Desc -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="productCardDesc" ng-model="model.value.productCard.description" options="settings"
+                                                      on-change="onChange(color, 'productCard', 'description')"
+                                                      on-move="onChange(color, 'productCard', 'description')"
+                                                      on-hide="onChange(color, 'productCard', 'description')">
+                                    </umb-color-picker>
+                                    <label for="productCardDesc">Card Description</label>
+                                </div>
+
+                                <!-- Card Border -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="productCardBorder" ng-model="model.value.productCard.border" options="settings"
+                                                      on-change="onChange(color, 'productCard', 'border')"
+                                                      on-move="onChange(color, 'productCard', 'border')"
+                                                      on-hide="onChange(color, 'productCard', 'border')">
+                                    </umb-color-picker>
+                                    <label for="productCardBorder">Card Border</label>
+                                </div>
+                            </div>
+                            <div class="span9">
+                                <!-- Content Preview -->
+                                <div class="preview-wrap">
+                                    <div class="preview-wrap__content">
+                                        <div class="control-group">
+                                            <div class="preview-wrap__header">Preview</div>
+                                            <div class="content-preview" style="display: grid; place-items: center; position: relative; ">
+                                                <div ng-init="productCardVisible = true" ng-include="'/App_Plugins/GoCo.Plugins/design/preview/productCard.html'"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card -->
             </div>
         </div>
     </section>
