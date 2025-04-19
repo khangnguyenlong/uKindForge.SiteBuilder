@@ -6,6 +6,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="App_Plugins\GoCo.Plugins\design\designList\designListView.html" />
+    <Content Include="App_Plugins\GoCo.Plugins\design\preview\productCard.html" />
+    <Content Include="App_Plugins\GoCo.Plugins\design\preview\productCat.html" />
     <Content Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIconsPicker.css" />
     <Content Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIconsPicker.html" />
     <Content Include="App_Plugins\GoCo.Plugins\colorPalette\colorPalette.css" />
@@ -50,7 +52,6 @@
 
   <ItemGroup>
     <Folder Include="App_Plugins\GoCo.Plugins\blockPreview\img\" />
-    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
   <ItemGroup>

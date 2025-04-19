@@ -45,7 +45,7 @@
 
 						@if (hasNavItem)
 						{
-							<div class="collapse navbar-collapse menu-bar" id="navbarThree">
+							<div class="navbar-collapse menu-bar" id="navbarThree">
 								@{
 									renderNavigationItem(navItems, false, assignedContentItem?.Url() ?? "");
 								}
@@ -101,7 +101,12 @@
 			{
 				@if (item.Content == null || item.Content is not NavItem navItem || navItem == null) return;
 				{
-					var activeClass = currentUrl == navItem?.NavItemLink?.Url ? "active" : "";
+					var navUrl = navItem?.NavItemLink?.Url?.TrimEnd('/') ?? "";
+					var current = currentUrl?.TrimEnd('/') ?? "";
+					var isHomeActive = navUrl == "" && current == "";
+					var isOtherActive = navUrl != "" && current.StartsWith(navUrl, StringComparison.OrdinalIgnoreCase);
+					var activeClass = (isHomeActive || isOtherActive) ? "active" : "";
+
 					var itemToggleId = $"sub-nav-{navItem.NavItemName.ToLower()}";
 					<li class="@(isSub ? "" : "nav-item") @activeClass">
 						@if (navItem.NavSubItems != null && navItem.NavSubItems.Any())
@@ -174,3 +179,6 @@
 		};
 	}
 </script>
+
+
+

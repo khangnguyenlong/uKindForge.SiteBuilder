@@ -1,0 +1,18 @@
+﻿@model Product
+@using GoCoSiteBuilder.Models
+@{
+    var imageUrl = Model?.MainImage != null ? Model.MainImage.Url() : ImageHelper.GetDefaultImage();
+}
+
+<a href="@Model.Url()" class="product-card text-decoration-none d-block h-100">
+    <div class="card h-100 border shadow-sm">
+        <img src="@imageUrl" class="card-img-top" alt="@Model.ProductName" />
+        <div class="card-body">
+            <h5 class="h5 product-card-title">@Model.ProductName</h5>
+            @if (!Model.ShortDescription.IsNullOrWhiteSpace())
+            {
+                <p class="product-card-desc small text-muted">@Html.Raw(Model.ShortDescription)</p>
+            }
+        </div>
+    </div>
+</a>

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>
+
+<nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+        @{
+            var items = Model.ToList();
+            var last = items.LastOrDefault();
+        }
+        @foreach (var node in items)
+        {
+            if (node != last)
+            {
+                <li class="breadcrumb-item">
+                    <a href="@node.Url()">@node.Name</a>
+                </li>
+            }
+            else
+            {
+                <li class="breadcrumb-item active" aria-current="page">@node.Name</li>
+            }
+        }
+    </ol>
+</nav>
