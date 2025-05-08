@@ -4,7 +4,7 @@
     $scope.showDropdown = false;
 
     // Load JSON file
-    $http.get("/App_Plugins/GoCo.Plugins/lineIconsPicker/lineIcons.json").then(function (response) {
+    $http.get("/App_Plugins/GoCoPlugins/lineIconsPicker/lineIcons.json").then(function (response) {
         if (response.data && Array.isArray(response.data)) {
             $scope.iconList = response.data;
             $scope.filteredIcons = [...$scope.iconList];
