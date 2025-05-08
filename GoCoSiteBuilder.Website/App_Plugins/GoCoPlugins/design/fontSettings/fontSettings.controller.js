@@ -45,7 +45,7 @@ function fontBaselinesController($scope, $http, assetsService) {
         }
     };
 
-    $http.get("/App_Plugins/GoCo.Plugins/design/fontSettings/google-web-font-list.json").then(function (response) {
+    $http.get("/App_Plugins/GoCoPlugins/design/fontSettings/google-web-font-list.json").then(function (response) {
         $scope.sourceFonts = response.data.items;
         if (!$scope.model.value.fontBaselines || $scope.model.value.fontBaselines.length === 0) {
             $scope.model.value.fontBaselines.push(addNewFont());
