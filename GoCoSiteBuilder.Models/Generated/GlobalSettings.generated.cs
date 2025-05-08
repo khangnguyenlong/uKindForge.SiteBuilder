@@ -50,6 +50,22 @@ namespace GoCoSiteBuilder.Models
 		// properties
 
 		///<summary>
+		/// Email To Admin
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("emailTemplateEmailToAdmin")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.Email> EmailTemplateEmailToAdmin => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.Email>>(_publishedValueFallback, "emailTemplateEmailToAdmin");
+
+		///<summary>
+		/// Email To Client
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("emailTemplateEmailToClient")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.Email> EmailTemplateEmailToClient => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.Email>>(_publishedValueFallback, "emailTemplateEmailToClient");
+
+		///<summary>
 		/// Error 404 Page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
@@ -66,12 +82,58 @@ namespace GoCoSiteBuilder.Models
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Favicon => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "favicon");
 
 		///<summary>
+		/// From Email
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("fromEmail")]
+		public virtual string FromEmail => this.Value<string>(_publishedValueFallback, "fromEmail");
+
+		///<summary>
 		/// Site Name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("siteName")]
 		public virtual string SiteName => this.Value<string>(_publishedValueFallback, "siteName");
+
+		///<summary>
+		/// Host
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("smtpHost")]
+		public virtual string SmtpHost => this.Value<string>(_publishedValueFallback, "smtpHost");
+
+		///<summary>
+		/// Password
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("smtpPassword")]
+		public virtual string SmtpPassword => this.Value<string>(_publishedValueFallback, "smtpPassword");
+
+		///<summary>
+		/// Port
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[ImplementPropertyType("smtpPort")]
+		public virtual int SmtpPort => this.Value<int>(_publishedValueFallback, "smtpPort");
+
+		///<summary>
+		/// Username
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("smtpUsername")]
+		public virtual string SmtpUsername => this.Value<string>(_publishedValueFallback, "smtpUsername");
+
+		///<summary>
+		/// Use SSL
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[ImplementPropertyType("smtpUseSSL")]
+		public virtual bool SmtpUseSsl => this.Value<bool>(_publishedValueFallback, "smtpUseSSL");
 
 		///<summary>
 		/// Social share image: Default social sharing image used for pages that don't define their own image.

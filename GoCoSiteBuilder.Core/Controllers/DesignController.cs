@@ -19,7 +19,6 @@ namespace GoCoSiteBuilder.Core.Controllers
         public async Task<IActionResult> GetCssStyle()
         {
             //TODO get by content id then check choose design if not get default from design list
-            // Lấy root content
             var designViewModel = await _designService.GenerateCssStyle("");
             return Ok(designViewModel);
         }
