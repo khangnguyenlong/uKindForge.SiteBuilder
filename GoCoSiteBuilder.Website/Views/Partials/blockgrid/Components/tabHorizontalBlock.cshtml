@@ -1,47 +1,41 @@
 ﻿@inherits UmbracoViewPage<BlockGridItem<TabHorizontalBlock>>
 
 <section class="tabs-area">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="tabs">
-					@if (Model.Content.TabItems != null && Model.Content.TabItems.Any())
+	<div class="tabs">
+		@if (Model.Content.TabItems != null && Model.Content.TabItems.Any())
+		{
+			<div class="single-tabs tabs-one">
+				<ul class="nav nav-justified" role="tablist">
+					@foreach (var item in Model.Content.TabItems)
 					{
-						<div class="single-tabs tabs-one">
-							<ul class="nav nav-justified" role="tablist">
-								@foreach (var item in Model.Content.TabItems)
-								{
-									var tabItem = item.Content.SafeCast<TabItem>();
-									if (tabItem == null) continue;
-									var isFirstItem = tabItem.Key == Model.Content.TabItems[0].Content.Key;
+						var tabItem = item.Content.SafeCast<TabItem>();
+						if (tabItem == null) continue;
+						var isFirstItem = tabItem.Key == Model.Content.TabItems[0].Content.Key;
 
-									<li class="nav-item">
-										<a class="@(isFirstItem ? "active" : "")" id="tab-one-@tabItem.Key-tab" data-bs-toggle="tab" href="#tab-one-@tabItem.Key" role="tab"
-										   aria-controls="tab-one-@tabItem.Key" aria-selected="false">@tabItem.Title</a>
-									</li>
-								}
-							</ul>
-							<div class="tab-content">
-								@foreach (var item in Model.Content.TabItems)
-								{
-									var tabItem = item.Content.SafeCast<TabItem>();
-									if (tabItem == null) continue;
-									var isFirstItem = tabItem.Key == Model.Content.TabItems[0].Content.Key;
+						<li class="nav-item">
+							<a class="@(isFirstItem ? "active" : "")" id="tab-one-@tabItem.Key-tab" data-bs-toggle="tab" href="#tab-one-@tabItem.Key" role="tab"
+							   aria-controls="tab-one-@tabItem.Key" aria-selected="false">@tabItem.Title</a>
+						</li>
+					}
+				</ul>
+				<div class="tab-content">
+					@foreach (var item in Model.Content.TabItems)
+					{
+						var tabItem = item.Content.SafeCast<TabItem>();
+						if (tabItem == null) continue;
+						var isFirstItem = tabItem.Key == Model.Content.TabItems[0].Content.Key;
 
-									<div class="tab-pane fade @(isFirstItem ? "show active" : "")" id="tab-one-@tabItem.Key" role="tabpanel" aria-labelledby="tab-one-@tabItem.Key-tab">
-										<div class="tab-text">
-											@await Html.PartialTextAsync(new TextViewModel(tabItem.Description))
-										</div>
-									</div>
-								}
+						<div class="tab-pane fade @(isFirstItem ? "show active" : "")" id="tab-one-@tabItem.Key" role="tabpanel" aria-labelledby="tab-one-@tabItem.Key-tab">
+							<div class="tab-text">
+								@await Html.PartialTextAsync(new TextViewModel(tabItem.Description))
 							</div>
 						</div>
 					}
-					<!-- tabs one -->
 				</div>
 			</div>
-		</div>
-		<!-- row -->
+		}
+		<!-- tabs one -->
 	</div>
+
 	<!-- container -->
 </section>

@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace GoCoSiteBuilder.Models
 {
-	/// <summary>Contact Form Settings</summary>
-	[PublishedModel("contactFormBlockSettings")]
-	public partial class ContactFormBlockSettings : PublishedElementModel
+	/// <summary>Email</summary>
+	[PublishedModel("email")]
+	public partial class Email : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		public new const string ModelTypeAlias = "contactFormBlockSettings";
+		public new const string ModelTypeAlias = "email";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
@@ -34,14 +34,14 @@ namespace GoCoSiteBuilder.Models
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ContactFormBlockSettings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<Email, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public ContactFormBlockSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public Email(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,75 +50,50 @@ namespace GoCoSiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Content Color
+		/// BCC To
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("contentColor")]
-		public virtual string ContentColor => this.Value<string>(_publishedValueFallback, "contentColor");
+		[ImplementPropertyType("bccTo")]
+		public virtual string BccTo => this.Value<string>(_publishedValueFallback, "bccTo");
 
 		///<summary>
-		/// Email Address Label
+		/// CC To
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("emailAddressLabel")]
-		public virtual string EmailAddressLabel => this.Value<string>(_publishedValueFallback, "emailAddressLabel");
+		[ImplementPropertyType("ccTo")]
+		public virtual string CcTo => this.Value<string>(_publishedValueFallback, "ccTo");
 
 		///<summary>
-		/// Full Name Label
+		/// Body
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("fullNameLabel")]
-		public virtual string FullNameLabel => this.Value<string>(_publishedValueFallback, "fullNameLabel");
+		[ImplementPropertyType("emailBody")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString EmailBody => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "emailBody");
 
 		///<summary>
-		/// Message Label
+		/// Subject
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("messageLabel")]
-		public virtual string MessageLabel => this.Value<string>(_publishedValueFallback, "messageLabel");
+		[ImplementPropertyType("emailSubject")]
+		public virtual string EmailSubject => this.Value<string>(_publishedValueFallback, "emailSubject");
 
 		///<summary>
-		/// Phone Number Label
+		/// Enable Send Email
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("phoneNumberLabel")]
-		public virtual string PhoneNumberLabel => this.Value<string>(_publishedValueFallback, "phoneNumberLabel");
+		[ImplementPropertyType("enableSendEmail")]
+		public virtual bool EnableSendEmail => this.Value<bool>(_publishedValueFallback, "enableSendEmail");
 
 		///<summary>
-		/// Subject Label
+		/// Send To: Please leave blank if sending to client
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("subjectLabel")]
-		public virtual string SubjectLabel => this.Value<string>(_publishedValueFallback, "subjectLabel");
-
-		///<summary>
-		/// Submit Button Label
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("submitButtonLabel")]
-		public virtual string SubmitButtonLabel => this.Value<string>(_publishedValueFallback, "submitButtonLabel");
-
-		///<summary>
-		/// Submit Button Style
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("submitButtonStyle")]
-		public virtual string SubmitButtonStyle => this.Value<string>(_publishedValueFallback, "submitButtonStyle");
-
-		///<summary>
-		/// Success Message
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("successMessage")]
-		public virtual string SuccessMessage => this.Value<string>(_publishedValueFallback, "successMessage");
+		[ImplementPropertyType("sendTo")]
+		public virtual string SendTo => this.Value<string>(_publishedValueFallback, "sendTo");
 	}
 }
