@@ -5,37 +5,39 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\GoCo.Plugins\design\designList\designListView.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\preview\productCard.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\preview\productCat.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIconsPicker.css" />
-    <Content Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIconsPicker.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\colorPalette\colorPalette.css" />
-    <Content Include="App_Plugins\GoCo.Plugins\common\tab-accordions.css" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\card.png" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\headerDesktop_style1.png" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\headerDesktop_style2.png" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\headerDesktop_style3.png" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\image.png" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\mobile_style1.png" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\layoutSettings\preview\img\video.png" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\preview\footer.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\preview\mainNav.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\design\fontSettings\google-web-font-list.json" />
-    <Content Include="App_Plugins\GoCo.Plugins\heading\heading.css" />
-    <Content Include="App_Plugins\GoCo.Plugins\heading\heading.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIcons.json" />
-    <Content Include="App_Plugins\GoCo.Plugins\radioButtonPlus\radioButtonPlus.css" />
-    <Content Include="App_Plugins\GoCo.Plugins\blockPreview\blockPreview.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\backgroundColor\backgroundColor.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\colorPalette\colorPalette.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\baselineColorPicker\baselineColorPicker.css" />
-    <Content Include="App_Plugins\GoCo.Plugins\baselineColorPicker\baselineColorPicker.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\numericPlus\numericPlus.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\radioButtonPlus\radioButtonPlus.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\radioButtonPlus\radioButtonPlus_Prevalue.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\buttonColor\buttonColor.html" />
-    <Content Include="App_Plugins\GoCo.Plugins\togglePlus\togglePlus.html" />
+    <Content Include="App_Plugins\GoCoPlugins\design\designList\designListView.html" />
+    <Content Include="App_Plugins\GoCoPlugins\design\preview\productCard.html" />
+    <Content Include="App_Plugins\GoCoPlugins\design\preview\productCat.html" />
+    <Content Include="App_Plugins\GoCoPlugins\lineIconsPicker\lineIconsPicker.css" />
+    <Content Include="App_Plugins\GoCoPlugins\lineIconsPicker\lineIconsPicker.html" />
+    <Content Include="App_Plugins\GoCoPlugins\colorPalette\colorPalette.css" />
+    <Content Include="App_Plugins\GoCoPlugins\common\tab-accordions.css" />
+    <Content Include="App_Plugins\GoCoPlugins\design\layoutSettings\preview\img\card.png" />
+    <Content Include="App_Plugins\GoCoPlugins\design\layoutSettings\preview\img\headerDesktop_style1.png" />
+    <Content Include="App_Plugins\GoCoPlugins\design\layoutSettings\preview\img\headerDesktop_style2.png" />
+    <Content Include="App_Plugins\GoCoPlugins\design\layoutSettings\preview\img\headerDesktop_style3.png" />
+    <Content Include="App_Plugins\GoCoPlugins\design\layoutSettings\preview\img\image.png" />
+    <Content Include="App_Plugins\GoCoPlugins\design\layoutSettings\preview\img\mobile_style1.png" />
+    <Content Include="App_Plugins\GoCoPlugins\design\layoutSettings\preview\img\video.png" />
+    <Content Include="App_Plugins\GoCoPlugins\design\preview\footer.html" />
+    <Content Include="App_Plugins\GoCoPlugins\design\preview\mainNav.html" />
+    <Content Include="App_Plugins\GoCoPlugins\design\fontSettings\google-web-font-list.json" />
+    <Content Include="App_Plugins\GoCoPlugins\heading\heading.css" />
+    <Content Include="App_Plugins\GoCoPlugins\heading\heading.html" />
+    <Content Include="App_Plugins\GoCoPlugins\lineIconsPicker\lineIcons.json" />
+    <Content Include="App_Plugins\GoCoPlugins\backoffice\forms\lang\en-us.xml" />
+    <Content Include="App_Plugins\GoCoPlugins\radioButtonPlus\radioButtonPlus.css" />
+    <Content Include="App_Plugins\GoCoPlugins\blockPreview\blockPreview.html" />
+    <Content Include="App_Plugins\GoCoPlugins\backgroundColor\backgroundColor.html" />
+    <Content Include="App_Plugins\GoCoPlugins\colorPalette\colorPalette.html" />
+    <Content Include="App_Plugins\GoCoPlugins\baselineColorPicker\baselineColorPicker.css" />
+    <Content Include="App_Plugins\GoCoPlugins\baselineColorPicker\baselineColorPicker.html" />
+    <Content Include="App_Plugins\GoCoPlugins\numericPlus\numericPlus.html" />
+    <Content Include="App_Plugins\GoCoPlugins\radioButtonPlus\radioButtonPlus.html" />
+    <Content Include="App_Plugins\GoCoPlugins\radioButtonPlus\radioButtonPlus_Prevalue.html" />
+    <Content Include="App_Plugins\GoCoPlugins\buttonColor\buttonColor.html" />
+    <Content Include="App_Plugins\GoCoPlugins\togglePlus\togglePlus.html" />
+    <Content Include="App_Plugins\GoCoPlugins\backoffice\forms\edit.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,33 +53,35 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="App_Plugins\GoCo.Plugins\blockPreview\img\" />
+    <Folder Include="App_Plugins\GoCoPlugins\blockPreview\img\" />
+    <Folder Include="App_Plugins\GoCoPlugins\operations\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="App_Plugins\GoCo.Plugins\design\designList\designListView.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\lineIconsPicker\lineIconsPicker.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\blockPreview\blockPreview.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\backgroundColor\backgroundColor.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\colorPalette\colorPalette.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\baselineColorPicker\baselineColorPicker.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\design\colorSettings\colorSettings.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\design\colorSettings\colorSettings.css" />
-    <None Include="App_Plugins\GoCo.Plugins\design\colorSettings\colorSettings.html" />
-    <None Include="App_Plugins\GoCo.Plugins\design\fontSettings\fontSettings.css" />
-    <None Include="App_Plugins\GoCo.Plugins\design\fontSettings\fontSettings.html" />
-    <None Include="App_Plugins\GoCo.Plugins\design\fontSettings\fontSettings.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\design\layoutSettings\layoutSettings.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\design\layoutSettings\layoutSettings.css" />
-    <None Include="App_Plugins\GoCo.Plugins\design\layoutSettings\layoutSettings.html" />
-    <None Include="App_Plugins\GoCo.Plugins\heading\heading.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\numericPlus\numericPlus.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\radioButtonPlus\radioButtonPlus.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\radioButtonPlus\radioButtonPlus_Prevalue.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\design\design.service.js" />
-    <None Include="App_Plugins\GoCo.Plugins\buttonColor\buttonColor.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\togglePlus\togglePlus.controller.js" />
-    <None Include="App_Plugins\GoCo.Plugins\package.manifest" />
+    <None Include="App_Plugins\GoCoPlugins\design\designList\designListView.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\lineIconsPicker\lineIconsPicker.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\blockPreview\blockPreview.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\backgroundColor\backgroundColor.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\colorPalette\colorPalette.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\baselineColorPicker\baselineColorPicker.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\design\colorSettings\colorSettings.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\design\colorSettings\colorSettings.css" />
+    <None Include="App_Plugins\GoCoPlugins\design\colorSettings\colorSettings.html" />
+    <None Include="App_Plugins\GoCoPlugins\design\fontSettings\fontSettings.css" />
+    <None Include="App_Plugins\GoCoPlugins\design\fontSettings\fontSettings.html" />
+    <None Include="App_Plugins\GoCoPlugins\design\fontSettings\fontSettings.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\design\layoutSettings\layoutSettings.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\design\layoutSettings\layoutSettings.css" />
+    <None Include="App_Plugins\GoCoPlugins\design\layoutSettings\layoutSettings.html" />
+    <None Include="App_Plugins\GoCoPlugins\heading\heading.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\numericPlus\numericPlus.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\backoffice\forms\forms.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\radioButtonPlus\radioButtonPlus.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\radioButtonPlus\radioButtonPlus_Prevalue.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\design\design.service.js" />
+    <None Include="App_Plugins\GoCoPlugins\buttonColor\buttonColor.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\togglePlus\togglePlus.controller.js" />
+    <None Include="App_Plugins\GoCoPlugins\package.manifest" />
   </ItemGroup>
 
   <ItemGroup>

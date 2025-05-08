@@ -15,7 +15,7 @@
     var filteredGallery = gallery.Where(x => x?.Url() != mainImage?.Url()).ToList();
 }
 
-<section class="container py-5">
+<section class="container py-4">
     @await Html.PartialAsync("~/Views/Partials/Shared/_Breadcrumb.cshtml", breadcrumbNodes)
     <div class="row g-5">
         <!-- Image -->

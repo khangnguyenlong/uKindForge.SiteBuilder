@@ -1,0 +1,66 @@
+﻿<div class="umb-box-content" ng-controller="Operations.ContactFormController as vm">
+    <h3 class="bold">Contact Form Submissions</h3>
+
+    <button type="button"
+            class="btn umb-button__button btn-outline umb-button-- umb-outline"
+            ng-click="vm.refresh()">
+        <umb-icon icon="icon-repeat"
+                  style="font-size: 18px; margin-right: 6px; vertical-align: top;"></umb-icon>
+        Refresh
+    </button>
+
+    <button type="button"
+            class="btn umb-button__button btn-outline umb-button-- umb-outline ml2"
+            ng-click="vm.deleteSelected()"
+            ng-disabled="vm.selectedIds.length === 0"
+            style="margin-left:5px;">
+        <umb-icon icon="icon-trash"
+                  style="font-size: 16px; margin-right: 6px; vertical-align: top;"></umb-icon>
+        Delete
+    </button>
+
+    <div class="umb-table mt2">
+        <div class="umb-table-head">
+            <div class="umb-table-row">
+                <div class="umb-table-cell">
+                    <input type="checkbox" ng-model="vm.selectAll" ng-change="vm.toggleSelectAll()" />
+                </div>
+                <div class="umb-table-cell umb-table__name not-fixed">Name</div>
+                <div class="umb-table-cell umb-table__name">Email</div>
+                <div class="umb-table-cell umb-table__name">Phone</div>
+                <div class="umb-table-cell umb-table__name">Message</div>
+                <div class="umb-table-cell umb-table__name">Submitted Date</div>
+                <div class="umb-table-cell umb-table__name">IP</div>
+            </div>
+        </div>
+
+        <div class="umb-table-body">
+            <div class="umb-table-row umb-outline umb-outline--surrounding"
+                 ng-repeat="item in vm.submissions">
+
+                <!-- Checkbox -->
+                <div class="umb-table-cell">
+                    <input type="checkbox" ng-model="item._selected" ng-change="vm.updateSelection()" />
+                </div>
+
+                <div class="umb-table-cell umb-table__name not-fixed">{{item.Name}}</div>
+                <div class="umb-table-cell umb-table__name">{{item.Email}}</div>
+                <div class="umb-table-cell umb-table__name">{{item.Phone}}</div>
+                <div class="umb-table-cell umb-table__name">{{item.Message}}</div>
+                <div class="umb-table-cell umb-table__name">{{item.SubmittedAt | date:'dd-MM-yyyy HH:mm:ss'}}</div>
+                <div class="umb-table-cell umb-table__name">{{item.IP}}</div>
+            </div>
+        </div>
+
+        <div style="text-align: center">
+            <umb-pagination ng-if="vm.pageCount() > 1"
+                            page-number="vm.page"
+                            total-pages="vm.pageCount()"
+                            on-next="vm.goToPage"
+                            on-prev="vm.goToPage"
+                            on-go-to-page="vm.goToPage">
+            </umb-pagination>
+        </div>
+
+    </div>
+</div>
