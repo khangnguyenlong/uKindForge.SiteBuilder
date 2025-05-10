@@ -2,14 +2,15 @@
 {
     public class LayoutSettings
     {
-        public GeneralSettings General { get; set; }
-        public HeaderDesktop HeaderDesktop { get; set; }
-        public HeaderMobile HeaderMobile { get; set; }
-        public ImageSettings Image { get; set; }
-        public VideoSettings Video { get; set; }
-        public CardSettings Card { get; set; }
-        public ButtonSettings Button { get; set; }
-        public LinkSettings Link { get; set; }
+        public GeneralSettings General { get; set; } = new();    
+        public HeaderDesktop HeaderDesktop { get; set; } = new();
+        public HeaderMobile HeaderMobile { get; set; } = new();
+        public ImageSettings Image { get; set; } = new();
+        public VideoSettings Video { get; set; } = new();
+        public CardSettings Card { get; set; } = new();
+        public ButtonSettings Button { get; set; } = new();
+        public LinkSettings Link { get; set; } = new();
+        public HorizontalLineSettings HorizontalLine { get; set; } = new();
     }
 
     public class GeneralSettings
@@ -83,5 +84,12 @@
         public bool FooterUnderlineOnHover { get; set; }
         public bool ButtonUnderlineOnInit { get; set; }
         public bool ButtonUnderlineOnHover { get; set; }
+    }
+
+    public class HorizontalLineSettings
+    {
+        public int LineWidth { get; set; } = 1;
+        public string LineStyle { get; set; } = "solid";
+        public string CustomCSS { get; set; } = "";
     }
 }

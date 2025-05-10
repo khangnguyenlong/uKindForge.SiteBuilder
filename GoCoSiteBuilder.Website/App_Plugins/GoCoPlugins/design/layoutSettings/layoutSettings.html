@@ -7,6 +7,26 @@
             <div class="accordion-body" id="accordionLayout">
                 <div class="card">
                     <div class="card-header">
+                        <a href="#collapse-general" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">General</a>
+                    </div>
+
+                    <div id="collapse-general" class="collapse" data-bs-parent="#accordionLayout">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="span4 card-body-control">
+                                    <div class="control-group control-group-flex control-group-horizontal">
+                                        <label>Back to top</label>
+                                        <umb-toggle checked="model.value.general.backToTop" on-click="toggle('general.backToTop')"></umb-toggle>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--General-->
+
+                <div class="card">
+                    <div class="card-header">
                         <a href="#collapse-header-desktop" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">Header Desktop</a>
                     </div>
 
@@ -550,23 +570,72 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <a href="#collapse-general" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">General</a>
+                        <a href="#collapse-horizontalLine" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">Horizontal Line</a>
                     </div>
-
-                    <div id="collapse-general" class="collapse" data-bs-parent="#accordionLayout">
+                    <div id="collapse-horizontalLine" class="collapse" data-bs-parent="#accordionLayout">
                         <div class="card-body">
                             <div class="row">
                                 <div class="span4 card-body-control">
-                                    <div class="control-group control-group-flex control-group-horizontal">
-                                        <label>Back to top</label>
-                                        <umb-toggle checked="model.value.general.backToTop" on-click="toggle('general.backToTop')"></umb-toggle>
+                                    <div class="control-group-wrapper">
+                                        <div class="control-group control-group-flex control-group-horizontal">
+                                            <label>Border radius</label>
+                                            <div class="input-wrap">
+                                                <input name="number" type="number" class="umb-property-editor"
+                                                       pattern="[0-9]*"
+                                                       id="lineWidth"
+                                                       ng-model="model.value.horizontalLine.lineWidth"
+                                                       fix-number
+                                                       min="0" step="1" />
+                                                <div class="suffix">px</div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-flex control-group-horizontal">
+                                            <label>Line Style</label>
+                                            <div class="input-wrap w-100">
+                                                <select class="umb-property-editor"
+                                                        id="lineStyle"
+                                                        ng-model="model.value.horizontalLine.lineStyle">
+                                                    <option value="none">None</option>
+                                                    <option value="solid">Solid</option>
+                                                    <option value="dashed">Dashed</option>
+                                                    <option value="dotted">Dotted</option>
+                                                    <option value="double">Double</option>
+                                                    <option value="ridge">Ridge</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label>Custom CSS</label>
+                                            <div class="input-wrap">
+                                                <textarea placeholder="Example:
+height: 1px;
+background: linear-gradient(to right, #ff7e5f, #feb47b);" 
+                                                    class="umb-property-editor umb-textarea textstring" rows="5" id="customCSS" 
+                                                    ng-model="model.value.horizontalLine.customCSS"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span8">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">
+                                                    <span>Preview</span>
+                                                </div>
+                                                <div class="content-preview" style="display: grid; place-items: center; position: relative;">
+                                                    <div ng-init="horizontalLineVisible = true" ng-include="'/App_Plugins/GoCoPlugins/design/preview/horizontalLine.html'"></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--General-->
+                <!-- Horizontal line -->
             </div>
         </div>
     </section>

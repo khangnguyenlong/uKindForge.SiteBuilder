@@ -7,6 +7,7 @@
   <ItemGroup>
     <Content Include="App_Plugins\GoCoPlugins\design\designList\designListView.html" />
     <Content Include="App_Plugins\GoCoPlugins\design\preview\productCard.html" />
+    <Content Include="App_Plugins\GoCoPlugins\design\preview\horizontalLine.html" />
     <Content Include="App_Plugins\GoCoPlugins\design\preview\productCat.html" />
     <Content Include="App_Plugins\GoCoPlugins\lineIconsPicker\lineIconsPicker.css" />
     <Content Include="App_Plugins\GoCoPlugins\lineIconsPicker\lineIconsPicker.html" />
