@@ -1,3 +1,16 @@
 ﻿@inherits UmbracoViewPage<BlockGridItem<HorizontalLineBlock>>
+@inject DesignHelper DesignHelper;
+@{
+	var horizontal = Model.Content?.Horizontal?.Content;
+	var borderPx = (horizontal == null || horizontal.LineWidth == 0) ? 1 : horizontal.LineWidth;
+	var borderColor = string.IsNullOrWhiteSpace(horizontal?.LineColor) ? "000" : horizontal.LineColor;
+	var borderStyle = string.IsNullOrWhiteSpace(horizontal?.LineStyle) ? "none" : horizontal.LineStyle.ToLower();
 
-<div class="border-top mb-4"></div>
+	var style = horizontal?.IsOverrideDesign == true ?
+		$"border-top-color:{borderColor};border-top-width:{borderPx}px;border-top-style:{borderStyle};{horizontal?.CustomCss}" : "";
+
+	var design = DesignHelper.GetDesign();
+	var customCss = design?.LayoutSettings?.HorizontalLine?.CustomCSS;
+}
+
+<div class="block horizontal-line" style="@style @customCss"></div>

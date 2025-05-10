@@ -19,13 +19,13 @@ using Umbraco.Extensions;
 namespace GoCoSiteBuilder.Models
 {
 	/// <summary>Horizontal Line</summary>
-	[PublishedModel("horizontalLineBlock")]
-	public partial class HorizontalLineBlock : PublishedElementModel
+	[PublishedModel("horizontalLine")]
+	public partial class HorizontalLine : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		public new const string ModelTypeAlias = "horizontalLineBlock";
+		public new const string ModelTypeAlias = "horizontalLine";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
@@ -34,14 +34,14 @@ namespace GoCoSiteBuilder.Models
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<HorizontalLineBlock, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<HorizontalLine, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public HorizontalLineBlock(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public HorizontalLine(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,11 +50,41 @@ namespace GoCoSiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Horizontal
+		/// Custom CSS: Use this field to apply additional CSS styles to the line. Example: background: linear-gradient(to right, #ff7e5f, #feb47b);
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("horizontal")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.HorizontalLine> Horizontal => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.HorizontalLine>>(_publishedValueFallback, "horizontal");
+		[ImplementPropertyType("customCSS")]
+		public virtual string CustomCss => this.Value<string>(_publishedValueFallback, "customCSS");
+
+		///<summary>
+		/// Is Override Design: If this field is true it will override the design
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[ImplementPropertyType("isOverrideDesign")]
+		public virtual bool IsOverrideDesign => this.Value<bool>(_publishedValueFallback, "isOverrideDesign");
+
+		///<summary>
+		/// Line Color
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("lineColor")]
+		public virtual string LineColor => this.Value<string>(_publishedValueFallback, "lineColor");
+
+		///<summary>
+		/// Line Style: Default: Solid
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("lineStyle")]
+		public virtual string LineStyle => this.Value<string>(_publishedValueFallback, "lineStyle");
+
+		///<summary>
+		/// Line Width: Default: 1px
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
+		[ImplementPropertyType("lineWidth")]
+		public virtual int LineWidth => this.Value<int>(_publishedValueFallback, "lineWidth");
 	}
 }

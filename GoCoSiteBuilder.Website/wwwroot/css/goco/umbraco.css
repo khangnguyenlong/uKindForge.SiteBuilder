@@ -1,4 +1,12 @@
 ﻿/*UMBRACO*/
+.preview-mode .block.horizontal-line {
+    min-height: 30px;
+}
+
+.umb-block-grid__block {
+    min-height: 40px !important;
+}
+
 umb-block-grid-block.umb-block-grid__block--view {
     background-color: inherit;
     color: inherit;
@@ -100,4 +108,9 @@ umb-block-grid-block.umb-block-grid__block--view {
         --umb-block-grid--column-gap: 30px;
         --umb-block-grid--row-gap: 30px;
     }
+}
+
+/* Umbraco */
+.umb-block-grid__block--actions {
+    margin-top: 0px !important;
 }

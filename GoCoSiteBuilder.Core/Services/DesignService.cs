@@ -16,6 +16,7 @@ namespace GoCoSiteBuilder.Core.Services
 
             var font = designDetail.FontSettings;
             var color = designDetail.ColorSettings;
+            var layout = designDetail.LayoutSettings;
 
             var cssStyle = new CssStyleBuilder()
                 .MakeButtonStyle(color.Buttons)
@@ -169,6 +170,11 @@ namespace GoCoSiteBuilder.Core.Services
                         --product-card-title-color: #{color.ProductCard.Title};
                         --product-card-desc-color: #{color.ProductCard.Description};
                         --product-card-border-color: #{color.ProductCard.Border};
+
+                        /* Horizontal line */
+                        --horizontal-line-color: #{color.HorizontalLine.LineColor};
+                        --horizontal-line-width: {layout.HorizontalLine.LineWidth}px;
+                        --horizontal-line-style: {layout.HorizontalLine.LineStyle};
                     }}
                     {cssStyle}
                 </style>

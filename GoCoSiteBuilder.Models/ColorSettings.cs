@@ -11,6 +11,7 @@
         public ButtonColorSettings BackToTop { get; set; } = new();
         public ProductCategoryColorSettings ProductCategory { get; set; } = new();
         public ProductCardColorSettings ProductCard { get; set; } = new();
+        public HorizontalLineColorSettings HorizontalLine { get; set; } = new();
     }
 
     public class MainNavColorSettings
@@ -90,5 +91,10 @@
         public string Title { get; set; } = "111827";
         public string Description { get; set; } = "6b7280";
         public string Border { get; set; } = "e5e7eb";
+    }
+
+    public class HorizontalLineColorSettings
+    {
+        public string LineColor { get; set; } = "000";
     }
 }

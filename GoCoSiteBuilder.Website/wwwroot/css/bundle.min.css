@@ -2454,6 +2454,12 @@ a {
     padding: revert;
     list-style-type: revert;
 }
+
+.block.horizontal-line {
+    border-top: var(--horizontal-line-color);
+    border-top-width: var(--horizontal-line-width);
+    border-top-style: var(--horizontal-line-style);
+}
 /* === Header === */
 .header nav .menu-bar ul li a {
     color: var(--header-nav-link-color);
@@ -3883,6 +3889,14 @@ footer {
 
 /* End Tab */
 /*UMBRACO*/
+.preview-mode .block.horizontal-line {
+    min-height: 30px;
+}
+
+.umb-block-grid__block {
+    min-height: 40px !important;
+}
+
 umb-block-grid-block.umb-block-grid__block--view {
     background-color: inherit;
     color: inherit;
@@ -3986,6 +4000,10 @@ umb-block-grid-block.umb-block-grid__block--view {
     }
 }
 
+/* Umbraco */
+.umb-block-grid__block--actions {
+    margin-top: 0px !important;
+}
 /* ===== Buttons Css ===== */
 /*.primary-btn {
     background: var(--primary);
