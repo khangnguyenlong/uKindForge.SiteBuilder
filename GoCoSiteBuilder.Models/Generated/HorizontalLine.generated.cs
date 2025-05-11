@@ -50,7 +50,7 @@ namespace GoCoSiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Custom CSS: Use this field to apply additional CSS styles to the line. Example: background: linear-gradient(to right, #ff7e5f, #feb47b);
+		/// Custom CSS: Use this field to apply additional CSS styles to the line. Example:  height: 1px; background: linear-gradient(to right, #ff7e5f, #feb47b);
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

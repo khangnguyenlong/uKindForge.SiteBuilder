@@ -71,7 +71,7 @@ namespace GoCoSiteBuilder.Models
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("navLogo")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops NavLogo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "navLogo");
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.LogoLink> NavLogo => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::GoCoSiteBuilder.Models.LogoLink>>(_publishedValueFallback, "navLogo");
 
 		///<summary>
 		/// Social Icons
