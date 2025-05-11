@@ -412,6 +412,22 @@ button.navbar-toggler {
         margin-left: 12px;
     }
 
+        .navbar-area.navbar-three .navbar .navbar-social ul li a {
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 50%;
+            border: 1px solid;
+            display: inline-block;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+
         .navbar-area.navbar-three .navbar .navbar-social ul li a img {
             height: 40px;
             width: 40px;

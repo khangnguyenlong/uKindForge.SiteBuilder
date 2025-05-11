@@ -18,6 +18,7 @@
 	var isHeaderMobileSticky = design?.LayoutSettings?.HeaderMobile?.HeaderAlwaysOnTop == true;
 	var navMobileClass = isHeaderMobileSticky ? "" : isNavigationBarMobile == true ? "nav-mobile__sticky" : "";
 	var isNavigationBarSticky = isNavigationBarDesktop || isNavigationBarMobile;
+	var navLogo = Model.Content.NavLogo?.Content;
 }
 
 <div class="header">
@@ -26,12 +27,16 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<nav class="navbar navbar-expand-lg">
-						@await Html.PartialImageLinkAsync(new ImageViewModel(Model.Content.NavLogo)
-						 {
-							 CropWidth = 150,
-							 CropHeight = 50,
-							 CssStyle = "max-height: 50px; max-width: 150px"
-						 })
+						@if (navLogo != null)
+						{
+							@await Html.PartialImageLinkAsync(new ImageViewModel(navLogo.Logo)
+							 {
+								 CropWidth = 150,
+								 CropHeight = 50,
+								 CssStyle = "max-height: 50px; max-width: 150px",
+								 Link = navLogo.Link
+							 })
+						}
 						<button class="navbar-toggler" type="button"
 								data-bs-toggle="collapse"
 								data-bs-target="#navbarThree"
@@ -57,15 +62,9 @@
 								<ul>
 									@foreach (var socialIcon in socialIcons)
 									{
-										@if (socialIcon.Content is not IconLink iconLink || iconLink.Link == null) continue;
+										@if (socialIcon.Content is not IconLink iconLink || iconLink == null) continue;
 										<li>
-											@await Html.PartialLineIconLinkAsync(iconLink)
-											{
-											CropWidth = 40,
-											CropHeight = 40,
-											ImageAlt = iconLink.Link?.Name,
-											Link = iconLink.Link,
-											})
+											@await Html.PartialLineIconLinkAsync(new LineIconLinkViewModel(iconLink))
 										</li>
 									}
 								</ul>
