@@ -6,6 +6,10 @@ footer {
     color: var(--footer-text-color) !important;
 }
 
+    footer .heading-content {
+        color: var(--footer-heading-color) !important;
+    }
+
 .footer-block p, .footer-block span {
     color: var(--footer-text-color);
 }

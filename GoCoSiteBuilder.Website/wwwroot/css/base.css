@@ -211,3 +211,9 @@ a {
     padding: revert;
     list-style-type: revert;
 }
+
+.block.horizontal-line {
+    border-top: var(--horizontal-line-color);
+    border-top-width: var(--horizontal-line-width);
+    border-top-style: var(--horizontal-line-style);
+}

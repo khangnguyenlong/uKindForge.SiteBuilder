@@ -832,6 +832,200 @@
                     </div>
                 </div>
                 <!-- Horizontal line -->
+
+                <div class="card">
+                    <div class="card-header" id="heading-body">
+                        <a href="#collapse-vertical-tab" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                            <span ng-style="">Vertical Tab</span>
+                        </a>
+                    </div>
+                    <div id="collapse-vertical-tab" class="collapse" data-bs-parent="#accordionColor">
+                        <div class="card-body">
+                            <div class="span3 card-body-control">
+                                <!-- Text Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="titleColor" ng-model="model.value.verticalTab.titleColor" options="settings"
+                                                      on-change="onChange(color, 'verticalTab', 'titleColor')"
+                                                      on-move="onChange(color, 'verticalTab', 'titleColor')"
+                                                      on-hide="onChange(color, 'verticalTab', 'titleColor')">
+                                    </umb-color-picker>
+                                    <label for="titleColor">Title Color</label>
+                                </div>
+
+                                <!-- Background Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="bgColor" ng-model="model.value.verticalTab.bgColor" options="settings"
+                                                      on-change="onChange(color, 'verticalTab', 'bgColor')"
+                                                      on-move="onChange(color, 'verticalTab', 'bgColor')"
+                                                      on-hide="onChange(color, 'verticalTab', 'bgColor')">
+                                    </umb-color-picker>
+                                    <label for="bgColor">Background Color</label>
+                                </div>
+
+                                <!-- Indicator Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="indicatorColor" ng-model="model.value.verticalTab.indicatorColor" options="settings"
+                                                      on-change="onChange(color, 'verticalTab', 'indicatorColor')"
+                                                      on-move="onChange(color, 'verticalTab', 'indicatorColor')"
+                                                      on-hide="onChange(color, 'verticalTab', 'indicatorColor')">
+                                    </umb-color-picker>
+                                    <label for="indicatorColor">Indicator Color</label>
+                                </div>
+
+                                <!-- Border Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="borderColor" ng-model="model.value.verticalTab.borderColor" options="settings"
+                                                      on-change="onChange(color, 'verticalTab', 'borderColor')"
+                                                      on-move="onChange(color, 'verticalTab', 'borderColor')"
+                                                      on-hide="onChange(color, 'verticalTab', 'borderColor')">
+                                    </umb-color-picker>
+                                    <label for="borderColor">Border Color</label>
+                                </div>
+
+                                <!-- Active Text Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="activeTitleColor" ng-model="model.value.verticalTab.activeTitleColor" options="settings"
+                                                      on-change="onChange(color, 'verticalTab', 'activeTitleColor')"
+                                                      on-move="onChange(color, 'verticalTab', 'activeTitleColor')"
+                                                      on-hide="onChange(color, 'verticalTab', 'activeTitleColor')">
+                                    </umb-color-picker>
+                                    <label for="activeTitleColor">Active Title Color</label>
+                                </div>
+
+                                <!-- Active Background Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="activeBgColor" ng-model="model.value.verticalTab.activeBgColor" options="settings"
+                                                      on-change="onChange(color, 'verticalTab', 'activeBgColor')"
+                                                      on-move="onChange(color, 'verticalTab', 'activeBgColor')"
+                                                      on-hide="onChange(color, 'verticalTab', 'activeBgColor')">
+                                    </umb-color-picker>
+                                    <label for="activeBgColor">Active Background Color</label>
+                                </div>
+
+                                <!-- Active Indicator Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="activeBgColor" ng-model="model.value.verticalTab.activeIndicatorColor" options="settings"
+                                                      on-change="onChange(color, 'verticalTab', 'activeIndicatorColor')"
+                                                      on-move="onChange(color, 'verticalTab', 'activeIndicatorColor')"
+                                                      on-hide="onChange(color, 'verticalTab', 'activeIndicatorColor')">
+                                    </umb-color-picker>
+                                    <label for="activeBgColor">Active Indicator Color</label>
+                                </div>
+                            </div>
+                            <div class="span9">
+                                <!-- Content Preview -->
+                                <div class="preview-wrap">
+                                    <div class="preview-wrap__content">
+                                        <div class="control-group">
+                                            <div class="preview-wrap__header">Preview</div>
+                                            <div class="content-preview" style="display: grid; place-items: center; position: relative;">
+                                                <div ng-init="verticalTabVisible = true" ng-include="'/App_Plugins/GoCoPlugins/design/preview/verticalTab.html'"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vertical Tab -->
+
+                <div class="card">
+                    <div class="card-header" id="heading-body">
+                        <a href="#collapse-horizontal-tab" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                            <span ng-style="">Horizontal Tab</span>
+                        </a>
+                    </div>
+                    <div id="collapse-horizontal-tab" class="collapse" data-bs-parent="#accordionColor">
+                        <div class="card-body">
+                            <div class="span3 card-body-control">
+                                <!-- Text Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="titleColor" ng-model="model.value.horizontalTab.titleColor" options="settings"
+                                                      on-change="onChange(color, 'horizontalTab', 'titleColor')"
+                                                      on-move="onChange(color, 'horizontalTab', 'titleColor')"
+                                                      on-hide="onChange(color, 'horizontalTab', 'titleColor')">
+                                    </umb-color-picker>
+                                    <label for="titleColor">Title Color</label>
+                                </div>
+
+                                <!-- Background Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="bgColor" ng-model="model.value.horizontalTab.bgColor" options="settings"
+                                                      on-change="onChange(color, 'horizontalTab', 'bgColor')"
+                                                      on-move="onChange(color, 'horizontalTab', 'bgColor')"
+                                                      on-hide="onChange(color, 'horizontalTab', 'bgColor')">
+                                    </umb-color-picker>
+                                    <label for="bgColor">Background Color</label>
+                                </div>
+
+                                <!-- Indicator Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="indicatorColor" ng-model="model.value.horizontalTab.indicatorColor" options="settings"
+                                                      on-change="onChange(color, 'horizontalTab', 'indicatorColor')"
+                                                      on-move="onChange(color, 'horizontalTab', 'indicatorColor')"
+                                                      on-hide="onChange(color, 'horizontalTab', 'indicatorColor')">
+                                    </umb-color-picker>
+                                    <label for="indicatorColor">Indicator Color</label>
+                                </div>
+
+                                <!-- Border Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="borderColor" ng-model="model.value.horizontalTab.borderColor" options="settings"
+                                                      on-change="onChange(color, 'horizontalTab', 'borderColor')"
+                                                      on-move="onChange(color, 'horizontalTab', 'borderColor')"
+                                                      on-hide="onChange(color, 'horizontalTab', 'borderColor')">
+                                    </umb-color-picker>
+                                    <label for="borderColor">Border Color</label>
+                                </div>
+
+                                <!-- Active Text Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="horTabActiveTitleColor" ng-model="model.value.horizontalTab.activeTitleColor" options="settings"
+                                                      on-change="onChange(color, 'horizontalTab', 'activeTitleColor')"
+                                                      on-move="onChange(color, 'horizontalTab', 'activeTitleColor')"
+                                                      on-hide="onChange(color, 'horizontalTab', 'activeTitleColor')">
+                                    </umb-color-picker>
+                                    <label for="horTabActiveTitleColor">Active Text Color</label>
+                                </div>
+
+                                <!-- Active Background Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="activeBgColor" ng-model="model.value.horizontalTab.activeBgColor" options="settings"
+                                                      on-change="onChange(color, 'horizontalTab', 'activeBgColor')"
+                                                      on-move="onChange(color, 'horizontalTab', 'activeBgColor')"
+                                                      on-hide="onChange(color, 'horizontalTab', 'activeBgColor')">
+                                    </umb-color-picker>
+                                    <label for="activeBgColor">Active Background Color</label>
+                                </div>
+
+                                <!-- Active Indicator Color -->
+                                <div class="control-group control-group-flex">
+                                    <umb-color-picker id="activeBgColor" ng-model="model.value.horizontalTab.activeIndicatorColor" options="settings"
+                                                      on-change="onChange(color, 'horizontalTab', 'activeIndicatorColor')"
+                                                      on-move="onChange(color, 'horizontalTab', 'activeIndicatorColor')"
+                                                      on-hide="onChange(color, 'horizontalTab', 'activeIndicatorColor')">
+                                    </umb-color-picker>
+                                    <label for="activeBgColor">Active Indicator Color</label>
+                                </div>
+                            </div>
+                            <div class="span9">
+                                <!-- Content Preview -->
+                                <div class="preview-wrap">
+                                    <div class="preview-wrap__content">
+                                        <div class="control-group">
+                                            <div class="preview-wrap__header">Preview</div>
+                                            <div class="content-preview" style="display: grid; place-items: center; position: relative;">
+                                                <div ng-init="horizontalTabVisible = true" ng-include="'/App_Plugins/GoCoPlugins/design/preview/horizontalTab.html'"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Horizontal Tab -->
             </div>
         </div>
     </section>

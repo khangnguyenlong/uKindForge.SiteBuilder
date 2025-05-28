@@ -2454,6 +2454,12 @@ a {
     padding: revert;
     list-style-type: revert;
 }
+
+.block.horizontal-line {
+    border-top: var(--horizontal-line-color);
+    border-top-width: var(--horizontal-line-width);
+    border-top-style: var(--horizontal-line-style);
+}
 /* === Header === */
 .header nav .menu-bar ul li a {
     color: var(--header-nav-link-color);
@@ -2533,6 +2539,10 @@ footer {
     background-color: var(--footer-bg-color) !important;
     color: var(--footer-text-color) !important;
 }
+
+    footer .heading-content {
+        color: var(--footer-heading-color) !important;
+    }
 
 .footer-block p, .footer-block span {
     color: var(--footer-text-color);
@@ -3801,20 +3811,43 @@ footer {
     -o-transition: all 0.3s ease-out 0s;
     transition: all 0.3s ease-out 0s;
     display: block;
+    /*border-bottom: 1px solid var(--tab-horizontal-border-color);*/
+    position: relative;
 }
 
     .tabs-one .nav .nav-item a.active {
         color: var(--tab-horizontal-active-title-color);
         background: var(--tab-horizontal-active-bg-color);
+        border: 1px solid var(--tab-horizontal-border-color);
+        border-bottom: 0;
+        border-top: 0;
     }
+
+        .tabs-one .nav .nav-item a.active::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            width: 100%;
+            height: 4px;
+            left: 0;
+            background: var(--tab-horizontal-active-indicator-color);
+        }
+
+.tabs-one .nav .nav-item:first-child a.active {
+    border-left: 0;
+}
+
+.tabs-one .nav .nav-item:last-child a.active {
+    border-right: 0;
+}
 
 .tabs-one .tab-content .tab-text {
     padding: 15px;
 }
 
-    .tabs-one .tab-content .tab-text .text {
+    /*.tabs-one .tab-content .tab-text .text {
         color: var(--dark-3);
-    }
+    }*/
 
 
 /* tabs-six */
@@ -3832,7 +3865,7 @@ footer {
             content: "";
             width: 4px;
             height: 100%;
-            background-color: var(--tab-vertical-line-color);
+            background-color: var(--tab-vertical-indicator-color);
             top: 0;
             right: 0;
         }
@@ -3841,6 +3874,7 @@ footer {
             font-size: 16px;
             line-height: 24px;
             color: var(--tab-vertical-title-color);
+            background: var(--tab-vertical-bg-color);
             font-weight: 700;
             padding: 13px;
             -webkit-transition: all 0.3s ease-out 0s;
@@ -3860,7 +3894,7 @@ footer {
 
             .tabs-six .nav a.active {
                 color: var(--tab-vertical-active-title-color);
-                background: var(--tab-vertical-active-bg);
+                background: var(--tab-vertical-active-bg-color);
             }
 
                 .tabs-six .nav a.active::before {
@@ -3868,7 +3902,7 @@ footer {
                     content: "";
                     width: 4px;
                     height: 100%;
-                    background: var(--tab-vertical-active-line-color);
+                    background: var(--tab-vertical-active-indicator-color);
                     top: 0;
                     right: 0;
                 }
@@ -3877,9 +3911,9 @@ footer {
         padding: 15px;
     }
 
-        .tabs-six .tab-content .tab-text .text {
+       /* .tabs-six .tab-content .tab-text .text {
             color: var(--dark-3);
-        }
+        }*/
 
 /* End Tab */
 /*UMBRACO*/

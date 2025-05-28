@@ -12,6 +12,8 @@
         public ProductCategoryColorSettings ProductCategory { get; set; } = new();
         public ProductCardColorSettings ProductCard { get; set; } = new();
         public HorizontalLineColorSettings HorizontalLine { get; set; } = new();
+        public TabColorSettings HorizontalTab { get; set; } = new();
+        public TabColorSettings VerticalTab { get; set; } = new();
     }
 
     public class MainNavColorSettings
@@ -96,5 +98,16 @@
     public class HorizontalLineColorSettings
     {
         public string LineColor { get; set; } = "000";
+    }
+
+    public class TabColorSettings
+    {
+        public string TitleColor { get; set; } = "000";
+        public string BgColor { get; set; } = "000";
+        public string IndicatorColor { get; set; } = "000";
+        public string BorderColor { get; set; } = "000";
+        public string ActiveTitleColor { get; set; } = "000";
+        public string ActiveBgColor { get; set; } = "000";
+        public string ActiveIndicatorColor { get; set; } = "000";
     }
 }

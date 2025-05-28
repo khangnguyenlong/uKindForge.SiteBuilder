@@ -120,17 +120,21 @@ namespace GoCoSiteBuilder.Core.Services
                         --section-padding: 60px;
 
                         /* Tab */
-                        --tab-horizontal-active-title-color: #fff;
-                        --tab-horizontal-active-bg-color: #155bd5;
-                        --tab-horizontal-title-color: #000;
-                        --tab-horizontal-border-color: #e0e0e0;
+                        --tab-vertical-active-title-color: #{color.VerticalTab.ActiveTitleColor};
+                        --tab-vertical-active-bg-color: #{color.VerticalTab.ActiveBgColor};
+                        --tab-vertical-active-indicator-color: #{color.VerticalTab.ActiveIndicatorColor};
+                        --tab-vertical-title-color: #{color.VerticalTab.TitleColor};
+                        --tab-vertical-bg-color: #{color.VerticalTab.BgColor};
+                        --tab-vertical-indicator-color: #{color.VerticalTab.IndicatorColor};
+                        --tab-vertical-border-color: #{color.VerticalTab.BorderColor};
 
-                        --tab-vertical-active-title-color: #155bd5;
-                        --tab-vertical-active-bg: #e2f1ff;
-                        --tab-vertical-active-line-color: #155bd5;
-                        --tab-vertical-title-color: #6d6d6d;
-                        --tab-vertical-line-color: #e0e0e0;
-                        --tab-vertical-border-color: #e0e0e0;
+                        --tab-horizontal-active-title-color: #{color.HorizontalTab.ActiveTitleColor};
+                        --tab-horizontal-active-bg-color: #{color.HorizontalTab.ActiveBgColor};
+                        --tab-horizontal-active-indicator-color: #{color.HorizontalTab.ActiveIndicatorColor};
+                        --tab-horizontal-title-color: #{color.HorizontalTab.TitleColor};
+                        --tab-horizontal-bg-color: #{color.HorizontalTab.BgColor};
+                        --tab-horizontal-indicator-color: #{color.HorizontalTab.IndicatorColor};
+                        --tab-horizontal-border-color: #{color.HorizontalTab.BorderColor}; 
 
                         /* Accordion */
                         --accordion-expand-title-color: #fff;
@@ -174,7 +178,8 @@ namespace GoCoSiteBuilder.Core.Services
                         /* Horizontal line */
                         --horizontal-line-color: #{color.HorizontalLine.LineColor};
                         --horizontal-line-width: {layout.HorizontalLine.LineWidth}px;
-                        --horizontal-line-style: {layout.HorizontalLine.LineStyle};
+                        --horizontal-line-style: {layout.HorizontalLine.LineStyle};  
+                        
                     }}
                     {cssStyle}
                 </style>
