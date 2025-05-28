@@ -120,4 +120,15 @@ function colorSettingsController($scope, $timeout, $element, designService, edit
         handle: ".card-header",
         cursor: 'grabbing'
     };
+
+    $scope.tabs = [
+        { title: "Overview", content: "This is the overview tab content." },
+        { title: "Specifications", content: "This is the specifications tab content." },
+        { title: "Reviews", content: "This is the reviews tab content." }
+    ];
+    $scope.activeTab = 0;
+
+    $scope.setActiveTab = function (index) {
+        $scope.activeTab = index;
+    };
 }

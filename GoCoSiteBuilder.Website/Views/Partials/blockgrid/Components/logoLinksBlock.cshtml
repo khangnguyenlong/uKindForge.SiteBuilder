@@ -6,7 +6,6 @@
 
 <div class="footer-block">
     <div class="logo-link">
-        @await Html.PartialHeadingAsync(new HeadingViewModel(Model.Content.Title))
         @if (Model.Content?.LogoLinks != null && Model.Content.LogoLinks.Any())
         {
             @foreach (var logoLinkItem in Model.Content.LogoLinks)

@@ -56,13 +56,5 @@ namespace GoCoSiteBuilder.Models
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("openingHours")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel OpeningHours => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "openingHours");
-
-		///<summary>
-		/// Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual global::GoCoSiteBuilder.Models.Heading Title => this.Value<global::GoCoSiteBuilder.Models.Heading>(_publishedValueFallback, "title");
 	}
 }

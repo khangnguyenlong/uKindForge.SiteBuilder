@@ -72,13 +72,5 @@ namespace GoCoSiteBuilder.Models
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("phone")]
 		public virtual string Phone => this.Value<string>(_publishedValueFallback, "phone");
-
-		///<summary>
-		/// Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual global::GoCoSiteBuilder.Models.Heading Title => this.Value<global::GoCoSiteBuilder.Models.Heading>(_publishedValueFallback, "title");
 	}
 }
