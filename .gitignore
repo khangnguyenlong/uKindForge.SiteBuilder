@@ -1,7 +1,7 @@
 ﻿.vs
-GoCoSiteBuilder.Core/bin
-GoCoSiteBuilder.Core/obj
-GoCoSiteBuilder.Models/bin
-GoCoSiteBuilder.Models/obj
-GoCoSiteBuilder.Website/Smidge/Cache
+uKindForge.SiteBuilder.Core/bin
+uKindForge.SiteBuilder.Core/obj
+uKindForge.SiteBuilder.Models/bin
+uKindForge.SiteBuilder.Models/obj
+uKindForge.SiteBuilder.Website/Smidge/Cache
 sh.exe.stackdump

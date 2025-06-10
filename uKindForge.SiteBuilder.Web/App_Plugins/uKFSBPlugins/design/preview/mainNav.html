@@ -1,0 +1,137 @@
+﻿<style>
+    .sub-menu {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 200px;
+        list-style-type: none;
+    }
+
+    .main-nav {
+        font-size: 16px;
+    }
+
+        .main-nav ul {
+            list-style-type: none;
+            text-align: center;
+            margin: 0px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(40, 41, 61, 0.04), 0px 8px 16px rgba(96, 97, 112, 0.16);
+        }
+
+        .main-nav ul.sub-menu {
+            padding: 10px;
+        }
+
+            .main-nav ul.sub-menu li a {
+                padding: 8px 24px;
+            }
+
+        .main-nav a {
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            border-radius: 5px;
+        }
+
+        .main-nav ul.sub-menu ul.sub-menu {
+            position: absolute;
+            right: auto;
+            left: 100%;
+            top: 0;
+            margin-left: 10px;
+        }
+
+    .second-nav {
+        position: absolute;
+        width: 420px;
+        margin-top: 10px;
+    }
+        .second-nav ul {
+            box-shadow: none;
+        }
+    .second-nav ul li {
+        padding: 10px;
+    }
+</style>
+<div ng-controller="uKindForge.ColorSettingsController" style="height: 300px">
+    <div class="main-nav" ng-style="{'background-color': '#' + (model.value.mainNav.background || '000')}">
+        <ul>
+            <li style="display: inline-block;position:relative;padding: 10px 0px;" ng-repeat="item in ['Home', 'Services', 'About', 'Products']">
+                <a style="padding: 12px 30px; margin-right: 15px;"
+                   ng-style="{
+                    'color': hover ? '#' + (model.value.mainNav.linkHover || '#000') : '#' + (model.value.mainNav.link || '#000'),
+                    'background-color': hover ? '#' + (model.value.mainNav.linkHoverBackground || '#000') : '#' + (model.value.mainNav.linkBackground || '#000'),
+                    'border': '1px solid ' + (hover ? '#' + (model.value.mainNav.linkBorderHover || '#000') : '#' + (model.value.mainNav.linkBorder || '#000'))
+                }"
+                   ng-mouseenter="hover = true"
+                   ng-mouseleave="hover = false">
+                    {{ item }}
+                    <div ng-if="item === 'About' || item === 'Services'" class="sub-nav-toggler"><span><i class="lni lni-chevron-down"></i></span></div>
+                </a>
+                <div class="second-nav" ng-if="item=== 'Services' && secondNavVisible"
+                     ng-style="{'background-color': '#' + (model.value.secondNav.background || '000')}"
+                >
+                    <div class="span3" ng-repeat="index in [1, 2]">
+                        <ul>
+                            <li><a style="font-weight: bold"
+                                   ng-style="{'color': secondNavHover1 ? '#' + (model.value.secondNav.linkHover || '#000') : '#' + (model.value.secondNav.link || '#000')}"
+                                   ng-mouseenter="secondNavHover1 = true"
+                                   ng-mouseleave="secondNavHover1= false"
+                                >Service {{index}}</a></li>
+                            <li ng-repeat="i in [1, 2, 3, 4]">
+                                <a
+                                    ng-style="{'color': secondNavHover2 ? '#' + (model.value.secondNav.linkHover || '#000') : '#' + (model.value.secondNav.link || '#000')}"
+                                    ng-mouseenter="secondNavHover2 = true"
+                                    ng-mouseleave="secondNavHover2 = false"
+                                >Item {{i}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="span3">
+                        <svg width="150px" height="150px" viewBox="0 -0.5 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="si-glyph si-glyph-image">
+                            <title>805</title>
+                            <defs>
+                            </defs>
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(0.000000, 2.000000)" fill="#434343">
+                                    <path d="M13.438,11.944 L2.557,11.944 C1.163,11.944 0.029,10.781 0.029,9.353 L0.029,2.603 C0.029,1.173 1.164,0.012 2.557,0.012 L13.438,0.012 C14.831,0.012 15.965,1.173 15.965,2.603 L15.965,9.353 C15.965,10.781 14.83,11.944 13.438,11.944 L13.438,11.944 Z M2.237,0.979 C1.537,0.979 0.965,1.593 0.965,2.35 L0.965,9.668 C0.965,10.425 1.537,11.039 2.237,11.039 L13.754,11.039 C14.456,11.039 15.027,10.425 15.027,9.668 L15.027,2.35 C15.027,1.593 14.456,0.979 13.754,0.979 L2.237,0.979 L2.237,0.979 Z" class="si-glyph-fill">
+                                    </path>
+                                    <ellipse cx="5.471" cy="3.461" rx="1.471" ry="1.461" class="si-glyph-fill">
+                                    </ellipse>
+                                    <path d="M11.234,3.037 L13.994,9.988 L2.021,9.988 L5.497,5.98 L8.614,6.924 L11.234,3.037 Z" class="si-glyph-fill">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <ul ng-if="item === 'About' && dropdownMenuVisible" class="sub-menu"
+                    ng-style="{'background-color': '#' + (model.value.dropdownNav.background || '000')}">
+                    <li style="position: relative;" ng-repeat="(index, subItem1) in ['About Us', 'Our Portfolio', 'Our Teams']">
+                        <a ng-style="{
+                                    'color': sub1Hover ? '#' + (model.value.dropdownNav.linkHover || '#000') : '#' + (model.value.dropdownNav.link || '#000'),
+                                    'background-color': sub1Hover ? '#' + (model.value.dropdownNav.linkHoverBackground || '#000') : '#' + (model.value.dropdownNav.linkBackground || '#000')
+                                }"
+                           ng-mouseenter="sub1Hover = true"
+                           ng-mouseleave="sub1Hover = false">{{subItem1}}<div ng-if="index === 0" class="sub-nav-toggler"><span><i class="lni lni-chevron-down"></i></span></div></a>
+                        <ul class="sub-menu" ng-if="index === 0"
+                            ng-style="{'background-color': '#' + (model.value.dropdownNav.background || '000')}">
+                            <li ng-repeat="subItem2 in ['Portfolio Item 1', 'Portfolio Item 2', 'Portfolio Item 3']">
+                                <a ng-style="{
+                                            'color': sub2Hover ? '#' + (model.value.dropdownNav.linkHover || '#000') : '#' + (model.value.dropdownNav.link || '#000'),
+                                            'background-color': sub2Hover ? '#' + (model.value.dropdownNav.linkHoverBackground || '#000') : '#' + (model.value.dropdownNav.linkBackground || '#000')
+                                        }"
+                                   ng-mouseenter="sub2Hover = true"
+                                   ng-mouseleave="sub2Hover = false">{{subItem2}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

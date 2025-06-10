@@ -1,0 +1,10 @@
+﻿<div ng-controller="uKindForge.NumericPlusController">
+    <input name="number" type="number"
+           pattern="[0-9]*"
+           id="{{model.alias}}"
+           ng-model="model.value"
+           fix-number
+           min="{{model.config.min}}"
+           max="{{model.config.max}}"
+           step="{{model.config.step}}" />
+</div>

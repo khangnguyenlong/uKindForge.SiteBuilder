@@ -1,0 +1,60 @@
+﻿<style>
+    .product-cat-box {
+        padding: 15px;
+        border-radius: 6px;
+    }
+
+    .product-cat-preview {
+        width: 250px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        font-size: 16px;
+    }
+
+        .product-cat-preview .cat-item {
+            display: block;
+            padding: 8px 12px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid;
+            transition: all 0.2s ease;
+        }
+
+            .product-cat-preview .cat-item.active {
+                font-weight: 600;
+            }
+</style>
+
+
+<div ng-controller="uKindForge.ColorSettingsController"
+     class="product-cat-box"
+     ng-style="{
+            'background-color': '#' + (model.value.productCategory.background || '000')
+        }"
+     >
+    <ul class="product-cat-preview">
+        <li ng-repeat="item in ['Category 1', 'Category 2', 'Category 3']">
+            <a href="" class="cat-item" ng-style="{
+            'background-color': '#' + (model.value.productCategory.linkBackground || '000'),
+            'color': '#' + (model.value.productCategory.link || '000'),
+            'border-color': '#' + (model.value.productCategory.linkBorder || '000')
+        }">
+                {{ item }}
+            </a>
+        </li>
+    </ul>
+
+    <!-- Dynamically inject hover style based on user input -->
+    <style ng-if="model.value.productCategory"
+           ng-bind="'
+            .cat-item:hover {
+                background-color: #' + (model.value.productCategory.linkHoverBackground || '000') + ' !important;
+                color: #' + (model.value.productCategory.linkHover || '000') + ' !important;
+                border-color: #' + (model.value.productCategory.linkBorderHover || '000') + ' !important;
+            }
+        '">
+    </style>
+</div>

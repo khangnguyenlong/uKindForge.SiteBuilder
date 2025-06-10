@@ -1,0 +1,24 @@
+﻿@inherits UmbracoViewPage<uKindForge.SiteBuilder.Models.ProductCategory>
+@using uKindForge.SiteBuilder.Models
+
+@{
+    Layout = "Master.cshtml";
+
+    var currentCategory = Model;
+    var root = currentCategory.AncestorsOrSelf().FirstOrDefault(x => x.ContentType.Alias == ProductManagementPage.ModelTypeAlias) as ProductManagementPage;
+
+    var allCategories = root?.ChildrenOfType(ProductCategory.ModelTypeAlias).OrderBy(x => x.SortOrder).Cast<ProductCategory>().ToList() ?? new List<ProductCategory>();
+    var products = currentCategory.ChildrenOfType(Product.ModelTypeAlias).Cast<Product>().ToList();
+
+    var breadcrumbNodes = Model.Ancestors().Reverse().Append(Model);
+}
+
+@await Html.PartialAsync("~/Views/Partials/Product/ProductCategory.cshtml", new ProductCategoryViewModel()
+{
+	ActiveCategoryId = currentCategory.Id,
+    Categories = allCategories,
+    Products = products,
+	CategorySectionTitle = root?.CategorySectionTitle,
+	EmptyCategoryMessage = root?.EmptyCategoryMessage,
+	BreadcrumbNodes = breadcrumbNodes,
+})
