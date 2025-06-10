@@ -1,0 +1,123 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\uKFSBPlugins\design\designList\designListView.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\preview\productCard.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\preview\horizontalLine.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\preview\productCat.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\preview\horizontalTab.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\preview\verticalTab.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIconsPicker.css" />
+    <Content Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIconsPicker.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\colorPalette\colorPalette.css" />
+    <Content Include="App_Plugins\uKFSBPlugins\common\tab-accordions.css" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\card.png" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\headerDesktop_style1.png" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\headerDesktop_style2.png" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\headerDesktop_style3.png" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\image.png" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\mobile_style1.png" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\video.png" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\preview\footer.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\preview\mainNav.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\design\fontSettings\google-web-font-list.json" />
+    <Content Include="App_Plugins\uKFSBPlugins\heading\heading.css" />
+    <Content Include="App_Plugins\uKFSBPlugins\heading\heading.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIcons.json" />
+    <Content Include="App_Plugins\uKFSBPlugins\backoffice\forms\lang\en-us.xml" />
+    <Content Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus.css" />
+    <Content Include="App_Plugins\uKFSBPlugins\blockPreview\blockPreview.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\backgroundColor\backgroundColor.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\colorPalette\colorPalette.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\baselineColorPicker\baselineColorPicker.css" />
+    <Content Include="App_Plugins\uKFSBPlugins\baselineColorPicker\baselineColorPicker.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\numericPlus\numericPlus.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus_Prevalue.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\buttonColor\buttonColor.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\togglePlus\togglePlus.html" />
+    <Content Include="App_Plugins\uKFSBPlugins\backoffice\forms\edit.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms" Version="13.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+    <PackageReference Include="Umbraco.Community.BlockPreview" Version="1.10.4" />
+    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="App_Plugins\uKFSBPlugins\blockPreview\img\" />
+    <Folder Include="App_Plugins\uKFSBPlugins\operations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="App_Plugins\uKFSBPlugins\design\designList\designListView.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIconsPicker.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\blockPreview\blockPreview.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\backgroundColor\backgroundColor.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\colorPalette\colorPalette.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\baselineColorPicker\baselineColorPicker.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\design\colorSettings\colorSettings.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\design\colorSettings\colorSettings.css" />
+    <None Include="App_Plugins\uKFSBPlugins\design\colorSettings\colorSettings.html" />
+    <None Include="App_Plugins\uKFSBPlugins\design\fontSettings\fontSettings.css" />
+    <None Include="App_Plugins\uKFSBPlugins\design\fontSettings\fontSettings.html" />
+    <None Include="App_Plugins\uKFSBPlugins\design\fontSettings\fontSettings.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\design\layoutSettings\layoutSettings.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\design\layoutSettings\layoutSettings.css" />
+    <None Include="App_Plugins\uKFSBPlugins\design\layoutSettings\layoutSettings.html" />
+    <None Include="App_Plugins\uKFSBPlugins\heading\heading.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\numericPlus\numericPlus.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\backoffice\forms\forms.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus_Prevalue.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\design\design.service.js" />
+    <None Include="App_Plugins\uKFSBPlugins\buttonColor\buttonColor.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\togglePlus\togglePlus.controller.js" />
+    <None Include="App_Plugins\uKFSBPlugins\package.manifest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\uKindForge.SiteBuilder.Core\uKindForge.SiteBuilder.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Partials\blockgrid\Components\contactForm2Block.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Partials\blockgrid\Components\accordionsBlock.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Partials\blockgrid\Components\Shared\Subheading.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Partials\blockgrid\Components\teamBlock.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- Razor files are needed for the backoffice to work correctly -->
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
+    <RazorCompileOnBuild>false</RazorCompileOnBuild>
+    <RazorCompileOnPublish>false</RazorCompileOnPublish>
+  </PropertyGroup>
+
+</Project>

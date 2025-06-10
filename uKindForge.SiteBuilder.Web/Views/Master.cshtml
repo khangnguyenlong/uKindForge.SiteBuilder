@@ -1,0 +1,50 @@
+﻿@using Smidge;
+@inherits UmbracoViewPage
+@inject DesignHelper DesignHelper
+@{
+	Layout = null;
+	var design = DesignHelper.GetDesign();
+	var homePage = Umbraco.ContentAtRoot()
+					.FirstOrDefault(x => x.ContentType.Alias.InvariantEquals(HomePage.ModelTypeAlias)) as HomePage;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	@await Html.PartialAsync("~/Views/Partials/Seo/MetaTags.cshtml")
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--TODO-->
+	<link rel="shortcut icon" href="~/css/KindForge/" type="image/svg" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+	<link rel="stylesheet" href="~/css/bundle.min.css" />
+
+	@await Html.PartialAsync("~/Views/Partials/Favicon.cshtml", design.Favicon)
+
+	@await Html.PartialAsync("~/Views/Partials/Design.cshtml", design)
+</head>
+<body>
+
+	<!--Header-->
+	@await Html.PartialAsync("~/Views/Partials/Header.cshtml", homePage)
+
+	<!--Body-->
+	<main id="content">
+		@RenderBody()
+	</main>
+
+	<!--Footer-->
+	@await Html.PartialAsync("~/Views/Partials/Footer.cshtml", homePage)
+
+	<a href="#" class="back-to-top" id="backToTop"></a>
+
+	<!--JS-->
+	<script src="js-bundle"></script>
+</body>
+</html>

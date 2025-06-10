@@ -1,0 +1,291 @@
+﻿{
+  "propertyEditors": [
+    {
+      "alias": "uKindForge.BackgroundColor",
+      "name": "uKindForge - Background Color",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/backgroundColor/backgroundColor.html",
+        "supportsReadOnly": true,
+        "hideLabel": false,
+        "valueType": "STRING"
+      }
+    },
+    {
+      "alias": "uKindForge.BaselineColorPicker",
+      "name": "uKindForge - Baseline Color Picker",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/baselineColorPicker/baselineColorPicker.html",
+        "hideLabel": false,
+        "valueType": "STRING"
+      }
+    },
+    {
+      "alias": "uKindForge.ButtonColor",
+      "name": "uKindForge - Button Color",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/buttonColor/buttonColor.html",
+        "supportsReadOnly": true,
+        "hideLabel": false,
+        "valueType": "STRING"
+      }
+    },
+    {
+      "alias": "uKindForge.ColorPalette",
+      "name": "uKindForge - Color Palette",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/colorPalette/colorPalette.html",
+        "hideLabel": true,
+        "valueType": "TEXT"
+      }
+    },
+    {
+      "alias": "uKindForge.NumericPlus",
+      "name": "uKindForge - Numeric (Plus)",
+      "icon": "icon-autofill",
+      "group": "Common",
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/numericPlus/numericPlus.html",
+        "hideLabel": false,
+        "valueType": "STRING"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "key": "default",
+            "label": "Default Value",
+            "description": "Enter a default value of number to be entered",
+            "view": "number"
+          },
+          {
+            "key": "min",
+            "label": "Minimum",
+            "description": "Enter the minimum amount of number to be entered",
+            "view": "number"
+          },
+          {
+            "key": "max",
+            "label": "Maximum",
+            "description": "Enter the maximum amount of number to be entered",
+            "view": "number"
+          },
+          {
+            "key": "step",
+            "label": "Step size",
+            "description": "Enter the intervals amount between each step of number to be entered",
+            "view": "number"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "uKindForge.RadioButtonPlus",
+      "name": "uKindForge - Radio Button (Plus)",
+      "icon": "icon-bulleted-list",
+      "group": "Common",
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/radioButtonPlus/radioButtonPlus.html",
+        "supportsReadOnly": true,
+        "hideLabel": false
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "key": "isDisableToggle",
+            "label": "Disable Toggle",
+            "description": "If this field is enabled, users will be unable to uncheck or change the selected radio button.",
+            "view": "boolean",
+            "hideLabel": false
+          },
+          {
+            "key": "isDisableButtonText",
+            "label": "Disable Button Text",
+            "description": "If this field is enabled, the radio button display text will be hidden.",
+            "view": "boolean",
+            "hideLabel": false
+          },
+          {
+            "label": "Radio button values",
+            "key": "items",
+            "view": "~/App_Plugins/uKFSBPlugins/radioButtonPlus/radioButtonPlus_Prevalue.html",
+            "hideLabel": true
+          }
+        ]
+      }
+    },
+    {
+      "alias": "uKindForge.TogglePlus",
+      "name": "uKindForge - Toggle (Plus)",
+      "icon": "icon-checkbox",
+      "group": "Common",
+      "supportsReadOnly": true,
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/togglePlus/togglePlus.html",
+        "hideLabel": false,
+        "valueType": "INT"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "key": "default",
+            "label": "Initial State",
+            "description": "The initial state for the toggle, when it is displayed for the first time in the backoffice, eg. for a new content item.",
+            "view": "boolean"
+          },
+          {
+            "key": "showLabels",
+            "label": "Show toggle labels",
+            "description": "Show labels next to toggle button.",
+            "view": "boolean"
+          },
+          {
+            "key": "labelOn",
+            "label": "Label On",
+            "description": "Label text when enabled.",
+            "view": "textstring"
+          },
+          {
+            "key": "labelOff",
+            "label": "Label Off",
+            "description": "Label text when disabled.",
+            "view": "textstring"
+          },
+          {
+            "key": "hideFields",
+            "label": "Hide Fields",
+            "description": "Enter list of hidden fields when disabled. Ex: FieldAlias1,FieldAlias2",
+            "view": "textstring"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "uKindForge.Heading",
+      "name": "uKindForge - Heading",
+      "icon": "icon-checkbox",
+      "group": "Common",
+      "supportsReadOnly": true,
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/heading/heading.html",
+        "hideLabel": false,
+        "valueType": "JSON"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "key": "defaultHeadingTag",
+            "label": "Default value of Heading Tag",
+            "description": "Enter a default value for heading tag. Ex: h1, h2, h3",
+            "view": "textstring"
+          },
+          {
+            "key": "hideAlignControl",
+            "label": "Hide align control",
+            "description": "If this field is enabled, the alignment control will be hiden.",
+            "view": "boolean"
+          },
+          {
+            "key": "hideUrlPickerControl",
+            "label": "Hide Url Picker control",
+            "description": "If this field is enabled, the Url Picker control will be hiden.",
+            "view": "boolean"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "uKindForge.FontSettings",
+      "name": "uKindForge - Font Settings",
+      "icon": "icon-font",
+      "group": "Common",
+      "supportsReadOnly": true,
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/design/fontSettings/fontSettings.html",
+        "hideLabel": true,
+        "valueType": "JSON"
+      }
+    },
+    {
+      "alias": "uKindForge.ColorSettings",
+      "name": "uKindForge - Color Settings",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "supportsReadOnly": true,
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/design/colorSettings/colorSettings.html",
+        "hideLabel": true,
+        "valueType": "JSON"
+      }
+    },
+    {
+      "alias": "uKindForge.LayoutSettings",
+      "name": "uKindForge - Layout Settings",
+      "icon": "icon-layout",
+      "group": "Common",
+      "supportsReadOnly": true,
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/design/layoutSettings/layoutSettings.html",
+        "hideLabel": true,
+        "valueType": "JSON"
+      }
+    },
+    {
+      "alias": "uKindForge.LineIconsPicker",
+      "name": "uKindForge - Line icons Picker",
+      "icon": "icon-colorpicker",
+      "group": "Pickers",
+      "supportsReadOnly": true,
+      "editor": {
+        "view": "/App_Plugins/uKFSBPlugins/lineIconsPicker/lineIconsPicker.html",
+        "hideLabel": false,
+        "valueType": "STRING"
+      }
+    }
+  ],
+  "css": [
+    "/css/lib/lineicons.css",
+    "/App_Plugins/uKFSBPlugins/common/tab-accordions.css",
+
+    "/App_Plugins/uKFSBPlugins/baselineColorPicker/baselineColorPicker.css",
+    "/App_Plugins/uKFSBPlugins/colorPalette/colorPalette.css",
+    "/App_Plugins/uKFSBPlugins/radioButtonPlus/radioButtonPlus.css",
+    "/App_Plugins/uKFSBPlugins/heading/heading.css",
+    "/App_Plugins/uKFSBPlugins/design/fontSettings/fontSettings.css",
+    "/App_Plugins/uKFSBPlugins/design/colorSettings/colorSettings.css",
+    "/App_Plugins/uKFSBPlugins/design/layoutSettings/layoutSettings.css",
+    "/App_Plugins/uKFSBPlugins/lineIconsPicker/lineIconsPicker.css"
+  ],
+  "javascript": [
+    "/js/bootstrap/bootstrap.bundle.min.js",
+
+    "/App_Plugins/uKFSBPlugins/blockPreview/blockPreview.controller.js",
+    //service
+    "/App_Plugins/uKFSBPlugins/design/design.service.js",
+    //controller
+    "/App_Plugins/uKFSBPlugins/togglePlus/togglePlus.controller.js",
+    "/App_Plugins/uKFSBPlugins/colorPalette/colorPalette.controller.js",
+    "/App_Plugins/uKFSBPlugins/baselineColorPicker/baselineColorPicker.controller.js",
+    "/App_Plugins/uKFSBPlugins/numericPlus/numericPlus.controller.js",
+    "/App_Plugins/uKFSBPlugins/radioButtonPlus/radioButtonPlus.controller.js",
+    "/App_Plugins/uKFSBPlugins/radioButtonPlus/radioButtonPlus_Prevalue.controller.js",
+    "/App_Plugins/uKFSBPlugins/buttonColor/buttonColor.controller.js",
+    "/App_Plugins/uKFSBPlugins/backgroundColor/backgroundColor.controller.js",
+    "/App_Plugins/uKFSBPlugins/heading/heading.controller.js",
+    //design
+    "/App_Plugins/uKFSBPlugins/design/fontSettings/fontSettings.controller.js",
+    "/App_Plugins/uKFSBPlugins/design/colorSettings/colorSettings.controller.js",
+    "/App_Plugins/uKFSBPlugins/design/layoutSettings/layoutSettings.controller.js",
+    "/App_Plugins/uKFSBPlugins/design/designList/designListView.controller.js",
+
+    "/App_Plugins/uKFSBPlugins/lineIconsPicker/lineIconsPicker.controller.js",
+
+    "/App_Plugins/uKFSBPlugins/backoffice/forms/forms.controller.js"
+  ]
+}
