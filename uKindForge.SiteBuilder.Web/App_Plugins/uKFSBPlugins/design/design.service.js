@@ -33,8 +33,10 @@
         }
     }
 
-    async function getDesignCssStyle() {
-        return $http.get("backoffice/api/design/GetCssStyle")
+    async function getDesignCssStyle(contentId) {
+        return $http.get("backoffice/api/design/GetCssStyle", {
+                params: { contentId: contentId }
+            })
             .then(function (response) {
                 return response.data;
             }, function (error) {

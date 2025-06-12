@@ -16,10 +16,9 @@ namespace uKindForge.SiteBuilder.Core.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCssStyle()
+        public async Task<IActionResult> GetCssStyle([FromQuery] int contentId)
         {
-            //TODO get by content id then check choose design if not get default from design list
-            var designViewModel = await _designService.GenerateCssStyle("");
+            var designViewModel = await _designService.GenerateCssStyle(contentId);
             return Ok(designViewModel);
         }
     }
