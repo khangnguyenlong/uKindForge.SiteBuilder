@@ -5,3 +5,6 @@ uKindForge.SiteBuilder.Models/bin
 uKindForge.SiteBuilder.Models/obj
 uKindForge.SiteBuilder.Website/Smidge/Cache
 sh.exe.stackdump
+uKindForge.SiteBuilder.Web/bin
+uKindForge.SiteBuilder.Web/obj
+uKindForge.SiteBuilder.Web/node_modules
