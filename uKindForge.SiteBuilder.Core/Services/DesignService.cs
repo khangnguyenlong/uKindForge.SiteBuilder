@@ -185,14 +185,24 @@ namespace uKindForge.SiteBuilder.Core.Services
                 </style>
             ";
 
-            return new DesignViewModel() 
+            return new DesignViewModel()
             {
                 CssStyle = style,
             };
         }
 
-        public async Task<DesignViewModel> GenerateCssStyle(string contentId) //TODO choose from current node
+        public async Task<DesignViewModel> GenerateCssStyle(int contentId) //TODO choose from current node
         {
+            if (!umbracoContextAccessor.TryGetUmbracoContext(out var umbracoContext))
+                return null;
+
+            var content = umbracoContext.Content?.GetById(contentId);
+            var home = content?.Root<HomePage>();
+            if (home?.OverrideDesign != null && home.OverrideDesign is DesignDetail overrideDesign)
+            {
+                return await GenerateCssStyle(overrideDesign);
+            }
+
             var designDetail = GetChooseDesignFromDesignList();
             return await GenerateCssStyle(designDetail);
         }
