@@ -1,40 +1,30 @@
 ﻿using uKindForge.SiteBuilder.Core.ViewModels;
-using uKindForge.SiteBuilder.Models;
 using Umbraco.Cms.Core.Web;
-using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Core.Services
 {
     public class ContactFormService : IContactFormService
     {
         private readonly IEmailService _emailCore;
-        private readonly IUmbracoContextFactory _contextFactory;
+        private readonly IPageService _pageService;
 
         public ContactFormService(
             IEmailService emailCore,
-            IUmbracoContextFactory contextFactory)
+            IPageService pageService)
         {
             _emailCore = emailCore;
-            _contextFactory = contextFactory;
-        }
-
-        private GlobalSettings GetGlobal()
-        {
-            using var cref = _contextFactory.EnsureUmbracoContext();
-            return cref.UmbracoContext.Content
-                .GetAtRoot()
-                    .FirstOrDefault(x => x.ContentType.Alias.InvariantEquals(GlobalSettings.ModelTypeAlias)) as GlobalSettings;
+            _pageService = pageService;
         }
 
         public async Task SendToAdminAsync(ContactFormViewModel model)
         {
-            var global = GetGlobal();
-            if (global == null 
-                || global.EmailTemplateEmailToAdmin?.Content?.EnableSendEmail == false
-                || string.IsNullOrWhiteSpace(global.EmailTemplateEmailToAdmin.Content.SendTo)
+            var home = _pageService.GetCurrentRootHomePage();
+            if (home == null 
+                || home.EmailTemplateEmailToAdmin?.Content?.EnableSendEmail == false
+                || string.IsNullOrWhiteSpace(home.EmailTemplateEmailToAdmin.Content.SendTo)
                 ) return;
 
-            var adminEmail = global.EmailTemplateEmailToAdmin.Content;
+            var adminEmail = home.EmailTemplateEmailToAdmin.Content;
             var template = adminEmail.EmailBody;
 
             var subject = ReplacePlaceholders(adminEmail.EmailSubject, model);
@@ -45,10 +35,10 @@ namespace uKindForge.SiteBuilder.Core.Services
 
         public async Task SendToClientAsync(ContactFormViewModel model)
         {
-            var global = GetGlobal();
-            if (global == null || global.EmailTemplateEmailToClient?.Content?.EnableSendEmail == false) return;
+            var home = _pageService.GetCurrentRootHomePage();
+            if (home == null || home.EmailTemplateEmailToClient?.Content?.EnableSendEmail == false) return;
 
-            var clientEmail = global.EmailTemplateEmailToClient.Content;
+            var clientEmail = home.EmailTemplateEmailToClient.Content;
             var template = clientEmail.EmailBody;
 
             var subject = ReplacePlaceholders(clientEmail.EmailSubject, model);

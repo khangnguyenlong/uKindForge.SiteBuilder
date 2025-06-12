@@ -1,16 +1,18 @@
-﻿@inherits UmbracoViewPage
+﻿@using uKindForge.SiteBuilder.Core.Services
+@inherits UmbracoViewPage
 @inject Umbraco.Cms.Core.Routing.IPublishedUrlProvider _publishedUrlProvider
+@inject IPageService PageService
 
 @{
     var pageTitle = !string.IsNullOrEmpty(Model.Value<string>("pageTitle")) ? Model.Value<string>("pageTitle") : Model.Name;
     var metaDescription = Model.Value<string>("metaDescription") ?? string.Empty;
 
-    var globalSettings = Umbraco.ContentAtRoot().FirstOrDefault(x => x.ContentType.Alias == GlobalSettings.ModelTypeAlias);
-    var siteName = globalSettings?.Value<string>("siteName") ?? "";
+    var settings = PageService.GetCurrentRootHomePage();
+    var siteName = settings?.SiteName ?? "";
     var fullTitle = !string.IsNullOrWhiteSpace(siteName) ? $"{pageTitle} | {siteName}" : pageTitle;
 
     var image = Model.Value<IPublishedContent>("socialShareImage")
-        ?? globalSettings?.Value<IPublishedContent>("socialShareImage");
+        ?? settings?.SocialShareImage;
 
     var imageUrl = image?.GetCropUrl(width: 1200, height: 630, urlMode: UrlMode.Absolute);
     var pageUrl = Model.Url(_publishedUrlProvider, null, UrlMode.Absolute);

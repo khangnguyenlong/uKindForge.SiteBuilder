@@ -5,6 +5,6 @@ namespace uKindForge.SiteBuilder.Core.Services
 {
     public interface IPageService
     {
-        HomePage GetRootHomePage();
+        HomePage GetCurrentRootHomePage();
     }
 }

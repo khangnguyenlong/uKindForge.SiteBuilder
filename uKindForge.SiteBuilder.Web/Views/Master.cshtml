@@ -1,11 +1,12 @@
 ﻿@using Smidge;
+@using uKindForge.SiteBuilder.Core.Services
 @inherits UmbracoViewPage
 @inject DesignHelper DesignHelper
+@inject IPageService PageService
 @{
 	Layout = null;
 	var design = DesignHelper.GetDesign();
-	var homePage = Umbraco.ContentAtRoot()
-					.FirstOrDefault(x => x.ContentType.Alias.InvariantEquals(HomePage.ModelTypeAlias)) as HomePage;
+	var homePage = PageService.GetCurrentRootHomePage();
 }
 
 <!DOCTYPE html>
