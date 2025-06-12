@@ -8,11 +8,10 @@ namespace uKindForge.SiteBuilder.Core.Services
     {
         private readonly IUmbracoContextFactory _contextFactory = contextFactory;
 
-        public HomePage GetRootHomePage()
+        public HomePage GetCurrentRootHomePage()
         {
             using var cref = _contextFactory.EnsureUmbracoContext();
-            var home = cref.UmbracoContext.Content.GetAtRoot()
-                    .FirstOrDefault(x => x.ContentType.Alias.InvariantEquals(HomePage.ModelTypeAlias)) as HomePage;
+            var home = cref.UmbracoContext.PublishedRequest.PublishedContent.AncestorOrSelf<HomePage>();
 
             return home;
         }

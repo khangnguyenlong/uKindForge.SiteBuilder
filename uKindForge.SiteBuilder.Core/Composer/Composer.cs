@@ -17,6 +17,7 @@ namespace uKindForge.SiteBuilder.Core.Composer
         {
             // Services
             builder.Services.AddScoped<IDesignService, DesignService>();
+            builder.Services.AddScoped<IPageService, PageService>();
             builder.Services.AddScoped<IEmailService, EmailService>();
             builder.Services.AddScoped<IContactFormService, ContactFormService>();
             builder.Services.AddScoped<DesignHelper>();
