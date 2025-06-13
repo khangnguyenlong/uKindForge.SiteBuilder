@@ -191,7 +191,7 @@ namespace uKindForge.SiteBuilder.Core.Services
             };
         }
 
-        public async Task<DesignViewModel> GenerateCssStyle(int contentId) //TODO choose from current node
+        public async Task<DesignViewModel> GenerateCssStyle(int contentId)
         {
             if (!umbracoContextAccessor.TryGetUmbracoContext(out var umbracoContext))
                 return null;

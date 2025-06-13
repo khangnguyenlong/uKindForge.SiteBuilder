@@ -1,11 +1,13 @@
 ﻿using uKindForge.SiteBuilder.Core.Constants;
+using uKindForge.SiteBuilder.Core.Services;
 using uKindForge.SiteBuilder.Models;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Core.Helpers
 {
-	public class DesignHelper(IUmbracoContextFactory umbracoContextFactory)
+	public class DesignHelper(IUmbracoContextFactory umbracoContextFactory,
+        IPageService pageService)
 	{
         public string GetBackgroundClass(string bgContentOrder)
         {
@@ -22,27 +24,16 @@ namespace uKindForge.SiteBuilder.Core.Helpers
         public DesignDetail GetDesign()
 		{
             //TODO cache this
-            using var contextReference = umbracoContextFactory.EnsureUmbracoContext();
-
-			var umbracoContext = contextReference.UmbracoContext;
-
-            var design = GetOverrideDesign(umbracoContext);
-            if(design == null)
+            var home = pageService.GetCurrentRootHomePage();
+            if(home?.OverrideDesign == null || home?.OverrideDesign is not DesignDetail design)
             {
-                design = GetDefaultDesign(umbracoContext);
+                using var contextReference = umbracoContextFactory.EnsureUmbracoContext();
+                var umbracoContext = contextReference.UmbracoContext;
+                return GetDefaultDesign(umbracoContext);
             }
 
             return design;
 		}
-
-        private DesignDetail GetOverrideDesign(IUmbracoContext context)
-        {
-            var currentPage = context?.PublishedRequest?.PublishedContent;
-            if (currentPage == null) return null;
-            var overrideDesignPropValue = currentPage.Value(AppConstants.PageProperty.OverrideDesign) as DesignDetail;
-
-            return overrideDesignPropValue;
-        }
 
         private DesignDetail GetDefaultDesign(IUmbracoContext context)
         {

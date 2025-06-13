@@ -20,7 +20,7 @@ namespace uKindForge.SiteBuilder.Models
 {
 	/// <summary>Content Page</summary>
 	[PublishedModel("contentPage")]
-	public partial class ContentPage : PublishedContentModel, IPageContentBase, ISeoBase, ISettings
+	public partial class ContentPage : PublishedContentModel, IPageContentBase, ISeoBase
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -80,99 +80,5 @@ namespace uKindForge.SiteBuilder.Models
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("socialShareImage")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops SocialShareImage => global::uKindForge.SiteBuilder.Models.SeoBase.GetSocialShareImage(this, _publishedValueFallback);
-
-		///<summary>
-		/// Email to Admin
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("emailTemplateEmailToAdmin")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.Email> EmailTemplateEmailToAdmin => global::uKindForge.SiteBuilder.Models.Settings.GetEmailTemplateEmailToAdmin(this, _publishedValueFallback);
-
-		///<summary>
-		/// Email to Client
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("emailTemplateEmailToClient")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.Email> EmailTemplateEmailToClient => global::uKindForge.SiteBuilder.Models.Settings.GetEmailTemplateEmailToClient(this, _publishedValueFallback);
-
-		///<summary>
-		/// Error 404 Page
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("error404Page")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent Error404Page => global::uKindForge.SiteBuilder.Models.Settings.GetError404Page(this, _publishedValueFallback);
-
-		///<summary>
-		/// Favicon
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("favicon")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Favicon => global::uKindForge.SiteBuilder.Models.Settings.GetFavicon(this, _publishedValueFallback);
-
-		///<summary>
-		/// From Email
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("fromEmail")]
-		public virtual string FromEmail => global::uKindForge.SiteBuilder.Models.Settings.GetFromEmail(this, _publishedValueFallback);
-
-		///<summary>
-		/// Override Design: If Override Design is selected, it will replace the default design in the external Design section. If Override Design is not selected, the default design will be applied.
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("overrideDesign")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent OverrideDesign => global::uKindForge.SiteBuilder.Models.Settings.GetOverrideDesign(this, _publishedValueFallback);
-
-		///<summary>
-		/// Site Name
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("siteName")]
-		public virtual string SiteName => global::uKindForge.SiteBuilder.Models.Settings.GetSiteName(this, _publishedValueFallback);
-
-		///<summary>
-		/// Host
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("smtpHost")]
-		public virtual string SmtpHost => global::uKindForge.SiteBuilder.Models.Settings.GetSmtpHost(this, _publishedValueFallback);
-
-		///<summary>
-		/// Password
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("smtpPassword")]
-		public virtual string SmtpPassword => global::uKindForge.SiteBuilder.Models.Settings.GetSmtpPassword(this, _publishedValueFallback);
-
-		///<summary>
-		/// Port
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("smtpPort")]
-		public virtual int SmtpPort => global::uKindForge.SiteBuilder.Models.Settings.GetSmtpPort(this, _publishedValueFallback);
-
-		///<summary>
-		/// Username
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("smtpUsername")]
-		public virtual string SmtpUsername => global::uKindForge.SiteBuilder.Models.Settings.GetSmtpUsername(this, _publishedValueFallback);
-
-		///<summary>
-		/// Use SSL
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.7.0+eaea7a6")]
-		[ImplementPropertyType("smtpUseSSL")]
-		public virtual bool SmtpUseSsl => global::uKindForge.SiteBuilder.Models.Settings.GetSmtpUseSsl(this, _publishedValueFallback);
 	}
 }
