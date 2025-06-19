@@ -13,7 +13,9 @@
     <Content Include="App_Plugins\uKFSBPlugins\design\preview\productCat.html" />
     <Content Include="App_Plugins\uKFSBPlugins\design\preview\horizontalTab.html" />
     <Content Include="App_Plugins\uKFSBPlugins\design\preview\verticalTab.html" />
-    <Content Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIconsPicker.css" />
+    <Content Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIconsPicker.css">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</Content>
     <Content Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIconsPicker.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -33,15 +35,21 @@
     <Content Include="App_Plugins\uKFSBPlugins\design\preview\footer.html" />
     <Content Include="App_Plugins\uKFSBPlugins\design\preview\mainNav.html" />
     <Content Include="App_Plugins\uKFSBPlugins\design\fontSettings\google-web-font-list.json" />
-    <Content Include="App_Plugins\uKFSBPlugins\heading\heading.css" />
+    <Content Include="App_Plugins\uKFSBPlugins\heading\heading.css">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</Content>
     <Content Include="App_Plugins\uKFSBPlugins\heading\heading.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIcons.json" />
+    <Content Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIcons.json">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</Content>
     <Content Include="App_Plugins\uKFSBPlugins\backoffice\forms\lang\en-us.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus.css" />
+    <Content Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus.css">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</Content>
     <Content Include="App_Plugins\uKFSBPlugins\blockPreview\blockPreview.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
