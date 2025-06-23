@@ -3,90 +3,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+	<EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Include="App_Plugins\uKFSBPlugins\design\designList\designListView.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\design\preview\productCard.html" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\preview\horizontalLine.html" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\preview\productCat.html" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\preview\horizontalTab.html" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\preview\verticalTab.html" />
-    <Content Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIconsPicker.css">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</Content>
-    <Content Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIconsPicker.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\colorPalette\colorPalette.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\common\tab-accordions.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\card.png" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\headerDesktop_style1.png" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\headerDesktop_style2.png" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\headerDesktop_style3.png" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\image.png" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\mobile_style1.png" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\layoutSettings\preview\img\video.png" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\preview\footer.html" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\preview\mainNav.html" />
-    <Content Include="App_Plugins\uKFSBPlugins\design\fontSettings\google-web-font-list.json" />
-    <Content Include="App_Plugins\uKFSBPlugins\heading\heading.css">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</Content>
-    <Content Include="App_Plugins\uKFSBPlugins\heading\heading.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIcons.json">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</Content>
-    <Content Include="App_Plugins\uKFSBPlugins\backoffice\forms\lang\en-us.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus.css">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</Content>
-    <Content Include="App_Plugins\uKFSBPlugins\blockPreview\blockPreview.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\backgroundColor\backgroundColor.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\colorPalette\colorPalette.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\baselineColorPicker\baselineColorPicker.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\baselineColorPicker\baselineColorPicker.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\numericPlus\numericPlus.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus_Prevalue.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\buttonColor\buttonColor.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\togglePlus\togglePlus.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Plugins\uKFSBPlugins\backoffice\forms\edit.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Umbraco.Cms" Version="13.7.0" />
+    <PackageReference Include="Umbraco.Cms" Version="13.9.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -97,67 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="App_Plugins\uKFSBPlugins\blockPreview\img\" />
-    <Folder Include="App_Plugins\uKFSBPlugins\operations\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="App_Plugins\uKFSBPlugins\design\designList\designListView.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\lineIconsPicker\lineIconsPicker.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\blockPreview\blockPreview.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\backgroundColor\backgroundColor.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\colorPalette\colorPalette.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\baselineColorPicker\baselineColorPicker.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\design\colorSettings\colorSettings.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\design\colorSettings\colorSettings.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="App_Plugins\uKFSBPlugins\design\colorSettings\colorSettings.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="App_Plugins\uKFSBPlugins\design\fontSettings\fontSettings.css" />
-    <None Include="App_Plugins\uKFSBPlugins\design\fontSettings\fontSettings.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="App_Plugins\uKFSBPlugins\design\fontSettings\fontSettings.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\design\layoutSettings\layoutSettings.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\design\layoutSettings\layoutSettings.css" />
-    <None Include="App_Plugins\uKFSBPlugins\design\layoutSettings\layoutSettings.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="App_Plugins\uKFSBPlugins\heading\heading.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\numericPlus\numericPlus.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\backoffice\forms\forms.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\radioButtonPlus\radioButtonPlus_Prevalue.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\design\design.service.js" />
-    <None Include="App_Plugins\uKFSBPlugins\buttonColor\buttonColor.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\togglePlus\togglePlus.controller.js" />
-    <None Include="App_Plugins\uKFSBPlugins\package.manifest" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\uKindForge.SiteBuilder.Core\uKindForge.SiteBuilder.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Views\Partials\blockgrid\Components\contactForm2Block.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Partials\blockgrid\Components\accordionsBlock.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Partials\blockgrid\Components\Shared\Subheading.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Partials\blockgrid\Components\teamBlock.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
+  </ItemGroup>  
 
   <PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->
@@ -169,5 +31,7 @@
     <RazorCompileOnBuild>false</RazorCompileOnBuild>
     <RazorCompileOnPublish>false</RazorCompileOnPublish>
   </PropertyGroup>
-
+  <ItemGroup>
+   <Content Include="App_Plugins\**\*.*" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
+  </ItemGroup>
 </Project>
