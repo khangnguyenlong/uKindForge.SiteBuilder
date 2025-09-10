@@ -1,0 +1,25 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<ImageLinksBlock>>
+
+@{
+    if (Model.Content == null) return;
+}
+
+<div class="footer-block">
+    <div class="logo-link">
+        @if (Model.Content?.ImageLinks != null && Model.Content.ImageLinks.Any())
+        {
+            @foreach (var imageLinkItem in Model.Content.ImageLinks)
+            {
+                @if (imageLinkItem.Content is not ImageLink imageLink || imageLink == null) continue;
+
+                @await Html.PartialImageLinkAsync(new ImageViewModel(@imageLink.Image)
+                { 
+                    CropWidth = 150, CropHeight = 50,
+                    ImageAlt = @imageLink.Link?.Name,
+                    Link = @imageLink.Link,
+                    CssStyle = "max-height: 50px; max-width: 150px" 
+                })
+            }
+        }
+    </div>
+</div>
