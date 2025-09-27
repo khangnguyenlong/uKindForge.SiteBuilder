@@ -8,5 +8,6 @@ namespace uKindForge.SiteBuilder.Models
         public string HeadingTag { get; set; }
         public string Align { get; set; }
         public Link Link { get; set; }
+        //public bool Bold { get; set; }
     }
 }

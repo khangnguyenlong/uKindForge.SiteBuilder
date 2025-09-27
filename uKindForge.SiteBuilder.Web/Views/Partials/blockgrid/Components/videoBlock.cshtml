@@ -1,17 +1,15 @@
 ﻿@inherits UmbracoViewPage<BlockGridItem<VideoBlock>>
 @{
     var video = Model.Content.Video;
-    var isAutoplay = Model.Content.IsAutoplay;
-    var isMuted = Model.Content.IsMuted;
-    var isLoop = Model.Content.IsLoop;
+    var autoplay = Model.Content.IsAutoplay ? "autoplay" : "";
+    var muted = Model.Content.IsMuted ? "muted" : "";
+    var loop = Model.Content.IsLoop ? "loop" : "";
 
     if (video is not null)
     {
         <video class="w-100"
-            controls preload="metadata" src="@video.Url()">
-            @(isAutoplay ? "autoplay" : "")
-            @(isMuted ? "muted" : "")
-            @(isLoop ? "loop" : "")
+            controls preload="metadata" src="@video.Url()"
+               @autoplay @muted @loop>
         </video>
     }
 }

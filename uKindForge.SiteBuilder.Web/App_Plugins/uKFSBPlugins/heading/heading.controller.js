@@ -7,6 +7,7 @@ function headingController($scope, editorService) {
             headingText: "",
             headingTag: $scope.model.config.defaultHeadingTag || "h1",
             align: "",
+            //bold: false,
             link: {}
         };
     }

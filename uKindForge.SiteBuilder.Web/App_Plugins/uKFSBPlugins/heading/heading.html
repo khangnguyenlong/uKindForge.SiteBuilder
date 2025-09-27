@@ -7,12 +7,20 @@
                 </select>
             </div>
             <div class="toolbar__control toolbar__align" ng-hide="model.config.hideAlignControl === '1'">
+                <!--<button aria-label="Bold" title="Bold" type="button" tabindex="-1"
+                        class="tox-tbtn" aria-disabled="false" aria-pressed="true"
+                        ng-class="{'tox-tbtn--enabled': model.value.bold}"
+                        style="width: 34px;"
+                        ng-click="model.value.bold = model.value.bold">
+                    <span class="tox-icon tox-tbtn__icon-wrap">
+                        <svg width="24" height="24" focusable="false"><path d="M7.8 19c-.3 0-.5 0-.6-.2l-.2-.5V5.7c0-.2 0-.4.2-.5l.6-.2h5c1.5 0 2.7.3 3.5 1 .7.6 1.1 1.4 1.1 2.5a3 3 0 0 1-.6 1.9c-.4.6-1 1-1.6 1.2.4.1.9.3 1.3.6s.8.7 1 1.2c.4.4.5 1 .5 1.6 0 1.3-.4 2.3-1.3 3-.8.7-2.1 1-3.8 1H7.8Zm5-8.3c.6 0 1.2-.1 1.6-.5.4-.3.6-.7.6-1.3 0-1.1-.8-1.7-2.3-1.7H9.3v3.5h3.4Zm.5 6c.7 0 1.3-.1 1.7-.4.4-.4.6-.9.6-1.5s-.2-1-.7-1.4c-.4-.3-1-.4-2-.4H9.4v3.8h4Z" fill-rule="evenodd"></path></svg>
+                    </span>
+                </button>-->
                 <button aria-label="Align left" title="Align left" type="button" tabindex="-1"
                         class="tox-tbtn" aria-disabled="false" aria-pressed="true"
                         ng-class="{'tox-tbtn--enabled': model.value.align === 'left'}"
                         style="width: 34px;"
-                        ng-click="model.value.align = model.value.align === 'left' ? '' : 'left'"
-                        >
+                        ng-click="model.value.align = model.value.align === 'left' ? '' : 'left'">
                     <span class="tox-icon tox-tbtn__icon-wrap">
                         <svg width="24" height="24"
                              focusable="false">
@@ -25,8 +33,7 @@
                         type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"
                         style="width: 34px;"
                         ng-class="{'tox-tbtn--enabled': model.value.align === 'center'}"
-                        ng-click="model.value.align = model.value.align === 'center' ? '' : 'center'"
-                        >
+                        ng-click="model.value.align = model.value.align === 'center' ? '' : 'center'">
                     <span class="tox-icon tox-tbtn__icon-wrap">
                         <svg width="24" height="24"
                              focusable="false">
@@ -39,8 +46,7 @@
                         tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"
                         style="width: 34px;"
                         ng-class="{'tox-tbtn--enabled': model.value.align === 'right'}"
-                        ng-click="model.value.align = model.value.align === 'right' ? '' : 'right'"
-                        >
+                        ng-click="model.value.align = model.value.align === 'right' ? '' : 'right'">
                     <span class="tox-icon tox-tbtn__icon-wrap">
                         <svg width="24" height="24"
                              focusable="false">

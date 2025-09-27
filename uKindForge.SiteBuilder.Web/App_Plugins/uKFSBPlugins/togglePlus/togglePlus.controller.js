@@ -48,7 +48,7 @@ function numericPlusController($scope, $rootScope, assetsService) {
     }
 
     function showHideFields() {
-        var propertesAlias = $scope.model.config.hideFields.split(",");
+        var propertesAlias = $scope.model.config.hideFields?.split(",") ?? [];
         angular.forEach(propertesAlias, function (propertyAlias, key) {
             var propertyHtmlControls = $("div[class*='umb-property']:has(ng-form)");
 

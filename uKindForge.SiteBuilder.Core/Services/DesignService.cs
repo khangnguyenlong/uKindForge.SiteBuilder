@@ -179,7 +179,11 @@ namespace uKindForge.SiteBuilder.Core.Services
                         --horizontal-line-color: #{color.HorizontalLine.LineColor};
                         --horizontal-line-width: {layout.HorizontalLine.LineWidth}px;
                         --horizontal-line-style: {layout.HorizontalLine.LineStyle};  
-                        
+
+                        /*  */
+                        --section-pad-min: 24px;
+                        --section-pad-scale: 5vw;
+                        --section-pad-max: 72px;
                     }}
                     {cssStyle}
                 </style>

@@ -1,66 +1,59 @@
 ﻿@inherits UmbracoViewPage<BlockGridItem<ContactForm2Block, ContactFormBlockSettings>>
 @inject DesignHelper DesignHelper
-<!--TODO implement submit form -->
-<section class="contact-area contact-area-two">
+@{
+	var fullNameLabel = string.IsNullOrEmpty(Model.Settings?.FullNameLabel) ? "Full Name" : Model.Settings.FullNameLabel;
+	var emailAddressLabel = string.IsNullOrEmpty(Model.Settings?.EmailAddressLabel) ? "Email Address" : Model.Settings.EmailAddressLabel;
+	var phoneNumberLabel = string.IsNullOrEmpty(Model.Settings?.PhoneNumberLabel) ? "Phone Number" : Model.Settings.PhoneNumberLabel;
+	var subjectLabel = string.IsNullOrEmpty(Model.Settings?.SubjectLabel) ? "Subject" : Model.Settings.SubjectLabel;
+	var messageLabel = string.IsNullOrEmpty(Model.Settings?.MessageLabel) ? "Your Message" : Model.Settings.MessageLabel;
+	var submitButtonLabel = string.IsNullOrEmpty(Model.Settings?.SubmitButtonLabel) ? "Send Message" : Model.Settings.SubmitButtonLabel;
+	var successMessage = string.IsNullOrEmpty(Model.Settings.SuccessMessage) ? "Thank you! We’ve received your information. Our team will get in touch with you as soon as possible." : Model.Settings.SuccessMessage;
+}
+
+<div class="contact-area contact-area-two @DesignHelper.GetBackgroundClass(Model.Settings?.ContentColor)">
 	<div class="container">
 		<!-- row -->
 		<div class="row">
-			<div class="col-xl-5 col-lg-6">
-				<div class="contact-two">
-					@await Html.PartialTextAsync(new TextViewModel(Model.Content.Description))
-                   <ul class="contact-info">
-						@if (!string.IsNullOrEmpty(Model.Content.Address))
-						{
-							<li><i class="lni lni-money-location"></i> @Model.Content.Address</li>
-						}
-						@if (!string.IsNullOrEmpty(Model.Content.Mobile))
-						{
-							<li><i class="lni lni-phone"></i> @Model.Content.Mobile</li>
-						}
-						@if (!string.IsNullOrEmpty(Model.Content.Telephone))
-						{
-							<li><i class="lni lni-phone-set"></i> @Model.Content.Telephone</li>
-						}
-						@if (!string.IsNullOrEmpty(Model.Content.Email))
-						{
-							<li><i class="lni lni-envelope"></i> @Model.Content.Email</li>
-						}
-					</ul>
-				</div>
-				<!-- contact two -->
-			</div>
-			<div class="col-xl-6 col-lg-6 offset-xl-1">
+			<div class="col-xl-12 col-lg-12">
 				<div class="contact-form form-style-one">
-					<form action="#">
+					@using (Html.BeginUmbracoForm("SubmitContactForm", "ContactFormSurface", FormMethod.Post))
+					{
 						<div class="form-input">
-							<label>Name</label>
+							<label>@fullNameLabel</label>
 							<div class="input-items default">
-								<input type="text" placeholder="Name" />
+								<input name="Name" required type="text" placeholder="Name" />
 								<i class="lni lni-user"></i>
 							</div>
 						</div>
 						<!-- form input -->
 						<div class="form-input">
-							<label>Email</label>
+							<label>@emailAddressLabel</label>
 							<div class="input-items default">
-								<input type="text" placeholder="Email" />
+								<input name="Email" required type="email" placeholder="Email" />
 								<i class="lni lni-envelope"></i>
 							</div>
 						</div>
 						<!-- form input -->
 						<div class="form-input">
-							<label>Massage</label>
+							<label>@messageLabel</label>
 							<div class="input-items default">
-								<textarea placeholder="Massage"></textarea>
+								<textarea name="Message" required placeholder="Massage"></textarea>
 								<i class="lni lni-pencil-alt"></i>
 							</div>
 						</div>
 						<!-- form input -->
 						<div class="form-input standard-buttons">
-							<button class="btn primary-btn square">Submit</button>
+							<button class="btn @DesignHelper.GetButtonClass(Model.Settings?.SubmitButtonStyle) rounded-full"
+									type="submit">
+								@submitButtonLabel
+							</button>
+							@if (TempData["Success"] != null)
+							{
+								<p class="mt-2">@successMessage</p>
+							}
 						</div>
 						<!-- form input -->
-					</form>
+					}
 				</div>
 				<!-- contact form -->
 			</div>
@@ -68,4 +61,16 @@
 		<!-- row -->
 	</div>
 	<!-- container -->
-</section>
+</div>
+
+@if (TempData["Success"] != null)
+{
+	<script>
+		window.addEventListener("load", function () {
+			const form = document.getElementById("contactForm");
+			if (form) {
+				form.scrollIntoView({ behavior: "smooth" });
+			}
+		});
+	</script>
+}

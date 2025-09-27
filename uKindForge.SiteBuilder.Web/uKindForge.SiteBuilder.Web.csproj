@@ -33,5 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
    <Content Include="App_Plugins\**\*.*" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
+   <Content Include="Views\**\*.cshtml" CopyToPublishDirectory="PreserveNewest" />
+   <Content Include="wwwroot\**\*" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
