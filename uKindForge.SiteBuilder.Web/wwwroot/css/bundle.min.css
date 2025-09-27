@@ -2301,99 +2301,112 @@ section, .container, .container-fluid {
     padding-right: 0px;
 }
 
+.section-block {
+    padding-block: var(--section-pad-min);
+    padding-block: clamp(var(--section-pad-min), var(--section-pad-scale), var(--section-pad-max));
+}
+
+    .section-block:first-of-type {
+        padding-top: calc(clamp(24px, 6vw, 96px) * 0.5);
+    }
+
+    .section-block:last-of-type {
+        padding-bottom: calc(clamp(24px, 6vw, 96px) * 0.5);
+    }
+
 /* === Headings === */
 h1 {
-    font-family: var(--h1-font-family);
-    font-weight: var(--h1-font-weight);
-    line-height: var(--h1-font-line-height);
-    font-size: var(--h1-font-size-desktop);
+    font-family: var(--h1-font-family) !important;
+    font-weight: var(--h1-font-weight) !important;
+    line-height: var(--h1-font-line-height) !important;
+    font-size: var(--h1-font-size-desktop) !important;
 }
 
 h2 {
-    font-family: var(--h2-font-family);
-    font-weight: var(--h2-font-weight);
-    line-height: var(--h2-font-line-height);
-    font-size: var(--h2-font-size-desktop);
+    font-family: var(--h2-font-family) !important;
+    font-weight: var(--h2-font-weight) !important;
+    line-height: var(--h2-font-line-height) !important;
+    font-size: var(--h2-font-size-desktop) !important;
 }
 
 h3 {
-    font-family: var(--h3-font-family);
-    font-weight: var(--h3-font-weight);
-    line-height: var(--h3-font-line-height);
-    font-size: var(--h3-font-size-desktop);
+    font-family: var(--h3-font-family) !important;
+    font-weight: var(--h3-font-weight) !important;
+    line-height: var(--h3-font-line-height) !important;
+    font-size: var(--h3-font-size-desktop) !important;
 }
 
 h4 {
     font-family: var(--h4-font-family);
-    font-weight: var(--h4-font-weight);
-    line-height: var(--h4-font-line-height);
-    font-size: var(--h4-font-size-desktop);
+    font-weight: var(--h4-font-weight) !important;
+    line-height: var(--h4-font-line-height) !important;
+    font-size: var(--h4-font-size-desktop) !important;
 }
 
 h5 {
-    font-family: var(--h5-font-family);
-    font-weight: var(--h5-font-weight);
-    line-height: var(--h5-font-line-height);
-    font-size: var(--h5-font-size-desktop);
+    font-family: var(--h5-font-family) !important;
+    font-weight: var(--h5-font-weight) !important;
+    line-height: var(--h5-font-line-height) !important;
+    font-size: var(--h5-font-size-desktop) !important;
 }
 
 h6 {
-    font-family: var(--h6-font-family);
-    font-weight: var(--h6-font-weight);
-    line-height: var(--h6-font-line-height);
-    font-size: var(--h6-font-size-desktop);
+    font-family: var(--h6-font-family) !important;
+    font-weight: var(--h6-font-weight) !important;
+    line-height: var(--h6-font-line-height) !important;
+    font-size: var(--h6-font-size-desktop) !important;
 }
 
 /* Media queries cho heading */
 @media (max-width: 1024px) {
     h1 {
-        font-size: var(--h1-font-size-tablet);
+        font-size: var(--h1-font-size-tablet) !important;
     }
 
     h2 {
-        font-size: var(--h2-font-size-tablet);
+        font-size: var(--h2-font-size-tablet) !important;
     }
 
     h3 {
-        font-size: var(--h3-font-size-tablet);
+        font-size: var(--h3-font-size-tablet) !important;
     }
 
     h4 {
-        font-size: var(--h4-font-size-tablet);
+        font-size: var(--h4-font-size-tablet) !important;
     }
 
     h5 {
-        font-size: var(--h5-font-size-tablet);
+        font-size: var(--h5-font-size-tablet) !important;
     }
 
     h6 {
-        font-size: var(--h6-font-size-tablet);
+        font-size: var(--h6-font-size-tablet) !important;
     }
 }
 
 @media (max-width: 768px) {
     h1 {
-        font-size: var(--h1-font-size-mobile);
+        font-size: var(--h1-font-size-mobile) !important;
     }
 
     h2 {
-        font-size: var(--h2-font-size-mobile);
+        font-size: var(--h2-font-size-mobile) !important;
     }
 
     h3 {
-        font-size: var(--h3-font-size-mobile);
+        font-size: var(--h3-font-size-mobile) !important;
     }
 
     h4 {
-        font-size: var(--h4-font-size-mobile);
+        font-size: var(--h4-font-size-mobile) !important;
     }
 
     h5 {
-        font-size: var(--h5-font-size-mobile);
+        font-size: var(--h5-font-size-mobile) !important;
     }
 
     h6 {
-        font-size: var(--h6-font-size-mobile);
+        font-size: var(--h6-font-size-mobile) !important;
     }
 }
 
@@ -2432,6 +2445,7 @@ ul.btn-group li {
 }
 
 a {
+    color: inherit;
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: color 0.3s, border-color 0.3s;
@@ -2460,6 +2474,7 @@ a {
     border-top-width: var(--horizontal-line-width);
     border-top-style: var(--horizontal-line-style);
 }
+
 /* === Header === */
 .header nav .menu-bar ul li a {
     color: var(--header-nav-link-color);
@@ -3219,8 +3234,7 @@ footer {
     contact-01 css 
 ===========================*/
 .contact-area {
-    padding-top: 50px;
-    padding-bottom: 100px;
+    padding: 20px;
 }
 
     .contact-area .mt-15 {
@@ -3488,8 +3502,6 @@ footer {
 /* ========== contact-02 css =========== */
 .contact-area-two {
     background-color: var(--light-2);
-    padding-top: 90px;
-    padding-bottom: 100px;
 }
 
     .contact-area-two .section-title-2 .title {
@@ -3503,10 +3515,6 @@ footer {
         font-size: 24px;
         line-height: 35px;
     }
-}
-
-.contact-area-two .contact-form {
-    margin-top: 35px;
 }
 
 .contact-area-two .standard-buttons {

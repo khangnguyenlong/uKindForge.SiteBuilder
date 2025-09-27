@@ -33,11 +33,13 @@ namespace uKindForge.SiteBuilder.Core.TagHelpers
 
             //TODO move to builder
             var styleAttributes = new StringBuilder();
-            styleAttributes.Append($"margin-top: {marginTopStyle}").Append("px;");
-            styleAttributes.Append($"margin-bottom: {marginBottomStyle}").Append("px;");
-            styleAttributes.Append($"padding-top: {paddingTopStyle}").Append("px;");
-            styleAttributes.Append($"padding-bottom: {paddingBottomStyle}").Append("px;");
 
+            //styleAttributes.Append($"margin-top: {marginTopStyle}").Append("px;");
+            //styleAttributes.Append($"margin-bottom: {marginBottomStyle}").Append("px;");
+            //styleAttributes.Append($"padding-top: {paddingTopStyle}").Append("px;");
+            //styleAttributes.Append($"padding-bottom: {paddingBottomStyle}").Append("px;");
+            //styleAttributes.Append($"padding-block: clamp(24px, 6vw, 96px);"); 
+            
             switch (layoutSettings.BackgroundType)
             {
                 case "image":
@@ -54,7 +56,7 @@ namespace uKindForge.SiteBuilder.Core.TagHelpers
             }
 
             output.Attributes.Add("style", styleAttributes.ToString());
-            output.Attributes.Add("class", $"{AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX}{layoutSettings.OrderColor}");
+            output.Attributes.Add("class", $"section-block {AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX}{layoutSettings.OrderColor}");
 
             var childContent = await output.GetChildContentAsync();
 

@@ -21,6 +21,7 @@
 @functions {
     void RenderHeading()
     {
+		// var styleBold = Model.Heading.Bold ? "bold" : "";
         <@Model.Heading.HeadingTag class="@Model.Heading.HeadingTag @CssClassHelper.GetTextAlign(@Model.Heading.Align, applyDefaultValue: false) @Model.CssClass">@Model.Heading.HeadingText</@Model.Heading.HeadingTag>
     }
 }
