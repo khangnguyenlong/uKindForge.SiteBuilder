@@ -9,20 +9,18 @@
         }
     </style>
     <div class="input-container" ng-repeat="item in model.items track by $id(item)">
-        <input 
-               id="radiobtn_bgcolor_{{$id}}_{{$index}}"
+        <input id="radiobtn_bgcolor_{{$id}}_{{$index}}"
                name="radiobtn_bgcolor_{{$id}}_{{$index}}"
                type="radio"
                ng-model="model.value"
                value="{{item.order}}"
-               class="radio-button"
-               />
+               class="radio-button" />
         <div class="radio-tile"
-             ng-style="{'background-color': '#' + item.backgroundColor}">
+             ng-class="{'bg-transparent': !item.backgroundColor}"
+             ng-style="item.backgroundColor ? {'background-color': '#' + item.backgroundColor} : {}">
             <label class="radio-tile-label"></label>
             <div class="heading" ng-style="{'color': '#' + item.headingColor}">Heading</div>
             <div class="text" ng-style="{'color': '#' + item.textColor}">Texting</div>
         </div>
-        
     </div>
 </div>

@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Models
 {
-	/// <summary>Contact Info</summary>
-	[PublishedModel("contactInfoBlock")]
-	public partial class ContactInfoBlock : PublishedElementModel
+	/// <summary>File Upload (Settings)</summary>
+	[PublishedModel("fileUploadBlockSettings")]
+	public partial class FileUploadBlockSettings : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public new const string ModelTypeAlias = "contactInfoBlock";
+		public new const string ModelTypeAlias = "fileUploadBlockSettings";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
@@ -34,14 +34,14 @@ namespace uKindForge.SiteBuilder.Models
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ContactInfoBlock, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<FileUploadBlockSettings, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public ContactInfoBlock(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public FileUploadBlockSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,27 +50,19 @@ namespace uKindForge.SiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Address
+		/// Button Color
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("address")]
-		public virtual string Address => this.Value<string>(_publishedValueFallback, "address");
+		[ImplementPropertyType("buttonColor")]
+		public virtual string ButtonColor => this.Value<string>(_publishedValueFallback, "buttonColor");
 
 		///<summary>
-		/// Email
+		/// Icon Class: Ex: fa fa-file-pdf
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("email")]
-		public virtual string Email => this.Value<string>(_publishedValueFallback, "email");
-
-		///<summary>
-		/// Phone
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("phone")]
-		public virtual string Phone => this.Value<string>(_publishedValueFallback, "phone");
+		[ImplementPropertyType("iconClass")]
+		public virtual string IconClass => this.Value<string>(_publishedValueFallback, "iconClass");
 	}
 }

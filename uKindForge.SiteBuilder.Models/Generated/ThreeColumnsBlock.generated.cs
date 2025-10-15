@@ -20,7 +20,7 @@ namespace uKindForge.SiteBuilder.Models
 {
 	/// <summary>3 Columns</summary>
 	[PublishedModel("threeColumnsBlock")]
-	public partial class ThreeColumnsBlock : PublishedElementModel, IBackgroundSettings, IMarginSettings, IPaddingSettings, IWidthSettings
+	public partial class ThreeColumnsBlock : PublishedElementModel, IBackgroundSettings, IPaddingSettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,12 +50,28 @@ namespace uKindForge.SiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Image
+		/// Color
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("backgroundColor")]
+		public virtual string BackgroundColor => global::uKindForge.SiteBuilder.Models.BackgroundSettings.GetBackgroundColor(this, _publishedValueFallback);
+
+		///<summary>
+		/// Upload Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("backgroundImage")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops BackgroundImage => global::uKindForge.SiteBuilder.Models.BackgroundSettings.GetBackgroundImage(this, _publishedValueFallback);
+
+		///<summary>
+		/// Image Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("backgroundImageUrl")]
+		public virtual string BackgroundImageUrl => global::uKindForge.SiteBuilder.Models.BackgroundSettings.GetBackgroundImageUrl(this, _publishedValueFallback);
 
 		///<summary>
 		/// Type
@@ -66,6 +82,14 @@ namespace uKindForge.SiteBuilder.Models
 		public virtual string BackgroundType => global::uKindForge.SiteBuilder.Models.BackgroundSettings.GetBackgroundType(this, _publishedValueFallback);
 
 		///<summary>
+		/// Upload Video
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("backgroundVideo")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops BackgroundVideo => global::uKindForge.SiteBuilder.Models.BackgroundSettings.GetBackgroundVideo(this, _publishedValueFallback);
+
+		///<summary>
 		/// Video Url
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
@@ -74,74 +98,53 @@ namespace uKindForge.SiteBuilder.Models
 		public virtual string BackgroundVideoUrl => global::uKindForge.SiteBuilder.Models.BackgroundSettings.GetBackgroundVideoUrl(this, _publishedValueFallback);
 
 		///<summary>
-		/// Color
+		/// Overlay
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[ImplementPropertyType("enableOverlay")]
+		public virtual bool EnableOverlay => global::uKindForge.SiteBuilder.Models.BackgroundSettings.GetEnableOverlay(this, _publishedValueFallback);
+
+		///<summary>
+		/// Overlay Color
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("color")]
-		public virtual string Color => global::uKindForge.SiteBuilder.Models.BackgroundSettings.GetColor(this, _publishedValueFallback);
+		[ImplementPropertyType("overlayColor")]
+		public virtual string OverlayColor => global::uKindForge.SiteBuilder.Models.BackgroundSettings.GetOverlayColor(this, _publishedValueFallback);
 
 		///<summary>
-		/// Add Margin Bottom
+		/// Opacity
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("isAddMarginBottom")]
-		public virtual bool IsAddMarginBottom => global::uKindForge.SiteBuilder.Models.MarginSettings.GetIsAddMarginBottom(this, _publishedValueFallback);
+		[ImplementPropertyType("overlayOpacity")]
+		public virtual decimal OverlayOpacity => global::uKindForge.SiteBuilder.Models.BackgroundSettings.GetOverlayOpacity(this, _publishedValueFallback);
 
 		///<summary>
-		/// Add Margin Top
+		/// Bottom: Adjust bottom spacing. Each level equals 1rem (≈16px) of padding.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("isAddMarginTop")]
-		public virtual bool IsAddMarginTop => global::uKindForge.SiteBuilder.Models.MarginSettings.GetIsAddMarginTop(this, _publishedValueFallback);
+		[ImplementPropertyType("bottom")]
+		public virtual decimal Bottom => global::uKindForge.SiteBuilder.Models.PaddingSettings.GetBottom(this, _publishedValueFallback);
 
 		///<summary>
-		/// Margin Bottom (px)
+		/// Full Screen
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("marginBottom")]
-		public virtual int MarginBottom => global::uKindForge.SiteBuilder.Models.MarginSettings.GetMarginBottom(this, _publishedValueFallback);
-
-		///<summary>
-		/// Margin Top (px)
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("marginTop")]
-		public virtual int MarginTop => global::uKindForge.SiteBuilder.Models.MarginSettings.GetMarginTop(this, _publishedValueFallback);
-
-		///<summary>
-		/// Add Padding Bottom
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("isAddPaddingBottom")]
-		public virtual bool IsAddPaddingBottom => global::uKindForge.SiteBuilder.Models.PaddingSettings.GetIsAddPaddingBottom(this, _publishedValueFallback);
-
-		///<summary>
-		/// Add Padding Top
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("isAddPaddingTop")]
-		public virtual bool IsAddPaddingTop => global::uKindForge.SiteBuilder.Models.PaddingSettings.GetIsAddPaddingTop(this, _publishedValueFallback);
-
-		///<summary>
-		/// Padding Bottom (px)
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("paddingBottom")]
-		public virtual int PaddingBottom => global::uKindForge.SiteBuilder.Models.PaddingSettings.GetPaddingBottom(this, _publishedValueFallback);
-
-		///<summary>
-		/// Padding Top (px)
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("paddingTop")]
-		public virtual int PaddingTop => global::uKindForge.SiteBuilder.Models.PaddingSettings.GetPaddingTop(this, _publishedValueFallback);
+		[ImplementPropertyType("fullScreen")]
+		public virtual bool FullScreen => global::uKindForge.SiteBuilder.Models.PaddingSettings.GetFullScreen(this, _publishedValueFallback);
 
 		///<summary>
 		/// Full Width
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[ImplementPropertyType("fullWidth")]
-		public virtual bool FullWidth => global::uKindForge.SiteBuilder.Models.WidthSettings.GetFullWidth(this, _publishedValueFallback);
+		public virtual bool FullWidth => global::uKindForge.SiteBuilder.Models.PaddingSettings.GetFullWidth(this, _publishedValueFallback);
+
+		///<summary>
+		/// Top: Adjust top spacing. Each level equals 1rem (≈16px) of padding.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[ImplementPropertyType("top")]
+		public virtual decimal Top => global::uKindForge.SiteBuilder.Models.PaddingSettings.GetTop(this, _publishedValueFallback);
 	}
 }

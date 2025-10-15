@@ -66,36 +66,12 @@ namespace uKindForge.SiteBuilder.Models
 		public virtual global::uKindForge.SiteBuilder.Models.ColorSettings ColorSettings => this.Value<global::uKindForge.SiteBuilder.Models.ColorSettings>(_publishedValueFallback, "colorSettings");
 
 		///<summary>
-		/// Favicon
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("favicon")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Favicon => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "favicon");
-
-		///<summary>
 		/// Fonts
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("fontSettings")]
 		public virtual global::uKindForge.SiteBuilder.Models.FontSettings FontSettings => this.Value<global::uKindForge.SiteBuilder.Models.FontSettings>(_publishedValueFallback, "fontSettings");
-
-		///<summary>
-		/// Logo
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("headerLogo")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops HeaderLogo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "headerLogo");
-
-		///<summary>
-		/// Logo Hover
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("headerLogoHover")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops HeaderLogoHover => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "headerLogoHover");
 
 		///<summary>
 		/// Layout Settings

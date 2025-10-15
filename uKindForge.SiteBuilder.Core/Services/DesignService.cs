@@ -10,6 +10,28 @@ namespace uKindForge.SiteBuilder.Core.Services
 {
     public class DesignService(IUmbracoContextAccessor umbracoContextAccessor) : IDesignService
     {
+        public async Task<DesignDetail> GetDessign(int contentId)
+        {
+            if (!umbracoContextAccessor.TryGetUmbracoContext(out var umbracoContext))
+                return null;
+
+            var content = umbracoContext.Content?.GetById(contentId);
+            var home = content?.SafeCast<HomePage>() ?? (content?.Root<HomePage>());
+            if (home?.OverrideDesign != null && home.OverrideDesign is DesignDetail overrideDesign)
+            {
+                return overrideDesign;
+            }
+
+            return GetChooseDesignFromDesignList();
+        }
+
+        public async Task<DesignViewModel> GenerateCssStyle(int contentId)
+        {
+            var design = await GetDessign(contentId);
+            if (design == null) return null;
+            return await GenerateCssStyle(design);
+        }
+
         public async Task<DesignViewModel> GenerateCssStyle(DesignDetail designDetail)
         {
             if (designDetail == null) return null;
@@ -193,22 +215,6 @@ namespace uKindForge.SiteBuilder.Core.Services
             {
                 CssStyle = style,
             };
-        }
-
-        public async Task<DesignViewModel> GenerateCssStyle(int contentId)
-        {
-            if (!umbracoContextAccessor.TryGetUmbracoContext(out var umbracoContext))
-                return null;
-
-            var content = umbracoContext.Content?.GetById(contentId);
-            var home = content?.Root<HomePage>();
-            if (home?.OverrideDesign != null && home.OverrideDesign is DesignDetail overrideDesign)
-            {
-                return await GenerateCssStyle(overrideDesign);
-            }
-
-            var designDetail = GetChooseDesignFromDesignList();
-            return await GenerateCssStyle(designDetail);
         }
 
         private DesignDetail GetChooseDesignFromDesignList()

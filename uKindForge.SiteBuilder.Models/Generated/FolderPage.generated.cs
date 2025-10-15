@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Models
 {
-	/// <summary>Folder</summary>
+	/// <summary>Folder Page</summary>
 	[PublishedModel("folderPage")]
 	public partial class FolderPage : PublishedContentModel
 	{

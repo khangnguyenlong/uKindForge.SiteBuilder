@@ -48,19 +48,40 @@ function numericPlusController($scope, $rootScope, assetsService) {
     }
 
     function showHideFields() {
-        var propertesAlias = $scope.model.config.hideFields?.split(",") ?? [];
-        angular.forEach(propertesAlias, function (propertyAlias, key) {
-            var propertyHtmlControls = $("div[class*='umb-property']:has(ng-form)");
+        // get config
+        var onRulesRaw = $scope.model.config.toggleOnRules ?? "";
+        var offRulesRaw = $scope.model.config.toggleOffRules ?? "";
 
-            angular.forEach(propertyHtmlControls, function (propertyHtml, key) {
-                if ($(propertyHtml).find(".control-label").attr("for") == propertyAlias) {
-                    if ($scope.renderModel.value) {
-                        $(propertyHtml).show();
-                    } else {
-                        $(propertyHtml).hide();
-                    }
-                }
-            });
+        var rulesOn = parseRules(onRulesRaw);
+        var rulesOff = parseRules(offRulesRaw);
+
+        // get umb-property
+        var propertyHtmlControls = $("div[class*='umb-property']:has(ng-form)");
+
+        angular.forEach(propertyHtmlControls, function (propertyHtml) {
+            var alias = $(propertyHtml).find(".control-label").attr("for");
+
+            if ($scope.renderModel.value) {
+                // Toggle ON
+                if (rulesOn.show.includes(alias)) $(propertyHtml).show();
+                if (rulesOn.hide.includes(alias)) $(propertyHtml).hide();
+            } else {
+                // Toggle OFF
+                if (rulesOff.show.includes(alias)) $(propertyHtml).show();
+                if (rulesOff.hide.includes(alias)) $(propertyHtml).hide();
+            }
         });
+    }
+
+    // Parse rule function
+    function parseRules(raw) {
+        if (!raw) return { show: [], hide: [] };
+
+        var list = raw.split(",").map(x => x.trim()).filter(x => x.length > 0);
+
+        return {
+            show: list.filter(r => r.startsWith("+")).map(r => r.substring(1)),
+            hide: list.filter(r => r.startsWith("-")).map(r => r.substring(1))
+        };
     }
 }

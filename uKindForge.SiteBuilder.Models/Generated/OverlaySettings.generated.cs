@@ -18,14 +18,32 @@ using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Models
 {
-	/// <summary>Horizontal Line</summary>
-	[PublishedModel("horizontalLine")]
-	public partial class HorizontalLine : PublishedElementModel
+	// Mixin Content Type with alias "overlaySettings"
+	/// <summary>Overlay (Settings)</summary>
+	public partial interface IOverlaySettings : IPublishedElement
+	{
+		/// <summary>Opacity</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		decimal Opacity { get; }
+
+		/// <summary>Overlay</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		bool Overlay { get; }
+
+		/// <summary>Overlay Color</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string OverlayColor { get; }
+	}
+
+	/// <summary>Overlay (Settings)</summary>
+	[PublishedModel("overlaySettings")]
+	public partial class OverlaySettings : PublishedElementModel, IOverlaySettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public new const string ModelTypeAlias = "horizontalLine";
+		public new const string ModelTypeAlias = "overlaySettings";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
@@ -34,14 +52,14 @@ namespace uKindForge.SiteBuilder.Models
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<HorizontalLine, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<OverlaySettings, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public HorizontalLine(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public OverlaySettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,41 +68,38 @@ namespace uKindForge.SiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Custom CSS: Use this field to apply additional CSS styles to the line. Example:  height: 1px; background: linear-gradient(to right, #ff7e5f, #feb47b);
+		/// Opacity
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[ImplementPropertyType("opacity")]
+		public virtual decimal Opacity => GetOpacity(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Opacity</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		public static decimal GetOpacity(IOverlaySettings that, IPublishedValueFallback publishedValueFallback) => that.Value<decimal>(publishedValueFallback, "opacity");
+
+		///<summary>
+		/// Overlay
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[ImplementPropertyType("overlay")]
+		public virtual bool Overlay => GetOverlay(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Overlay</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		public static bool GetOverlay(IOverlaySettings that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "overlay");
+
+		///<summary>
+		/// Overlay Color
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("customCSS")]
-		public virtual string CustomCss => this.Value<string>(_publishedValueFallback, "customCSS");
+		[ImplementPropertyType("overlayColor")]
+		public virtual string OverlayColor => GetOverlayColor(this, _publishedValueFallback);
 
-		///<summary>
-		/// Is Override Design: If this field is true it will override the design
-		///</summary>
+		/// <summary>Static getter for Overlay Color</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("isOverrideDesign")]
-		public virtual bool IsOverrideDesign => this.Value<bool>(_publishedValueFallback, "isOverrideDesign");
-
-		///<summary>
-		/// Line Color
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("lineColor")]
-		public virtual string LineColor => this.Value<string>(_publishedValueFallback, "lineColor");
-
-		///<summary>
-		/// Line Style: Default: Solid
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("lineStyle")]
-		public virtual string LineStyle => this.Value<string>(_publishedValueFallback, "lineStyle");
-
-		///<summary>
-		/// Line Width: Default: 1px
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("lineWidth")]
-		public virtual int LineWidth => this.Value<int>(_publishedValueFallback, "lineWidth");
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetOverlayColor(IOverlaySettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "overlayColor");
 	}
 }

@@ -26,12 +26,20 @@
 
 	<link rel="stylesheet" href="~/css/bundle.min.css" />
 
-	@await Html.PartialAsync("~/Views/Partials/Favicon.cshtml", design.Favicon)
+	<!--TODO-->
+	@* @await Html.PartialAsync("~/Views/Partials/Favicon.cshtml", design.Favicon) *@
 
 	@await Html.PartialAsync("~/Views/Partials/Design.cshtml", design)
+	@if (!string.IsNullOrWhiteSpace(homePage.CustomCss))
+	{
+		<style>
+			@Html.Raw(homePage.CustomCss)
+		</style>
+	}
+	@Html.Raw(homePage.CustomHeadScripts)
 </head>
 <body>
-
+	@Html.Raw(homePage.CustomBodyScripts)
 	<!--Header-->
 	@await Html.PartialAsync("~/Views/Partials/Header.cshtml", homePage)
 
@@ -47,5 +55,6 @@
 
 	<!--JS-->
 	<script src="js-bundle"></script>
+	@Html.Raw(homePage.CustomFooterScripts)
 </body>
 </html>

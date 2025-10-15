@@ -20,7 +20,7 @@ namespace uKindForge.SiteBuilder.Models
 {
 	/// <summary>Image</summary>
 	[PublishedModel("imageBlock")]
-	public partial class ImageBlock : PublishedElementModel
+	public partial class ImageBlock : PublishedElementModel, IOverlaySettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,11 +50,41 @@ namespace uKindForge.SiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Image
+		/// Upload Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("image")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Image => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "image");
+
+		///<summary>
+		/// Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("imageUrl")]
+		public virtual string ImageUrl => this.Value<string>(_publishedValueFallback, "imageUrl");
+
+		///<summary>
+		/// Opacity
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[ImplementPropertyType("opacity")]
+		public virtual decimal Opacity => global::uKindForge.SiteBuilder.Models.OverlaySettings.GetOpacity(this, _publishedValueFallback);
+
+		///<summary>
+		/// Overlay
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[ImplementPropertyType("overlay")]
+		public virtual bool Overlay => global::uKindForge.SiteBuilder.Models.OverlaySettings.GetOverlay(this, _publishedValueFallback);
+
+		///<summary>
+		/// Overlay Color
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("overlayColor")]
+		public virtual string OverlayColor => global::uKindForge.SiteBuilder.Models.OverlaySettings.GetOverlayColor(this, _publishedValueFallback);
 	}
 }

@@ -8,6 +8,7 @@ namespace uKindForge.SiteBuilder.Core.Helpers
     public static class HtmlHelper
     {
         const string PARTIAL_VIEW_NAME_SHARED = "~/Views/Partials/blockgrid/Components/Shared";
+        const string CONTENT_ALIAS = "~/Views/Partials/blockgrid/Components/Shared";
 
         public static Task<IHtmlContent> PartialButtonLinkAsync(this IHtmlHelper htmlHelper, ButtonViewModel model) => htmlHelper.PartialSharedAsync("ButtonLink", model);
         public static Task<IHtmlContent> PartialHeadingAsync(this IHtmlHelper htmlHelper, HeadingViewModel model) => htmlHelper.PartialSharedAsync("Heading", model);

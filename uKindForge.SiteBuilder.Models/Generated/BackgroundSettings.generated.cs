@@ -22,25 +22,48 @@ namespace uKindForge.SiteBuilder.Models
 	/// <summary>Background (Settings)</summary>
 	public partial interface IBackgroundSettings : IPublishedElement
 	{
-		/// <summary>Image</summary>
+		/// <summary>Color</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string BackgroundColor { get; }
+
+		/// <summary>Upload Image</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		global::Umbraco.Cms.Core.Models.MediaWithCrops BackgroundImage { get; }
+
+		/// <summary>Image Url</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string BackgroundImageUrl { get; }
 
 		/// <summary>Type</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		string BackgroundType { get; }
 
+		/// <summary>Upload Video</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.MediaWithCrops BackgroundVideo { get; }
+
 		/// <summary>Video Url</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		string BackgroundVideoUrl { get; }
 
-		/// <summary>Color</summary>
+		/// <summary>Overlay</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		bool EnableOverlay { get; }
+
+		/// <summary>Overlay Color</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string Color { get; }
+		string OverlayColor { get; }
+
+		/// <summary>Opacity</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		decimal OverlayOpacity { get; }
 	}
 
 	/// <summary>Background (Settings)</summary>
@@ -75,17 +98,43 @@ namespace uKindForge.SiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Image
+		/// Color
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("backgroundColor")]
+		public virtual string BackgroundColor => GetBackgroundColor(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Color</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetBackgroundColor(IBackgroundSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "backgroundColor");
+
+		///<summary>
+		/// Upload Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("backgroundImage")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops BackgroundImage => GetBackgroundImage(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Image</summary>
+		/// <summary>Static getter for Upload Image</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetBackgroundImage(IBackgroundSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "backgroundImage");
+
+		///<summary>
+		/// Image Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("backgroundImageUrl")]
+		public virtual string BackgroundImageUrl => GetBackgroundImageUrl(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Image Url</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetBackgroundImageUrl(IBackgroundSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "backgroundImageUrl");
 
 		///<summary>
 		/// Type
@@ -101,6 +150,19 @@ namespace uKindForge.SiteBuilder.Models
 		public static string GetBackgroundType(IBackgroundSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "backgroundType");
 
 		///<summary>
+		/// Upload Video
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("backgroundVideo")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops BackgroundVideo => GetBackgroundVideo(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Upload Video</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetBackgroundVideo(IBackgroundSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "backgroundVideo");
+
+		///<summary>
 		/// Video Url
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
@@ -114,16 +176,38 @@ namespace uKindForge.SiteBuilder.Models
 		public static string GetBackgroundVideoUrl(IBackgroundSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "backgroundVideoUrl");
 
 		///<summary>
-		/// Color
+		/// Overlay
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[ImplementPropertyType("enableOverlay")]
+		public virtual bool EnableOverlay => GetEnableOverlay(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Overlay</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		public static bool GetEnableOverlay(IBackgroundSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "enableOverlay");
+
+		///<summary>
+		/// Overlay Color
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("color")]
-		public virtual string Color => GetColor(this, _publishedValueFallback);
+		[ImplementPropertyType("overlayColor")]
+		public virtual string OverlayColor => GetOverlayColor(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Color</summary>
+		/// <summary>Static getter for Overlay Color</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetColor(IBackgroundSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "color");
+		public static string GetOverlayColor(IBackgroundSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "overlayColor");
+
+		///<summary>
+		/// Opacity
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[ImplementPropertyType("overlayOpacity")]
+		public virtual decimal OverlayOpacity => GetOverlayOpacity(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Opacity</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		public static decimal GetOverlayOpacity(IBackgroundSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<decimal>(publishedValueFallback, "overlayOpacity");
 	}
 }

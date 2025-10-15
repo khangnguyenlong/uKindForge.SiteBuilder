@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Models
 {
-	/// <summary>Horizontal Line</summary>
-	[PublishedModel("horizontalLineBlock")]
-	public partial class HorizontalLineBlock : PublishedElementModel
+	/// <summary>Embed (Settings)</summary>
+	[PublishedModel("embedBlockSettings")]
+	public partial class EmbedBlockSettings : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public new const string ModelTypeAlias = "horizontalLineBlock";
+		public new const string ModelTypeAlias = "embedBlockSettings";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
@@ -34,14 +34,14 @@ namespace uKindForge.SiteBuilder.Models
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<HorizontalLineBlock, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<EmbedBlockSettings, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public HorizontalLineBlock(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public EmbedBlockSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,11 +50,19 @@ namespace uKindForge.SiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Horizontal
+		/// Align
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("horizontal")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.HorizontalLine> Horizontal => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.HorizontalLine>>(_publishedValueFallback, "horizontal");
+		[ImplementPropertyType("align")]
+		public virtual string Align => this.Value<string>(_publishedValueFallback, "align");
+
+		///<summary>
+		/// Aspect Ratio
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("aspectRatio")]
+		public virtual string AspectRatio => this.Value<string>(_publishedValueFallback, "aspectRatio");
 	}
 }

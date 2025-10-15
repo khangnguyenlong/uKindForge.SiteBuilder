@@ -18,35 +18,39 @@ using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Models
 {
-	// Mixin Content Type with alias "paddingSettings"
-	/// <summary>Size (Settings)</summary>
-	public partial interface IPaddingSettings : IPublishedElement
+	// Mixin Content Type with alias "analyticsScripts"
+	/// <summary>Analytics & Scripts</summary>
+	public partial interface IAnalyticsScripts : IPublishedElement
 	{
-		/// <summary>Bottom</summary>
+		/// <summary>Body Scripts</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		decimal Bottom { get; }
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string CustomBodyScripts { get; }
 
-		/// <summary>Full Screen</summary>
+		/// <summary>Custom CSS</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		bool FullScreen { get; }
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string CustomCss { get; }
 
-		/// <summary>Full Width</summary>
+		/// <summary>Footer Scripts</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		bool FullWidth { get; }
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string CustomFooterScripts { get; }
 
-		/// <summary>Top</summary>
+		/// <summary>Head Scripts</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		decimal Top { get; }
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string CustomHeadScripts { get; }
 	}
 
-	/// <summary>Size (Settings)</summary>
-	[PublishedModel("paddingSettings")]
-	public partial class PaddingSettings : PublishedElementModel, IPaddingSettings
+	/// <summary>Analytics & Scripts</summary>
+	[PublishedModel("analyticsScripts")]
+	public partial class AnalyticsScripts : PublishedElementModel, IAnalyticsScripts
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public new const string ModelTypeAlias = "paddingSettings";
+		public new const string ModelTypeAlias = "analyticsScripts";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
@@ -55,14 +59,14 @@ namespace uKindForge.SiteBuilder.Models
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<PaddingSettings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<AnalyticsScripts, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public PaddingSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public AnalyticsScripts(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -71,47 +75,55 @@ namespace uKindForge.SiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Bottom: Adjust bottom spacing. Each level equals 1rem (≈16px) of padding.
+		/// Body Scripts: Scripts right after the body tab
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("bottom")]
-		public virtual decimal Bottom => GetBottom(this, _publishedValueFallback);
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("customBodyScripts")]
+		public virtual string CustomBodyScripts => GetCustomBodyScripts(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Bottom</summary>
+		/// <summary>Static getter for Body Scripts</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public static decimal GetBottom(IPaddingSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<decimal>(publishedValueFallback, "bottom");
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetCustomBodyScripts(IAnalyticsScripts that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "customBodyScripts");
 
 		///<summary>
-		/// Full Screen
+		/// Custom CSS
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("fullScreen")]
-		public virtual bool FullScreen => GetFullScreen(this, _publishedValueFallback);
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("customCSS")]
+		public virtual string CustomCss => GetCustomCss(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Full Screen</summary>
+		/// <summary>Static getter for Custom CSS</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public static bool GetFullScreen(IPaddingSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "fullScreen");
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetCustomCss(IAnalyticsScripts that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "customCSS");
 
 		///<summary>
-		/// Full Width
+		/// Footer Scripts: Scripts before the body tab
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("fullWidth")]
-		public virtual bool FullWidth => GetFullWidth(this, _publishedValueFallback);
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("customFooterScripts")]
+		public virtual string CustomFooterScripts => GetCustomFooterScripts(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Full Width</summary>
+		/// <summary>Static getter for Footer Scripts</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public static bool GetFullWidth(IPaddingSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "fullWidth");
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetCustomFooterScripts(IAnalyticsScripts that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "customFooterScripts");
 
 		///<summary>
-		/// Top: Adjust top spacing. Each level equals 1rem (≈16px) of padding.
+		/// Head Scripts: Insert scripts into the head tag
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("top")]
-		public virtual decimal Top => GetTop(this, _publishedValueFallback);
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("customHeadScripts")]
+		public virtual string CustomHeadScripts => GetCustomHeadScripts(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Top</summary>
+		/// <summary>Static getter for Head Scripts</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public static decimal GetTop(IPaddingSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<decimal>(publishedValueFallback, "top");
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetCustomHeadScripts(IAnalyticsScripts that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "customHeadScripts");
 	}
 }

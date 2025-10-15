@@ -18,35 +18,34 @@ using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Models
 {
-	// Mixin Content Type with alias "marginSettings"
-	/// <summary>Margin (Settings)</summary>
-	public partial interface IMarginSettings : IPublishedElement
+	// Mixin Content Type with alias "websiteInfo"
+	/// <summary>Website Info</summary>
+	public partial interface IWebsiteInfo : IPublishedElement
 	{
-		/// <summary>Add Margin Bottom</summary>
+		/// <summary>Error 404 Page</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		bool IsAddMarginBottom { get; }
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent Error404Page { get; }
 
-		/// <summary>Add Margin Top</summary>
+		/// <summary>Favicon</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		bool IsAddMarginTop { get; }
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.MediaWithCrops Favicon { get; }
 
-		/// <summary>Margin Bottom (px)</summary>
+		/// <summary>Site Name</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		int MarginBottom { get; }
-
-		/// <summary>Margin Top (px)</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		int MarginTop { get; }
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string SiteName { get; }
 	}
 
-	/// <summary>Margin (Settings)</summary>
-	[PublishedModel("marginSettings")]
-	public partial class MarginSettings : PublishedElementModel, IMarginSettings
+	/// <summary>Website Info</summary>
+	[PublishedModel("websiteInfo")]
+	public partial class WebsiteInfo : PublishedElementModel, IWebsiteInfo
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public new const string ModelTypeAlias = "marginSettings";
+		public new const string ModelTypeAlias = "websiteInfo";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
@@ -55,14 +54,14 @@ namespace uKindForge.SiteBuilder.Models
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<MarginSettings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<WebsiteInfo, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public MarginSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public WebsiteInfo(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -71,47 +70,42 @@ namespace uKindForge.SiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Add Margin Bottom
+		/// Error 404 Page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("isAddMarginBottom")]
-		public virtual bool IsAddMarginBottom => GetIsAddMarginBottom(this, _publishedValueFallback);
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("error404Page")]
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent Error404Page => GetError404Page(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Add Margin Bottom</summary>
+		/// <summary>Static getter for Error 404 Page</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public static bool GetIsAddMarginBottom(IMarginSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "isAddMarginBottom");
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent GetError404Page(IWebsiteInfo that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(publishedValueFallback, "error404Page");
 
 		///<summary>
-		/// Add Margin Top
+		/// Favicon
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("isAddMarginTop")]
-		public virtual bool IsAddMarginTop => GetIsAddMarginTop(this, _publishedValueFallback);
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("favicon")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Favicon => GetFavicon(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Add Margin Top</summary>
+		/// <summary>Static getter for Favicon</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public static bool GetIsAddMarginTop(IMarginSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "isAddMarginTop");
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetFavicon(IWebsiteInfo that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "favicon");
 
 		///<summary>
-		/// Margin Bottom (px)
+		/// Site Name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("marginBottom")]
-		public virtual int MarginBottom => GetMarginBottom(this, _publishedValueFallback);
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("siteName")]
+		public virtual string SiteName => GetSiteName(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Margin Bottom (px)</summary>
+		/// <summary>Static getter for Site Name</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public static int GetMarginBottom(IMarginSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "marginBottom");
-
-		///<summary>
-		/// Margin Top (px)
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("marginTop")]
-		public virtual int MarginTop => GetMarginTop(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Margin Top (px)</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public static int GetMarginTop(IMarginSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "marginTop");
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetSiteName(IWebsiteInfo that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "siteName");
 	}
 }

@@ -158,9 +158,15 @@
             "view": "textstring"
           },
           {
-            "key": "hideFields",
-            "label": "Hide Fields",
-            "description": "Enter list of hidden fields when disabled. Ex: FieldAlias1,FieldAlias2",
+            "key": "toggleOnRules",
+            "label": "Field Rules (When Toggle ON)",
+            "description": "Define show/hide fields when toggle is ON. Use +Field for show, -Field for hide. Ex: +field1,-field2",
+            "view": "textstring"
+          },
+          {
+            "key": "toggleOffRules",
+            "label": "Field Rules (When Toggle OFF)",
+            "description": "Define show/hide fields when toggle is OFF. Use +Field for show, -Field for hide. Ex: +field1,-field2",
             "view": "textstring"
           }
         ]
@@ -251,7 +257,7 @@
   ],
   "css": [
     "/css/lib/lineicons.css",
-    "/App_Plugins/uKFSBPlugins/common/tab-accordions.css",
+    "/App_Plugins/uKFSBPlugins/common/common.css",
 
     "/App_Plugins/uKFSBPlugins/baselineColorPicker/baselineColorPicker.css",
     "/App_Plugins/uKFSBPlugins/colorPalette/colorPalette.css",
@@ -268,6 +274,7 @@
     "/App_Plugins/uKFSBPlugins/blockPreview/blockPreview.controller.js",
     //service
     "/App_Plugins/uKFSBPlugins/design/design.service.js",
+    "/App_Plugins/uKFSBPlugins/helperService/contextHelper.service.js",
     //controller
     "/App_Plugins/uKFSBPlugins/togglePlus/togglePlus.controller.js",
     "/App_Plugins/uKFSBPlugins/colorPalette/colorPalette.controller.js",

@@ -7,14 +7,17 @@ function colorSettingsController($scope, $timeout, $element, designService, edit
 
     const colorPaletteProperty = designService.getProperty("colors", "settings", "colorPalette", editorState.getCurrent());
     let colorPaletteValue = getColorPalatteValue(colorPaletteProperty);
+    colorPaletteValue.unshift(["rgba(0,0,0,0)"]);
 
     $scope.settings = {
         palette: colorPaletteValue,
         showPalette: true,
         showPaletteOnly: true,
         showInput: false,
-        allowEmpty: false
+        allowEmpty: true,
+        showAlpha: true
     };
+
 
     function createDefaultColor() {
         return {
@@ -32,20 +35,31 @@ function colorSettingsController($scope, $timeout, $element, designService, edit
     }
 
     $scope.onChange = function (color, propertyGroup, propertyKey) {
-        if (color && typeof color.toHexString === 'function') {
-            const formattedColor = color.toHexString().trimStart("#");
+        let newValue = null;
 
-            if (propertyGroup && propertyGroup.id) {
-                propertyGroup[propertyKey] = formattedColor; 
-            } else if ($scope.model.value[propertyGroup]) { 
-                $scope.model.value[propertyGroup][propertyKey] = formattedColor;
-            } else {
-                $scope.model.value[propertyGroup] = { [propertyKey]: formattedColor };
-            }
+        if (!color || (color.getAlpha && color.getAlpha() === 0)) {
+            newValue = null; // "transparent"
         } else {
-            console.warn("Invalid color provided:", color);
+            const alpha = color.getAlpha ? color.getAlpha() : 1;
+
+            if (alpha === 1) {
+                newValue = color.toHexString().replace(/^#/, '');
+            } else {
+                const rgb = color.toRgb();
+                newValue = `rgba(${rgb.r},${rgb.g},${rgb.b},${rgb.a})`;
+            }
+        }
+
+        if (propertyGroup && propertyGroup.id) {
+            propertyGroup[propertyKey] = newValue;
+        } else if ($scope.model.value[propertyGroup]) {
+            $scope.model.value[propertyGroup][propertyKey] = newValue;
+        } else {
+            $scope.model.value[propertyGroup] = { [propertyKey]: newValue };
         }
     };
+
+
 
     function getColorPalatteValue(colorPaletteProperty, chunkSize = 3) {
         let value = [];
@@ -131,4 +145,14 @@ function colorSettingsController($scope, $timeout, $element, designService, edit
     $scope.setActiveTab = function (index) {
         $scope.activeTab = index;
     };
+
+    $scope.getColorValue = function (value) {
+        if (!value) return "transparent";
+
+        if (typeof value === "string" && value.startsWith("rgba")) return value;
+        if (value === "transparent") return "transparent";
+
+        return "#" + value;
+    };
+
 }

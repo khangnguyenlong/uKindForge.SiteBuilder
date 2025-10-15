@@ -71,7 +71,7 @@ namespace uKindForge.SiteBuilder.Models
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("navLogo")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.ImageLink> NavLogo => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.ImageLink>>(_publishedValueFallback, "navLogo");
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel NavLogo => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "navLogo");
 
 		///<summary>
 		/// Social Icons

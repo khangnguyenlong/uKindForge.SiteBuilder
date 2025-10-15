@@ -20,7 +20,7 @@ namespace uKindForge.SiteBuilder.Models
 {
 	/// <summary>Video</summary>
 	[PublishedModel("videoBlock")]
-	public partial class VideoBlock : PublishedElementModel
+	public partial class VideoBlock : PublishedElementModel, IOverlaySettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -71,11 +71,41 @@ namespace uKindForge.SiteBuilder.Models
 		public virtual bool IsMuted => this.Value<bool>(_publishedValueFallback, "isMuted");
 
 		///<summary>
-		/// Video
+		/// Upload Video
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("video")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Video => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "video");
+
+		///<summary>
+		/// Video Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("videoUrl")]
+		public virtual string VideoUrl => this.Value<string>(_publishedValueFallback, "videoUrl");
+
+		///<summary>
+		/// Opacity
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[ImplementPropertyType("opacity")]
+		public virtual decimal Opacity => global::uKindForge.SiteBuilder.Models.OverlaySettings.GetOpacity(this, _publishedValueFallback);
+
+		///<summary>
+		/// Overlay
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[ImplementPropertyType("overlay")]
+		public virtual bool Overlay => global::uKindForge.SiteBuilder.Models.OverlaySettings.GetOverlay(this, _publishedValueFallback);
+
+		///<summary>
+		/// Overlay Color
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("overlayColor")]
+		public virtual string OverlayColor => global::uKindForge.SiteBuilder.Models.OverlaySettings.GetOverlayColor(this, _publishedValueFallback);
 	}
 }

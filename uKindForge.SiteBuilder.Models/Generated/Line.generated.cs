@@ -18,23 +18,14 @@ using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Models
 {
-	// Mixin Content Type with alias "widthSettings"
-	/// <summary>Width (Settings)</summary>
-	public partial interface IWidthSettings : IPublishedElement
-	{
-		/// <summary>Full Width</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		bool FullWidth { get; }
-	}
-
-	/// <summary>Width (Settings)</summary>
-	[PublishedModel("widthSettings")]
-	public partial class WidthSettings : PublishedElementModel, IWidthSettings
+	/// <summary>Line</summary>
+	[PublishedModel("line")]
+	public partial class Line : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public new const string ModelTypeAlias = "widthSettings";
+		public new const string ModelTypeAlias = "line";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
@@ -43,14 +34,14 @@ namespace uKindForge.SiteBuilder.Models
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<WidthSettings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<Line, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public WidthSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public Line(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -59,14 +50,41 @@ namespace uKindForge.SiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Full Width
+		/// Custom CSS: Use this field to apply additional CSS styles to the line. Example:  height: 1px; background: linear-gradient(to right, #ff7e5f, #feb47b);
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[ImplementPropertyType("fullWidth")]
-		public virtual bool FullWidth => GetFullWidth(this, _publishedValueFallback);
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("customCSS")]
+		public virtual string CustomCss => this.Value<string>(_publishedValueFallback, "customCSS");
 
-		/// <summary>Static getter for Full Width</summary>
+		///<summary>
+		/// Is Override Design: If this field is true it will override the design
+		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public static bool GetFullWidth(IWidthSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "fullWidth");
+		[ImplementPropertyType("isOverrideDesign")]
+		public virtual bool IsOverrideDesign => this.Value<bool>(_publishedValueFallback, "isOverrideDesign");
+
+		///<summary>
+		/// Line Color
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("lineColor")]
+		public virtual string LineColor => this.Value<string>(_publishedValueFallback, "lineColor");
+
+		///<summary>
+		/// Line Style: Default: Solid
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("lineStyle")]
+		public virtual string LineStyle => this.Value<string>(_publishedValueFallback, "lineStyle");
+
+		///<summary>
+		/// Line Width: Default: 1px
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
+		[ImplementPropertyType("lineWidth")]
+		public virtual int LineWidth => this.Value<int>(_publishedValueFallback, "lineWidth");
 	}
 }

@@ -90,16 +90,25 @@ namespace uKindForge.SiteBuilder.Core.Helpers
             return isFullWidth == true ? "container-fluid" : "container";
         }
 
-        public static string GetColClass(string columns, int colSpans = 12) 
+        public static string GetColClass(string columns, int colSpans = 12, int defaultValue = 3) 
         {
-            var columnsSafe = int.TryParse(columns, out int columnsParsed) ? columnsParsed: 1;
+            var columnsSafe = int.TryParse(columns, out int columnsParsed) ? columnsParsed: defaultValue;
             return GetColClass(columnsSafe, colSpans);
         }
 
         public static string GetColClass(int columns, int colSpans = 12)
         {
-            columns = columns == 0 ? 1 : columns;
-            return $"col-md-{colSpans / columns}";
+            columns = Math.Clamp(columns, 1, 12);
+            int smCols = Math.Min(columns, 2);
+            int mdCols = Math.Min(columns, 3);
+            int lgCols = Math.Min(columns, 4);
+
+            int smSpan = colSpans / smCols; // 12/2=6
+            int mdSpan = colSpans / mdCols; // 12/3=4
+            int lgSpan = colSpans / lgCols; // 12/4=3
+
+            return $"col-12 col-sm-{smSpan} col-md-{mdSpan} col-lg-{lgSpan}";
         }
+
     }
 }

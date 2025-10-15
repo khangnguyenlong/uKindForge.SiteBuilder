@@ -18,9 +18,9 @@ using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Models
 {
-	// Mixin Content Type with alias "settings"
-	/// <summary>Settings</summary>
-	public partial interface ISettings : IPublishedElement
+	// Mixin Content Type with alias "emailTab"
+	/// <summary>Email Tab</summary>
+	public partial interface IEmailTab : IPublishedElement
 	{
 		/// <summary>Email to Admin</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
@@ -32,30 +32,10 @@ namespace uKindForge.SiteBuilder.Models
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.Email> EmailTemplateEmailToClient { get; }
 
-		/// <summary>Error 404 Page</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent Error404Page { get; }
-
-		/// <summary>Favicon</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Models.MediaWithCrops Favicon { get; }
-
 		/// <summary>From Email</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		string FromEmail { get; }
-
-		/// <summary>Override Design</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent OverrideDesign { get; }
-
-		/// <summary>Site Name</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string SiteName { get; }
 
 		/// <summary>Host</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
@@ -81,14 +61,14 @@ namespace uKindForge.SiteBuilder.Models
 		bool SmtpUseSsl { get; }
 	}
 
-	/// <summary>Settings</summary>
-	[PublishedModel("settings")]
-	public partial class Settings : PublishedElementModel, ISettings
+	/// <summary>Email Tab</summary>
+	[PublishedModel("emailTab")]
+	public partial class EmailTab : PublishedElementModel, IEmailTab
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public new const string ModelTypeAlias = "settings";
+		public new const string ModelTypeAlias = "emailTab";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
@@ -97,14 +77,14 @@ namespace uKindForge.SiteBuilder.Models
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<Settings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<EmailTab, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public Settings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public EmailTab(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -123,7 +103,7 @@ namespace uKindForge.SiteBuilder.Models
 		/// <summary>Static getter for Email to Admin</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.Email> GetEmailTemplateEmailToAdmin(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.Email>>(publishedValueFallback, "emailTemplateEmailToAdmin");
+		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.Email> GetEmailTemplateEmailToAdmin(IEmailTab that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.Email>>(publishedValueFallback, "emailTemplateEmailToAdmin");
 
 		///<summary>
 		/// Email to Client
@@ -136,33 +116,7 @@ namespace uKindForge.SiteBuilder.Models
 		/// <summary>Static getter for Email to Client</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.Email> GetEmailTemplateEmailToClient(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.Email>>(publishedValueFallback, "emailTemplateEmailToClient");
-
-		///<summary>
-		/// Error 404 Page
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("error404Page")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent Error404Page => GetError404Page(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Error 404 Page</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent GetError404Page(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(publishedValueFallback, "error404Page");
-
-		///<summary>
-		/// Favicon
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("favicon")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Favicon => GetFavicon(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Favicon</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetFavicon(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "favicon");
+		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.Email> GetEmailTemplateEmailToClient(IEmailTab that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::uKindForge.SiteBuilder.Models.Email>>(publishedValueFallback, "emailTemplateEmailToClient");
 
 		///<summary>
 		/// From Email
@@ -175,33 +129,7 @@ namespace uKindForge.SiteBuilder.Models
 		/// <summary>Static getter for From Email</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetFromEmail(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "fromEmail");
-
-		///<summary>
-		/// Override Design: If Override Design is selected, it will replace the default design in the external Design section. If Override Design is not selected, the default design will be applied.
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("overrideDesign")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent OverrideDesign => GetOverrideDesign(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Override Design</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent GetOverrideDesign(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(publishedValueFallback, "overrideDesign");
-
-		///<summary>
-		/// Site Name
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("siteName")]
-		public virtual string SiteName => GetSiteName(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Site Name</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetSiteName(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "siteName");
+		public static string GetFromEmail(IEmailTab that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "fromEmail");
 
 		///<summary>
 		/// Host
@@ -214,7 +142,7 @@ namespace uKindForge.SiteBuilder.Models
 		/// <summary>Static getter for Host</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetSmtpHost(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "smtpHost");
+		public static string GetSmtpHost(IEmailTab that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "smtpHost");
 
 		///<summary>
 		/// Password
@@ -227,7 +155,7 @@ namespace uKindForge.SiteBuilder.Models
 		/// <summary>Static getter for Password</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetSmtpPassword(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "smtpPassword");
+		public static string GetSmtpPassword(IEmailTab that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "smtpPassword");
 
 		///<summary>
 		/// Port
@@ -238,7 +166,7 @@ namespace uKindForge.SiteBuilder.Models
 
 		/// <summary>Static getter for Port</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public static int GetSmtpPort(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "smtpPort");
+		public static int GetSmtpPort(IEmailTab that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "smtpPort");
 
 		///<summary>
 		/// Username
@@ -251,7 +179,7 @@ namespace uKindForge.SiteBuilder.Models
 		/// <summary>Static getter for Username</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetSmtpUsername(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "smtpUsername");
+		public static string GetSmtpUsername(IEmailTab that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "smtpUsername");
 
 		///<summary>
 		/// Use SSL
@@ -262,6 +190,6 @@ namespace uKindForge.SiteBuilder.Models
 
 		/// <summary>Static getter for Use SSL</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.9.2+b414456")]
-		public static bool GetSmtpUseSsl(ISettings that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "smtpUseSSL");
+		public static bool GetSmtpUseSsl(IEmailTab that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "smtpUseSSL");
 	}
 }
