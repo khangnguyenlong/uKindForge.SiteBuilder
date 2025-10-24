@@ -1,0 +1,31 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<CardBlock>>
+@inject DesignHelper DesignHelper
+
+@{
+	if (Model?.Content?.CardItems?.Any() == false) return;
+
+	var settings = Model?.Settings as CardBlockSettings;
+	var columns = CssClassHelper.GetColClass(settings?.Columns, defaultValue: 3);
+}
+
+<div class="card-area">
+	<div class="row justify-content-center">
+		@foreach (var cardItem in Model.Content.CardItems)
+		{
+			@if (cardItem.Content is CardItem item)
+			{
+				var bgClass = string.Empty;
+				if (cardItem.Settings is CardItemSettings cardItemSettings)
+				{
+					bgClass = DesignHelper.GetBackgroundClass(cardItemSettings?.Color);
+				}
+
+				<div class="@columns">
+					<div class="@bgClass single-card card-style-one">
+						@await Html.GetPreviewBlockGridItemsHtmlAsync(item.CardGrid)
+					</div>
+				</div>
+			}
+		}
+	</div>
+</div>

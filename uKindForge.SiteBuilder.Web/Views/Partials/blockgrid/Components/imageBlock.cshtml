@@ -1,5 +1,6 @@
-﻿@inherits UmbracoViewPage<BlockGridItem<ImageBlock>>
+﻿@inherits UmbracoViewPage<BlockGridItem<ImageBlock, ImageBlockSettings>>
+
 @{
-    var image = Model.Content.Image;
-    @await Html.PartialImageLinkAsync(new ImageViewModel(image) { ImageAlt = image?.Name, Title = image?.Name })
+    if (Model.Content == null) return;
+    @await Html.PartialImageLinkAsync(Model.Content, Model.Settings)
 }

@@ -3,18 +3,19 @@ namespace uKindForge.SiteBuilder.Core.ViewModels
 {
     public class LayoutSettingsViewModel
     { 
+        public string BackgroundType { get; set; } = "color";
         public string OrderColor { get; set; }
         public MediaWithCrops BackgroundImage { get; set; }
-        public string BackgroundType { get; set; }
+        public string BackgroundImageUrl { get; set; }
+        public MediaWithCrops BackgroundVideo { get; set; }
         public string BackgroundVideoUrl { get; set; }
-        public bool IsAddMarginBottom { get; set; }
-        public bool IsAddMarginTop { get; set; }
-        public int MarginBottom { get; set; }
-        public int MarginTop { get; set; }
-        public bool IsAddPaddingBottom { get; set; }
-        public bool IsAddPaddingTop { get; set; }
-        public int PaddingBottom { get; set; }
-        public int PaddingTop { get; set; }
+        public bool FullScreen { get; set; }
+        public int Top { get; set; } = 6;
+        public int Bottom { get; set; } = 6;
         public bool FullWidth { get; set; }
+
+        public bool EnableOverlay { get; set; }
+        public string OverlayColor { get; set; }
+        public decimal OverlayOpacity { get; set; } = 0m;
     }
 }

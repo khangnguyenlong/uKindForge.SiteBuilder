@@ -3,19 +3,20 @@
 
     var layoutSettings = new LayoutSettingsViewModel
     {
-        OrderColor = Model.Content.Color,
-        BackgroundImage = Model.Content.BackgroundImage,
         BackgroundType = Model.Content.BackgroundType,
+        OrderColor = Model.Content.BackgroundColor,
+        BackgroundImage = Model.Content.BackgroundImage,
+        BackgroundImageUrl = Model.Content.BackgroundImageUrl,
+        BackgroundVideo = Model.Content.BackgroundVideo,
         BackgroundVideoUrl = Model.Content.BackgroundVideoUrl,
         FullWidth = Model.Content.FullWidth,
-        IsAddMarginBottom = Model.Content.IsAddMarginBottom,
-        IsAddMarginTop = Model.Content.IsAddMarginTop,
-        IsAddPaddingBottom = Model.Content.IsAddPaddingBottom,
-        IsAddPaddingTop = Model.Content.IsAddPaddingTop,
-        MarginBottom = Model.Content.MarginBottom,
-        MarginTop = Model.Content.MarginTop,
-        PaddingBottom = Model.Content.PaddingBottom,
-        PaddingTop = Model.Content.PaddingTop
+		FullScreen = Model.Content.FullScreen,
+        Top = (int)Model.Content.Top,
+        Bottom = (int)Model.Content.Bottom,
+
+        EnableOverlay = Model.Content.EnableOverlay,
+        OverlayColor = Model.Content.OverlayColor,
+        OverlayOpacity = Model.Content.OverlayOpacity
     };
 }
 <section-layout info="layoutSettings">

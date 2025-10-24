@@ -1,70 +1,132 @@
-﻿using uKindForge.SiteBuilder.Core.Constants;
-using uKindForge.SiteBuilder.Core.ViewModels;
+﻿using System.Reflection.Emit;
+using System.Text;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using System.Text;
+using uKindForge.SiteBuilder.Core.Constants;
+using uKindForge.SiteBuilder.Core.Helpers;
+using uKindForge.SiteBuilder.Core.ViewModels;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Core.TagHelpers
 {
     [HtmlTargetElement("section-layout")]
-    public class SectionLayoutTagHelper : TagHelper
+    public class SectionLayoutTagHelper(DesignHelper designHelper) : TagHelper
     {
         public required LayoutSettingsViewModel Info { get; set; }
 
+        private readonly DesignHelper _designHelper = designHelper;
+
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
+            if (Info == null) return;
+
+            if (string.IsNullOrEmpty(Info.BackgroundType))
+            {
+                Info = CreateDefaultLayoutSettings();
+            }
+
             output.TagName = "section";
             output.TagMode = TagMode.StartTagAndEndTag;
 
-            if (Info == null) return;
-            var layoutSettings = Info;
-
-            var bgImage = layoutSettings.BackgroundImage;
-
-            var marginTopStyle = layoutSettings.IsAddMarginTop ? layoutSettings.MarginTop : 0;
-            var marginBottomStyle = layoutSettings.IsAddMarginBottom ? layoutSettings.MarginBottom : 0;
-
-            var paddingTopStyle = layoutSettings.IsAddPaddingTop ? layoutSettings.PaddingTop : 0;
-            var paddingBottomStyle = layoutSettings.IsAddPaddingBottom ? layoutSettings.PaddingBottom : 0;
-
-            var fullWidth = layoutSettings.FullWidth ? "container-fluid" : "container";
-
-            //TODO move to builder
+            // === 1. Inline Style Attributes ===
             var styleAttributes = new StringBuilder();
+            styleAttributes.Append($"padding-top: {Info.Top}rem;");
+            styleAttributes.Append($"padding-bottom: {Info.Bottom}rem;");
 
-            //styleAttributes.Append($"margin-top: {marginTopStyle}").Append("px;");
-            //styleAttributes.Append($"margin-bottom: {marginBottomStyle}").Append("px;");
-            //styleAttributes.Append($"padding-top: {paddingTopStyle}").Append("px;");
-            //styleAttributes.Append($"padding-bottom: {paddingBottomStyle}").Append("px;");
-            //styleAttributes.Append($"padding-block: clamp(24px, 6vw, 96px);"); 
-            
-            switch (layoutSettings.BackgroundType)
+            // === 2. CSS Classes ===
+            var cssClass = new StringBuilder();
+            cssClass.Append("section-block");
+
+            if (Info.FullScreen)
             {
-                case "image":
-                    if (bgImage != null)
+                cssClass.Append(" full-screen");
+                //styleAttributes.Append("height: 100vh; min-height: 400px; display: flex; align-items: center;");
+            }
+
+            // === 3. Background Type Handling ===
+            switch (Info.BackgroundType?.ToLowerInvariant())
+            {
+                case "color":
+                    if (!string.IsNullOrWhiteSpace(Info.OrderColor))
                     {
-                        styleAttributes.Append($"background-image: url({bgImage.GetCropUrl(imageCropMode: ImageCropMode.Min, width: 1920)});");
+                        cssClass.Append($" {_designHelper.GetBackgroundClass(Info.OrderColor)}");
                     }
                     break;
-                case "video":
-                    //TODO
+
+                case "image":
+                    var imageUrl = Info.BackgroundImage?.GetCropUrl(imageCropMode: ImageCropMode.Min, width: 1920) ?? Info.BackgroundImageUrl;
+
+                    if (!string.IsNullOrWhiteSpace(imageUrl))
+                    {
+                        styleAttributes.Append($"background-image: url('{imageUrl}'); background-size: cover; background-position: center;");
+                    }
+
+                    // For image, we can use overlay as background-color fallback
+                    if (Info.EnableOverlay && !string.IsNullOrWhiteSpace(Info.OverlayColor))
+                    {
+                        //var rgba = CssHelper.HexToRgba(Info.OverlayColor, Info.OverlayOpacity);
+                        //styleAttributes.Append($"background-color: {rgba};");
+                        HandleOverlay(output);
+                    }
+
                     break;
-                default:
+
+                case "video":
+                    cssClass.Append(" has-video-bg");
                     break;
             }
 
-            output.Attributes.Add("style", styleAttributes.ToString());
-            output.Attributes.Add("class", $"section-block {AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX}{layoutSettings.OrderColor}");
+            // === 4. Set Attributes ===
+            output.Attributes.SetAttribute("class", cssClass.ToString());
+            output.Attributes.SetAttribute("style", styleAttributes.ToString());
 
-            var childContent = await output.GetChildContentAsync();
+            // === 5. Video Background (rendered before content) ===
+            if (Info.BackgroundType == "video")
+            {
+                var videoSrc = Info.BackgroundVideo?.Url() ?? Info.BackgroundVideoUrl;
+                if (!string.IsNullOrWhiteSpace(videoSrc))
+                {
+                    var videoTag = $@"
+                    <video class='video-bg' autoplay muted loop playsinline>
+                        <source src='{videoSrc}' type='video/mp4' />
+                    </video>";
+                    output.PreContent.AppendHtml(videoTag);
+                }
 
-            var divContainer = new TagBuilder("div");
-            divContainer.AddCssClass(fullWidth);
-            divContainer.InnerHtml.AppendHtml(childContent.GetContent());
+                HandleOverlay(output);
+            }
 
-            output.Content.SetHtmlContent(divContainer);
+            // === 6. Content Container ===
+            var containerDiv = new TagBuilder("div");
+            containerDiv.AddCssClass(Info.FullWidth ? "container-fluid" : "container");
+
+            var content = await output.GetChildContentAsync();
+            containerDiv.InnerHtml.AppendHtml(content.GetContent());
+
+            output.Content.SetHtmlContent(containerDiv);
         }
-	}
+
+        private void HandleOverlay(TagHelperOutput output)
+        {
+            // Optional Overlay Layer as HTML element
+            if (Info.EnableOverlay && !string.IsNullOrWhiteSpace(Info.OverlayColor))
+            {
+                var rgba = CssHelper.HexToRgba(Info.OverlayColor, Info.OverlayOpacity);
+                var overlayDiv = $@"<div class='bg-overlay' style='background-color:{rgba};'></div>";
+                output.PreContent.AppendHtml(overlayDiv);
+            }
+        }
+
+        private LayoutSettingsViewModel CreateDefaultLayoutSettings()
+        {
+            return new LayoutSettingsViewModel
+            {
+                BackgroundType = "color",
+                OrderColor = "0",
+                Top = 6,
+                Bottom = 6
+            };
+        }
+    }
 }

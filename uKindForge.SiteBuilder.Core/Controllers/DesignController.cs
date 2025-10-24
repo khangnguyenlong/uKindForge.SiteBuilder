@@ -6,14 +6,9 @@ using uKindForge.SiteBuilder.Core.Services;
 namespace uKindForge.SiteBuilder.Core.Controllers
 {
     [IsBackOffice]
-    public class DesignController : UmbracoAuthorizedApiController
+    public class DesignController(IDesignService designService) : UmbracoAuthorizedApiController
     {
-        private readonly IDesignService _designService;
-
-        public DesignController(IDesignService designService)
-        {
-            _designService = designService;
-        }
+        private readonly IDesignService _designService = designService;
 
         [HttpGet]
         public async Task<IActionResult> GetCssStyle([FromQuery] int contentId)

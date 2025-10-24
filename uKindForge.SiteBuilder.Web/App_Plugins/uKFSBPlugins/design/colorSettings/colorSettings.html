@@ -394,25 +394,27 @@
                                             <div class="control-group">
                                                 <div class="preview-wrap__header">Preview</div>
                                                 <div class="content-preview" ng-style="">
-                                                    <div class="content-sample" style="font-size: 16px; padding: 10px 20px;" ng-style="{'background-color': '#' + (content.background || '#000')}">
+                                                    <div class="content-sample" style="font-size: 16px; padding: 10px 20px;" 
+                                                         ng-class="{'bg-transparent': !content.background}"
+                                                         ng-style="content.background ? {'background-color': getColorValue(content.background)} : {}">
                                                         <!-- Heading Sample -->
                                                         <div class="content-sample__item">
-                                                            <h3 style="font-weight: 900" ng-style="{'color': '#' + (content.heading || '#000')}">SAMPLE HEADING</h3>
+                                                            <h3 style="font-weight: 900" ng-style="{'color': getColorValue(content.heading)}">SAMPLE HEADING</h3>
                                                         </div>
 
                                                         <!-- Text Sample -->
                                                         <div class="content-sample__item">
-                                                            <p ng-style="{'color': '#' + (content.text || '#000')}">
+                                                            <p ng-style="{'color': getColorValue(content.text)}">
                                                                 Lorem ipsum dolor sit amet,
                                                                 <a style="text-decoration: underline; cursor: pointer;"
-                                                                   ng-style="{'color': linkHover ? '#' + (content.linkHover || '#000') : '#' + (content.link || '#000')}"
+                                                                   ng-style="{'color': linkHover ? getColorValue(content.linkHover) : getColorValue(content.link)}"
                                                                    ng-mouseenter="linkHover = true"
                                                                    ng-mouseleave="linkHover= false">consectetur adipiscing elit</a>
                                                                 ,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                                                 <span style="padding: 4px;"
                                                                       ng-style="{
-                                                                    'color': '#' + (content.highlightText || '#000'),
-                                                                    'background-color': '#' + (content.highlightBg || '#000')
+                                                                    'color': getColorValue(content.highlightText),
+                                                                    'background-color': getColorValue(content.highlightBg)
                                                                 }">
                                                                     Ut enim ad minim veniam
                                                                 </span>
@@ -440,8 +442,8 @@
                 </div>
                 <!--Contents-->
 
+                <!--Button-->
                 <div class="button-sortable-wrap ui-sortable" ui-sortable="buttonSortableOptions" ng-model="model.value.buttons">
-                    <!--Contents-->
                     <div class="card" ng-repeat="button in model.value.buttons track by button.id">
                         <div class="card-header" id="heading-body">
                             <a href="#collapse-button-{{button.id}}" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
@@ -520,10 +522,14 @@
                                                 <div class="content-preview" style="text-align: center">
                                                     <button style="padding: 10px 20px;border-radius: 5px;transition: all 0.3s ease;"
                                                             ng-style="{
-                                                                'color': hover ? '#' + (button.textHover || '#000') : '#' + (button.text || '#000'),
-                                                                'background-color': hover ? '#' + (button.backgroundHover || '#000') : '#' + (button.background || '#000'),
-                                                                'border': '1px solid ' + (hover ? '#' + (button.borderHover || '#000') : '#' + (button.border || '#000'))
-                                                            }"
+                                                                'color': hover ? getColorValue(button.textHover) : getColorValue(button.text),
+                                                                'background-color': (function(){
+                                                                   var raw = hover ? button.backgroundHover : button.background;
+                                                                   return raw ? getColorValue(raw) : undefined;
+                                                                 })(),
+                                                                'border': '1px solid ' + (hover ? getColorValue(button.borderHover) : getColorValue(button.border))
+                                                              }"
+                                                            ng-class="{'bg-transparent': !button.background}"
                                                             ng-mouseenter="hover = true"
                                                             ng-mouseleave="hover = false">
                                                         Sample Button
@@ -536,7 +542,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--Contents-->
                 </div>
 
                 <div class="accordion-actions">
@@ -619,9 +624,9 @@
                                             <div class="content-preview" style="display: grid; place-items: center; position: relative; ">
                                                 <a class="back-to-top"
                                                    ng-style="{
-                                                            'color': hover ? '#' + (model.value.backToTop.textHover || '#000') : '#' + (model.value.backToTop.text || '#000'),
-                                                            'background-color': hover ? '#' + (model.value.backToTop.backgroundHover || '#000') : '#' + (model.value.backToTop.background || '#000'),
-                                                            'border': '1px solid ' + (hover ? '#' + (model.value.backToTop.borderHover || '#000') : '#' + (model.value.backToTop.border || '#000'))
+                                                            'color': hover ? getColorValue(model.value.backToTop.textHover) : getColorValue(model.value.backToTop.text),
+                                                            'background-color': hover ? getColorValue(model.value.backToTop.backgroundHover) : getColorValue(model.value.backToTop.background),
+                                                            'border': '1px solid ' + (hover ? getColorValue(model.value.backToTop.borderHover) : getColorValue(model.value.backToTop.border))
                                                         }"
                                                    ng-mouseenter="hover = true"
                                                    ng-mouseleave="hover = false">

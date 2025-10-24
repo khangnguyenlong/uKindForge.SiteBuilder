@@ -1,10 +1,16 @@
-﻿angular.module("umbraco").controller("uKindForge.BackgroundColorController", customBlockPreviewController);
-function customBlockPreviewController($scope, designService, editorState) {
+﻿angular.module("umbraco").controller("uKindForge.BackgroundColorController", backgroundColorController);
+function backgroundColorController($scope, designService, editorState, contextHelperService) {
     $scope.model.items = [];
 
-    designService.getCurrentDesignDetail().then(function (content) {
+    if (!contextHelperService.isInContentSection()) {
+        return;
+    }
+
+    designService.getCurrentDesignDetail(editorState.getCurrent()).then(function (content) {
+
+        if (!content) return;
         const contentBgColorsProperty = designService.getProperty("colors", "settings", "colorSettings", content);
-        if (!contentBgColorsProperty.value || !contentBgColorsProperty.value.contents) return;
+        if (!contentBgColorsProperty || !contentBgColorsProperty.value || !contentBgColorsProperty.value.contents) return;
 
         let contents = [];
 

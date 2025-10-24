@@ -1,4 +1,10 @@
-﻿angular.module('umbraco').controller('uKindForge.BaselineColorPickerController', function ($scope, $timeout, $element, designService, editorState) {
+﻿angular.module('umbraco').controller('uKindForge.BaselineColorPickerController', function ($scope, $timeout, $element,
+    designService, editorState, contextHelperService) {
+
+    if (!contextHelperService.isInContentSection()) {
+        return;
+    }
+
     const value = "000000";
 
     if (!$scope.model.value) {
@@ -12,7 +18,7 @@
     let colorPaletteProperty = {};
     let colorPaletteValue = [];
 
-    designService.getCurrentDesignDetail().then(function (content) {
+    designService.getCurrentDesignDetail(editorState.getCurrent()).then(function (content) {
         colorPaletteProperty = designService.getProperty("colors", "settings", "colorPalette", content);
         if (!colorPaletteProperty) return;
 

@@ -1,8 +1,12 @@
 ﻿angular.module("umbraco").controller("uKindForge.ButtonColorController", buttonColorController);
-function buttonColorController($scope, designService, editorState) {
+function buttonColorController($scope, designService, editorState, contextHelperService) {
     $scope.model.items = [];
 
-    designService.getCurrentDesignDetail().then(function (content) {
+    if (!contextHelperService.isInContentSection()) {
+        return;
+    }
+
+    designService.getCurrentDesignDetail(editorState.getCurrent()).then(function (content) {
         const buttonColorsProperty = designService.getProperty("colors", "settings", "colorSettings", content);
         if (!buttonColorsProperty.value || !buttonColorsProperty.value.buttons) return;
 

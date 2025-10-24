@@ -10,7 +10,7 @@
 
     .radio-tile-group .input-container {
         position: relative;
-        margin-right: 15px;
+        margin: 0 10px 10px 0;
     }
 
         .radio-tile-group .input-container .radio-button {

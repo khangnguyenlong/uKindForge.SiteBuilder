@@ -1,0 +1,10 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<ButtonBlock, ButtonBlockSettings>>
+
+@{
+    var buttonModel = new ButtonViewModel
+    {
+        Buttons = Model.Content?.Buttons,
+        Align = Model.Settings?.ButtonsAlign
+    };
+    @await Html.PartialButtonLinkAsync(buttonModel)
+}
