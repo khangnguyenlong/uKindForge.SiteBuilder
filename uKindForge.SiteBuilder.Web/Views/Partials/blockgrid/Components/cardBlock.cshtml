@@ -1,10 +1,10 @@
-﻿@inherits UmbracoViewPage<BlockGridItem<Card03Block>>
+﻿@inherits UmbracoViewPage<BlockGridItem<CardBlock>>
 @inject DesignHelper DesignHelper
 
 @{
 	if (Model?.Content?.CardItems?.Any() == false) return;
 
-	var settings = Model?.Settings as Card03BlockSettings;
+	var settings = Model?.Settings as CardBlockSettings;
 	var columns = CssClassHelper.GetColClass(settings?.Columns, defaultValue: 3);
 }
 

@@ -2533,6 +2533,18 @@ a {
         border: none;
         display: block;
     }
+
+.image-block {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-overlay {
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
 /* === Header === */
 .header nav .menu-bar ul li a {
     color: var(--header-nav-link-color);

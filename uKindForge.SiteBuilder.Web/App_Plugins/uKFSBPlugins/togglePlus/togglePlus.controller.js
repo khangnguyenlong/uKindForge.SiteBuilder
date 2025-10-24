@@ -1,6 +1,6 @@
-﻿angular.module("umbraco").controller("uKindForge.TogglePlusController", numericPlusController);
+﻿angular.module("umbraco").controller("uKindForge.TogglePlusController", togglePlusController);
 
-function numericPlusController($scope, $rootScope, assetsService) {
+function togglePlusController($scope, $timeout) {
 
     function handleToggle()
     {

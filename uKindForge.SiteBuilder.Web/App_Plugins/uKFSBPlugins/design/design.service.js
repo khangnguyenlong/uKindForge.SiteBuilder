@@ -22,7 +22,7 @@
         if (!variant || !variant.tabs) return null;
 
         // find design
-        const designTab = variant.tabs.find(tab => tab.alias === 'settings/design');
+        const designTab = variant.tabs.find(tab => tab.alias === 'design/design');
         if (!designTab || !designTab.properties) return null;
 
         const overrideDesignProp = designTab.properties.find(prop => prop.alias === 'overrideDesign');

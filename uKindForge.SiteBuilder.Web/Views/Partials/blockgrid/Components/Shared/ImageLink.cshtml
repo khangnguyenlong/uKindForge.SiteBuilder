@@ -1,26 +1,65 @@
 ﻿@inherits UmbracoViewPage<ImageViewModel>
 
 @{
-    if (Model == null || Model.Image == null) return;
-}
-<div class="image">
-    @if (Model.Link != null && !Model.Link.Url.IsNullOrWhiteSpace())
+    if (Model == null || (Model.Image == null && string.IsNullOrWhiteSpace(Model.ImageUrl)))
     {
-        <a href="@Model.Link.Url" target="@Model.Link.Target" alt="@Model.Link.Name">
-            @{
-                RenderImage();
-            }
+        return;
+    }
+
+    var link = Model.Link;
+    var hasLink = link != null && !link.Url.IsNullOrWhiteSpace();
+    var hasOverlay = !string.IsNullOrWhiteSpace(Model.OverlayColor);
+    var overlayStyle = hasOverlay ? $"background-color: {Model.OverlayColor}; opacity: {Model.Opacity};" : "";
+    var wrapperClass = "image-block position-relative" + (hasOverlay ? " has-overlay" : "");
+}
+
+<div class="@wrapperClass">
+    @if (hasLink)
+    {
+        <a href="@link.Url"
+           target="@link.Target"
+           rel="@(link.Target == "_blank" ? "noopener noreferrer" : null)"
+           title="@link.Name">
+            @RenderImage()
         </a>
     }
     else
     {
-        RenderImage();
+        @RenderImage()
+    }
+
+    @if (hasOverlay)
+    {
+        <div class="image-overlay position-absolute w-100 h-100 top-0 start-0" style="@overlayStyle"></div>
     }
 </div>
 
 @functions {
-    void RenderImage()
+    IHtmlContent RenderImage()
     {
-        <img class="image w-100" style="@Model.CssStyle" src="@Model.Image.GetCropUrl(width: @Model.CropWidth, height: @Model.CropHeight)", alt="@Model.ImageAlt" />
+        string src;
+
+        if (Model.UseImageUrl && !string.IsNullOrWhiteSpace(Model.ImageUrl))
+        {
+            src = Model.ImageUrl;
+        }
+        else if (Model.Image != null)
+        {
+            src = Model.Image.GetCropUrl(width: Model.CropWidth, height: Model.CropHeight);
+        }
+        else
+        {
+            return HtmlString.Empty;
+        }
+        var alt = Model.ImageAlt ?? Model.Title ?? "Image";
+        var title = Model.Title;
+        return new HtmlString($@"
+            <img
+                class='img-fluid w-100 d-block'
+                src='{src}'
+                alt='{System.Net.WebUtility.HtmlEncode(alt)}'
+                title='{System.Net.WebUtility.HtmlEncode(title)}'
+                style='{Model.CssStyle}'
+            />");
     }
 }

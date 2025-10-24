@@ -9,7 +9,7 @@
     <ul class="btn-group rounded-buttons">
         @foreach (var buttonItem in Model.Buttons)
         {
-            @if (buttonItem.Content is not Button button) continue;
+            @if (buttonItem.Content is not ButtonItem button) continue;
             <li>
                 <a class="btn @DesignHelper.GetButtonClass(button.Color) rounded-full"
                    href="@button.ButtonLink?.Url" target="@button.ButtonLink?.Target">
