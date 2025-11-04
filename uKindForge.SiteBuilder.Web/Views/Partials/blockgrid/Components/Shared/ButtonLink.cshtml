@@ -5,13 +5,15 @@
     if (Model == null || Model.Buttons?.Any() == false) return;
 }
 
-<div class="@CssClassHelper.GetTextAlign(Model.Align, false)">
+<div class="button-block @CssClassHelper.GetTextAlign(Model.Align, false)">
     <ul class="btn-group rounded-buttons">
         @foreach (var buttonItem in Model.Buttons)
         {
             @if (buttonItem.Content is not ButtonItem button) continue;
+            var settings = buttonItem.Settings as ButtonItemSettings;
+            var style = string.IsNullOrEmpty(settings.ButtonStyle) ? "" : settings.ButtonStyle;
             <li>
-                <a class="btn @DesignHelper.GetButtonClass(button.Color) rounded-full"
+                <a class="btn @style"
                    href="@button.ButtonLink?.Url" target="@button.ButtonLink?.Target">
                     @button.ButtonName
                 </a>

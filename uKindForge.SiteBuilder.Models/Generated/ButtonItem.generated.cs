@@ -64,13 +64,5 @@ namespace uKindForge.SiteBuilder.Models
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("buttonName")]
 		public virtual string ButtonName => this.Value<string>(_publishedValueFallback, "buttonName");
-
-		///<summary>
-		/// Color
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.11.0+c177c30")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("color")]
-		public virtual string Color => this.Value<string>(_publishedValueFallback, "color");
 	}
 }

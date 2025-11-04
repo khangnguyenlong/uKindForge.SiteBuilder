@@ -48,9 +48,9 @@ namespace uKindForge.SiteBuilder.Core.TagHelpers
             switch (Info.BackgroundType?.ToLowerInvariant())
             {
                 case "color":
-                    if (!string.IsNullOrWhiteSpace(Info.OrderColor))
+                    if (!string.IsNullOrWhiteSpace(Info.SectionColorStyle))
                     {
-                        cssClass.Append($" {_designHelper.GetBackgroundClass(Info.OrderColor)}");
+                        cssClass.Append($" {Info.SectionColorStyle}");
                     }
                     break;
 
@@ -123,7 +123,7 @@ namespace uKindForge.SiteBuilder.Core.TagHelpers
             return new LayoutSettingsViewModel
             {
                 BackgroundType = "color",
-                OrderColor = "0",
+                SectionColorStyle = "0",
                 Top = 6,
                 Bottom = 6
             };

@@ -39,18 +39,28 @@
         return $http.get("backoffice/api/design/GetDesign", {
             params: { contentId: contentId }
         })
-        .then(function (response) {
-            return response.data;
-        }, function (error) {
-            console.error("Error fetching design content:", error);
-            return null;
-        });
+            .then(function (response) {
+                return response.data;
+            }, function (error) {
+                console.error("Error fetching design content:", error);
+                return null;
+            });
     }
 
     async function getDesignCssStyle(contentId) {
         return $http.get("backoffice/api/design/GetCssStyle", {
             params: { contentId: contentId }
         })
+            .then(function (response) {
+                return response.data;
+            }, function (error) {
+                console.error("Error fetching design content:", error);
+                return null;
+            });
+    }
+
+    async function generateColors(params) {
+        return $http.post("backoffice/api/design/GenerateColors", params)
             .then(function (response) {
                 return response.data;
             }, function (error) {
@@ -83,6 +93,7 @@
         getProperty: getProperty,
         getCurrentDesignDetail: getCurrentDesignDetail,
         getDesignCssStyle: getDesignCssStyle,
-        getDesign: getDesign
+        getDesign: getDesign,
+        generateColors: generateColors
     };
 });

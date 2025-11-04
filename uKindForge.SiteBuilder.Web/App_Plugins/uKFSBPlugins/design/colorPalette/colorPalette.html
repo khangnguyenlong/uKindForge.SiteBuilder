@@ -1,0 +1,1069 @@
+﻿<div ng-controller="uKindForge.ColorPaletteController">
+    <div class="umb-el-wrap">
+        <div class="control-header">
+            <div class="control-label-icon">
+                <svg height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 496 496" xml:space="preserve">
+                <circle style="fill:#FFBC00;" cx="176.8" cy="248" r="176.8" /><path style="fill:#F7B208;" d="M176.8,71.2c97.6,0,176.8,79.2,176.8,176.8s-79.2,176.8-176.8,176.8" />
+                <circle style="fill:#F20A41;" cx="319.2" cy="248" r="176.8" /><path style="fill:#E00040;" d="M319.2,424.8c-97.6,0-176.8-79.2-176.8-176.8S220.8,71.2,319.2,71.2" />
+                <path style="fill:#F97803;" d="M248,85.6c-62.4,27.2-106.4,89.6-106.4,162.4s44,135.2,106.4,162.4c62.4-27.2,106.4-89.6,106.4-162.4
+	                        S310.4,112.8,248,85.6z" /><path style="fill:#F76806;" d="M248,410.4c62.4-27.2,106.4-89.6,106.4-162.4S310.4,112.8,248,85.6" />
+                    </svg>
+                <label class="control-label" for="colorPalette" aria-label="colorPalette" title="Color Settings">Color Palette</label>
+            </div>
+            <div>
+                <small class="control-description">
+                    Pick your main brand color and we’ll do the rest.
+                    We automatically generate matching highlight colors, text colors, light/dark backgrounds, and ready-to-use section styles — so your site already looks professional without any design work.
+                </small>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="container">
+                <div class="header">
+                    <label for="brandColor">Choose your color brand:</label>
+                    <div ng-class="{'invalid-color': !isValidColor(model.value.userInput.brandColor)}">
+                        <umb-color-picker id="brandColor" ng-model="model.value.userInput.brandColor"
+                                          options="settings"
+                                          on-change="onChange(color, 'userInput.brandColor')"
+                                          on-move="onChange(color, 'userInput.brandColor')"
+                                          on-hide="onChange(color, 'userInput.brandColor')">
+                        </umb-color-picker>
+                    </div>
+                    <uui-button look="primary" ng-click="generateColors($event)">Generate color palette</uui-button>
+                </div>
+
+                <div class="horizontal-pair">
+                    <div class="section">
+                        <div class="title">Primary</div>
+                        <div class="color-row">
+                            <umb-color-picker id="palettePrimaryMain" ng-model="model.value.ColorPalette.Primary.Main"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.Primary.Main')"
+                                              on-move="onChange(color, 'ColorPalette.Primary.Main')"
+                                              on-hide="onChange(color, 'ColorPalette.Primary.Main')">
+                            </umb-color-picker>
+                            <label>Main</label>
+                            <span>Color of your main brand. Used for important buttons, links, highlights.</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="palettePrimaryShade" ng-model="model.value.ColorPalette.Primary.Shade"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.Primary.Shade')"
+                                              on-move="onChange(color, 'ColorPalette.Primary.Shade')"
+                                              on-hide="onChange(color, 'ColorPalette.Primary.Shade')">
+                            </umb-color-picker>
+                            <label>Shade</label>
+                            <span>A darker version of Main. Used for hover/active states or stronger emphasis.</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="palettePrimaryTint" ng-model="model.value.ColorPalette.Primary.Tint"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.Primary.Tint')"
+                                              on-move="onChange(color, 'ColorPalette.Primary.Tint')"
+                                              on-hide="onChange(color, 'ColorPalette.Primary.Tint')">
+                            </umb-color-picker>
+                            <label>Tint</label>
+                            <span>A lighter version of Main. Used for soft backgrounds, tags, subtle highlights.</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="palettePrimaryOnMainText" ng-model="model.value.ColorPalette.Primary.OnMainText"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.Primary.OnMainText')"
+                                              on-move="onChange(color, 'ColorPalette.Primary.OnMainText')"
+                                              on-hide="onChange(color, 'ColorPalette.Primary.OnMainText')">
+                            </umb-color-picker>
+                            <label>On main text</label>
+                            <span>Text color that sits on top of the Main color (for example: text inside a Main button).</span>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="title">Accent</div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteAccentMain" ng-model="model.value.ColorPalette.Accent.Main"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.Accent.Main')"
+                                              on-move="onChange(color, 'ColorPalette.Accent.Main')"
+                                              on-hide="onChange(color, 'ColorPalette.Accent.Main')">
+                            </umb-color-picker>
+                            <label>Main</label>
+                            <span>Your secondary highlight color. Used for call-to-action, badges, price highlights, attention text.</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteAccentShade" ng-model="model.value.ColorPalette.Accent.Shade"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.Accent.Shade')"
+                                              on-move="onChange(color, 'ColorPalette.Accent.Shade')"
+                                              on-hide="onChange(color, 'ColorPalette.Accent.Shade')">
+                            </umb-color-picker>
+                            <label>Shade</label>
+                            <span>A darker version of Accent. Used for hover/active states or stronger emphasis.</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteAccentTint" ng-model="model.value.ColorPalette.Accent.Tint"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.Accent.Tint')"
+                                              on-move="onChange(color, 'ColorPalette.Accent.Tint')"
+                                              on-hide="onChange(color, 'ColorPalette.Accent.Tint')">
+                            </umb-color-picker>
+                            <label>Tint</label>
+                            <span>A lighter version of Accent. Used for soft Accent backgrounds, promo tags, subtle accents.</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteAccentOnMainText" ng-model="model.value.ColorPalette.Accent.OnMainText"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.Accent.OnMainText')"
+                                              on-move="onChange(color, 'ColorPalette.Accent.OnMainText')"
+                                              on-hide="onChange(color, 'ColorPalette.Accent.OnMainText')">
+                            </umb-color-picker>
+                            <label>On main text</label>
+                            <span>Text color that sits on top of the Accent color (for example: text inside an Accent button).</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="horizontal-pair">
+                    <div class="section">
+                        <div class="title">Neutral Light</div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteNeutralLightBackground" ng-model="model.value.ColorPalette.NeutralLight.Background"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.NeutralLight.Background')"
+                                              on-move="onChange(color, 'ColorPalette.NeutralLight.Background')"
+                                              on-hide="onChange(color, 'ColorPalette.NeutralLight.Background')">
+                            </umb-color-picker>
+                            <label>Background</label>
+                            <span>Main light background for sections.</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteNeutralLightSurface" ng-model="model.value.ColorPalette.NeutralLight.Surface"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.NeutralLight.Surface')"
+                                              on-move="onChange(color, 'ColorPalette.NeutralLight.Surface')"
+                                              on-hide="onChange(color, 'ColorPalette.NeutralLight.Surface')">
+                            </umb-color-picker>
+                            <label>Surface</label>
+                            <span>Card / box / panel color that sits on top of the light background.</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteNeutralLightTextMain" ng-model="model.value.ColorPalette.NeutralLight.TextMain"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.NeutralLight.TextMain')"
+                                              on-move="onChange(color, 'ColorPalette.NeutralLight.TextMain')"
+                                              on-hide="onChange(color, 'ColorPalette.NeutralLight.TextMain')">
+                            </umb-color-picker>
+                            <label>Text main</label>
+                            <span>Main text color on light background (titles, headings).</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteNeutralLightTextMuted" ng-model="model.value.ColorPalette.NeutralLight.TextMuted"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.NeutralLight.TextMuted')"
+                                              on-move="onChange(color, 'ColorPalette.NeutralLight.TextMuted')"
+                                              on-hide="onChange(color, 'ColorPalette.NeutralLight.TextMuted')">
+                            </umb-color-picker>
+                            <label>Text muted</label>
+                            <span>Secondary text color on light background (descriptions, body text, notes).</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteNeutralLightBorder" ng-model="model.value.ColorPalette.NeutralLight.Border"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.NeutralLight.Border')"
+                                              on-move="onChange(color, 'ColorPalette.NeutralLight.Border')"
+                                              on-hide="onChange(color, 'ColorPalette.NeutralLight.Border')">
+                            </umb-color-picker>
+                            <label>Border</label>
+                            <span>Line / divider / thin border color on light background.</span>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="title">Neutral Dark</div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteNeutralDarkBackground" ng-model="model.value.ColorPalette.NeutralDark.Background"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.NeutralDark.Background')"
+                                              on-move="onChange(color, 'ColorPalette.NeutralDark.Background')"
+                                              on-hide="onChange(color, 'ColorPalette.NeutralDark.Background')">
+                            </umb-color-picker>
+                            <label>Background</label>
+                            <span>Main dark background for sections (dark blocks, footer, dark hero).</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteNeutralDarkSurface" ng-model="model.value.ColorPalette.NeutralDark.Surface"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.NeutralDark.Surface')"
+                                              on-move="onChange(color, 'ColorPalette.NeutralDark.Surface')"
+                                              on-hide="onChange(color, 'ColorPalette.NeutralDark.Surface')">
+                            </umb-color-picker>
+                            <label>Surface</label>
+                            <span>Card / box / panel color that sits on top of the dark background.</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteNeutralDarkTextMain" ng-model="model.value.ColorPalette.NeutralDark.TextMain"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.NeutralDark.TextMain')"
+                                              on-move="onChange(color, 'ColorPalette.NeutralDark.TextMain')"
+                                              on-hide="onChange(color, 'ColorPalette.NeutralDark.TextMain')">
+                            </umb-color-picker>
+                            <label>Text main</label>
+                            <span>Main text color on dark background (titles, headings).</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteNeutralDarkTextMuted" ng-model="model.value.ColorPalette.NeutralDark.TextMuted"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.NeutralDark.TextMuted')"
+                                              on-move="onChange(color, 'ColorPalette.NeutralDark.TextMuted')"
+                                              on-hide="onChange(color, 'ColorPalette.NeutralDark.TextMuted')">
+                            </umb-color-picker>
+                            <label>Text muted</label>
+                            <span>Secondary text color on dark background (descriptions, body text, notes).</span>
+                        </div>
+                        <div class="color-row">
+                            <umb-color-picker id="paletteNeutralDarkBorder" ng-model="model.value.ColorPalette.NeutralDark.Border"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.NeutralDark.Border')"
+                                              on-move="onChange(color, 'ColorPalette.NeutralDark.Border')"
+                                              on-hide="onChange(color, 'ColorPalette.NeutralDark.Border')">
+                            </umb-color-picker>
+                            <label>Border</label>
+                            <span>Line / divider / thin border color on dark background.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="title">Additional Color</div>
+                    <div class="additional-colors">
+                        <div class="color-row no-border">
+                            <umb-color-picker id="paletteAdditionalColor1Main" ng-model="model.value.ColorPalette.AdditionalColor1.Main"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.AdditionalColor1.Main')"
+                                              on-move="onChange(color, 'ColorPalette.AdditionalColor1.Main')"
+                                              on-hide="onChange(color, 'ColorPalette.AdditionalColor1.Main')">
+                            </umb-color-picker>
+                            <label>#1</label>
+                        </div>
+                        <div class="color-row no-border">
+                            <umb-color-picker id="paletteAdditionalColor2Main" ng-model="model.value.ColorPalette.AdditionalColor2.Main"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.AdditionalColor2.Main')"
+                                              on-move="onChange(color, 'ColorPalette.AdditionalColor2.Main')"
+                                              on-hide="onChange(color, 'ColorPalette.AdditionalColor2.Main')">
+                            </umb-color-picker>
+                            <label>#2</label>
+                        </div>
+                        <div class="color-row no-border">
+                            <umb-color-picker id="paletteAdditionalColor3Main" ng-model="model.value.ColorPalette.AdditionalColor3.Main"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.AdditionalColor3.Main')"
+                                              on-move="onChange(color, 'ColorPalette.AdditionalColor3.Main')"
+                                              on-hide="onChange(color, 'ColorPalette.AdditionalColor3.Main')">
+                            </umb-color-picker>
+                            <label>#3</label>
+                        </div>
+                        <div class="color-row no-border">
+                            <umb-color-picker id="paletteAdditionalColor4Main" ng-model="model.value.ColorPalette.AdditionalColor4.Main"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.AdditionalColor4.Main')"
+                                              on-move="onChange(color, 'ColorPalette.AdditionalColor4.Main')"
+                                              on-hide="onChange(color, 'ColorPalette.AdditionalColor4.Main')">
+                            </umb-color-picker>
+                            <label>#4</label>
+                        </div>
+                        <div class="color-row no-border">
+                            <umb-color-picker id="paletteAdditionalColor5Main" ng-model="model.value.ColorPalette.AdditionalColor5.Main"
+                                              options="settings"
+                                              on-change="onChange(color, 'ColorPalette.AdditionalColor5.Main')"
+                                              on-move="onChange(color, 'ColorPalette.AdditionalColor5.Main')"
+                                              on-hide="onChange(color, 'ColorPalette.AdditionalColor5.Main')">
+                            </umb-color-picker>
+                            <label>#5</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Color Settings-->
+    <div>
+        <section class="accordion-area">
+            <div class="accordion mt-5">
+                <div class="accordion-title">
+                    <label for="colorToken" aria-label="colorToken" title="Color Settings">Color settings</label>
+                    <div><small class="control-description">Assign the color you added above to the elements of this design</small></div>
+                </div>
+                <div class="accordion-body" id="accordionColor">
+                    <div class="card">
+                        <div class="card-header" id="header-body">
+                            <a href="#collapse-header" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                                <span ng-style="">Header</span>
+                            </a>
+                        </div>
+                        <div id="collapse-header" class="collapse" data-bs-parent="#accordionColor">
+                            <div class="card-body">
+                                <div class="span3 card-body-control">
+                                    <div class="control-group-wrapper">
+                                        <label>Frame</label>
+                                        <!-- Header Background -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.Frame.HeaderBackground">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Header Background</label>
+                                        </div>
+                                        <!-- Header Border -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.Frame.HeaderBorder">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Header Border</label>
+                                        </div>
+                                        <!-- Brand Text -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.Frame.BrandText">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Brand Text</label>
+                                        </div>
+                                    </div>
+
+                                    <!--Nav bar-->
+                                    <div class="control-group-wrapper">
+                                        <label>Nav Bar</label>
+                                        <!-- Menu Group Background -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.NavBar.MenuGroupBackground">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Menu Group Background</label>
+                                        </div>
+                                        <!-- Menu Group Border -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.NavBar.MenuGroupBorder">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Menu Group Border</label>
+                                        </div>
+                                        <!-- Menu Item Text -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.NavBar.MenuItemText">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Menu Item Text</label>
+                                        </div>
+                                        <!-- Menu Item Text Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.NavBar.MenuItemTextHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Menu Item Text Hover</label>
+                                        </div>
+                                        <!-- Menu Item Border -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.NavBar.MenuItemBorder">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Menu Item Border</label>
+                                        </div>
+                                        <!-- Menu Item Border Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.NavBar.MenuItemBorderHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Menu Item Border Hover</label>
+                                        </div>
+                                        <!-- Menu Item Background -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.NavBar.MenuItemBackground">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Menu Item Background</label>
+                                        </div>
+                                        <!-- Menu Item Background Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.NavBar.MenuItemBackgroundHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Menu Item Background Hover</label>
+                                        </div>
+                                        <!-- Menu Item Underline Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.NavBar.MenuItemUnderlineHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Menu Item Underline Hover</label>
+                                        </div>
+                                        <!-- Menu Item Separator -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.NavBar.MenuItemSeparator">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Menu Item Separator</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Primary Button -->
+                                    <div class="control-group-wrapper">
+                                        <label>Primary Button</label>
+
+                                        <!-- Background -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.PrimaryButton.Background">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Background</label>
+                                        </div>
+                                        <!-- Background Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.PrimaryButton.BackgroundHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Background Hover</label>
+                                        </div>
+                                        <!-- Text -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.PrimaryButton.Text">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text</label>
+                                        </div>
+                                        <!-- Text Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.PrimaryButton.TextHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text Hover</label>
+                                        </div>
+                                        <!-- Border -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.PrimaryButton.Border">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Border</label>
+                                        </div>
+                                        <!-- Border Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.PrimaryButton.BorderHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Border Hover</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Secondary Button -->
+                                    <div class="control-group-wrapper">
+                                        <label>Secondary Button</label>
+
+                                        <!-- Background -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.SecondaryButton.Background">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Background</label>
+                                        </div>
+                                        <!-- Background Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.SecondaryButton.BackgroundHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Background Hover</label>
+                                        </div>
+                                        <!-- Text -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.SecondaryButton.Text">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text</label>
+                                        </div>
+                                        <!-- Text Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.SecondaryButton.TextHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text Hover</label>
+                                        </div>
+                                        <!-- Border -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.SecondaryButton.Border">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Border</label>
+                                        </div>
+                                        <!-- Border Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.SecondaryButton.BorderHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Border Hover</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Dropdown/Mega Menu -->
+                                    <div class="control-group-wrapper">
+                                        <label>Dropdown/Mega Menu</label>
+
+                                        <!-- Background -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.DropdownMenu.Background">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Background</label>
+                                        </div>
+                                        <!-- Item Text -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.DropdownMenu.ItemText">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Item Text</label>
+                                        </div>
+                                        <!-- Item Text Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.DropdownMenu.ItemTextHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Item Text Hover</label>
+                                        </div>
+                                        <!-- Item Background Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.DropdownMenu.ItemBackgroundHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Item Background Hover</label>
+                                        </div>
+                                        <!-- Border -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.DropdownMenu.Border">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Border</label>
+                                        </div>
+                                        <!-- Section Title -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.DropdownMenu.SectionTitle">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Section Title</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Hamberger -->
+                                    <div class="control-group-wrapper">
+                                        <label>Hamberger</label>
+
+                                        <!-- Hamberger -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Header.Hamberger.Text">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span9">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">Preview</div>
+                                                <div class="content-preview" ng-if="true">
+                                                    <div ng-include="'/App_Plugins/uKFSBPlugins/design/preview/mainNav.html'"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Header-->
+
+                    <div class="card">
+                        <div class="card-header" id="heading-body">
+                            <a href="#collapse-footer" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                                <span ng-style="">Footer</span>
+                            </a>
+                        </div>
+                        <div id="collapse-footer" class="collapse" data-bs-parent="#accordionColor">
+                            <div class="card-body">
+                                <div class="span3 card-body-control">
+                                    <!-- Background -->
+                                    <div class="control-group-wrapper">
+                                        <label>Base</label>
+
+                                        <!-- Background -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.Base.Background">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Background</label>
+                                        </div>
+                                        <!-- Heading -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.Base.Heading">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Heading</label>
+                                        </div>
+                                        <!-- Highlight Text -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.Base.HighlightText">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Highlight Text</label>
+                                        </div>
+                                        <!-- Text -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.Base.Text">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text</label>
+                                        </div>
+
+                                        <!-- Line -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.Base.Line">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Line</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Primary Button -->
+                                    <div class="control-group-wrapper">
+                                        <label>Primary Button</label>
+
+                                        <!-- Background -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.PrimaryButton.Background">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Background</label>
+                                        </div>
+                                        <!-- Background Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.PrimaryButton.BackgroundHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Background Hover</label>
+                                        </div>
+                                        <!-- Text -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.PrimaryButton.Text">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text</label>
+                                        </div>
+                                        <!-- Text Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.PrimaryButton.TextHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text Hover</label>
+                                        </div>
+                                        <!-- Border -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.PrimaryButton.Border">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Border</label>
+                                        </div>
+                                        <!-- Border Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.PrimaryButton.BorderHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Border Hover</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Secondary Button -->
+                                    <div class="control-group-wrapper">
+                                        <label>Secondary Button</label>
+
+                                        <!-- Background -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.SecondaryButton.Background">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Background</label>
+                                        </div>
+                                        <!-- Background Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.SecondaryButton.BackgroundHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Background Hover</label>
+                                        </div>
+                                        <!-- Text -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.SecondaryButton.Text">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text</label>
+                                        </div>
+                                        <!-- Text Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.SecondaryButton.TextHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text Hover</label>
+                                        </div>
+                                        <!-- Border -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.SecondaryButton.Border">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Border</label>
+                                        </div>
+                                        <!-- Border Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.SecondaryButton.BorderHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Border Hover</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Link -->
+                                    <div class="control-group-wrapper">
+                                        <label>Link</label>
+
+                                        <!-- Text -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.Link.Text">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text</label>
+                                        </div>
+                                        <!-- Text Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.Link.TextHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text Hover</label>
+                                        </div>
+                                        <!-- Underline -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.Link.Underline">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Underline</label>
+                                        </div>
+                                        <!-- Underline Hover -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.Link.UnderlineHover">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Underline Hover</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Badge -->
+                                    <div class="control-group-wrapper">
+                                        <label>Badge</label>
+
+                                        <!-- Text -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.Badge.Text">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Text</label>
+                                        </div>
+                                        <!-- Background -->
+                                        <div class="control-group control-group-flex">
+                                            <color-dropdown colors="colors"
+                                                            ng-model="model.value.ColorToken.Footer.Badge.Background">
+                                            </color-dropdown>
+                                            <label for="mainNavLinkColor">Background</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="span9">
+                                    <!-- Content Preview -->
+                                    <div class="preview-wrap">
+                                        <div class="preview-wrap__content">
+                                            <div class="control-group">
+                                                <div class="preview-wrap__header">Preview</div>
+                                                <div class="content-preview" ng-style="">
+                                                    <div ng-include="'/App_Plugins/uKFSBPlugins/design/preview/footer.html'"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Footer-->
+
+                    <div class="content-sortable-wrap ui-sortable" ui-sortable="contentSortableOptions" ng-model="model.value.ColorToken.Sections">
+                        <!--Contents-->
+                        <div class="card" ng-repeat="(index, section) in model.value.ColorToken.Sections track by section.Id">
+                            <div class="card-header" id="heading-body">
+                                <a href="#collapse-content-{{section.Id}}" data-bs-toggle="collapse" role="button" class="collapsed" aria-expanded="false">
+                                    <span ng-style="">Content #{{index + 1}}</span>
+                                </a>
+
+                                <div class="btn-actions" ng-if="index > 4">
+                                    <button type="button" class="action" title="Delete" ng-click="deleteItem(section)">
+                                        <umb-icon icon="icon-trash"></umb-icon>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="collapse-content-{{section.Id}}" class="collapse" data-bs-parent="#accordionColor">
+                                <div class="card-body">
+                                    <div class="span3 card-body-control">
+                                        <!-- Background -->
+                                        <div class="control-group-wrapper">
+                                            <label>Background</label>
+
+                                            <!-- Background -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.Base.Background">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Background</label>
+                                            </div>
+                                            <!-- Heading -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.Base.Heading">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Heading</label>
+                                            </div>
+                                            <!-- Highlight Text -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.Base.HighlightText">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Highlight Text</label>
+                                            </div>
+                                            <!-- Text -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.Base.Text">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Text</label>
+                                            </div>
+
+                                            <!-- Line -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.Base.Line">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Line</label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Primary Button -->
+                                        <div class="control-group-wrapper">
+                                            <label>Primary Button</label>
+
+                                            <!-- Background -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.PrimaryButton.Background">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Background</label>
+                                            </div>
+                                            <!-- Background Hover -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.PrimaryButton.BackgroundHover">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Background Hover</label>
+                                            </div>
+                                            <!-- Text -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.PrimaryButton.Text">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Text</label>
+                                            </div>
+                                            <!-- Text Hover -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.PrimaryButton.TextHover">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Text Hover</label>
+                                            </div>
+                                            <!-- Border -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.PrimaryButton.Border">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Border</label>
+                                            </div>
+                                            <!-- Border Hover -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.PrimaryButton.BorderHover">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Border Hover</label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Secondary Button -->
+                                        <div class="control-group-wrapper">
+                                            <label>Secondary Button</label>
+
+                                            <!-- Background -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.SecondaryButton.Background">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Background</label>
+                                            </div>
+                                            <!-- Background Hover -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.SecondaryButton.BackgroundHover">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Background Hover</label>
+                                            </div>
+                                            <!-- Text -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.SecondaryButton.Text">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Text</label>
+                                            </div>
+                                            <!-- Text Hover -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.SecondaryButton.TextHover">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Text Hover</label>
+                                            </div>
+                                            <!-- Border -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.SecondaryButton.Border">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Border</label>
+                                            </div>
+                                            <!-- Border Hover -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.SecondaryButton.BorderHover">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Border Hover</label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Link -->
+                                        <div class="control-group-wrapper">
+                                            <label>Link</label>
+
+                                            <!-- Text -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.Link.Text">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Text</label>
+                                            </div>
+                                            <!-- Text Hover -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.Link.TextHover">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Text Hover</label>
+                                            </div>
+                                            <!-- Underline -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.Link.Underline">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Underline</label>
+                                            </div>
+                                            <!-- Underline Hover -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.Link.UnderlineHover">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Underline Hover</label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Badge -->
+                                        <div class="control-group-wrapper">
+                                            <label>Badge</label>
+
+                                            <!-- Text -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.Badge.Text">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Text</label>
+                                            </div>
+                                            <!-- Background -->
+                                            <div class="control-group control-group-flex">
+                                                <color-dropdown colors="colors"
+                                                                ng-model="section.Badge.Background">
+                                                </color-dropdown>
+                                                <label for="mainNavLinkColor">Background</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span9">
+                                        <!-- Content Preview -->
+                                        <div class="preview-wrap">
+                                            <div class="preview-wrap__content">
+                                                <div class="control-group">
+                                                    <div class="preview-wrap__header">Preview</div>
+                                                    <div class="content-preview" ng-style="">
+                                                        <div class="content-sample" style="font-size: 16px; padding: 10px 20px;"
+                                                             ng-class="{'bg-transparent': !section.background}"
+                                                             ng-style="section.background ? {'background-color': getColorValue(section.background)} : {}">
+                                                            <!-- Heading Sample -->
+                                                            <div class="content-sample__item">
+                                                                <h3 style="font-weight: 900" ng-style="{'color': getColorValue(section.heading)}">SAMPLE HEADING</h3>
+                                                            </div>
+
+                                                            <!-- Text Sample -->
+                                                            <div class="content-sample__item">
+                                                                <p ng-style="{'color': getColorValue(section.text)}">
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    <a style="text-decoration: underline; cursor: pointer;"
+                                                                       ng-style="{'color': linkHover ? getColorValue(section.linkHover) : getColorValue(section.link)}"
+                                                                       ng-mouseenter="linkHover = true"
+                                                                       ng-mouseleave="linkHover= false">consectetur adipiscing elit</a>
+                                                                    ,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                                    <span style="padding: 4px;"
+                                                                          ng-style="{
+                                                                    'color': getColorValue(section.highlightText),
+                                                                    'background-color': getColorValue(section.highlightBg)
+                                                                }">
+                                                                        Ut enim ad minim veniam
+                                                                    </span>
+                                                                    ,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Contents-->
+                    </div>
+
+                    <div class="accordion-actions" ng-if="model.value.ColorToken.Sections.length < 10">
+                        <div class="umb-block-list__actions">
+                            <button type="button" class="btn-reset umb-block-list__create-button umb-outline" ng-click="addItem()">Add Section</button>
+                        </div>
+                    </div>
+                    <!--Contents-->
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

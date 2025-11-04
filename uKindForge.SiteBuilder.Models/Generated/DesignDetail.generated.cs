@@ -50,20 +50,12 @@ namespace uKindForge.SiteBuilder.Models
 		// properties
 
 		///<summary>
-		/// Color Palette
+		/// Color Palette: Pick your main brand color and we’ll do the rest. We automatically generate matching highlight colors, text colors, light/dark backgrounds, and ready-to-use section styles — so your site already looks professional without any design work.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.11.0+c177c30")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("colorPalette")]
-		public virtual string ColorPalette => this.Value<string>(_publishedValueFallback, "colorPalette");
-
-		///<summary>
-		/// Color Settings
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.11.0+c177c30")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("colorSettings")]
-		public virtual global::uKindForge.SiteBuilder.Models.ColorSettings ColorSettings => this.Value<global::uKindForge.SiteBuilder.Models.ColorSettings>(_publishedValueFallback, "colorSettings");
+		public virtual global::uKindForge.SiteBuilder.Models.ColorPaletteSetting ColorPalette => this.Value<global::uKindForge.SiteBuilder.Models.ColorPaletteSetting>(_publishedValueFallback, "colorPalette");
 
 		///<summary>
 		/// Fonts

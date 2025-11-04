@@ -2,7 +2,7 @@
 
 @if (Model?.Heading?.HeadingText?.IsNullOrWhiteSpace() == false)
 {
-    <div class="heading-content">
+    <div class="block heading-block">
         @if (Model.Heading.Link?.Url?.IsNullOrWhiteSpace() == false)
         {
             <a href="@Model.Heading.Link.Url" target="@Model.Heading.Link.Target">
