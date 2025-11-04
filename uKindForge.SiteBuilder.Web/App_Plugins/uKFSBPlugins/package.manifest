@@ -41,9 +41,9 @@
       "icon": "icon-colorpicker",
       "group": "Pickers",
       "editor": {
-        "view": "/App_Plugins/uKFSBPlugins/colorPalette/colorPalette.html",
+        "view": "/App_Plugins/uKFSBPlugins/design/colorPalette/colorPalette.html",
         "hideLabel": true,
-        "valueType": "TEXT"
+        "valueType": "JSON"
       }
     },
     {
@@ -218,18 +218,18 @@
         "valueType": "JSON"
       }
     },
-    {
-      "alias": "uKindForge.ColorSettings",
-      "name": "uKindForge - Color Settings",
-      "icon": "icon-colorpicker",
-      "group": "Pickers",
-      "supportsReadOnly": true,
-      "editor": {
-        "view": "/App_Plugins/uKFSBPlugins/design/colorSettings/colorSettings.html",
-        "hideLabel": true,
-        "valueType": "JSON"
-      }
-    },
+    //{
+    //  "alias": "uKindForge.ColorSettings",
+    //  "name": "uKindForge - Color Settings",
+    //  "icon": "icon-colorpicker",
+    //  "group": "Pickers",
+    //  "supportsReadOnly": true,
+    //  "editor": {
+    //    "view": "/App_Plugins/uKFSBPlugins/design/colorSettings/colorSettings.html",
+    //    "hideLabel": true,
+    //    "valueType": "JSON"
+    //  }
+    //},
     {
       "alias": "uKindForge.LayoutSettings",
       "name": "uKindForge - Layout Settings",
@@ -260,11 +260,10 @@
     "/App_Plugins/uKFSBPlugins/common/common.css",
 
     "/App_Plugins/uKFSBPlugins/baselineColorPicker/baselineColorPicker.css",
-    "/App_Plugins/uKFSBPlugins/colorPalette/colorPalette.css",
+    "/App_Plugins/uKFSBPlugins/design/colorPalette/colorPalette.css",
     "/App_Plugins/uKFSBPlugins/radioButtonPlus/radioButtonPlus.css",
     "/App_Plugins/uKFSBPlugins/heading/heading.css",
     "/App_Plugins/uKFSBPlugins/design/fontSettings/fontSettings.css",
-    "/App_Plugins/uKFSBPlugins/design/colorSettings/colorSettings.css",
     "/App_Plugins/uKFSBPlugins/design/layoutSettings/layoutSettings.css",
     "/App_Plugins/uKFSBPlugins/lineIconsPicker/lineIconsPicker.css"
   ],
@@ -277,7 +276,7 @@
     "/App_Plugins/uKFSBPlugins/helperService/contextHelper.service.js",
     //controller
     "/App_Plugins/uKFSBPlugins/togglePlus/togglePlus.controller.js",
-    "/App_Plugins/uKFSBPlugins/colorPalette/colorPalette.controller.js",
+    "/App_Plugins/uKFSBPlugins/design/colorPalette/colorPalette.controller.js",
     "/App_Plugins/uKFSBPlugins/baselineColorPicker/baselineColorPicker.controller.js",
     "/App_Plugins/uKFSBPlugins/numericPlus/numericPlus.controller.js",
     "/App_Plugins/uKFSBPlugins/radioButtonPlus/radioButtonPlus.controller.js",
@@ -287,12 +286,15 @@
     "/App_Plugins/uKFSBPlugins/heading/heading.controller.js",
     //design
     "/App_Plugins/uKFSBPlugins/design/fontSettings/fontSettings.controller.js",
-    "/App_Plugins/uKFSBPlugins/design/colorSettings/colorSettings.controller.js",
     "/App_Plugins/uKFSBPlugins/design/layoutSettings/layoutSettings.controller.js",
     "/App_Plugins/uKFSBPlugins/design/designList/designListView.controller.js",
 
     "/App_Plugins/uKFSBPlugins/lineIconsPicker/lineIconsPicker.controller.js",
 
-    "/App_Plugins/uKFSBPlugins/backoffice/forms/forms.controller.js"
+    // backoffice
+    "/App_Plugins/uKFSBPlugins/backoffice/forms/forms.controller.js",
+
+    // directives
+    "/App_Plugins/uKFSBPlugins/backoffice/directives/colorDropdown.js"
   ]
 }

@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Xml.Linq;
 
 namespace uKindForge.SiteBuilder.Core.Builder
 {
@@ -53,6 +54,12 @@ namespace uKindForge.SiteBuilder.Core.Builder
         public CssBuilder AddCssAttribute(string name, string value)
         {
             _cssStyles.AppendLine($"{name}: {value};");
+            return this;
+        }
+
+        public CssBuilder AddCssBlock(string value)
+        {
+            _cssStyles.AppendLine($"{value}");
             return this;
         }
 

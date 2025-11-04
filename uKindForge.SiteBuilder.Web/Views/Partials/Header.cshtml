@@ -7,6 +7,6 @@
 	var headerMobileClass = design?.LayoutSettings?.HeaderMobile?.HeaderAlwaysOnTop == true ? "header-mobile__sticky" : "";
 }
 
-<header id="header" class="@headerDesktopClass @headerMobileClass">
+<header id="header" class="header-block @headerDesktopClass @headerMobileClass">
     @await Html.GetBlockGridHtmlAsync(Model.PageHeaderContent)
 </header>

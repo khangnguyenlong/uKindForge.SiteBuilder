@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/kindForge/main.css",
+    "inputFile": "wwwroot/css/kindForge/main.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/kindForge/partials/footer.css",
+    "inputFile": "wwwroot/css/kindForge/partials/footer.scss"
+  }
+]

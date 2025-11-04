@@ -4,7 +4,7 @@ namespace uKindForge.SiteBuilder.Core.ViewModels
     public class LayoutSettingsViewModel
     { 
         public string BackgroundType { get; set; } = "color";
-        public string OrderColor { get; set; }
+        public string SectionColorStyle { get; set; }
         public MediaWithCrops BackgroundImage { get; set; }
         public string BackgroundImageUrl { get; set; }
         public MediaWithCrops BackgroundVideo { get; set; }

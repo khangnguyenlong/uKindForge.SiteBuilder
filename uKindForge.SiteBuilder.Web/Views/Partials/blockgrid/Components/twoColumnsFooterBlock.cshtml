@@ -1,0 +1,22 @@
+﻿@inherits UmbracoViewPage<BlockGridItem<TwoColumnsFooterBlock>>
+
+@{
+    var layoutSettings = new LayoutSettingsViewModel
+    {
+        BackgroundType = Model.Content.BackgroundType,
+        BackgroundImage = Model.Content.BackgroundImage,
+        BackgroundImageUrl = Model.Content.BackgroundImageUrl,
+        FullWidth = Model.Content.FullWidth,
+        FullScreen = Model.Content.FullScreen,
+        Top = (int)Model.Content.Top,
+        Bottom = (int)Model.Content.Bottom,
+
+        EnableOverlay = Model.Content.EnableOverlay,
+        OverlayColor = Model.Content.OverlayColor,
+        OverlayOpacity = Model.Content.OverlayOpacity
+    };
+}
+
+<section-layout info="layoutSettings">
+    @await Html.GetPreviewBlockGridItemAreasHtmlAsync(Model)
+</section-layout>

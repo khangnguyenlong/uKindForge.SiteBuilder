@@ -67,12 +67,14 @@ namespace uKindForge.SiteBuilder.Core.Helpers
 
         public static string GetBackgroundClass(string bgContentOrder, DesignDetail designDetail) 
         {
-            return GetContentClass(bgContentOrder, designDetail?.ColorSettings?.Contents, AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX);
+            return "";
+            //return GetContentClass(bgContentOrder, designDetail?.ColorSettings?.Contents, AppConstants.CssClassName.BACKGROUND_CONTENT_PREFIX);
 		}
 
 		public static string GetButtonClass(string btnDesignOrder, DesignDetail designDetail)
         {
-            return GetContentClass(btnDesignOrder, designDetail?.ColorSettings?.Buttons, AppConstants.CssClassName.BUTTON_PREFIX);
+            return "";
+            //return GetContentClass(btnDesignOrder, designDetail?.ColorSettings?.Buttons, AppConstants.CssClassName.BUTTON_PREFIX);
         }
 
         public static string GetContentClass<T>(string order, IEnumerable<T> list, string prefix)

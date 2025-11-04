@@ -4,7 +4,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:sass": "sass --style=compressed wwwroot/css/base.scss:wwwroot/css/base.css"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "eslint": "^9.20.1",
     "gulp": "^5.0.0",
     "gulp-clean-css": "^4.3.0",
-    "gulp-concat": "^2.6.1"
+    "gulp-concat": "^2.6.1",
+    "sass": "^1.93.3"
   }
 }

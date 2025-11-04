@@ -6,12 +6,12 @@ using Umbraco.Extensions;
 
 namespace uKindForge.SiteBuilder.Core.ValueConverter
 {
-    public class ColorSettingsValueConverter : PropertyValueConverterBase
+    public class ColorPaletteValueConverter : PropertyValueConverterBase
     {
         public override bool IsConverter(IPublishedPropertyType propertyType) =>
-            propertyType.EditorAlias.Equals("uKindForge.ColorSettings");
+            propertyType.EditorAlias.Equals("uKindForge.ColorPalette");
 
-        public override Type GetPropertyValueType(IPublishedPropertyType propertyType) => typeof(ColorSettings);
+        public override Type GetPropertyValueType(IPublishedPropertyType propertyType) => typeof(ColorPaletteSetting);
 
         public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType) =>
             PropertyCacheLevel.None;
@@ -27,7 +27,7 @@ namespace uKindForge.SiteBuilder.Core.ValueConverter
 
             try
             {
-                var jsonObject = JsonConvert.DeserializeObject<ColorSettings>(intermediate);
+                var jsonObject = JsonConvert.DeserializeObject<ColorPaletteSetting>(intermediate);
                 return jsonObject;
             }
             catch
