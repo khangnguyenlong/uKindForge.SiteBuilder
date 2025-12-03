@@ -1,0 +1,12 @@
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\bin\Debug\net10.0\uKindForge.SiteBuilder.Core.deps.json
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\bin\Debug\net10.0\uKindForge.SiteBuilder.Core.dll
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\bin\Debug\net10.0\uKindForge.SiteBuilder.Core.pdb
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\obj\Debug\net10.0\uKindForge.SiteBuilder.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\obj\Debug\net10.0\uKindForge.SiteBuilder.Core.AssemblyInfoInputs.cache
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\obj\Debug\net10.0\uKindForge.SiteBuilder.Core.AssemblyInfo.cs
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\obj\Debug\net10.0\uKindForge.SiteBuilder.Core.csproj.CoreCompileInputs.cache
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\obj\Debug\net10.0\uKindForge.SiteBuilder.Core.sourcelink.json
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\obj\Debug\net10.0\uKindForge.SiteBuilder.Core.dll
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\obj\Debug\net10.0\refint\uKindForge.SiteBuilder.Core.dll
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\obj\Debug\net10.0\uKindForge.SiteBuilder.Core.pdb
+F:\KindForge\uKindForge.SiteBuilder\src\uKindForge.SiteBuilder.Core\obj\Debug\net10.0\ref\uKindForge.SiteBuilder.Core.dll

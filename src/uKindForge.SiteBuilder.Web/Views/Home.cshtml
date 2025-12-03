@@ -1,0 +1,61 @@
+﻿@using Smidge;
+@using uKindForge.SiteBuilder.Core.Services
+@inject DesignHelper DesignHelper
+@inject IPageService PageService
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits UmbracoViewPage
+@{
+	Layout = null;
+	var design = DesignHelper.GetDesign();
+	var homePage = PageService.GetCurrentRootHomePage();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	@await Html.PartialAsync("~/Views/Partials/Seo/MetaTags.cshtml")
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--TODO-->
+	<link rel="shortcut icon" href="~/css/KindForge/" type="image/svg" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+	<link rel="stylesheet" href="~/css/bundle.min.css" />
+
+	<!--TODO-->
+	@* @await Html.PartialAsync("~/Views/Partials/Favicon.cshtml", design.Favicon) *@
+
+	@await Html.PartialAsync("~/Views/Partials/Design.cshtml", design)
+	@if (!string.IsNullOrWhiteSpace(homePage.CustomCss))
+	{
+		<style>
+			@Html.Raw(homePage.CustomCss)
+		</style>
+	}
+	@Html.Raw(homePage.CustomHeadScripts)
+</head>
+<body>
+	@Html.Raw(homePage.CustomBodyScripts)
+	<!--Header-->
+	@await Html.PartialAsync("~/Views/Partials/Header.cshtml", homePage)
+
+	<!--Body-->
+	<main id="content">
+		@RenderBody()
+	</main>
+
+	<!--Footer-->
+	@await Html.PartialAsync("~/Views/Partials/Footer.cshtml", homePage)
+
+	<a href="#" class="back-to-top" id="backToTop"></a>
+
+	<!--JS-->
+	<script src="js-bundle"></script>
+	@Html.Raw(homePage.CustomFooterScripts)
+</body>
+</html>
