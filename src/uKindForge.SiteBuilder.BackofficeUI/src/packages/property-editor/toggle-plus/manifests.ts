@@ -5,10 +5,10 @@ export const manifests: Array<UmbExtensionManifest> = [
         name: 'Toggle Plus Property Editor UI',        
         element: () => import('./property-editor-ui-toggle-plus.element.js'),
         meta: {
-            label: 'uKindForge - Toggle Plus',
+            label: 'Toggle Plus',
             propertyEditorSchemaAlias: 'Umbraco.TrueFalse',
             icon: 'icon-checkbox',
-            group: 'uKindForge',
+            group: 'UKindForge',
             supportsReadOnly: true,
             settings: {
                 properties: [

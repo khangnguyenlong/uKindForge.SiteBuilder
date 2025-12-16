@@ -1,15 +1,15 @@
 import { umbExtensionsRegistry as e } from "@umbraco-cms/backoffice/extension-registry";
-const i = [
+const o = [
   {
     type: "propertyEditorUi",
     alias: "uKindForge.PropertyEditorUi.TogglePlus",
     name: "Toggle Plus Property Editor UI",
     element: () => import("./property-editor-ui-toggle-plus.element-C53AsXtx.js"),
     meta: {
-      label: "uKindForge - Toggle Plus",
+      label: "Toggle Plus",
       propertyEditorSchemaAlias: "Umbraco.TrueFalse",
       icon: "icon-checkbox",
-      group: "uKindForge",
+      group: "UKindForge",
       supportsReadOnly: !0,
       settings: {
         properties: [
@@ -68,21 +68,52 @@ const i = [
       }
     }
   }
-], o = [
+], i = [
   {
     type: "propertyEditorUi",
-    alias: "uKindForge.PropertyEditorUi.Theme",
-    name: "Theme Property Editor UI",
-    element: () => import("./property-editor-ui-theme.element-DJm205NO.js"),
+    alias: "uKindForge.PropertyEditorUi.ColorSettings",
+    name: "Color Settings Property Editor UI",
+    element: () => import("./property-editor-ui-color-settings.element-BzlP3vXk.js"),
     meta: {
-      label: "uKindForge - Theme",
-      propertyEditorSchemaAlias: "",
+      label: "Theme - Color Settings",
+      propertyEditorSchemaAlias: "Umbraco.Plain.Json",
+      // TODO : create a new property editor schema for this
       icon: "icon-checkbox",
-      group: "uKindForge",
+      group: "UKindForge",
       supportsReadOnly: !0
     }
   }
 ], t = [
+  {
+    type: "propertyEditorUi",
+    alias: "uKindForge.PropertyEditorUi.TypographySettings",
+    name: "Typography Settings Property Editor UI",
+    element: () => import("./property-editor-ui-typography-settings.element-Bmw42-02.js"),
+    meta: {
+      label: "Theme - Typography Settings",
+      propertyEditorSchemaAlias: "Umbraco.Plain.Json",
+      // TODO : create a new property editor schema for this
+      icon: "icon-checkbox",
+      group: "UKindForge",
+      supportsReadOnly: !0
+    }
+  }
+], r = [
+  {
+    type: "propertyEditorUi",
+    alias: "uKindForge.PropertyEditorUi.StyleSettings",
+    name: "Style Settings Property Editor UI",
+    element: () => import("./property-editor-ui-style-settings.element-a5Ng_FUK.js"),
+    meta: {
+      label: "Theme - Style Settings",
+      propertyEditorSchemaAlias: "Umbraco.Plain.Json",
+      // TODO : create a new property editor schema for this
+      icon: "icon-checkbox",
+      group: "UKindForge",
+      supportsReadOnly: !0
+    }
+  }
+], l = [
   {
     type: "collectionView",
     alias: "uKindForge.CollectionView.Themes",
@@ -101,7 +132,7 @@ const i = [
       }
     ]
   }
-], l = [
+], a = [
   {
     type: "blockEditorCustomView",
     alias: "uKindForge.BlockEditorCustomView.RichText",
@@ -110,7 +141,7 @@ const i = [
     forContentTypeAlias: "richTextBlock",
     forBlockEditor: "block-grid"
   }
-], r = [
+], s = [
   {
     type: "blockEditorCustomView",
     alias: "uKindForge.BlockEditorCustomView.Button",
@@ -119,16 +150,18 @@ const i = [
     forContentTypeAlias: "buttonBlock",
     forBlockEditor: "block-grid"
   }
-], a = [
+], n = [
   // properties editor
-  ...i,
   ...o,
+  ...i,
+  ...t,
+  ...r,
   // dashboard
   // collection
-  ...t,
-  // block preview
   ...l,
-  ...r
+  // block preview
+  ...a,
+  ...s
 ];
-e.registerMany(a);
+e.registerMany(n);
 //# sourceMappingURL=ukindforge-sitebuilder-backofficeui.js.map

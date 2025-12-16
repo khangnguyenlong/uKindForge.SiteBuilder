@@ -14,6 +14,9 @@ export class UkfFontItem extends LitElement {
     :host {
       display: block;
     }
+    ukf-accordion.error {
+        --uui-color-border: red;
+    }
     .preview {
       padding: 12px;
       border: 1px solid var(--uui-color-border);
@@ -80,13 +83,12 @@ export class UkfFontItem extends LitElement {
     }
 
     private onFamilyChange(value: string) {
-        this.emitChange({ family: value, variant: this.font.variant });
+        this.emitChange({ family: value, variant: this.font.variant, error: !value });
     }
-
 
     private onVariantChange(e: Event) {
         const variant = (e.target as HTMLSelectElement).value;
-        this.emitChange({ family: this.font.family, variant }); 
+        this.emitChange({ family: this.font.family, variant});
 
         // load font preview
         if (this.selectedFontObj) {
@@ -97,7 +99,10 @@ export class UkfFontItem extends LitElement {
 
     render() {
         return html`
-        <ukf-accordion heading=${this.font.family || "Choose Font"}>
+        <ukf-accordion heading=${this.font.family || "Choose Font"} 
+        ?open=${this.font.selected}
+        class=${this.font.error ? "error" : ""}
+        >
             <div slot="content">
             <!-- Family -->
             <ukf-control label="Family">
@@ -105,8 +110,8 @@ export class UkfFontItem extends LitElement {
                     slot="control"
                     .options=${this.fontList.map(f => ({
                         label: `${f.family} - ${f.category}`,
-                        value: f.family,
-                        selected: this.font.family === f.family
+                        value: `${f.family}_${f.category}`,
+                        selected: `${this.font.family}_${this.font.variant}` === `${f.family}_${f.category}`
                     }))}
                     .value=${this.font.family}
                     @change=${(e: CustomEvent) => this.onFamilyChange(e.detail)}
@@ -134,7 +139,7 @@ export class UkfFontItem extends LitElement {
 
             <!-- Preview -->
             ${this.font.family && this.font.variant
-            ? html`
+                ? html`
                 <div
                 class="preview"
                 style="font-family: '${this.font.family}', sans-serif;"

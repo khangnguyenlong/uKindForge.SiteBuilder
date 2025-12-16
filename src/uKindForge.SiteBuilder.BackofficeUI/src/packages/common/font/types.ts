@@ -10,4 +10,7 @@ export interface GoogleFont {
 export interface SelectedFont {
   family: string;
   variant: string;
+  category: string;
+  selected: boolean;
+  error?: boolean;
 }
