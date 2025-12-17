@@ -1,0 +1,31 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="250" rx="14" fill="#2F3C6E"/>
+
+  <!-- Column 1 -->
+  <rect x="15" y="30" width="80" height="28" rx="5" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="15" y="65" width="80" height="24" rx="5" fill="#F0F3FF" opacity="0.9"/>
+  <rect x="15" y="100" width="80" height="20" rx="5" fill="#DCE0FF" opacity="0.9"/>
+  <circle cx="55" cy="150" r="8" fill="#FFFFFF"/>
+  <path d="M51 150h8M55 146v8" stroke="#2F3C6E" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Column 2 -->
+  <rect x="110" y="30" width="80" height="28" rx="5" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="110" y="65" width="80" height="24" rx="5" fill="#F0F3FF" opacity="0.9"/>
+  <rect x="110" y="100" width="80" height="20" rx="5" fill="#DCE0FF" opacity="0.9"/>
+  <circle cx="150" cy="150" r="8" fill="#FFFFFF"/>
+  <path d="M146 150h8M150 146v8" stroke="#2F3C6E" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Column 3 -->
+  <rect x="205" y="30" width="80" height="28" rx="5" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="205" y="65" width="80" height="24" rx="5" fill="#F0F3FF" opacity="0.9"/>
+  <rect x="205" y="100" width="80" height="20" rx="5" fill="#DCE0FF" opacity="0.9"/>
+  <circle cx="245" cy="150" r="8" fill="#FFFFFF"/>
+  <path d="M241 150h8M245 146v8" stroke="#2F3C6E" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Column 4 -->
+  <rect x="300" y="30" width="80" height="28" rx="5" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="300" y="65" width="80" height="24" rx="5" fill="#F0F3FF" opacity="0.9"/>
+  <rect x="300" y="100" width="80" height="20" rx="5" fill="#DCE0FF" opacity="0.9"/>
+  <circle cx="340" cy="150" r="8" fill="#FFFFFF"/>
+  <path d="M336 150h8M340 146v8" stroke="#2F3C6E" stroke-width="2" stroke-linecap="round"/>
+</svg>

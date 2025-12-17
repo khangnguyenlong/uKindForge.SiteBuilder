@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.3864779">
+  <ItemGroup>
+    <Folder Include="public\" />
+    <Folder Include="src\packages\property-editor\radio-button-plus\" />
+  </ItemGroup>
+</Project>

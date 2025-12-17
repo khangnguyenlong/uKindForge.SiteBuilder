@@ -1,1 +1,7 @@
 ﻿.vs
+src/uKindForge.SiteBuilder.Core/bin
+src/uKindForge.SiteBuilder.Core/obj
+src/uKindForge.SiteBuilder.Models/bin
+src/uKindForge.SiteBuilder.Models/obj
+src/uKindForge.SiteBuilder.Models/bin
+src/uKindForge.SiteBuilder.Models/obj

@@ -1,0 +1,153 @@
+import { LitElement, html, css } from "lit";
+import { property, customElement } from "lit/decorators.js";
+import type { GoogleFont, SelectedFont } from "./types";
+import "../accordion/ukf-accordion";
+import "../control/ukf-control";
+import "../select/ukf-select-search";
+
+@customElement("ukf-font-item")
+export class UkfFontItem extends LitElement {
+    @property({ type: Object }) font!: SelectedFont;
+    @property({ type: Array }) fontList: GoogleFont[] = [];
+
+    static styles = css`
+    :host {
+      display: block;
+    }
+    ukf-accordion.error {
+        --uui-color-border: red;
+    }
+    .preview {
+      padding: 12px;
+      border: 1px solid var(--uui-color-border);
+      border-radius: var(--uui-border-radius);
+      margin-top: 8px;
+      font-size: 30px;
+      line-height: 1.4;
+    }
+  `;
+
+    private get variants(): string[] {
+        return this.selectedFontObj?.variants ?? [];
+    }
+
+    private get selectedFontObj(): GoogleFont | undefined {
+        return this.fontList.find((f) => `${f.family}` === `${this.font.family}`);
+    }
+
+    private loadFont(family: string, url: string) {
+        if (!family || !url) return;
+
+        const id = "gf-" + family.replace(/\s+/g, "-") + "-" + this.font.variant;
+        if (document.getElementById(id)) return;
+
+        const fontFace = new FontFace(family, `url(${url})`);
+        fontFace.load().then((loaded) => {
+            document.fonts.add(loaded);
+        });
+
+        const link = document.createElement("link");
+        link.id = id;
+        link.rel = "stylesheet";
+        link.href = `https://fonts.googleapis.com/css2?family=${family.replace(
+            /\s+/g,
+            "+"
+        )}:wght@${this.font.variant}&display=swap`;
+
+        document.head.appendChild(link);
+    }
+
+    private emitChange(changed: Partial<SelectedFont>) {
+        const family = changed.family ?? this.font.family ?? "";
+        const category =
+            this.fontList.find((f) => `${f.family}` === `${family}`)?.category ??
+            this.font.category ??
+            "";
+        this.dispatchEvent(
+            new CustomEvent("font-change", {
+                detail: {
+                    ...changed,
+                    category,
+                },
+                bubbles: true,
+                composed: true,
+            })
+        );
+    }
+
+    private onFamilyChange(value: string) {
+        this.emitChange({ 
+            family: value, 
+            variant: "regular", 
+            error: false
+        });
+    }
+
+    private onVariantChange(e: Event) {
+        const variant = (e.target as HTMLSelectElement).value;
+        this.emitChange({ family: this.font.family, variant });
+
+        // load font preview
+        if (this.selectedFontObj) {
+            const fileUrl = this.selectedFontObj.files[variant];
+            this.loadFont(this.selectedFontObj.family, fileUrl);
+        }
+    }
+
+    render() {
+        const accordionLabel = `${this.font.family} - ${this.font.category} - ${this.font.variant}`;
+        return html`
+        <ukf-accordion heading=${accordionLabel || "Choose Font"} 
+        ?open=${this.font.selected}
+        class=${this.font.error ? "error" : ""}
+        >
+            <div slot="content">
+            <!-- Family -->
+            <ukf-control label="Family">
+                <ukf-select-search
+                    slot="control"
+                    .options=${this.fontList.map(f => ({
+            label: `${f.family} - ${f.category}`,
+            value: `${f.family}`,
+            selected: `${this.font.family}` === `${f.family}`
+        }))}
+                    .value=${this.font.family}
+                    @change=${(e: CustomEvent) => this.onFamilyChange(e.detail)}
+                ></ukf-select-search>
+
+            </ukf-control>
+
+            <!-- Variant -->
+            ${this.font.family
+                ? html`
+                <ukf-control label="Variant">
+                    <uui-select
+                        slot="control"
+                        @change=${this.onVariantChange}
+                        .options=${this.variants.map((v) => ({
+                    name: v,
+                    value: v,
+                    selected: this.font.variant === v
+                }))}
+                    >
+                    </uui-select>
+                </ukf-control>
+                ` : ""
+            }
+
+            <!-- Preview -->
+            ${this.font.family && this.font.variant
+                ? html`
+                <div
+                class="preview"
+                style="font-family: '${this.font.family}', sans-serif;"
+                >
+                The quick brown fox jumps over the lazy dog.
+                </div>
+            ` : ""
+            }
+            </div>
+        </ukf-accordion>
+    `;
+    }
+}

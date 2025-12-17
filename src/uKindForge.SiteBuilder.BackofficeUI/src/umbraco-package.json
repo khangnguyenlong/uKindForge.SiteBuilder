@@ -1,0 +1,12 @@
+{
+  "name": "uKindForge SiteBuilder",
+  "alias": "uKindForge.Package",
+  "version": "1.0.0",
+  "extensions": [
+    {
+      "type": "backofficeEntryPoint",
+      "alias": "uKindForge.EntryPoint",
+      "js": "/App_Plugins/uKFSB/ukindforge-sitebuilder-backofficeui.js"
+    }
+  ]
+}
