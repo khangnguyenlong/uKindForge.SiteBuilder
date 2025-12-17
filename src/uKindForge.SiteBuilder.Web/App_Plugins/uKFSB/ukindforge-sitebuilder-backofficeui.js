@@ -88,7 +88,7 @@ const o = [
     type: "propertyEditorUi",
     alias: "uKindForge.PropertyEditorUi.TypographySettings",
     name: "Typography Settings Property Editor UI",
-    element: () => import("./property-editor-ui-typography-settings.element-Bmw42-02.js"),
+    element: () => import("./property-editor-ui-typography-settings.element-DF8AxlzT.js"),
     meta: {
       label: "Theme - Typography Settings",
       propertyEditorSchemaAlias: "Umbraco.Plain.Json",

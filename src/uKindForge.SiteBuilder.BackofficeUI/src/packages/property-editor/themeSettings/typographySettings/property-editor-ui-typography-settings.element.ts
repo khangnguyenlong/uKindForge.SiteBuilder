@@ -14,6 +14,7 @@ export default class TypographySettingsPropertyEditorUIElement
     extends UmbElementMixin((LitElement)) implements UmbPropertyEditorUiElement {
 
     private _fonts: SelectedFont[] = [];
+    private _availableFonts: SelectedFont[] = [];
 
     private _typography: TypographyModel = {
         h1: { font: null, size: 32, spacing: 0 },
@@ -30,7 +31,27 @@ export default class TypographySettingsPropertyEditorUIElement
         super.connectedCallback();
 
         this.addEventListener("ukf-font-change" as any, (e: CustomEvent) => {
-            this._fonts = e.detail as SelectedFont[];
+            this._fonts = Array.isArray(e.detail) ? e.detail : [];
+            this._availableFonts = this._fonts.filter(f => !!f.family && !!f.variant && !f.error);
+
+            const defaultFont = this._availableFonts[0] ?? null;
+
+            if (defaultFont) {
+                (Object.keys(this._typography) as TypographyKey[]).forEach((k) => {
+                    if (!this._typography[k].font) {
+                        this._typography[k].font = defaultFont;
+                    }
+                });
+            }
+
+            (Object.keys(this._typography) as TypographyKey[]).forEach((k) => {
+                const cur = this._typography[k].font;
+                if (!cur?.id) return;
+
+                const match = this._fonts.find(x => x.id === cur.id);
+                if (match) this._typography[k].font = match;
+            });
+
             this.requestUpdate();
         });
 
@@ -62,32 +83,48 @@ export default class TypographySettingsPropertyEditorUIElement
         `;
     }
 
-    #onFontSelect(event: UUISelectEvent, key: TypographyKey) {
-        const selectedFamily = event.target.value as string;
-        const found = this._fonts.find(f => f.family === selectedFamily);
-        this._typography[key].font = found ?? null;
+    #onFontSelect(e: UUISelectEvent, key: TypographyKey) {
+        e.stopPropagation();
+        const id = (e.target as unknown as { value: string }).value;
 
+        const found = this._availableFonts.find(f => f.id === id) ?? null;
+        this.#updateTypography(key, { font: found });
+    }
+
+    #updateTypography(key: TypographyKey, patch: Partial<TypographyModel[TypographyKey]>) {
+        this._typography = {
+            ...this._typography,
+            [key]: {
+                ...this._typography[key],
+                ...patch,
+            },
+        };
         this.requestUpdate();
     }
 
 
     #renderHeading(label: string, key: TypographyKey) {
-        //const defaultFont: SelectedFont | null = this._fonts[0] ?? null;
-        //const assignedFont: SelectedFont | null = this._typography[key].font ?? defaultFont;
+        const f = this._typography[key].font;
+        const accHeadingText = f ? `${label}: ${f.family} - ${f.category} - ${f.variant}` : label;
+
+        const selectedId = this._typography[key].font?.id ?? "";
+        const optionFonts = [...this._availableFonts];
+        const selectedFont = this._typography[key].font;
+        if (selectedFont && !optionFonts.some(f => f.id === selectedId)) optionFonts.unshift(selectedFont);
 
         return html`
-            <ukf-accordion heading="${label}">
+            <ukf-accordion heading="${accHeadingText}">
                 <div slot="content">
                 
                     <!-- FONT DROPDOWN -->
                     <ukf-control label="Choose Font">
                         <uui-select
                             slot="control"
-                            .options=${this._fonts.map(f => ({
-                                name: f.family,
-                                value: f.family,
-                                selected: f.family == this._typography["h1"].font?.family
-                            }))}
+                            .options=${optionFonts.map(f => ({
+            name: `${f.family} - ${f.category} - ${f.variant}`,
+            value: f.id,
+            selected: f.id === selectedId
+        }))}
                             @change=${(e: UUISelectEvent) => this.#onFontSelect(e, key)}
                         ></uui-select>
                     </ukf-control>
@@ -99,7 +136,11 @@ export default class TypographySettingsPropertyEditorUIElement
                             min="8"
                             max="128"
                             .value=${this._typography[key].size}
-                            @input=${(e: any) => this._typography[key].size = Number(e.target.value)}
+                            @input=${(e: any) => {
+                e.stopPropagation();
+                this.#updateTypography(key, { size: Number(e.target.value) });
+            }}
+
                         ></uui-slider>
                     </ukf-control>
 
@@ -110,7 +151,10 @@ export default class TypographySettingsPropertyEditorUIElement
                             min="0"
                             max="20"
                             .value=${this._typography[key].spacing}
-                            @input=${(e: any) => this._typography[key].spacing = Number(e.target.value)}
+                            @input=${(e: any) => {
+                e.stopPropagation();
+                this.#updateTypography(key, { spacing: Number(e.target.value) });
+            }}
                         ></uui-slider>
                     </ukf-control>
 

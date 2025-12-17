@@ -5,6 +5,7 @@ import type { GoogleFont, SelectedFont } from "./types";
 import "./ukf-font-item";
 import type { UmbNotificationContext } from '@umbraco-cms/backoffice/notification';
 import { UMB_NOTIFICATION_CONTEXT } from '@umbraco-cms/backoffice/notification';
+import { uuid } from "../../utils/uuid"
 
 @customElement("ukf-font-picker")
 export class UkfFontPicker extends UmbLitElement {
@@ -12,13 +13,18 @@ export class UkfFontPicker extends UmbLitElement {
   @property({ type: Boolean }) isDefaultValue = false;
 
   @state()
-  private selectedFonts: SelectedFont[] = [];
+  private selectedFonts: SelectedFont[] = [
+    {
+      id: uuid(),
+      family: "Roboto",
+      category: "sans-serif",
+      variant: "regular",
+      selected: true
+    },
+  ];
 
   @state()
   private fontList: GoogleFont[] = [];
-
-  // @state()
-  // private hasError: boolean = false
 
   #notificationContext?: UmbNotificationContext;
 
@@ -47,7 +53,7 @@ export class UkfFontPicker extends UmbLitElement {
     super.connectedCallback();
     this.loadFontJson();
 
-    if (this.isDefaultValue) this.addDefaultFont();
+    this.dispatchFontChange();
   }
 
   async loadFontJson() {
@@ -60,25 +66,12 @@ export class UkfFontPicker extends UmbLitElement {
     }
   }
 
-  private addDefaultFont() {
-    this.selectedFonts = [
-      ...this.selectedFonts,
-      {
-        family: "Roboto", 
-        category: "sans-serif",
-        variant: "regular",
-        selected: true
-      },
-    ];
-
-    this.dispatchFontChange();
-  }
-
   private addNewFont() {
     this.selectedFonts = [
       ...this.selectedFonts,
       {
-        family: "", 
+        id: uuid(),
+        family: "",
         category: "",
         variant: "regular",
         selected: true,

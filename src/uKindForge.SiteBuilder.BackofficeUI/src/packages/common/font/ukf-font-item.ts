@@ -27,29 +27,14 @@ export class UkfFontItem extends LitElement {
     }
   `;
 
-    /** 
-     * Get font object by font family 
-     */
-    private get selectedFontObj(): GoogleFont | undefined {
-        return this.fontList.find((f) => f.family === this.font.family);
-    }
-
     private get variants(): string[] {
         return this.selectedFontObj?.variants ?? [];
     }
 
-    //   private get category(): string {
-    //     return this.selectedFontObj?.category ?? "";
-    //   }
+    private get selectedFontObj(): GoogleFont | undefined {
+        return this.fontList.find((f) => `${f.family}` === `${this.font.family}`);
+    }
 
-    //   private get fontFileUrl(): string {
-    //     if (!this.font.variant) return "";
-    //     return this.selectedFontObj?.files[this.font.variant] ?? "";
-    //   }
-
-    /** 
-     * Load google font dynamically when variant changes
-     */
     private loadFont(family: string, url: string) {
         if (!family || !url) return;
 
@@ -73,9 +58,17 @@ export class UkfFontItem extends LitElement {
     }
 
     private emitChange(changed: Partial<SelectedFont>) {
+        const family = changed.family ?? this.font.family ?? "";
+        const category =
+            this.fontList.find((f) => `${f.family}` === `${family}`)?.category ??
+            this.font.category ??
+            "";
         this.dispatchEvent(
             new CustomEvent("font-change", {
-                detail: changed,
+                detail: {
+                    ...changed,
+                    category,
+                },
                 bubbles: true,
                 composed: true,
             })
@@ -83,12 +76,16 @@ export class UkfFontItem extends LitElement {
     }
 
     private onFamilyChange(value: string) {
-        this.emitChange({ family: value, variant: this.font.variant, error: !value });
+        this.emitChange({ 
+            family: value, 
+            variant: "regular", 
+            error: false
+        });
     }
 
     private onVariantChange(e: Event) {
         const variant = (e.target as HTMLSelectElement).value;
-        this.emitChange({ family: this.font.family, variant});
+        this.emitChange({ family: this.font.family, variant });
 
         // load font preview
         if (this.selectedFontObj) {
@@ -98,8 +95,9 @@ export class UkfFontItem extends LitElement {
     }
 
     render() {
+        const accordionLabel = `${this.font.family} - ${this.font.category} - ${this.font.variant}`;
         return html`
-        <ukf-accordion heading=${this.font.family || "Choose Font"} 
+        <ukf-accordion heading=${accordionLabel || "Choose Font"} 
         ?open=${this.font.selected}
         class=${this.font.error ? "error" : ""}
         >
@@ -109,10 +107,10 @@ export class UkfFontItem extends LitElement {
                 <ukf-select-search
                     slot="control"
                     .options=${this.fontList.map(f => ({
-                        label: `${f.family} - ${f.category}`,
-                        value: `${f.family}_${f.category}`,
-                        selected: `${this.font.family}_${this.font.variant}` === `${f.family}_${f.category}`
-                    }))}
+            label: `${f.family} - ${f.category}`,
+            value: `${f.family}`,
+            selected: `${this.font.family}` === `${f.family}`
+        }))}
                     .value=${this.font.family}
                     @change=${(e: CustomEvent) => this.onFamilyChange(e.detail)}
                 ></ukf-select-search>
@@ -127,10 +125,10 @@ export class UkfFontItem extends LitElement {
                         slot="control"
                         @change=${this.onVariantChange}
                         .options=${this.variants.map((v) => ({
-                            name: v,
-                            value: v,
-                            selected: this.font.variant === v
-                        }))}
+                    name: v,
+                    value: v,
+                    selected: this.font.variant === v
+                }))}
                     >
                     </uui-select>
                 </ukf-control>

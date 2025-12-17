@@ -8,6 +8,7 @@ export interface GoogleFont {
 }
 
 export interface SelectedFont {
+  id: string;
   family: string;
   variant: string;
   category: string;
