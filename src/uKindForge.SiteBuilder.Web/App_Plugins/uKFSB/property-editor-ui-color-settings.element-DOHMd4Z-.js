@@ -1,8 +1,80 @@
-import { html as a, css as T, customElement as x } from "@umbraco-cms/backoffice/external/lit";
-import { UmbLitElement as H } from "@umbraco-cms/backoffice/lit-element";
-import "./ukf-color-group-CvM34Won.js";
-import "./color-style-tab-preview-ogm2XtWZ.js";
-const p = [
+import { LitElement as S, html as a, css as k, customElement as b } from "@umbraco-cms/backoffice/external/lit";
+import { UmbLitElement as g } from "@umbraco-cms/backoffice/lit-element";
+import { n as v, t as P } from "./ukf-color-group-CvM34Won.js";
+import "./ukf-footer-B3pvJtI1.js";
+var _ = Object.defineProperty, M = Object.getOwnPropertyDescriptor, s = (e, r, o, i) => {
+  for (var t = i > 1 ? void 0 : i ? M(r, o) : r, n = e.length - 1, d; n >= 0; n--)
+    (d = e[n]) && (t = (i ? d(r, o, t) : d(t)) || t);
+  return i && t && _(r, o, t), t;
+};
+let u = class extends S {
+  constructor() {
+    super(...arguments), this.kicker = "Section", this.heading = "Build fast. Customize deeply.", this.description = "This section previews heading typography, paragraph typography, spacing, and button styles.";
+  }
+  createRenderRoot() {
+    return this;
+  }
+  render() {
+    return a`
+      <section class="ukf-section">
+        <div class="ukf-card ukf-section__inner">
+          <div class="ukf-kicker">${this.kicker}</div>
+          <div class="ukf-h1">${this.heading}</div>
+          <p class="ukf-muted" style="margin:0">${this.description}</p>
+
+          <div style="height: calc(var(--ukf-space) * 2)"></div>
+
+          <div class="ukf-btn-row">
+            <button class="ukf-btn ukf-btn--primary" type="button">Primary CTA</button>
+            <button class="ukf-btn ukf-btn--secondary" type="button">Secondary CTA</button>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+};
+s([
+  v({ type: String })
+], u.prototype, "kicker", 2);
+s([
+  v({ type: String })
+], u.prototype, "heading", 2);
+s([
+  v({ type: String })
+], u.prototype, "description", 2);
+u = s([
+  P("ukf-section")
+], u);
+var I = Object.getOwnPropertyDescriptor, L = (e, r, o, i) => {
+  for (var t = i > 1 ? void 0 : i ? I(r, o) : r, n = e.length - 1, d; n >= 0; n--)
+    (d = e[n]) && (t = d(t) || t);
+  return t;
+};
+let B = class extends g {
+  render() {
+    return a`
+            <div>
+                <ukf-header></ukf-header>
+                <ukf-footer></ukf-footer>
+                <ukf-section></ukf-section>
+                <ukf-section></ukf-section>
+                <ukf-section></ukf-section>
+                <ukf-section></ukf-section>
+                <ukf-section></ukf-section>
+            </div>
+        `;
+  }
+};
+B.styles = k`
+        :host {
+            display: block;
+            padding: var(--uui-box-default-padding, var(--uui-size-space-5, 18px));
+        }
+    `;
+B = L([
+  b("color-tab-preview")
+], B);
+const N = [
   {
     name: "Primary",
     items: [
@@ -50,7 +122,7 @@ const p = [
       { id: "SemanticInformation", label: "Information" }
     ]
   }
-], y = [
+], O = [
   {
     name: "Frame",
     items: [
@@ -113,7 +185,7 @@ const p = [
       { id: "HambergerText", label: "Text" }
     ]
   }
-], h = [
+], $ = [
   {
     name: "Background",
     items: [
@@ -162,7 +234,7 @@ const p = [
       { id: "BadgeBackground", label: "Background" }
     ]
   }
-], S = [
+], w = [
   {
     name: "Background",
     items: [
@@ -212,93 +284,93 @@ const p = [
     ]
   }
 ];
-var f = Object.getOwnPropertyDescriptor, B = (e) => {
+var D = Object.getOwnPropertyDescriptor, p = (e) => {
   throw TypeError(e);
-}, M = (e, r, t, c) => {
-  for (var d = c > 1 ? void 0 : c ? f(r, t) : r, i = e.length - 1, u; i >= 0; i--)
-    (u = e[i]) && (d = u(d) || d);
-  return d;
-}, P = (e, r, t) => r.has(e) || B("Cannot " + t), I = (e, r, t) => r.has(e) ? B("Cannot add the same private member more than once") : r instanceof WeakSet ? r.add(e) : r.set(e, t), n = (e, r, t) => (P(e, r, "access private method"), t), o, m, s, b, g, v, k;
-let l = class extends H {
+}, C = (e, r, o, i) => {
+  for (var t = i > 1 ? void 0 : i ? D(r, o) : r, n = e.length - 1, d; n >= 0; n--)
+    (d = e[n]) && (t = d(t) || t);
+  return t;
+}, E = (e, r, o) => r.has(e) || p("Cannot " + o), F = (e, r, o) => r.has(e) ? p("Cannot add the same private member more than once") : r instanceof WeakSet ? r.add(e) : r.set(e, o), c = (e, r, o) => (E(e, r, "access private method"), o), l, T, f, x, y, H, h;
+let m = class extends g {
   constructor() {
-    super(...arguments), I(this, o);
+    super(...arguments), F(this, l);
   }
   render() {
     return a`
-        <umb-split-panel class="tab-content">
+        <umb-split-panel class="tab-content" position="30%">
             <div slot="start">
-                ${n(this, o, m).call(this)}
-                ${n(this, o, s).call(this)}                            
+                ${c(this, l, T).call(this)}
+                ${c(this, l, f).call(this)}                            
             </div>
             <div slot="end">
-                <color-style-tab-preview></color-style-tab-preview>
+                <color-tab-preview></color-tab-preview>
             </div>
         </umb-split-panel>
         `;
   }
 };
-o = /* @__PURE__ */ new WeakSet();
-m = function() {
+l = /* @__PURE__ */ new WeakSet();
+T = function() {
   return a`
             <ukf-accordion heading="Color Palette">
                 <div slot="content" class="accordion-content">
-                    ${p.map(
+                    ${N.map(
     (e) => a` <ukf-color-group .headline=${e.name} .items=${e.items}></ukf-color-group> `
   )}
                 </div>
             </ukf-accordion>
         `;
 };
-s = function() {
+f = function() {
   return a`
             <ukf-accordion heading="Color Tokens">
                 <div slot="content">
-                    ${n(this, o, b).call(this)}
-                    ${n(this, o, g).call(this)}
-                    ${n(this, o, v).call(this)}
+                    ${c(this, l, x).call(this)}
+                    ${c(this, l, y).call(this)}
+                    ${c(this, l, H).call(this)}
                 </div>
             </ukf-accordion>
         `;
 };
-b = function() {
+x = function() {
   return a`        
         <ukf-accordion heading="Header Tokens">
             <div slot="content" class="accordion-content">
-                ${y.map(
+                ${O.map(
     (e) => a` <ukf-color-group .headline=${e.name} .items=${e.items}></ukf-color-group> `
   )}
             </div>
         </ukf-accordion>
         `;
 };
-g = function() {
+y = function() {
   return a`        
         <ukf-accordion heading="Footer Tokens">
             <div slot="content" class="accordion-content">
-                ${h.map(
+                ${$.map(
     (e) => a` <ukf-color-group .headline=${e.name} .items=${e.items}></ukf-color-group> `
   )}
             </div>
         </ukf-accordion>
         `;
 };
-v = function() {
+H = function() {
   return a`
-            ${[1, 2, 3, 4, 5].map((e) => n(this, o, k).call(this, e))}
+            ${[1, 2, 3, 4, 5].map((e) => c(this, l, h).call(this, e))}
         `;
 };
-k = function(e) {
+h = function(e) {
   return a`        
         <ukf-accordion heading="Section Tokens #${e}">
             <div slot="content" class="accordion-content">
-                ${S.map(
+                ${w.map(
     (r) => a` <ukf-color-group .headline=${r.name} .items=${r.items}></ukf-color-group> `
   )}
             </div>
         </ukf-accordion>
         `;
 };
-l.styles = T`
+m.styles = k`
         :host {
             display: block;
             padding: 0;
@@ -319,10 +391,10 @@ l.styles = T`
             flex: 1 1 280px;
         }
     `;
-l = M([
-  x("ukindforge-color-settings-property-editor-ui")
-], l);
+m = C([
+  b("ukindforge-color-settings-property-editor-ui")
+], m);
 export {
-  l as default
+  m as default
 };
-//# sourceMappingURL=property-editor-ui-color-settings.element-BzlP3vXk.js.map
+//# sourceMappingURL=property-editor-ui-color-settings.element-DOHMd4Z-.js.map

@@ -1,22 +1,22 @@
-import { html as a, css as T, customElement as L } from "@umbraco-cms/backoffice/external/lit";
-import { UmbLitElement as b } from "@umbraco-cms/backoffice/lit-element";
-import { i as g, n as h, a as y, t as m } from "./ukf-color-group-CvM34Won.js";
+import { LitElement as m, html as s, css as I, property as D, customElement as j, state as U } from "@umbraco-cms/backoffice/external/lit";
+import { UmbLitElement as S } from "@umbraco-cms/backoffice/lit-element";
+import { i as $, n as c, a as E, t as d } from "./ukf-color-group-CvM34Won.js";
 import "./ukf-control-DNNEwrXp.js";
-import { x as k } from "./lit-html-D3bFBl2C.js";
-import "./color-style-tab-preview-ogm2XtWZ.js";
-import { UmbChangeEvent as j } from "@umbraco-cms/backoffice/event";
-import { UmbTextStyles as I } from "@umbraco-cms/backoffice/style";
-var W = Object.defineProperty, F = Object.getOwnPropertyDescriptor, x = (o, t, l, r) => {
-  for (var e = r > 1 ? void 0 : r ? F(t, l) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (r ? n(t, l, e) : n(e)) || e);
-  return r && e && W(t, l, e), e;
+import { x as w } from "./lit-html-D3bFBl2C.js";
+import "./ukf-footer-B3pvJtI1.js";
+import { UmbChangeEvent as K } from "@umbraco-cms/backoffice/event";
+import { UmbTextStyles as Q } from "@umbraco-cms/backoffice/style";
+var tt = Object.defineProperty, et = Object.getOwnPropertyDescriptor, z = (o, t, r, l) => {
+  for (var e = l > 1 ? void 0 : l ? et(t, r) : t, i = o.length - 1, n; i >= 0; i--)
+    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
+  return l && e && tt(t, r, e), e;
 };
-let c = class extends y {
+let v = class extends E {
   constructor() {
     super(...arguments), this.headline = "";
   }
   render() {
-    return k`
+    return w`
       <uui-box .headline=${this.headline}>
         <div class="grid" style="grid">
           <slot name="controls"></slot>
@@ -25,7 +25,7 @@ let c = class extends y {
     `;
   }
 };
-c.styles = g`
+v.styles = $`
     uui-box {
       --uui-box-header-padding: 0;
       --uui-box-default-padding: 0;
@@ -39,26 +39,191 @@ c.styles = g`
       gap: 12px;
     }
   `;
-x([
-  h({ type: String })
-], c.prototype, "headline", 2);
-c = x([
-  m("ukf-control-group")
-], c);
-var H = Object.defineProperty, M = Object.getOwnPropertyDescriptor, _ = (o) => {
-  throw TypeError(o);
-}, S = (o, t, l, r) => {
-  for (var e = r > 1 ? void 0 : r ? M(t, l) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (r ? n(t, l, e) : n(e)) || e);
-  return r && e && H(t, l, e), e;
-}, R = (o, t, l) => t.has(o) || _("Cannot " + l), A = (o, t, l) => t.has(o) ? _("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(o) : t.set(o, l), G = (o, t, l) => (R(o, t, "access private method"), l), p, w;
-let d = class extends b {
+z([
+  c({ type: String })
+], v.prototype, "headline", 2);
+v = z([
+  d("ukf-control-group")
+], v);
+var ot = Object.defineProperty, rt = Object.getOwnPropertyDescriptor, R = (o, t, r, l) => {
+  for (var e = l > 1 ? void 0 : l ? rt(t, r) : t, i = o.length - 1, n; i >= 0; i--)
+    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
+  return l && e && ot(t, r, e), e;
+};
+let y = class extends m {
   constructor() {
-    super(...arguments), A(this, p), this.value = "sm";
+    super(...arguments), this.title = "Buttons";
+  }
+  createRenderRoot() {
+    return this;
   }
   render() {
-    return k`
-			<uui-radio-group @input=${G(this, p, w)} value=${this.value}>
+    return s`
+      <div class="ukf-card">
+        <div class="ukf-block-title">${this.title}</div>
+
+        <div class="ukf-btn-row">
+          <button class="ukf-btn ukf-btn--primary" type="button">Primary</button>
+          <button class="ukf-btn ukf-btn--secondary" type="button">Secondary</button>
+        </div>
+      </div>
+    `;
+  }
+};
+R([
+  c({ type: String })
+], y.prototype, "title", 2);
+y = R([
+  d("ukf-button")
+], y);
+var lt = Object.defineProperty, it = Object.getOwnPropertyDescriptor, B = (o, t, r, l) => {
+  for (var e = l > 1 ? void 0 : l ? it(t, r) : t, i = o.length - 1, n; i >= 0; i--)
+    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
+  return l && e && lt(t, r, e), e;
+};
+let k = class extends m {
+  constructor() {
+    super(...arguments), this.title = "Image";
+  }
+  createRenderRoot() {
+    return this;
+  }
+  render() {
+    return s`
+      <div class="ukf-card">
+        <div class="ukf-block-title">${this.title}</div>
+
+        <div class="ukf-media">
+          <div class="ukf-media__ph">Image Placeholder (16:9)</div>
+        </div>
+      </div>
+    `;
+  }
+};
+B([
+  c({ type: String })
+], k.prototype, "title", 2);
+k = B([
+  d("ukf-image")
+], k);
+var nt = Object.defineProperty, ut = Object.getOwnPropertyDescriptor, T = (o, t, r, l) => {
+  for (var e = l > 1 ? void 0 : l ? ut(t, r) : t, i = o.length - 1, n; i >= 0; i--)
+    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
+  return l && e && nt(t, r, e), e;
+};
+let _ = class extends m {
+  constructor() {
+    super(...arguments), this.title = "Video";
+  }
+  createRenderRoot() {
+    return this;
+  }
+  render() {
+    return s`
+      <div class="ukf-card">
+        <div class="ukf-block-title">${this.title}</div>
+
+        <div class="ukf-media">
+          <div class="ukf-media__ph">Video Placeholder (16:9)</div>
+        </div>
+      </div>
+    `;
+  }
+};
+T([
+  c({ type: String })
+], _.prototype, "title", 2);
+_ = T([
+  d("ukf-video")
+], _);
+var st = Object.defineProperty, at = Object.getOwnPropertyDescriptor, P = (o, t, r, l) => {
+  for (var e = l > 1 ? void 0 : l ? at(t, r) : t, i = o.length - 1, n; i >= 0; i--)
+    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
+  return l && e && st(t, r, e), e;
+};
+let h = class extends m {
+  constructor() {
+    super(...arguments), this.title = "Card Title", this.text = "Sample card content to preview typography, spacing, border and shadow.";
+  }
+  createRenderRoot() {
+    return this;
+  }
+  render() {
+    return s`
+      <div class="ukf-card">
+        <div class="ukf-h3">${this.title}</div>
+        <p class="ukf-muted" style="margin:0">${this.text}</p>
+
+        <div style="height: var(--ukf-space)"></div>
+
+        <div class="ukf-btn-row">
+          <button class="ukf-btn ukf-btn--primary" type="button">Action</button>
+          <button class="ukf-btn ukf-btn--secondary" type="button">Learn more</button>
+        </div>
+      </div>
+    `;
+  }
+};
+P([
+  c({ type: String })
+], h.prototype, "title", 2);
+P([
+  c({ type: String })
+], h.prototype, "text", 2);
+h = P([
+  d("ukf-card")
+], h);
+var ct = Object.defineProperty, dt = Object.getOwnPropertyDescriptor, O = (o, t, r, l) => {
+  for (var e = l > 1 ? void 0 : l ? dt(t, r) : t, i = o.length - 1, n; i >= 0; i--)
+    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
+  return l && e && ct(t, r, e), e;
+};
+let f = class extends S {
+  constructor() {
+    super(...arguments), this.headerStyleId = "style-1", this.footerStyleId = "style-1";
+  }
+  render() {
+    return s`
+            <div>
+                <ukf-header .styleId=${this.headerStyleId}></ukf-header>
+                <ukf-footer .styleId=${this.footerStyleId}></ukf-footer>
+                <ukf-button></ukf-button>
+                <ukf-image></ukf-image>
+                <ukf-video></ukf-video>
+                <ukf-card></ukf-card>
+            </div>
+        `;
+  }
+};
+f.styles = I`
+        :host {
+            display: block;
+            padding: var(--uui-box-default-padding, var(--uui-size-space-5, 18px));
+        }
+    `;
+O([
+  D({ type: String })
+], f.prototype, "headerStyleId", 2);
+O([
+  D({ type: String })
+], f.prototype, "footerStyleId", 2);
+f = O([
+  j("style-tab-preview")
+], f);
+var ft = Object.defineProperty, pt = Object.getOwnPropertyDescriptor, L = (o) => {
+  throw TypeError(o);
+}, V = (o, t, r, l) => {
+  for (var e = l > 1 ? void 0 : l ? pt(t, r) : t, i = o.length - 1, n; i >= 0; i--)
+    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
+  return l && e && ft(t, r, e), e;
+}, vt = (o, t, r) => t.has(o) || L("Cannot " + r), ht = (o, t, r) => t.has(o) ? L("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(o) : t.set(o, r), gt = (o, t, r) => (vt(o, t, "access private method"), r), x, W;
+let g = class extends S {
+  constructor() {
+    super(...arguments), ht(this, x), this.value = "sm";
+  }
+  render() {
+    return w`
+			<uui-radio-group @input=${gt(this, x, W)} value=${this.value}>
         <uui-radio name="size" label="Small" value="sm"></uui-radio>
         <uui-radio name="size" label="Medium" value="md"></uui-radio>
         <uui-radio name="size" label="Large" value="lg"></uui-radio>
@@ -66,13 +231,13 @@ let d = class extends b {
 		`;
   }
 };
-p = /* @__PURE__ */ new WeakSet();
-w = function(o) {
-  this.value = o.target.value, this.dispatchEvent(new j());
+x = /* @__PURE__ */ new WeakSet();
+W = function(o) {
+  this.value = o.target.value, this.dispatchEvent(new K());
 };
-d.styles = [
-  I,
-  g`
+g.styles = [
+  Q,
+  $`
 			uui-radio-group {
 				display: flex;
 				flex-direction: row;
@@ -80,18 +245,18 @@ d.styles = [
 			}
 		`
 ];
-S([
-  h()
-], d.prototype, "value", 2);
-d = S([
-  m("ukf-size")
-], d);
-var V = Object.defineProperty, N = Object.getOwnPropertyDescriptor, $ = (o, t, l, r) => {
-  for (var e = r > 1 ? void 0 : r ? N(t, l) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (r ? n(t, l, e) : n(e)) || e);
-  return r && e && V(t, l, e), e;
+V([
+  c()
+], g.prototype, "value", 2);
+g = V([
+  d("ukf-size")
+], g);
+var bt = Object.defineProperty, mt = Object.getOwnPropertyDescriptor, F = (o, t, r, l) => {
+  for (var e = l > 1 ? void 0 : l ? mt(t, r) : t, i = o.length - 1, n; i >= 0; i--)
+    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
+  return l && e && bt(t, r, e), e;
 };
-let f = class extends y {
+let b = class extends E {
   constructor() {
     super(...arguments), this.value = {
       top: !1,
@@ -104,8 +269,8 @@ let f = class extends y {
     this.value = { ...this.value, [o]: !this.value[o] }, this.dispatchEvent(new CustomEvent("change", { detail: this.value }));
   }
   render() {
-    const { top: o, right: t, bottom: l, left: r } = this.value;
-    return k`
+    const { top: o, right: t, bottom: r, left: l } = this.value;
+    return w`
       <div class="grid">
         <div></div>
 
@@ -116,7 +281,7 @@ let f = class extends y {
         <div></div>
 
         <button @click=${() => this.toggle("left")}>
-          <div class="line left ${r ? "active" : ""}"></div>
+          <div class="line left ${l ? "active" : ""}"></div>
         </button>
 
         <div></div>
@@ -128,7 +293,7 @@ let f = class extends y {
         <div></div>
 
         <button @click=${() => this.toggle("bottom")}>
-          <div class="line bottom ${l ? "active" : ""}"></div>
+          <div class="line bottom ${r ? "active" : ""}"></div>
         </button>
 
         <div></div>
@@ -136,7 +301,7 @@ let f = class extends y {
     `;
   }
 };
-f.styles = g`
+b.styles = $`
     :host {
       display: inline-flex;
       padding: var(--uui-size-space-3);
@@ -208,43 +373,47 @@ f.styles = g`
       grid-row: 2;
     }
   `;
-$([
-  h({ type: Object })
-], f.prototype, "value", 2);
-f = $([
-  m("ukf-border-position")
-], f);
-var X = Object.getOwnPropertyDescriptor, O = (o) => {
+F([
+  c({ type: Object })
+], b.prototype, "value", 2);
+b = F([
+  d("ukf-border-position")
+], b);
+var yt = Object.defineProperty, kt = Object.getOwnPropertyDescriptor, H = (o) => {
   throw TypeError(o);
-}, Y = (o, t, l, r) => {
-  for (var e = r > 1 ? void 0 : r ? X(t, l) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = n(e) || e);
-  return e;
-}, Z = (o, t, l) => t.has(o) || O("Cannot " + l), q = (o, t, l) => t.has(o) ? O("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(o) : t.set(o, l), s = (o, t, l) => (Z(o, t, "access private method"), l), u, P, C, E, z, U, B, D;
-let v = class extends b {
+}, C = (o, t, r, l) => {
+  for (var e = l > 1 ? void 0 : l ? kt(t, r) : t, i = o.length - 1, n; i >= 0; i--)
+    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
+  return l && e && yt(t, r, e), e;
+}, _t = (o, t, r) => t.has(o) || H("Cannot " + r), xt = (o, t, r) => t.has(o) ? H("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(o) : t.set(o, r), a = (o, t, r) => (_t(o, t, "access private method"), r), u, M, A, G, N, X, Y, Z, q, J;
+let p = class extends S {
   constructor() {
-    super(...arguments), q(this, u);
+    super(...arguments), xt(this, u), this._headerStyleId = "style-1", this._footerStyleId = "style-1";
   }
   render() {
-    return a`
-        <umb-split-panel class="tab-content">
+    return s`
+        <umb-split-panel class="tab-content" position="30%">
             <div slot="start">
-                ${s(this, u, C).call(this)}
-                ${s(this, u, U).call(this)}
-                ${s(this, u, P).call(this)}                          
-                ${s(this, u, B).call(this)}
-                ${s(this, u, D).call(this)}
+                ${a(this, u, A).call(this)}
+                ${a(this, u, Z).call(this)}
+                ${a(this, u, M).call(this)}                          
+                ${a(this, u, q).call(this)}
+                ${a(this, u, J).call(this)}
             </div>
             <div slot="end">
-                <color-style-tab-preview></color-style-tab-preview>
+                <style-tab-preview
+                    .headerStyleId=${this._headerStyleId}                
+                    .footerStyleId=${this._footerStyleId}
+                >
+                </style-tab-preview>
             </div>
         </umb-split-panel>
         `;
   }
 };
 u = /* @__PURE__ */ new WeakSet();
-P = function() {
-  return a`
+M = function() {
+  return s`
             <ukf-accordion heading="Common">
                 <div slot="content" class="accordion-content">
                     <ukf-control label="Rounded">
@@ -260,14 +429,17 @@ P = function() {
             </ukf-accordion>
         `;
 };
-C = function() {
-  return a`
+A = function() {
+  return s`
             <ukf-accordion heading="Header">
                 <div slot="content" class="accordion-content">
                     <ukf-control-group headline="Layout">
                         <div slot="controls">
                             <ukf-control label="Style">
-                                <uui-select slot="control" .options="${s(this, u, E).call(this)}">
+                                <uui-select slot="control" 
+                                    .options="${a(this, u, G).call(this)}"
+                                    @change=${a(this, u, X)}
+                                >
                                 </uui-select>
                             </ukf-control>
                             <ukf-control label="Transparency">
@@ -308,64 +480,41 @@ C = function() {
             </ukf-accordion>
         `;
 };
-E = function() {
-  return [
-    {
-      name: "Style 1",
-      value: "style1",
-      selected: !0
-    },
-    {
-      name: "Style 2",
-      value: "style2"
-    },
-    {
-      name: "Style 3",
-      value: "style3"
-    },
-    {
-      name: "Style 4",
-      value: "style4"
-    },
-    {
-      name: "Style 5",
-      value: "style5"
-    }
-  ];
+G = function() {
+  return ["style-1", "style-2", "style-3", "style-4", "style-5"].map((t) => ({
+    name: t.replace("-", " ").toUpperCase(),
+    value: t,
+    selected: t === this._headerStyleId
+  }));
 };
-z = function() {
-  return [
-    {
-      name: "Style 1",
-      value: "style1",
-      selected: !0
-    },
-    {
-      name: "Style 2",
-      value: "style2"
-    },
-    {
-      name: "Style 3",
-      value: "style3"
-    },
-    {
-      name: "Style 4",
-      value: "style4"
-    },
-    {
-      name: "Style 5",
-      value: "style5"
-    }
-  ];
+N = function() {
+  return ["style-1", "style-2", "style-3", "style-4", "style-5"].map((t) => ({
+    name: t.replace("-", " ").toUpperCase(),
+    value: t,
+    selected: t === this._footerStyleId
+  }));
 };
-U = function() {
-  return a`
+X = function(o) {
+  o.stopPropagation();
+  const t = o.target.value;
+  this._headerStyleId = t;
+};
+Y = function(o) {
+  o.stopPropagation();
+  const t = o.target.value;
+  this._footerStyleId = t;
+};
+Z = function() {
+  return s`
             <ukf-accordion heading="Footer">
                 <div slot="content">
                     <ukf-control-group headline="Layout">
                         <div slot="controls">
                             <ukf-control label="Style">
-                                <uui-select slot="control" .options="${s(this, u, z).call(this)}">
+                                <uui-select slot="control" 
+                                    .options="${a(this, u, N).call(this)}"
+                                    @change=${a(this, u, Y)}
+                                >
                                 </uui-select>
                             </ukf-control>
                             <ukf-control label="Transparency">
@@ -383,8 +532,8 @@ U = function() {
             </ukf-accordion>
         `;
 };
-B = function() {
-  return a`
+q = function() {
+  return s`
             <ukf-accordion heading="Button">
                 <div slot="content">
                     <ukf-control-group headline="Primary">
@@ -424,8 +573,8 @@ B = function() {
             </ukf-accordion>
         `;
 };
-D = function() {
-  return a`
+J = function() {
+  return s`
             <ukf-accordion heading="Card/Image/Video">
                 <div slot="content">
                     <ukf-control label="Zoom on hover">
@@ -458,7 +607,7 @@ D = function() {
             </ukf-accordion>
         `;
 };
-v.styles = T`
+p.styles = I`
         :host {
             display: block;
             padding: 0;
@@ -475,10 +624,16 @@ v.styles = T`
             flex: 1 1 280px;
         }
     `;
-v = Y([
-  L("ukindforge-style-settings-property-editor-ui")
-], v);
+C([
+  U()
+], p.prototype, "_headerStyleId", 2);
+C([
+  U()
+], p.prototype, "_footerStyleId", 2);
+p = C([
+  j("ukindforge-style-settings-property-editor-ui")
+], p);
 export {
-  v as default
+  p as default
 };
-//# sourceMappingURL=property-editor-ui-style-settings.element-a5Ng_FUK.js.map
+//# sourceMappingURL=property-editor-ui-style-settings.element-Bm8sRI4V.js.map

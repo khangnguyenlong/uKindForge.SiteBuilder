@@ -1,7 +1,7 @@
 import { css as H, property as Z, customElement as U, html as $, LitElement as Q } from "@umbraco-cms/backoffice/external/lit";
 import { i as P, n as g, r as k, a as j, t as O } from "./ukf-color-group-CvM34Won.js";
 import { UmbLitElement as q } from "@umbraco-cms/backoffice/lit-element";
-import { x as h } from "./lit-html-D3bFBl2C.js";
+import { x as p } from "./lit-html-D3bFBl2C.js";
 import "./ukf-control-DNNEwrXp.js";
 import { UMB_NOTIFICATION_CONTEXT as Y } from "@umbraco-cms/backoffice/notification";
 import { UmbElementMixin as tt } from "@umbraco-cms/backoffice/element-api";
@@ -11,17 +11,17 @@ const A = Symbol.for(""), et = (e) => {
   const o = a.length;
   let i, s;
   const n = [], r = [];
-  let C, p = 0, T = !1;
-  for (; p < o; ) {
-    for (C = t[p]; p < o && (s = a[p], (i = et(s)) !== void 0); ) C += i + t[++p], T = !0;
-    p !== o && r.push(s), n.push(C), p++;
+  let C, h = 0, T = !1;
+  for (; h < o; ) {
+    for (C = t[h]; h < o && (s = a[h], (i = et(s)) !== void 0); ) C += i + t[++h], T = !0;
+    h !== o && r.push(s), n.push(C), h++;
   }
-  if (p === o && n.push(t[o]), T) {
+  if (h === o && n.push(t[o]), T) {
     const z = n.join("$$lit$$");
     (t = L.get(z)) === void 0 && (n.raw = n, L.set(z, t = n)), a = r;
   }
   return e(t, ...a);
-}, ot = it(h);
+}, ot = it(p);
 var st = Object.defineProperty, nt = Object.getOwnPropertyDescriptor, N = (e) => {
   throw TypeError(e);
 }, W = (e, t, a, o) => {
@@ -78,12 +78,12 @@ W([
 f = W([
   U("typography-tab-preview")
 ], f);
-var ht = Object.defineProperty, pt = Object.getOwnPropertyDescriptor, M = (e) => {
+var pt = Object.defineProperty, ht = Object.getOwnPropertyDescriptor, M = (e) => {
   throw TypeError(e);
 }, v = (e, t, a, o) => {
-  for (var i = o > 1 ? void 0 : o ? pt(t, a) : t, s = e.length - 1, n; s >= 0; s--)
+  for (var i = o > 1 ? void 0 : o ? ht(t, a) : t, s = e.length - 1, n; s >= 0; s--)
     (n = e[s]) && (i = (o ? n(t, a, i) : n(i)) || i);
-  return o && i && ht(t, a, i), i;
+  return o && i && pt(t, a, i), i;
 }, dt = (e, t, a) => t.has(e) || M("Cannot " + a), D = (e, t, a) => (dt(e, t, "read from private field"), a ? a.call(e) : t.get(e)), ut = (e, t, a) => t.has(e) ? M("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(e) : t.set(e, a), _;
 let u = class extends j {
   constructor() {
@@ -115,7 +115,7 @@ let u = class extends j {
   }
   render() {
     const e = this.options.find((t) => t.value === this.value)?.label || "Select...";
-    return h`
+    return p`
       <uui-input
         .value=${this.open ? this.query : e}
         placeholder=${this.open ? "Search..." : ""}
@@ -126,10 +126,10 @@ let u = class extends j {
     }}
       ></uui-input>
 
-      ${this.open ? h`
+      ${this.open ? p`
             <div class="dropdown">
-              ${this.filtered.length === 0 ? h`<div class="item" style="opacity:.6">No items found</div>` : this.filtered.map(
-      (t) => h`
+              ${this.filtered.length === 0 ? p`<div class="item" style="opacity:.6">No items found</div>` : this.filtered.map(
+      (t) => p`
                       <div class="item" @click=${() => this.onSelect(t)}>
                         ${t.label}
                       </div>
@@ -250,7 +250,7 @@ let m = class extends j {
   }
   render() {
     const e = `${this.font.family} - ${this.font.category} - ${this.font.variant}`;
-    return h`
+    return p`
         <ukf-accordion heading=${e || "Choose Font"} 
         ?open=${this.font.selected}
         class=${this.font.error ? "error" : ""}
@@ -272,7 +272,7 @@ let m = class extends j {
             </ukf-control>
 
             <!-- Variant -->
-            ${this.font.family ? h`
+            ${this.font.family ? p`
                 <ukf-control label="Variant">
                     <uui-select
                         slot="control"
@@ -288,7 +288,7 @@ let m = class extends j {
                 ` : ""}
 
             <!-- Preview -->
-            ${this.font.family && this.font.variant ? h`
+            ${this.font.family && this.font.variant ? p`
                 <div
                 class="preview"
                 style="font-family: '${this.font.family}', sans-serif;"
@@ -396,10 +396,10 @@ let y = class extends q {
     );
   }
   render() {
-    return h`
+    return p`
       <div class="list">
         ${this.selectedFonts.map(
-      (e, t) => h`
+      (e, t) => p`
             <ukf-font-item
               .font=${e}
               .fontList=${this.fontList}
@@ -485,7 +485,7 @@ let E = class extends tt(Q) {
   }
   render() {
     return $`
-        <umb-split-panel class="tab-content">
+        <umb-split-panel class="tab-content" position="40%">
             <div slot="start">
                 ${c(this, l, J).call(this)}
                 ${c(this, l, K).call(this)}                        
@@ -607,4 +607,4 @@ E = Ft([
 export {
   E as default
 };
-//# sourceMappingURL=property-editor-ui-typography-settings.element-DF8AxlzT.js.map
+//# sourceMappingURL=property-editor-ui-typography-settings.element-Cxix495j.js.map

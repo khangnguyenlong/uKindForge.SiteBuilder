@@ -73,7 +73,7 @@ const o = [
     type: "propertyEditorUi",
     alias: "uKindForge.PropertyEditorUi.ColorSettings",
     name: "Color Settings Property Editor UI",
-    element: () => import("./property-editor-ui-color-settings.element-BzlP3vXk.js"),
+    element: () => import("./property-editor-ui-color-settings.element-DOHMd4Z-.js"),
     meta: {
       label: "Theme - Color Settings",
       propertyEditorSchemaAlias: "Umbraco.Plain.Json",
@@ -88,7 +88,7 @@ const o = [
     type: "propertyEditorUi",
     alias: "uKindForge.PropertyEditorUi.TypographySettings",
     name: "Typography Settings Property Editor UI",
-    element: () => import("./property-editor-ui-typography-settings.element-DF8AxlzT.js"),
+    element: () => import("./property-editor-ui-typography-settings.element-Cxix495j.js"),
     meta: {
       label: "Theme - Typography Settings",
       propertyEditorSchemaAlias: "Umbraco.Plain.Json",
@@ -103,7 +103,7 @@ const o = [
     type: "propertyEditorUi",
     alias: "uKindForge.PropertyEditorUi.StyleSettings",
     name: "Style Settings Property Editor UI",
-    element: () => import("./property-editor-ui-style-settings.element-a5Ng_FUK.js"),
+    element: () => import("./property-editor-ui-style-settings.element-Bm8sRI4V.js"),
     meta: {
       label: "Theme - Style Settings",
       propertyEditorSchemaAlias: "Umbraco.Plain.Json",

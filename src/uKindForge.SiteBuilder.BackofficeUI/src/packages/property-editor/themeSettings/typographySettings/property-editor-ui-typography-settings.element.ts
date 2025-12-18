@@ -169,7 +169,7 @@ export default class TypographySettingsPropertyEditorUIElement
 
     override render() {
         return html`
-        <umb-split-panel class="tab-content">
+        <umb-split-panel class="tab-content" position="40%">
             <div slot="start">
                 ${this.#renderFontPicker()}
                 ${this.#renderTypography()}                        

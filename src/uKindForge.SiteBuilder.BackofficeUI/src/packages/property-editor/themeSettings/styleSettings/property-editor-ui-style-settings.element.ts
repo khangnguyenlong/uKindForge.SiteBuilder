@@ -1,18 +1,21 @@
-﻿import { html, customElement, css } from '@umbraco-cms/backoffice/external/lit';
+﻿import { html, customElement, css, state } from '@umbraco-cms/backoffice/external/lit';
 import { UmbLitElement } from '@umbraco-cms/backoffice/lit-element';
 import "../../../common/accordion/ukf-accordion";
 import "../../../common/control/ukf-control";
 import "../../../common/control/ukf-control-group";
 import "../../../common/color/ukf-color-group";
-import "../preview/color-style-tab-preview"
+import "./style-tab-preview"
 import "../../../common/size/ukf-size";
 import "../../../common/border/ukf-border-position";
-
+import type { Option } from './types';
 
 @customElement('ukindforge-style-settings-property-editor-ui')
 export default class StyleSettingsPropertyEditorUIElement extends UmbLitElement {
 
-#renderGeneralStyle() {
+    @state() private _headerStyleId: string = "style-1";
+    @state() private _footerStyleId: string = "style-1";
+
+    #renderGeneralStyle() {
         return html`
             <ukf-accordion heading="Common">
                 <div slot="content" class="accordion-content">
@@ -37,7 +40,10 @@ export default class StyleSettingsPropertyEditorUIElement extends UmbLitElement 
                     <ukf-control-group headline="Layout">
                         <div slot="controls">
                             <ukf-control label="Style">
-                                <uui-select slot="control" .options="${this.#renderHeaderStyleOptions()}">
+                                <uui-select slot="control" 
+                                    .options="${this.#headerStyleOptions()}"
+                                    @change=${this.#onHeaderStyleChange}
+                                >
                                 </uui-select>
                             </ukf-control>
                             <ukf-control label="Transparency">
@@ -79,59 +85,35 @@ export default class StyleSettingsPropertyEditorUIElement extends UmbLitElement 
         `;
     }
 
-    #renderHeaderStyleOptions() {
-        let styleOptions: Array<Option> = [
-            {
-                name: "Style 1",
-                value: 'style1',
-                selected: true,
-            },
-            {
-                name: "Style 2",
-                value: 'style2',
-            },
-            {
-                name: "Style 3",
-                value: 'style3',
-            },
-            {
-                name: "Style 4",
-                value: 'style4',
-            },
-            {
-                name: "Style 5",
-                value: 'style5',
-            },
-        ];
-        return styleOptions;
+    #headerStyleOptions(): Option[] {
+        const styles = ["style-1", "style-2", "style-3", "style-4", "style-5"];
+        return styles.map(v => ({
+            name: v.replace("-", " ").toUpperCase(),
+            value: v,
+            selected: v === this._headerStyleId,
+        }));
     }
-    
-    #renderFooterStyleOptions() {
-        let styleOptions: Array<Option> = [
-            {
-                name: "Style 1",
-                value: 'style1',
-                selected: true,
-            },
-            {
-                name: "Style 2",
-                value: 'style2',
-            },
-            {
-                name: "Style 3",
-                value: 'style3',
-            },
-            {
-                name: "Style 4",
-                value: 'style4',
-            },
-            {
-                name: "Style 5",
-                value: 'style5',
-            },
-        ];
-        return styleOptions;
-    } 
+
+    #footerStyleOptions(): Option[] {
+        const styles = ["style-1", "style-2", "style-3", "style-4", "style-5"];
+        return styles.map(v => ({
+            name: v.replace("-", " ").toUpperCase(),
+            value: v,
+            selected: v === this._footerStyleId,
+        }));
+    }
+
+    #onHeaderStyleChange(e: Event) {
+        e.stopPropagation();
+        const value = (e.target as any).value as string;
+        this._headerStyleId = value;
+    }
+
+    #onFooterStyleChange(e: Event) {
+        e.stopPropagation();
+        const value = (e.target as any).value as string;
+        this._footerStyleId = value;
+    }
 
     #renderFooterStyle() {
         return html`
@@ -140,7 +122,10 @@ export default class StyleSettingsPropertyEditorUIElement extends UmbLitElement 
                     <ukf-control-group headline="Layout">
                         <div slot="controls">
                             <ukf-control label="Style">
-                                <uui-select slot="control" .options="${this.#renderFooterStyleOptions()}">
+                                <uui-select slot="control" 
+                                    .options="${this.#footerStyleOptions()}"
+                                    @change=${this.#onFooterStyleChange}
+                                >
                                 </uui-select>
                             </ukf-control>
                             <ukf-control label="Transparency">
@@ -238,7 +223,7 @@ export default class StyleSettingsPropertyEditorUIElement extends UmbLitElement 
 
     override render() {
         return html`
-        <umb-split-panel class="tab-content">
+        <umb-split-panel class="tab-content" position="30%">
             <div slot="start">
                 ${this.#renderHeaderStyle()}
                 ${this.#renderFooterStyle()}
@@ -247,7 +232,11 @@ export default class StyleSettingsPropertyEditorUIElement extends UmbLitElement 
                 ${this.#renderCardImageVideoStyle()}
             </div>
             <div slot="end">
-                <color-style-tab-preview></color-style-tab-preview>
+                <style-tab-preview
+                    .headerStyleId=${this._headerStyleId}                
+                    .footerStyleId=${this._footerStyleId}
+                >
+                </style-tab-preview>
             </div>
         </umb-split-panel>
         `;
