@@ -103,7 +103,7 @@ const o = [
     type: "propertyEditorUi",
     alias: "uKindForge.PropertyEditorUi.StyleSettings",
     name: "Style Settings Property Editor UI",
-    element: () => import("./property-editor-ui-style-settings.element-Bm8sRI4V.js"),
+    element: () => import("./property-editor-ui-style-settings.element-hxIM6pn9.js"),
     meta: {
       label: "Theme - Style Settings",
       propertyEditorSchemaAlias: "Umbraco.Plain.Json",

@@ -1,22 +1,22 @@
-import { LitElement as m, html as s, css as I, property as D, customElement as j, state as U } from "@umbraco-cms/backoffice/external/lit";
-import { UmbLitElement as S } from "@umbraco-cms/backoffice/lit-element";
-import { i as $, n as c, a as E, t as d } from "./ukf-color-group-CvM34Won.js";
+import { LitElement as y, html as a, css as z, property as T, state as w, customElement as D } from "@umbraco-cms/backoffice/external/lit";
+import { UmbLitElement as P } from "@umbraco-cms/backoffice/lit-element";
+import { i as O, n as c, a as U, t as d } from "./ukf-color-group-CvM34Won.js";
 import "./ukf-control-DNNEwrXp.js";
-import { x as w } from "./lit-html-D3bFBl2C.js";
+import { x as C } from "./lit-html-D3bFBl2C.js";
 import "./ukf-footer-B3pvJtI1.js";
-import { UmbChangeEvent as K } from "@umbraco-cms/backoffice/event";
-import { UmbTextStyles as Q } from "@umbraco-cms/backoffice/style";
-var tt = Object.defineProperty, et = Object.getOwnPropertyDescriptor, z = (o, t, r, l) => {
-  for (var e = l > 1 ? void 0 : l ? et(t, r) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
-  return l && e && tt(t, r, e), e;
+import { UmbChangeEvent as at } from "@umbraco-cms/backoffice/event";
+import { UmbTextStyles as ut } from "@umbraco-cms/backoffice/style";
+var ct = Object.defineProperty, dt = Object.getOwnPropertyDescriptor, j = (e, t, o, i) => {
+  for (var r = i > 1 ? void 0 : i ? dt(t, o) : t, l = e.length - 1, s; l >= 0; l--)
+    (s = e[l]) && (r = (i ? s(t, o, r) : s(r)) || r);
+  return i && r && ct(t, o, r), r;
 };
-let v = class extends E {
+let h = class extends U {
   constructor() {
     super(...arguments), this.headline = "";
   }
   render() {
-    return w`
+    return C`
       <uui-box .headline=${this.headline}>
         <div class="grid" style="grid">
           <slot name="controls"></slot>
@@ -25,7 +25,7 @@ let v = class extends E {
     `;
   }
 };
-v.styles = $`
+h.styles = O`
     uui-box {
       --uui-box-header-padding: 0;
       --uui-box-default-padding: 0;
@@ -39,18 +39,85 @@ v.styles = $`
       gap: 12px;
     }
   `;
-z([
+j([
   c({ type: String })
-], v.prototype, "headline", 2);
-v = z([
+], h.prototype, "headline", 2);
+h = j([
   d("ukf-control-group")
-], v);
-var ot = Object.defineProperty, rt = Object.getOwnPropertyDescriptor, R = (o, t, r, l) => {
-  for (var e = l > 1 ? void 0 : l ? rt(t, r) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
-  return l && e && ot(t, r, e), e;
+], h);
+class ft extends EventTarget {
+  constructor() {
+    super(...arguments), this._state = {};
+  }
+  get snapshot() {
+    return this._state;
+  }
+  setColorSettings(t) {
+    this._state = { ...this._state, colorSettings: t }, this.dispatchEvent(new CustomEvent("ukf-theme-change", { detail: this._state }));
+  }
+  setTypographySettings(t) {
+    this._state = { ...this._state, typographySettings: t }, this.dispatchEvent(new CustomEvent("ukf-theme-change", { detail: this._state }));
+  }
+  setStyleSettings(t) {
+    this._state = { ...this._state, styleSettings: t }, this.dispatchEvent(new CustomEvent("ukf-theme-change", { detail: this._state }));
+  }
+  subscribe(t) {
+    const o = (i) => t(i.detail);
+    return this.addEventListener("ukf-theme-change", o), t(this._state), () => this.removeEventListener("ukf-theme-change", o);
+  }
+}
+const pt = new ft();
+function vt(e) {
+  const t = e.colorSettings ?? {}, o = e.typographySettings ?? {}, i = e.styleSettings ?? {}, r = t.primary ?? "#3b82f6", l = t.surface ?? "#ffffff", s = t.background ?? "#f6f7fb", et = t.text ?? "#111827", rt = t.border ?? "rgba(0,0,0,.12)", ot = i.radius ?? 12, it = i.space ?? 8, lt = o.h1?.font?.family ?? "system-ui", st = o.h1?.size ?? 32, nt = o.h1?.spacing ?? 0;
+  return `
+.ukf-theme {
+  --ukf-primary: ${r};
+  --ukf-bg: ${s};
+  --ukf-surface: ${l};
+  --ukf-text: ${et};
+  --ukf-border: ${rt};
+
+  --ukf-radius: ${ot}px;
+  --ukf-space: ${it}px;
+
+  --ukf-h1-font: "${lt}", system-ui;
+  --ukf-h1-size: ${st}px;
+  --ukf-h1-tracking: ${nt}px;
+}
+
+.ukf-theme { background: var(--ukf-bg); color: var(--ukf-text); }
+.ukf-container { max-width: 1080px; margin: 0 auto; padding: calc(var(--ukf-space) * 2); }
+
+.ukf-card {
+  background: var(--ukf-surface);
+  border: 1px solid var(--ukf-border);
+  border-radius: var(--ukf-radius);
+  padding: calc(var(--ukf-space) * 2);
+}
+
+.ukf-btn-row { display:flex; gap: var(--ukf-space); flex-wrap:wrap; }
+.ukf-btn {
+  padding: calc(var(--ukf-space) * 1.25) calc(var(--ukf-space) * 1.75);
+  border-radius: calc(var(--ukf-radius) - 4px);
+  border: 1px solid transparent;
+  cursor: pointer;
+  font: inherit;
+}
+.ukf-btn--primary { background: var(--ukf-primary); color: #fff; }
+.ukf-btn--secondary { background: transparent; border-color: var(--ukf-border); color: var(--ukf-text); }
+
+.ukf-h1 { font-family: var(--ukf-h1-font); font-size: var(--ukf-h1-size); letter-spacing: var(--ukf-h1-tracking); margin:0 0 var(--ukf-space); }
+
+.ukf-media { border:1px solid var(--ukf-border); border-radius: var(--ukf-radius); overflow:hidden; background: rgba(0,0,0,.03); }
+.ukf-media__ph { aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center; color: rgba(0,0,0,.45); }
+`;
+}
+var ht = Object.defineProperty, gt = Object.getOwnPropertyDescriptor, R = (e, t, o, i) => {
+  for (var r = i > 1 ? void 0 : i ? gt(t, o) : t, l = e.length - 1, s; l >= 0; l--)
+    (s = e[l]) && (r = (i ? s(t, o, r) : s(r)) || r);
+  return i && r && ht(t, o, r), r;
 };
-let y = class extends m {
+let _ = class extends y {
   constructor() {
     super(...arguments), this.title = "Buttons";
   }
@@ -58,7 +125,7 @@ let y = class extends m {
     return this;
   }
   render() {
-    return s`
+    return a`
       <div class="ukf-card">
         <div class="ukf-block-title">${this.title}</div>
 
@@ -72,16 +139,16 @@ let y = class extends m {
 };
 R([
   c({ type: String })
-], y.prototype, "title", 2);
-y = R([
+], _.prototype, "title", 2);
+_ = R([
   d("ukf-button")
-], y);
-var lt = Object.defineProperty, it = Object.getOwnPropertyDescriptor, B = (o, t, r, l) => {
-  for (var e = l > 1 ? void 0 : l ? it(t, r) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
-  return l && e && lt(t, r, e), e;
+], _);
+var kt = Object.defineProperty, bt = Object.getOwnPropertyDescriptor, B = (e, t, o, i) => {
+  for (var r = i > 1 ? void 0 : i ? bt(t, o) : t, l = e.length - 1, s; l >= 0; l--)
+    (s = e[l]) && (r = (i ? s(t, o, r) : s(r)) || r);
+  return i && r && kt(t, o, r), r;
 };
-let k = class extends m {
+let x = class extends y {
   constructor() {
     super(...arguments), this.title = "Image";
   }
@@ -89,7 +156,7 @@ let k = class extends m {
     return this;
   }
   render() {
-    return s`
+    return a`
       <div class="ukf-card">
         <div class="ukf-block-title">${this.title}</div>
 
@@ -102,16 +169,16 @@ let k = class extends m {
 };
 B([
   c({ type: String })
-], k.prototype, "title", 2);
-k = B([
+], x.prototype, "title", 2);
+x = B([
   d("ukf-image")
-], k);
-var nt = Object.defineProperty, ut = Object.getOwnPropertyDescriptor, T = (o, t, r, l) => {
-  for (var e = l > 1 ? void 0 : l ? ut(t, r) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
-  return l && e && nt(t, r, e), e;
+], x);
+var yt = Object.defineProperty, mt = Object.getOwnPropertyDescriptor, L = (e, t, o, i) => {
+  for (var r = i > 1 ? void 0 : i ? mt(t, o) : t, l = e.length - 1, s; l >= 0; l--)
+    (s = e[l]) && (r = (i ? s(t, o, r) : s(r)) || r);
+  return i && r && yt(t, o, r), r;
 };
-let _ = class extends m {
+let S = class extends y {
   constructor() {
     super(...arguments), this.title = "Video";
   }
@@ -119,7 +186,7 @@ let _ = class extends m {
     return this;
   }
   render() {
-    return s`
+    return a`
       <div class="ukf-card">
         <div class="ukf-block-title">${this.title}</div>
 
@@ -130,18 +197,18 @@ let _ = class extends m {
     `;
   }
 };
-T([
+L([
   c({ type: String })
-], _.prototype, "title", 2);
-_ = T([
+], S.prototype, "title", 2);
+S = L([
   d("ukf-video")
-], _);
-var st = Object.defineProperty, at = Object.getOwnPropertyDescriptor, P = (o, t, r, l) => {
-  for (var e = l > 1 ? void 0 : l ? at(t, r) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
-  return l && e && st(t, r, e), e;
+], S);
+var _t = Object.defineProperty, xt = Object.getOwnPropertyDescriptor, I = (e, t, o, i) => {
+  for (var r = i > 1 ? void 0 : i ? xt(t, o) : t, l = e.length - 1, s; l >= 0; l--)
+    (s = e[l]) && (r = (i ? s(t, o, r) : s(r)) || r);
+  return i && r && _t(t, o, r), r;
 };
-let h = class extends m {
+let g = class extends y {
   constructor() {
     super(...arguments), this.title = "Card Title", this.text = "Sample card content to preview typography, spacing, border and shadow.";
   }
@@ -149,7 +216,7 @@ let h = class extends m {
     return this;
   }
   render() {
-    return s`
+    return a`
       <div class="ukf-card">
         <div class="ukf-h3">${this.title}</div>
         <p class="ukf-muted" style="margin:0">${this.text}</p>
@@ -164,66 +231,89 @@ let h = class extends m {
     `;
   }
 };
-P([
+I([
   c({ type: String })
-], h.prototype, "title", 2);
-P([
+], g.prototype, "title", 2);
+I([
   c({ type: String })
-], h.prototype, "text", 2);
-h = P([
+], g.prototype, "text", 2);
+g = I([
   d("ukf-card")
-], h);
-var ct = Object.defineProperty, dt = Object.getOwnPropertyDescriptor, O = (o, t, r, l) => {
-  for (var e = l > 1 ? void 0 : l ? dt(t, r) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
-  return l && e && ct(t, r, e), e;
-};
-let f = class extends S {
+], g);
+var St = Object.defineProperty, $t = Object.getOwnPropertyDescriptor, W = (e) => {
+  throw TypeError(e);
+}, m = (e, t, o, i) => {
+  for (var r = i > 1 ? void 0 : i ? $t(t, o) : t, l = e.length - 1, s; l >= 0; l--)
+    (s = e[l]) && (r = (i ? s(t, o, r) : s(r)) || r);
+  return i && r && St(t, o, r), r;
+}, F = (e, t, o) => t.has(e) || W("Cannot " + o), wt = (e, t, o) => (F(e, t, "read from private field"), o ? o.call(e) : t.get(e)), Pt = (e, t, o) => t.has(e) ? W("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(e) : t.set(e, o), Ot = (e, t, o, i) => (F(e, t, "write to private field"), t.set(e, o), o), v;
+let f = class extends P {
   constructor() {
-    super(...arguments), this.headerStyleId = "style-1", this.footerStyleId = "style-1";
+    super(...arguments), this.headerStyleId = "style-1", this.footerStyleId = "style-1", this._parts = {}, Pt(this, v);
+  }
+  connectedCallback() {
+    super.connectedCallback(), Ot(this, v, pt.subscribe((e) => this._parts = e));
+  }
+  disconnectedCallback() {
+    var e;
+    (e = wt(this, v)) == null || e.call(this), super.disconnectedCallback();
   }
   render() {
-    return s`
-            <div>
+    const e = vt(this._parts);
+    return a`
+            <style>${e}</style>
+            
+            <div class="ukf-theme">
                 <ukf-header .styleId=${this.headerStyleId}></ukf-header>
                 <ukf-footer .styleId=${this.footerStyleId}></ukf-footer>
-                <ukf-button></ukf-button>
-                <ukf-image></ukf-image>
-                <ukf-video></ukf-video>
-                <ukf-card></ukf-card>
+                <div class="grid">
+                    <ukf-button></ukf-button>
+                    <ukf-card></ukf-card>
+                    <ukf-image></ukf-image>
+                    <ukf-video></ukf-video>
+                </div>
             </div>
         `;
   }
 };
-f.styles = I`
-        :host {
-            display: block;
-            padding: var(--uui-box-default-padding, var(--uui-size-space-5, 18px));
+v = /* @__PURE__ */ new WeakMap();
+f.styles = z`
+        :host { 
+            display:block; 
+            padding: var(--uui-box-default-padding, var(--uui-size-space-5, 18px)); 
+        }
+        .grid { 
+            display:grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 16px; 
         }
     `;
-O([
-  D({ type: String })
+m([
+  T({ type: String })
 ], f.prototype, "headerStyleId", 2);
-O([
-  D({ type: String })
+m([
+  T({ type: String })
 ], f.prototype, "footerStyleId", 2);
-f = O([
-  j("style-tab-preview")
+m([
+  w()
+], f.prototype, "_parts", 2);
+f = m([
+  D("style-tab-preview")
 ], f);
-var ft = Object.defineProperty, pt = Object.getOwnPropertyDescriptor, L = (o) => {
-  throw TypeError(o);
-}, V = (o, t, r, l) => {
-  for (var e = l > 1 ? void 0 : l ? pt(t, r) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
-  return l && e && ft(t, r, e), e;
-}, vt = (o, t, r) => t.has(o) || L("Cannot " + r), ht = (o, t, r) => t.has(o) ? L("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(o) : t.set(o, r), gt = (o, t, r) => (vt(o, t, "access private method"), r), x, W;
-let g = class extends S {
+var Ct = Object.defineProperty, It = Object.getOwnPropertyDescriptor, M = (e) => {
+  throw TypeError(e);
+}, V = (e, t, o, i) => {
+  for (var r = i > 1 ? void 0 : i ? It(t, o) : t, l = e.length - 1, s; l >= 0; l--)
+    (s = e[l]) && (r = (i ? s(t, o, r) : s(r)) || r);
+  return i && r && Ct(t, o, r), r;
+}, Et = (e, t, o) => t.has(e) || M("Cannot " + o), zt = (e, t, o) => t.has(e) ? M("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(e) : t.set(e, o), Tt = (e, t, o) => (Et(e, t, "access private method"), o), $, A;
+let k = class extends P {
   constructor() {
-    super(...arguments), ht(this, x), this.value = "sm";
+    super(...arguments), zt(this, $), this.value = "sm";
   }
   render() {
-    return w`
-			<uui-radio-group @input=${gt(this, x, W)} value=${this.value}>
+    return C`
+			<uui-radio-group @input=${Tt(this, $, A)} value=${this.value}>
         <uui-radio name="size" label="Small" value="sm"></uui-radio>
         <uui-radio name="size" label="Medium" value="md"></uui-radio>
         <uui-radio name="size" label="Large" value="lg"></uui-radio>
@@ -231,13 +321,13 @@ let g = class extends S {
 		`;
   }
 };
-x = /* @__PURE__ */ new WeakSet();
-W = function(o) {
-  this.value = o.target.value, this.dispatchEvent(new K());
+$ = /* @__PURE__ */ new WeakSet();
+A = function(e) {
+  this.value = e.target.value, this.dispatchEvent(new at());
 };
-g.styles = [
-  Q,
-  $`
+k.styles = [
+  ut,
+  O`
 			uui-radio-group {
 				display: flex;
 				flex-direction: row;
@@ -247,16 +337,16 @@ g.styles = [
 ];
 V([
   c()
-], g.prototype, "value", 2);
-g = V([
+], k.prototype, "value", 2);
+k = V([
   d("ukf-size")
-], g);
-var bt = Object.defineProperty, mt = Object.getOwnPropertyDescriptor, F = (o, t, r, l) => {
-  for (var e = l > 1 ? void 0 : l ? mt(t, r) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
-  return l && e && bt(t, r, e), e;
+], k);
+var Dt = Object.defineProperty, Ut = Object.getOwnPropertyDescriptor, H = (e, t, o, i) => {
+  for (var r = i > 1 ? void 0 : i ? Ut(t, o) : t, l = e.length - 1, s; l >= 0; l--)
+    (s = e[l]) && (r = (i ? s(t, o, r) : s(r)) || r);
+  return i && r && Dt(t, o, r), r;
 };
-let b = class extends E {
+let b = class extends U {
   constructor() {
     super(...arguments), this.value = {
       top: !1,
@@ -265,23 +355,23 @@ let b = class extends E {
       left: !1
     };
   }
-  toggle(o) {
-    this.value = { ...this.value, [o]: !this.value[o] }, this.dispatchEvent(new CustomEvent("change", { detail: this.value }));
+  toggle(e) {
+    this.value = { ...this.value, [e]: !this.value[e] }, this.dispatchEvent(new CustomEvent("change", { detail: this.value }));
   }
   render() {
-    const { top: o, right: t, bottom: r, left: l } = this.value;
-    return w`
+    const { top: e, right: t, bottom: o, left: i } = this.value;
+    return C`
       <div class="grid">
         <div></div>
 
         <button @click=${() => this.toggle("top")}>
-          <div class="line top ${o ? "active" : ""}"></div>
+          <div class="line top ${e ? "active" : ""}"></div>
         </button>
 
         <div></div>
 
         <button @click=${() => this.toggle("left")}>
-          <div class="line left ${l ? "active" : ""}"></div>
+          <div class="line left ${i ? "active" : ""}"></div>
         </button>
 
         <div></div>
@@ -293,7 +383,7 @@ let b = class extends E {
         <div></div>
 
         <button @click=${() => this.toggle("bottom")}>
-          <div class="line bottom ${r ? "active" : ""}"></div>
+          <div class="line bottom ${o ? "active" : ""}"></div>
         </button>
 
         <div></div>
@@ -301,7 +391,7 @@ let b = class extends E {
     `;
   }
 };
-b.styles = $`
+b.styles = O`
     :host {
       display: inline-flex;
       padding: var(--uui-size-space-3);
@@ -373,32 +463,32 @@ b.styles = $`
       grid-row: 2;
     }
   `;
-F([
+H([
   c({ type: Object })
 ], b.prototype, "value", 2);
-b = F([
+b = H([
   d("ukf-border-position")
 ], b);
-var yt = Object.defineProperty, kt = Object.getOwnPropertyDescriptor, H = (o) => {
-  throw TypeError(o);
-}, C = (o, t, r, l) => {
-  for (var e = l > 1 ? void 0 : l ? kt(t, r) : t, i = o.length - 1, n; i >= 0; i--)
-    (n = o[i]) && (e = (l ? n(t, r, e) : n(e)) || e);
-  return l && e && yt(t, r, e), e;
-}, _t = (o, t, r) => t.has(o) || H("Cannot " + r), xt = (o, t, r) => t.has(o) ? H("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(o) : t.set(o, r), a = (o, t, r) => (_t(o, t, "access private method"), r), u, M, A, G, N, X, Y, Z, q, J;
-let p = class extends S {
+var jt = Object.defineProperty, Rt = Object.getOwnPropertyDescriptor, G = (e) => {
+  throw TypeError(e);
+}, E = (e, t, o, i) => {
+  for (var r = i > 1 ? void 0 : i ? Rt(t, o) : t, l = e.length - 1, s; l >= 0; l--)
+    (s = e[l]) && (r = (i ? s(t, o, r) : s(r)) || r);
+  return i && r && jt(t, o, r), r;
+}, Bt = (e, t, o) => t.has(e) || G("Cannot " + o), Lt = (e, t, o) => t.has(e) ? G("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(e) : t.set(e, o), u = (e, t, o) => (Bt(e, t, "access private method"), o), n, N, X, Y, Z, q, J, K, Q, tt;
+let p = class extends P {
   constructor() {
-    super(...arguments), xt(this, u), this._headerStyleId = "style-1", this._footerStyleId = "style-1";
+    super(...arguments), Lt(this, n), this._headerStyleId = "style-1", this._footerStyleId = "style-1";
   }
   render() {
-    return s`
+    return a`
         <umb-split-panel class="tab-content" position="30%">
             <div slot="start">
-                ${a(this, u, A).call(this)}
-                ${a(this, u, Z).call(this)}
-                ${a(this, u, M).call(this)}                          
-                ${a(this, u, q).call(this)}
-                ${a(this, u, J).call(this)}
+                ${u(this, n, X).call(this)}
+                ${u(this, n, K).call(this)}
+                ${u(this, n, N).call(this)}                          
+                ${u(this, n, Q).call(this)}
+                ${u(this, n, tt).call(this)}
             </div>
             <div slot="end">
                 <style-tab-preview
@@ -411,9 +501,9 @@ let p = class extends S {
         `;
   }
 };
-u = /* @__PURE__ */ new WeakSet();
-M = function() {
-  return s`
+n = /* @__PURE__ */ new WeakSet();
+N = function() {
+  return a`
             <ukf-accordion heading="Common">
                 <div slot="content" class="accordion-content">
                     <ukf-control label="Rounded">
@@ -429,16 +519,16 @@ M = function() {
             </ukf-accordion>
         `;
 };
-A = function() {
-  return s`
+X = function() {
+  return a`
             <ukf-accordion heading="Header">
                 <div slot="content" class="accordion-content">
                     <ukf-control-group headline="Layout">
                         <div slot="controls">
                             <ukf-control label="Style">
                                 <uui-select slot="control" 
-                                    .options="${a(this, u, G).call(this)}"
-                                    @change=${a(this, u, X)}
+                                    .options="${u(this, n, Y).call(this)}"
+                                    @change=${u(this, n, q)}
                                 >
                                 </uui-select>
                             </ukf-control>
@@ -480,40 +570,40 @@ A = function() {
             </ukf-accordion>
         `;
 };
-G = function() {
+Y = function() {
   return ["style-1", "style-2", "style-3", "style-4", "style-5"].map((t) => ({
     name: t.replace("-", " ").toUpperCase(),
     value: t,
     selected: t === this._headerStyleId
   }));
 };
-N = function() {
+Z = function() {
   return ["style-1", "style-2", "style-3", "style-4", "style-5"].map((t) => ({
     name: t.replace("-", " ").toUpperCase(),
     value: t,
     selected: t === this._footerStyleId
   }));
 };
-X = function(o) {
-  o.stopPropagation();
-  const t = o.target.value;
+q = function(e) {
+  e.stopPropagation();
+  const t = e.target.value;
   this._headerStyleId = t;
 };
-Y = function(o) {
-  o.stopPropagation();
-  const t = o.target.value;
+J = function(e) {
+  e.stopPropagation();
+  const t = e.target.value;
   this._footerStyleId = t;
 };
-Z = function() {
-  return s`
+K = function() {
+  return a`
             <ukf-accordion heading="Footer">
                 <div slot="content">
                     <ukf-control-group headline="Layout">
                         <div slot="controls">
                             <ukf-control label="Style">
                                 <uui-select slot="control" 
-                                    .options="${a(this, u, N).call(this)}"
-                                    @change=${a(this, u, Y)}
+                                    .options="${u(this, n, Z).call(this)}"
+                                    @change=${u(this, n, J)}
                                 >
                                 </uui-select>
                             </ukf-control>
@@ -532,8 +622,8 @@ Z = function() {
             </ukf-accordion>
         `;
 };
-q = function() {
-  return s`
+Q = function() {
+  return a`
             <ukf-accordion heading="Button">
                 <div slot="content">
                     <ukf-control-group headline="Primary">
@@ -573,8 +663,8 @@ q = function() {
             </ukf-accordion>
         `;
 };
-J = function() {
-  return s`
+tt = function() {
+  return a`
             <ukf-accordion heading="Card/Image/Video">
                 <div slot="content">
                     <ukf-control label="Zoom on hover">
@@ -607,7 +697,7 @@ J = function() {
             </ukf-accordion>
         `;
 };
-p.styles = I`
+p.styles = z`
         :host {
             display: block;
             padding: 0;
@@ -624,16 +714,16 @@ p.styles = I`
             flex: 1 1 280px;
         }
     `;
-C([
-  U()
+E([
+  w()
 ], p.prototype, "_headerStyleId", 2);
-C([
-  U()
+E([
+  w()
 ], p.prototype, "_footerStyleId", 2);
-p = C([
-  j("ukindforge-style-settings-property-editor-ui")
+p = E([
+  D("ukindforge-style-settings-property-editor-ui")
 ], p);
 export {
   p as default
 };
-//# sourceMappingURL=property-editor-ui-style-settings.element-Bm8sRI4V.js.map
+//# sourceMappingURL=property-editor-ui-style-settings.element-hxIM6pn9.js.map
