@@ -1,52 +1,53 @@
-import { LitElement, nothing, type TemplateResult } from "@umbraco-cms/backoffice/external/lit";
+import { LitElement, nothing, html } from "@umbraco-cms/backoffice/external/lit";
 import { customElement, property, state } from "lit/decorators.js";
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 export type HeaderStyleId = "style-1" | "style-2" | "style-3" | "style-4" | "style-5";
 
-const HEADER_STYLE_LOADERS = {
+const LOADERS: Record<HeaderStyleId, () => Promise<{ getHeaderStyle: () => { markup: string; cssText: string } }>> = {
   "style-1": () => import("./styles/style-1.js"),
   "style-2": () => import("./styles/style-2.js"),
   "style-3": () => import("./styles/style-3.js"),
   "style-4": () => import("./styles/style-4.js"),
-  "style-5": () => import("./styles/style-5.js"),  
-} satisfies Record<HeaderStyleId, () => Promise<{ renderHeaderStyle: (p: any) => TemplateResult }>>;
-
+  "style-5": () => import("./styles/style-5.js"),
+};
 
 @customElement("ukf-header")
 export class UkfHeader extends LitElement {
-  @property({ type: String }) brand = "uKindForge";
   @property({ type: String }) styleId: HeaderStyleId = "style-1";
+  @property({ type: String }) brand = "uKindForge";
 
-  @state() private _renderStyle?: (p: any) => TemplateResult;
-
-  protected createRenderRoot() { return this; } // light dom
-
-  protected override async updated(changed: Map<string, unknown>) {
-    if (changed.has("styleId")) {
-      await this.#loadStyle();
-      this.requestUpdate();
-    }
-  }
+  @state() private _markup = "";
+  @state() private _cssText = "";
 
   connectedCallback() {
     super.connectedCallback();
-    void this.#loadStyle();
+    void this.#load();
   }
 
-  async #loadStyle() {
-    const loader = HEADER_STYLE_LOADERS[this.styleId] ?? HEADER_STYLE_LOADERS["style-1"];
-    const mod = await loader();
-    this._renderStyle = mod.renderHeaderStyle;
+  protected override updated(changed: Map<string, unknown>) {
+    if (changed.has("styleId")) void this.#load();
+  }
+
+  async #load() {
+    const mod = await (LOADERS[this.styleId] ?? LOADERS["style-1"])();
+    const { markup, cssText } = mod.getHeaderStyle();
+
+    // inject brand simple
+    this._markup = markup.replaceAll("{{brand}}", this.brand);
+    this._cssText = cssText;
   }
 
   override render() {
-    if (!this._renderStyle) return nothing;
-    return this._renderStyle({ brand: this.brand });
-  }
-}
+    if (!this._markup) return nothing;
 
-declare global {
-  interface HTMLElementTagNameMap {
-    "ukf-header": UkfHeader;
+    return html`
+      <link rel="stylesheet" href="/App_Plugins/uKFSB/assets/libs/bootstrap/bootstrap.min.css" />
+
+      <style>
+        ${this._cssText}
+      </style>
+      ${unsafeHTML(this._markup)}
+    `;
   }
 }

@@ -35,7 +35,6 @@ export default class StyleTabPreview extends UmbLitElement {
 
         return html`
             <style>${cssText}</style>
-            
             <div class="ukf-theme">
                 <ukf-header .styleId=${this.headerStyleId}></ukf-header>
                 <ukf-footer .styleId=${this.footerStyleId}></ukf-footer>

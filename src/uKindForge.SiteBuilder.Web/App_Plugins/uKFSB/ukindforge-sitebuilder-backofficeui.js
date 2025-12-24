@@ -73,7 +73,7 @@ const o = [
     type: "propertyEditorUi",
     alias: "uKindForge.PropertyEditorUi.ColorSettings",
     name: "Color Settings Property Editor UI",
-    element: () => import("./property-editor-ui-color-settings.element-DOHMd4Z-.js"),
+    element: () => import("./property-editor-ui-color-settings.element-_xNGPYv4.js"),
     meta: {
       label: "Theme - Color Settings",
       propertyEditorSchemaAlias: "Umbraco.Plain.Json",
@@ -103,7 +103,7 @@ const o = [
     type: "propertyEditorUi",
     alias: "uKindForge.PropertyEditorUi.StyleSettings",
     name: "Style Settings Property Editor UI",
-    element: () => import("./property-editor-ui-style-settings.element-hxIM6pn9.js"),
+    element: () => import("./property-editor-ui-style-settings.element-B-wS1Ybf.js"),
     meta: {
       label: "Theme - Style Settings",
       propertyEditorSchemaAlias: "Umbraco.Plain.Json",
@@ -137,7 +137,7 @@ const o = [
     type: "blockEditorCustomView",
     alias: "uKindForge.BlockEditorCustomView.RichText",
     name: "Block Editor Custom View for Rich Text",
-    element: () => import("./rich-text-block-preview-D4LH9Q7W.js"),
+    element: () => import("./rich-text-block-preview-BWR9I3A8.js"),
     forContentTypeAlias: "richTextBlock",
     forBlockEditor: "block-grid"
   }

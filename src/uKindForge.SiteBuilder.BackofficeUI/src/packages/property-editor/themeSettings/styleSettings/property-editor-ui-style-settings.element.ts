@@ -46,13 +46,16 @@ export default class StyleSettingsPropertyEditorUIElement extends UmbLitElement 
                                 >
                                 </uui-select>
                             </ukf-control>
+                            <ukf-control label="Collapsed">
+                                <uui-toggle slot="control"></uui-toggle>
+                            </ukf-control>
+                            <ukf-control label="Sticky">
+                                <uui-toggle slot="control"></uui-toggle>
+                            </ukf-control>
                             <ukf-control label="Transparency">
                                 <uui-toggle slot="control"></uui-toggle>
                             </ukf-control>
                             <ukf-control label="Full Width">
-                                <uui-toggle slot="control"></uui-toggle>
-                            </ukf-control>
-                            <ukf-control label="Sticky">
                                 <uui-toggle slot="control"></uui-toggle>
                             </ukf-control>
                             <ukf-control label="Opacity">

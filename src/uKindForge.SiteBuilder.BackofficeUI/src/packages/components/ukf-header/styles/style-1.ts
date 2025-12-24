@@ -1,26 +1,6 @@
-import { html, type TemplateResult } from "@umbraco-cms/backoffice/external/lit";
+import markup from "../../../common/theme/layout/header/style-1/index.html?raw";
+import cssText from "../../../common/theme/layout/header/style-1/styles.css?inline";
 
-export type UkfHeaderProps = {
-  brand?: string;
-};
-
-export function renderHeaderStyle(props: UkfHeaderProps): TemplateResult {
-  return html`
-    <header class="ukf-header ukf-header--s1">
-      <div class="ukf-container">
-        <div class="ukf-header__row">
-          <div class="ukf-brand">${props.brand ?? "uKindForge"}</div>
-          <nav class="ukf-nav">
-            <a class="ukf-nav__link" href="#">Home</a>
-            <a class="ukf-nav__link" href="#">Templates</a>
-            <a class="ukf-nav__link" href="#">Pricing</a>
-          </nav>
-          <div class="ukf-btn-row">
-            <button class="ukf-btn ukf-btn--secondary" type="button">Log in</button>
-            <button class="ukf-btn ukf-btn--primary" type="button">Get Started</button>
-          </div>
-        </div>
-      </div>
-    </header>
-  `;
+export function getHeaderStyle() {
+  return { markup, cssText };
 }
