@@ -104,17 +104,29 @@ Blocks can be reused across pages.
 # Architecture
 
 The project follows a structured content architecture inside Umbraco.
+```text
 uKindForge.SiteBuilder
 │
 ├─ Blocks
-│ ├─ Section Layouts
-│ └─ Common Blocks
+│   ├─ Section Layouts
+│   │   ├─ 1 Column
+│   │   ├─ 2 Columns
+│   │   ├─ 3 Columns
+│   │   └─ 4 Columns
+│   │
+│   └─ Common Blocks
+│       ├─ Heading
+│       ├─ Button
+│       ├─ Image
+│       ├─ Video
+│       └─ Card
 │
 ├─ Pages
-│ ├─ Home
-│ └─ Page
+│   ├─ Home
+│   └─ Page
 │
 └─ Themes
+```
 
 
 ---
