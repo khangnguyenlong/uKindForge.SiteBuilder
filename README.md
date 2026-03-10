@@ -1,4 +1,4 @@
-# uKindForge.BuilderBuilder
+# uKindForge.SiteBuilder
 
 A modular **Site Builder for Umbraco 17** that enables building websites using a flexible block-based architecture, reusable themes, and a structured design system.
 
@@ -10,7 +10,7 @@ Instead of creating page templates manually, this builder allows sites to be com
 
 # Overview
 
-uKindForge.BuilderBuilder provides a structured architecture for building websites using:
+uKindForge.SiteBuilder provides a structured architecture for building websites using:
 
 - Block Grid based page builder
 - Reusable themes
