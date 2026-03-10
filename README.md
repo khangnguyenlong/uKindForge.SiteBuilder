@@ -291,7 +291,9 @@ Requirements:
 - Umbraco 17
 
 Clone repository:
-`git clone https://github.com/your-repo/ukind-builder`
+`git clone https://github.com/khangnguyenlong/uKindForge.SiteBuilder.git`
+
+Edit ConnectionStrings in appsettings.Development.json
 
 Run the project:
 `dotnet run`
