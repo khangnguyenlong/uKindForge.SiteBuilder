@@ -1,12 +1,24 @@
+## Project Status
+
+The `dev` branch targets **Umbraco v13** and is no longer maintained.
+
+Active development now targets **Umbraco v17**.
+
+👉 See the v17 branch:
+https://github.com/khangnguyenlong/uKindForge.SiteBuilder/tree/umbraco-17
+
 # uKindForge.BuilderBuilder
 
-A modular **Site Builder for Umbraco 17** that enables building websites using a flexible block-based architecture, reusable themes, and a structured design system.
+A modular **Site Builder for Umbraco 13** that enables building websites using a flexible block-based architecture, reusable themes, and a structured design system.
 
 The goal of this project is to provide a **developer-friendly and editor-friendly foundation** for building modern websites on top of Umbraco.
 
 Instead of creating page templates manually, this builder allows sites to be composed using **layout blocks, content blocks, and theme settings**.
 
 ---
+
+## 🎬 Demo Video
+https://youtu.be/gdxOUQeV7Xo
 
 # Overview
 
@@ -300,7 +312,7 @@ Core MVP features:
 Requirements:
 
 - .NET 8
-- Umbraco 17
+- Umbraco 13
 
 Clone repository:
 `git clone https://github.com/khangnguyenlong/uKindForge.SiteBuilder.git`
