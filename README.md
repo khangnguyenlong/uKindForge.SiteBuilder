@@ -18,8 +18,8 @@ Instead of creating page templates manually, this builder allows sites to be com
 ---
 
 ## 🎬 Demo Video
-https://youtu.be/gdxOUQeV7Xo
-https://youtu.be/JL5hsjR0wxE
+- Content Editing Page: https://youtu.be/gdxOUQeV7Xo
+- Themes: https://youtu.be/JL5hsjR0wxE
 ---
 
 # Overview
