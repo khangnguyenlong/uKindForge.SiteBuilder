@@ -9,11 +9,7 @@ export const plugins: PluginOption[] = [
 				dest: '.', // outDir
 			},
 			{
-				src: 'src/assets/block-preview/*',
-				dest: './assets',
-			},
-			{
-				src: 'src/assets/fonts/*',
+				src: 'src/assets/*',
 				dest: './assets',
 			}
 		]

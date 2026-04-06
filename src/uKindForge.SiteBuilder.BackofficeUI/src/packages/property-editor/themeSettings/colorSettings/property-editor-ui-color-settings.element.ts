@@ -2,7 +2,7 @@
 import { UmbLitElement } from '@umbraco-cms/backoffice/lit-element';
 import "../../../common/accordion/ukf-accordion";
 import "../../../common/color/ukf-color-group";
-import "../preview/color-style-tab-preview";
+import "./color-tab-preview";
 import { COLOR_PALETTE, COLOR_HEADER_TOKENS, COLOR_FOOTER_TOKENS, COLOR_SECTION_TOKENS } from "./color.schema";
 
 @customElement('ukindforge-color-settings-property-editor-ui')
@@ -76,13 +76,13 @@ export default class ColorSettingsPropertyEditorUIElement extends UmbLitElement 
 
     override render() {
         return html`
-        <umb-split-panel class="tab-content">
+        <umb-split-panel class="tab-content" position="30%">
             <div slot="start">
                 ${this.#renderColorPalette()}
                 ${this.#renderColorTokens()}                            
             </div>
             <div slot="end">
-                <color-style-tab-preview></color-style-tab-preview>
+                <color-tab-preview></color-tab-preview>
             </div>
         </umb-split-panel>
         `;
